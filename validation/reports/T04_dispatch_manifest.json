@@ -1,0 +1,57 @@
+{
+  "task_id": "T-2026-04-23-001",
+  "generated": "2026-04-23T15:40Z",
+  "threshold": 0.85,
+  "weighting": "dead_code_flag=true paragraphs weighted 0.1x",
+  "total_requests": 68,
+  "dispatch_order": [
+    {
+      "priority": 1,
+      "file": "COMEN01C.cbl",
+      "phase3_state": "READY",
+      "paragraph_requests": 10,
+      "request_path": "validation/reports/COMEN01C_T04_requests.json",
+      "note": "Already READY post-baseline; fast path to gold."
+    },
+    {
+      "priority": 2,
+      "file": "COBSWAIT.cbl",
+      "phase3_state": "READY",
+      "paragraph_requests": 0,
+      "request_path": "validation/reports/COBSWAIT_T04_requests.json",
+      "note": "Smoke-test; establish T04 judging cadence."
+    },
+    {
+      "priority": 3,
+      "file": "CBCUS01C.cbl",
+      "phase3_state": "READY",
+      "paragraph_requests": 7,
+      "request_path": "validation/reports/CBCUS01C_T04_requests.json",
+      "note": "Re-run flipped to PASS post-Option A; T04 completes gate set."
+    },
+    {
+      "priority": 4,
+      "file": "CBTRN01C.cbl",
+      "phase3_state": "READY",
+      "paragraph_requests": 21,
+      "request_path": "validation/reports/CBTRN01C_T04_requests.json",
+      "note": "Largest READY file; most trajectory-pair yield expected."
+    },
+    {
+      "priority": 5,
+      "file": "COSGN00C.cbl",
+      "phase3_state": "READY",
+      "paragraph_requests": 9,
+      "request_path": "validation/reports/COSGN00C_T04_requests.json",
+      "note": "Was T03 0.40 pre-fix (minor 01-level surface, 0/2 to 2/2 after fix); CICS-Online; a low T04 here is the first capability-boundary signal to watch."
+    },
+    {
+      "priority": 6,
+      "file": "CBACT01C.cbl",
+      "phase3_state": "BLOCKED",
+      "paragraph_requests": 21,
+      "request_path": "validation/reports/CBACT01C_T04_requests.json",
+      "note": "Hold \u2014 T02-R FAIL traced to translation imprecision (bare ACCT-REISSUE-DATE referent); human review before any judging."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "paragraph": "MAIN-PARA",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "END-EXEC",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "PROCESS-ENTER-KEY",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "END-IF",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "RETURN-TO-SIGNON-SCREEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "SEND-MENU-SCREEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "RECEIVE-MENU-SCREEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "POPULATE-HEADER-INFO",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "BUILD-MENU-OPTIONS",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "END-PERFORM",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  }
+]

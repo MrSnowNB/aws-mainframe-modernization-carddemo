@@ -1,0 +1,51 @@
+{
+  "tier": "T-PASS1",
+  "file": "app/cbl/COMEN01C.cbl",
+  "annotations": 91,
+  "independent_statement_count": 91,
+  "coverage": {
+    "tier": "T-PASS1-COVERAGE",
+    "pass": true,
+    "threshold": "100%",
+    "blocking": true,
+    "diff": 0
+  },
+  "cfg": {
+    "tier": "T-PASS1-CFG",
+    "pass": true,
+    "threshold": "100%",
+    "blocking": true,
+    "errors": []
+  },
+  "ops": {
+    "tier": "T-PASS1-OPS",
+    "pass": false,
+    "threshold": "100%",
+    "blocking": false,
+    "unresolved_count": 63,
+    "unresolved_seqs_sample": [
+      1,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      12,
+      14,
+      17,
+      19,
+      21,
+      22,
+      24,
+      25,
+      29,
+      30,
+      35,
+      36,
+      37
+    ]
+  },
+  "pass": true,
+  "validator_version": "v1.0.2-statement-only-tokens"
+}

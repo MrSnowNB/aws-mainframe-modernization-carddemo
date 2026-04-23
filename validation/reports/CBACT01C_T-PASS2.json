@@ -1,0 +1,32 @@
+{
+  "tier": "T-PASS2",
+  "file": "validation/pass2/CBACT01C_propositions.json",
+  "coverage": {
+    "tier": "T-PASS2-COVERAGE",
+    "pass": true,
+    "blocking": true,
+    "missing_in_propositions": [],
+    "extra_in_propositions": []
+  },
+  "ops": {
+    "tier": "T-PASS2-OPS",
+    "pass": true,
+    "blocking": false,
+    "errors": []
+  },
+  "ovr": {
+    "tier": "T-PASS2-OVR",
+    "pass": true,
+    "blocking": false,
+    "overrides_count": 10,
+    "errors": []
+  },
+  "pass": true,
+  "validator_version": "v1.0.0",
+  "stats": {
+    "total": 190,
+    "template": 190,
+    "partial": 0,
+    "llm": 0
+  }
+}
