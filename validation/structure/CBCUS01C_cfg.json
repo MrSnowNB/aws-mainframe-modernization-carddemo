@@ -1,0 +1,325 @@
+{
+  "program_id": "CBCUS01C",
+  "source_file": "app/cbl/CBCUS01C.cbl",
+  "source_sha": "88a99d7fc534579e538c438a4860e72ec068730c",
+  "cfg_tool": "Cobol-REKT smojol-cli v0.1.0-RC8 + extract_cfg_summary.py",
+  "paragraphs": [
+    {
+      "name": "END-PERFORM",
+      "reachable": true,
+      "performs": [
+        "0000-CUSTFILE-OPEN",
+        "UNTIL",
+        "1000-CUSTFILE-GET-NEXT",
+        "9000-CUSTFILE-CLOSE",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "GOBACK",
+      "reachable": false,
+      "performs": [
+        "0000-CUSTFILE-OPEN",
+        "UNTIL",
+        "1000-CUSTFILE-GET-NEXT",
+        "9000-CUSTFILE-CLOSE",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "1000-CUSTFILE-GET-NEXT",
+      "reachable": true,
+      "performs": [
+        "0000-CUSTFILE-OPEN",
+        "UNTIL",
+        "9000-CUSTFILE-CLOSE",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "0000-CUSTFILE-OPEN",
+      "reachable": true,
+      "performs": [
+        "UNTIL",
+        "1000-CUSTFILE-GET-NEXT",
+        "9000-CUSTFILE-CLOSE",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "9000-CUSTFILE-CLOSE",
+      "reachable": true,
+      "performs": [
+        "0000-CUSTFILE-OPEN",
+        "UNTIL",
+        "1000-CUSTFILE-GET-NEXT",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-ABEND-PROGRAM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "Z-ABEND-PROGRAM",
+      "reachable": true,
+      "performs": [
+        "0000-CUSTFILE-OPEN",
+        "UNTIL",
+        "1000-CUSTFILE-GET-NEXT",
+        "9000-CUSTFILE-CLOSE",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-DISPLAY-IO-STATUS",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "Z-DISPLAY-IO-STATUS",
+      "reachable": true,
+      "performs": [
+        "0000-CUSTFILE-OPEN",
+        "UNTIL",
+        "1000-CUSTFILE-GET-NEXT",
+        "9000-CUSTFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-ABEND-PROGRAM",
+        "Z-ABEND-PROGRAM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    }
+  ],
+  "data_items": [
+    {
+      "name": "FD-CUSTFILE-REC",
+      "level": 1,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "FD-CUST-ID",
+      "level": 5,
+      "picture": "9(09)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "FD-CUST-DATA",
+      "level": 5,
+      "picture": "X(491)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "CUSTFILE-STATUS",
+      "level": 1,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "CUSTFILE-STAT1",
+      "level": 5,
+      "picture": "X",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "CUSTFILE-STAT2",
+      "level": 5,
+      "picture": "X",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "IO-STATUS",
+      "level": 1,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "IO-STAT1",
+      "level": 5,
+      "picture": "X",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "IO-STAT2",
+      "level": 5,
+      "picture": "X",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "TWO-BYTES-BINARY",
+      "level": 1,
+      "picture": "9(4)",
+      "usage": "BINARY",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "TWO-BYTES-ALPHA",
+      "level": 1,
+      "picture": null,
+      "usage": "BINARY",
+      "redefines": "TWO-BYTES-BINARY",
+      "reachable": true
+    },
+    {
+      "name": "TWO-BYTES-LEFT",
+      "level": 5,
+      "picture": "X",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "TWO-BYTES-RIGHT",
+      "level": 5,
+      "picture": "X",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "IO-STATUS-04",
+      "level": 1,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "IO-STATUS-0401",
+      "level": 5,
+      "picture": "9",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "IO-STATUS-0403",
+      "level": 5,
+      "picture": "999",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "APPL-RESULT",
+      "level": 1,
+      "picture": "S9(9)",
+      "usage": "COMP",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "APPL-AOK",
+      "level": 88,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "APPL-EOF",
+      "level": 88,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "END-OF-FILE",
+      "level": 1,
+      "picture": "X(01)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "ABCODE",
+      "level": 1,
+      "picture": "S9(9)",
+      "usage": "BINARY",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "TIMING",
+      "level": 1,
+      "picture": "S9(9)",
+      "usage": "BINARY",
+      "redefines": null,
+      "reachable": true
+    }
+  ],
+  "redefines_clauses": [
+    {
+      "name": "TWO-BYTES-ALPHA",
+      "redefines": "TWO-BYTES-BINARY",
+      "picture": null,
+      "usage": "BINARY"
+    }
+  ],
+  "copybooks_used": [
+    "CVCUS01Y"
+  ],
+  "calls_to": [
+    "CEE3ABD"
+  ],
+  "cics_commands": [],
+  "dead_code_paragraphs": [
+    "GOBACK"
+  ],
+  "dead_code_items": [],
+  "irreducible_gotos": [],
+  "smojol_cfg_path": "/tmp/rekt-reports/CBCUS01C/CBCUS01C.cbl.report/cfg/cfg-CBCUS01C.cbl.json",
+  "smojol_node_count": 15
+}
