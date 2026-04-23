@@ -65,22 +65,37 @@ SYSTEM_PROMPT = (
     "Required response JSON schema:\n"
     "{\n"
     '  "paragraph": "<copy from request>",\n'
-    '  "group_label": "<short human-readable label, 2-5 words>",\n'
-    '  "semantic_pattern": "<one of: ' + ", ".join(SEMANTIC_PATTERN_ENUM) + '>",\n'
-    '  "summary": "<one-sentence paragraph-level description>",\n'
-    '  "member_seqs": [<int>, ...],\n'
+    '  "logical_groups": [\n'
+    '    {\n'
+    '      "id": "LG-NNN",\n'
+    '      "group_label": "<short human-readable label, 2-5 words>",\n'
+    '      "semantic_pattern": "<one of: ' + ", ".join(SEMANTIC_PATTERN_ENUM) + '>",\n'
+    '      "summary": "<one-sentence group-level description>",\n'
+    '      "statements": [<seq int>, ...]\n'
+    '    }\n'
+    '  ],\n'
     '  "business_rules": [\n'
     '    {"id": "BR-NNN", "rule": "<English statement>", "rule_type": '
-    '"<guard|transform|lookup|audit|display>", "confidence": "<high|medium|low>"}\n'
+    '"<guard|transform|lookup|audit|display>", "confidence": "<high|medium|low>", '
+    '"derived_from": ["LG-NNN", ...]}\n'
     "  ]\n"
     "}\n\n"
+    "MANDATORY COVERAGE RULE: You MUST include EVERY seq number from the "
+    "input proposition records in exactly ONE logical_groups[].statements[] "
+    "array. Missing seq numbers are a FATAL error and will cause the response "
+    "to be rejected. If a paragraph has diverse statement intents, split it "
+    "into multiple logical_groups rather than collapsing statements into one "
+    "group and dropping the rest. Every seq must appear exactly once across "
+    "the logical_groups.\n\n"
     "Rule 10: `semantic_pattern` MUST be one of the nine enum values. "
-    "`unknown` is permitted ONLY when the paragraph is genuinely "
-    "unclassifiable; it triggers a human-review gate and blocks merge. "
-    "Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear "
-    "flows and `conditional-branch` for IF/EVALUATE gating.\n"
+    "`unknown` is permitted ONLY when a group is genuinely unclassifiable; "
+    "it triggers a human-review gate and blocks merge. Do NOT use `unknown` "
+    "as a default \u2014 prefer `sequential` for linear flows and "
+    "`conditional-branch` for IF/EVALUATE gating.\n"
     "Rule 9: all data names in business_rules[].rule text must be fully "
-    "qualified if the underlying Pass-2 proposition carries a qualified name."
+    "qualified if the underlying Pass-2 proposition carries a qualified name. "
+    "Every business_rules[].derived_from[] entry must reference an LG id "
+    "defined in the same response."
 )
 
 
@@ -114,13 +129,22 @@ def build_user_prompt(paragraph: str, props: list[dict], program_id: str) -> str
         ctx_s = f" [{ctx}]" if ctx else ""
         mod_s = f" [modifies={p['modifies']}]" if p.get("modifies") else ""
         lines.append(f"  seq={p['seq']}  {verb}{ctx_s}{mod_s}  \u2192  {prop_text}")
+    seqs = sorted(p["seq"] for p in props)
+    lines.append("")
+    lines.append(
+        f"COVERAGE REQUIREMENT: every one of these {len(seqs)} seq numbers "
+        f"MUST appear in exactly ONE logical_groups[].statements[] array: "
+        f"{seqs}"
+    )
     lines.append("")
     lines.append(
         "Produce the paragraph-level semantic synthesis per the schema in "
-        "the system prompt. Include every proposition's `seq` in `member_seqs`. "
-        "Derive business rules ONLY from propositions that carry a real "
-        "guard / transform / lookup / audit / display intent \u2014 do not "
-        "invent rules for routine MOVE/SET/PERFORM statements."
+        "the system prompt. Split into multiple logical_groups if statement "
+        "intents diverge \u2014 do NOT collapse and drop. Derive business "
+        "rules ONLY from propositions that carry a real guard / transform / "
+        "lookup / audit / display intent \u2014 do not invent rules for "
+        "routine MOVE/SET/PERFORM statements. Every business_rules[].derived_from[] "
+        "must reference an LG id you define in logical_groups[]."
     )
     return "\n".join(lines)
 
