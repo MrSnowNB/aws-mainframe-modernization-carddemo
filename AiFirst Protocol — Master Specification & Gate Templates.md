@@ -585,3 +585,4 @@ PR title: `[AIFIRST-VERIFIED] COBOL-to-MD pilot batch (T-2026-04-23-001)`
 
 ... check the accuracy, then fine tune the Qwen model for this task, then re-run the experiment and check accuracy. I will also need to compare the before and after models on SWE Bench. I need all data logged and Captured  /AiFirst. Research and discuss](https://www.perplexity.ai/search/4fe06255-fc60-4cfb-8159-b184ef9e9fe7) - Finding  [GPT-5.4 Thinking](pplx://action/model_info?id=gpt54_thinking&provider=openai)  [Claude Opu...
 
+
