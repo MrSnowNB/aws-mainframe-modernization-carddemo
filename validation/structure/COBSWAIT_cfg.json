@@ -1,0 +1,36 @@
+{
+  "program_id": "COBSWAIT",
+  "source_file": "app/cbl/COBSWAIT.cbl",
+  "source_sha": "7957347717cf04be2dc4f5be24aa94668cf780ab",
+  "cfg_tool": "Cobol-REKT smojol-cli v0.1.0-RC8 + extract_cfg_summary.py",
+  "paragraphs": [],
+  "data_items": [
+    {
+      "name": "MVSWAIT-TIME",
+      "level": 1,
+      "picture": "9(8)",
+      "usage": "COMP",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "PARM-VALUE",
+      "level": 1,
+      "picture": "X(8)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    }
+  ],
+  "redefines_clauses": [],
+  "copybooks_used": [],
+  "calls_to": [
+    "MVSWAIT"
+  ],
+  "cics_commands": [],
+  "dead_code_paragraphs": [],
+  "dead_code_items": [],
+  "irreducible_gotos": [],
+  "smojol_cfg_path": "/tmp/rekt-reports/COBSWAIT/COBSWAIT.cbl.report/cfg/cfg-COBSWAIT.cbl.json",
+  "smojol_node_count": 5
+}

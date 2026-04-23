@@ -1,0 +1,376 @@
+{
+  "program_id": "COMEN01C",
+  "source_file": "app/cbl/COMEN01C.cbl",
+  "source_sha": "a404313748b0715a306336ac599b3e585697c05c",
+  "cfg_tool": "Cobol-REKT smojol-cli v0.1.0-RC8 + extract_cfg_summary.py",
+  "paragraphs": [
+    {
+      "name": "MAIN-PARA",
+      "reachable": true,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "END-EXEC",
+      "reachable": false,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "PROCESS-ENTER-KEY",
+      "reachable": true,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "END-IF",
+      "reachable": false,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "RETURN-TO-SIGNON-SCREEN",
+      "reachable": true,
+      "performs": [
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "SEND-MENU-SCREEN",
+      "reachable": true,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "VARYING",
+        "MOVE",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "RECEIVE-MENU-SCREEN",
+      "reachable": true,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "POPULATE-HEADER-INFO",
+      "reachable": true,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "BUILD-MENU-OPTIONS",
+      "reachable": true,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "END-PERFORM",
+      "reachable": false,
+      "performs": [
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "RECEIVE-MENU-SCREEN",
+        "PROCESS-ENTER-KEY",
+        "RETURN-TO-SIGNON-SCREEN",
+        "SEND-MENU-SCREEN",
+        "VARYING",
+        "MOVE",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "SEND-MENU-SCREEN",
+        "POPULATE-HEADER-INFO",
+        "BUILD-MENU-OPTIONS",
+        "VARYING"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    }
+  ],
+  "data_items": [
+    {
+      "name": "WS-VARIABLES",
+      "level": 1,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-PGMNAME",
+      "level": 5,
+      "picture": "X(08)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-TRANID",
+      "level": 5,
+      "picture": "X(04)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-MESSAGE",
+      "level": 5,
+      "picture": "X(80)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-USRSEC-FILE",
+      "level": 5,
+      "picture": "X(08)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-ERR-FLG",
+      "level": 5,
+      "picture": "X(01)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "ERR-FLG-ON",
+      "level": 88,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "ERR-FLG-OFF",
+      "level": 88,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-RESP-CD",
+      "level": 5,
+      "picture": "S9(09)",
+      "usage": "COMP",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-REAS-CD",
+      "level": 5,
+      "picture": "S9(09)",
+      "usage": "COMP",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-OPTION-X",
+      "level": 5,
+      "picture": "X(02)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-OPTION",
+      "level": 5,
+      "picture": "9(02)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-IDX",
+      "level": 5,
+      "picture": "S9(04)",
+      "usage": "COMP",
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "WS-MENU-OPT-TXT",
+      "level": 5,
+      "picture": "X(40)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "DFHCOMMAREA",
+      "level": 1,
+      "picture": null,
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    },
+    {
+      "name": "LK-COMMAREA",
+      "level": 5,
+      "picture": "X(01)",
+      "usage": null,
+      "redefines": null,
+      "reachable": true
+    }
+  ],
+  "redefines_clauses": [],
+  "copybooks_used": [
+    "COCOM01Y",
+    "COMEN01",
+    "COMEN02Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+  ],
+  "calls_to": [],
+  "cics_commands": [
+    "RETURN",
+    "INQUIRE",
+    "XCTL",
+    "SEND",
+    "RECEIVE"
+  ],
+  "dead_code_paragraphs": [
+    "END-EXEC",
+    "END-IF",
+    "END-PERFORM"
+  ],
+  "dead_code_items": [],
+  "irreducible_gotos": [],
+  "smojol_cfg_path": "/tmp/rekt-reports/COMEN01C/COMEN01C.cbl.report/cfg/cfg-COMEN01C.cbl.json",
+  "smojol_node_count": 8
+}

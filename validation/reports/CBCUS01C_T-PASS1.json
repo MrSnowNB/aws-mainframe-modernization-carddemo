@@ -1,0 +1,37 @@
+{
+  "tier": "T-PASS1",
+  "file": "app/cbl/CBCUS01C.cbl",
+  "annotations": 64,
+  "independent_statement_count": 64,
+  "coverage": {
+    "tier": "T-PASS1-COVERAGE",
+    "pass": true,
+    "threshold": "100%",
+    "blocking": true,
+    "diff": 0
+  },
+  "cfg": {
+    "tier": "T-PASS1-CFG",
+    "pass": true,
+    "threshold": "100%",
+    "blocking": true,
+    "errors": []
+  },
+  "ops": {
+    "tier": "T-PASS1-OPS",
+    "pass": false,
+    "threshold": "100%",
+    "blocking": false,
+    "unresolved_count": 6,
+    "unresolved_seqs_sample": [
+      7,
+      11,
+      14,
+      28,
+      40,
+      55
+    ]
+  },
+  "pass": true,
+  "validator_version": "v1.0.2-statement-only-tokens"
+}

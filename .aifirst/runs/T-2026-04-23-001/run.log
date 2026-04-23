@@ -1,0 +1,84 @@
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G0","agent":"claude-sonnet-4.6","ts":"2026-04-23T14:04:22Z"}
+{"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G0","status":"PASS","ts":"2026-04-23T14:04:22Z"}
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G1","agent":"claude-sonnet-4.6","ts":"2026-04-23T14:06:34Z"}
+{"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G1","status":"PASS","ts":"2026-04-23T14:06:34Z"}
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G2","agent":"claude-sonnet-4.6","ts":"2026-04-23T14:06:34Z"}
+{"event":"phase_complete","phase":0,"file":"COBSWAIT.cbl","task_id":"T-2026-04-23-001","gotos_resolved":true,"dead_code_count":0,"redefines_count":0,"irreducible_goto_count":0,"ts":"2026-04-23T14:08:38Z"}
+{"event":"phase_complete","phase":0,"file":"CBCUS01C.cbl","task_id":"T-2026-04-23-001","gotos_resolved":true,"dead_code_count":1,"redefines_count":1,"irreducible_goto_count":0,"ts":"2026-04-23T14:08:38Z"}
+{"event":"phase_complete","phase":0,"file":"COSGN00C.cbl","task_id":"T-2026-04-23-001","gotos_resolved":true,"dead_code_count":3,"redefines_count":0,"irreducible_goto_count":0,"ts":"2026-04-23T14:08:38Z"}
+{"event":"phase_complete","phase":0,"file":"COMEN01C.cbl","task_id":"T-2026-04-23-001","gotos_resolved":true,"dead_code_count":3,"redefines_count":0,"irreducible_goto_count":0,"ts":"2026-04-23T14:08:38Z"}
+{"event":"phase_complete","phase":0,"file":"CBACT01C.cbl","task_id":"T-2026-04-23-001","gotos_resolved":true,"dead_code_count":4,"redefines_count":2,"irreducible_goto_count":0,"ts":"2026-04-23T14:08:38Z"}
+{"event":"phase_complete","phase":0,"file":"CBTRN01C.cbl","task_id":"T-2026-04-23-001","gotos_resolved":true,"dead_code_count":3,"redefines_count":1,"irreducible_goto_count":0,"ts":"2026-04-23T14:08:38Z"}
+{"event":"phase_complete","phase":0,"files_processed":6,"task_id":"T-2026-04-23-001","ts":"2026-04-23T14:08:54Z"}
+{"event":"step","phase":1,"step_id":"T-2026-04-23-001-S-001","file":"COBSWAIT.cbl","status":"PASS","agent":"claude-sonnet-4.6","ts":"2026-04-23T14:10:01Z"}
+{"event":"step","phase":1,"step_id":"T-2026-04-23-001-S-002","file":"CBCUS01C.cbl","status":"PASS","agent":"subagent","ts":"2026-04-23T14:16:42Z"}
+{"event":"step","phase":1,"step_id":"T-2026-04-23-001-S-003","file":"COSGN00C.cbl","status":"PASS","agent":"subagent","ts":"2026-04-23T14:16:42Z"}
+{"event":"step","phase":1,"step_id":"T-2026-04-23-001-S-004","file":"COMEN01C.cbl","status":"PASS","agent":"subagent","ts":"2026-04-23T14:16:42Z"}
+{"event":"step","phase":1,"step_id":"T-2026-04-23-001-S-005","file":"CBACT01C.cbl","status":"PASS","agent":"subagent","ts":"2026-04-23T14:16:42Z"}
+{"event":"step","phase":1,"step_id":"T-2026-04-23-001-S-006","file":"CBTRN01C.cbl","status":"PASS","agent":"subagent","ts":"2026-04-23T14:16:42Z"}
+{"event":"phase_complete","phase":1,"files_processed":6,"task_id":"T-2026-04-23-001","ts":"2026-04-23T14:16:42Z"}
+{"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G2","status":"PASS","ts":"2026-04-23T14:16:50Z"}
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G3","agent":"claude-sonnet-4.6","ts":"2026-04-23T14:16:50Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T01", "file": "COBSWAIT.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02", "file": "COBSWAIT.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02-R", "file": "COBSWAIT.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T03", "file": "COBSWAIT.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z", "score": 1.0}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T04", "file": "COBSWAIT.cbl", "status": "DEFERRED", "reason": "no judge endpoint configured; judge invocation must be performed separately", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T01", "file": "CBCUS01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02", "file": "CBCUS01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02-R", "file": "CBCUS01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T03", "file": "CBCUS01C.cbl", "status": "FAIL", "ts": "2026-04-23T14:20:10Z", "score": 0.7692, "failure_count": 12}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T04", "file": "CBCUS01C.cbl", "status": "DEFERRED", "reason": "no judge endpoint configured; judge invocation must be performed separately", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T01", "file": "COSGN00C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02", "file": "COSGN00C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02-R", "file": "COSGN00C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T03", "file": "COSGN00C.cbl", "status": "FAIL", "ts": "2026-04-23T14:20:10Z", "score": 0.4, "failure_count": 12}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T04", "file": "COSGN00C.cbl", "status": "DEFERRED", "reason": "no judge endpoint configured; judge invocation must be performed separately", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T01", "file": "COMEN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02", "file": "COMEN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02-R", "file": "COMEN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T03", "file": "COMEN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z", "score": 1.0}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T04", "file": "COMEN01C.cbl", "status": "DEFERRED", "reason": "no judge endpoint configured; judge invocation must be performed separately", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T01", "file": "CBACT01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02", "file": "CBACT01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02-R", "file": "CBACT01C.cbl", "status": "FAIL", "ts": "2026-04-23T14:20:10Z", "errors": ["Item WS-REISSUE-DATE interpretation[0]: condition does not reference any field in data_items[]", "Item WS-REISSUE-DATE interpretation[1]: condition does not reference any field in data_items[]"]}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T03", "file": "CBACT01C.cbl", "status": "FAIL", "ts": "2026-04-23T14:20:10Z", "score": 0.6512, "failure_count": 40}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T04", "file": "CBACT01C.cbl", "status": "DEFERRED", "reason": "no judge endpoint configured; judge invocation must be performed separately", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T01", "file": "CBTRN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02", "file": "CBTRN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T02-R", "file": "CBTRN01C.cbl", "status": "PASS", "ts": "2026-04-23T14:20:10Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T03", "file": "CBTRN01C.cbl", "status": "FAIL", "ts": "2026-04-23T14:20:10Z", "score": 0.7241, "failure_count": 32}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G3", "tier": "T04", "file": "CBTRN01C.cbl", "status": "DEFERRED", "reason": "no judge endpoint configured; judge invocation must be performed separately", "ts": "2026-04-23T14:20:10Z"}
+{"event":"tier","task_id":"T-2026-04-23-001","gate":"G3","tier":"T05","scope":"global","status":"DEFERRED","reason":"SWE-bench Lite environment not available in sandbox","ts":"2026-04-23T14:20:10Z"}
+{"event":"blocked","task_id":"T-2026-04-23-001","gate":"G3","file":"CBACT01C.cbl","reason":"T02-R FAIL: WS-REISSUE-DATE interpretations reference subfield names (ACCT-REISSUE-DATE, WS-ACCT-REISSUE-YYYY) not present at level-01 in data_items[]; schema requires conditions to reference data_items[] but schema also restricts data_items[] to 01-level items — validator/schema mismatch. Human review required.","ts":"2026-04-23T14:20:10Z"}
+{"event": "blocked", "task_id": "T-2026-04-23-001", "gate": "G3", "file": "CBCUS01C.cbl", "reason": "T03 FAIL: score 0.7692 < 0.95 threshold; 12 failures driven by validator enumerating CFG-level data items (subfields, FD-level fields) that schema \u00a7Data Layer restricts to 01-level. Validator/schema mismatch.", "ts": "2026-04-23T14:20:10Z"}
+{"event": "blocked", "task_id": "T-2026-04-23-001", "gate": "G3", "file": "COSGN00C.cbl", "reason": "T03 FAIL: score 0.4 < 0.95 threshold; 12 failures driven by validator enumerating CFG-level data items (subfields, FD-level fields) that schema \u00a7Data Layer restricts to 01-level. Validator/schema mismatch.", "ts": "2026-04-23T14:20:10Z"}
+{"event": "blocked", "task_id": "T-2026-04-23-001", "gate": "G3", "file": "CBACT01C.cbl", "reason": "T03 FAIL: score 0.6512 < 0.95 threshold; 40 failures driven by validator enumerating CFG-level data items (subfields, FD-level fields) that schema \u00a7Data Layer restricts to 01-level. Validator/schema mismatch.", "ts": "2026-04-23T14:20:10Z"}
+{"event": "blocked", "task_id": "T-2026-04-23-001", "gate": "G3", "file": "CBTRN01C.cbl", "reason": "T03 FAIL: score 0.7241 < 0.95 threshold; 32 failures driven by validator enumerating CFG-level data items (subfields, FD-level fields) that schema \u00a7Data Layer restricts to 01-level. Validator/schema mismatch.", "ts": "2026-04-23T14:20:10Z"}
+{"event":"phase_complete","phase":2,"files_processed":6,"files_ready":2,"files_blocked":4,"task_id":"T-2026-04-23-001","ts":"2026-04-23T14:20:54Z"}
+{"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G3","status":"PASS-WITH-BLOCKS","ts":"2026-04-23T14:20:54Z"}
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G4","agent":"claude-sonnet-4.6","ts":"2026-04-23T14:20:54Z"}
+{"event":"stop","task_id":"T-2026-04-23-001","gate":"G4","reason":"Phase 3 (gold curation) requires explicit human sign-off per MASTER-ARCHITECTURE §4 and §7 Rule 6. Agent is halting before any gold file is written.","ts":"2026-04-23T14:20:54Z"}
+{"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G4","status":"STOP-FOR-HUMAN","ts":"2026-04-23T14:20:54Z"}
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G4","iteration":2,"reason":"human sign-off 2026-04-23T15:36Z: Option A validator fix approved; Phase 3 curation authorised for READY files","agent":"claude-sonnet-4.6","ts":"2026-04-23T15:38:26Z"}
+{"event":"step","task_id":"T-2026-04-23-001","gate":"G4","action":"validator_patch","files_modified":["scripts/validate_t02r.py","scripts/validate_t03.py"],"version":"v1.0.1-option-a","ts":"2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T02-R", "iteration": 2, "file": "COBSWAIT.cbl", "status": "PASS", "errors": [], "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T02-R", "iteration": 2, "file": "CBCUS01C.cbl", "status": "PASS", "errors": [], "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T02-R", "iteration": 2, "file": "COSGN00C.cbl", "status": "PASS", "errors": [], "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T02-R", "iteration": 2, "file": "COMEN01C.cbl", "status": "PASS", "errors": [], "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T02-R", "iteration": 2, "file": "CBACT01C.cbl", "status": "FAIL", "errors": ["Item WS-REISSUE-DATE interpretation[0]: condition does not reference any CFG-known field"], "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T02-R", "iteration": 2, "file": "CBTRN01C.cbl", "status": "PASS", "errors": [], "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T03", "iteration": 2, "file": "COBSWAIT.cbl", "status": "PASS", "score": 1.0, "matched": 8, "total": 8, "cfg_items_01": 2, "cfg_items_total": 2, "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T03", "iteration": 2, "file": "CBCUS01C.cbl", "status": "PASS", "score": 1.0, "matched": 40, "total": 40, "cfg_items_01": 10, "cfg_items_total": 22, "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T03", "iteration": 2, "file": "COSGN00C.cbl", "status": "PASS", "score": 1.0, "matched": 8, "total": 8, "cfg_items_01": 2, "cfg_items_total": 14, "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T03", "iteration": 2, "file": "COMEN01C.cbl", "status": "PASS", "score": 1.0, "matched": 8, "total": 8, "cfg_items_01": 2, "cfg_items_total": 16, "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T03", "iteration": 2, "file": "CBACT01C.cbl", "status": "PASS", "score": 1.0, "matched": 84, "total": 84, "cfg_items_01": 21, "cfg_items_total": 66, "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event": "tier", "task_id": "T-2026-04-23-001", "gate": "G4", "tier": "T03", "iteration": 2, "file": "CBTRN01C.cbl", "status": "PASS", "score": 1.0, "matched": 84, "total": 84, "cfg_items_01": 21, "cfg_items_total": 55, "validator_version": "v1.0.1-option-a", "ts": "2026-04-23T15:38:26Z"}
+{"event":"step","task_id":"T-2026-04-23-001","gate":"G4","action":"t04_dispatch_manifest_written","path":"validation/reports/T04_dispatch_manifest.json","total_requests":68,"priority_order":["COMEN01C","COBSWAIT","CBCUS01C","CBTRN01C","COSGN00C","CBACT01C(HOLD)"],"ts":"2026-04-23T15:46:53Z"}
+{"event":"step","task_id":"T-2026-04-23-001","gate":"G4","action":"phase3_candidates_staged","files":["COBSWAIT","COMEN01C","CBCUS01C","CBTRN01C","COSGN00C"],"blocked":["CBACT01C"],"staging_path":"translations/gold-candidate/","ts":"2026-04-23T15:46:53Z"}
+{"event":"step","task_id":"T-2026-04-23-001","gate":"G4","action":"review_checklists_written","count":6,"path":".aifirst/runs/T-2026-04-23-001/review-checklists/","ts":"2026-04-23T15:46:53Z"}
+{"event":"blocked","task_id":"T-2026-04-23-001","gate":"G4","file":"CBACT01C.cbl","reason":"Post-Option-A T02-R still FAIL: WS-REISSUE-DATE interpretation[0].condition uses bare 'ACCT-REISSUE-DATE' token not present in CFG field inventory; translation-side imprecision, not schema ambiguity. Held out of Phase 3 per Hard Rule 5; reviewer options documented in review-checklists/CBACT01C.md.","ts":"2026-04-23T15:46:53Z"}
+{"event":"phase_complete","phase":3,"scope":"agent-prepared","files_staged":5,"files_blocked":1,"files_promoted":0,"task_id":"T-2026-04-23-001","ts":"2026-04-23T15:46:53Z"}
+{"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G4","iteration":2,"status":"PASS","ts":"2026-04-23T15:46:53Z"}
+{"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G5","agent":"claude-sonnet-4.6","ts":"2026-04-23T15:46:53Z"}
+{"event":"stop","task_id":"T-2026-04-23-001","gate":"G5","reason":"Gold promotion requires human reviewer sign-off per MASTER-ARCHITECTURE §4 and §7 Rule 6. 5 candidates staged at translations/gold-candidate/. 1 file (CBACT01C) held for re-baseline decision. T04 judgments still outstanding.","ts":"2026-04-23T15:46:53Z"}

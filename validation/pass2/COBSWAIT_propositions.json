@@ -1,0 +1,47 @@
+[
+  {
+    "seq": 1,
+    "paragraph": "COBSWAIT-MAIN",
+    "line": 36,
+    "verb": "ACCEPT",
+    "proposition": "Read external input into PARM-VALUE",
+    "proposition_source": "TEMPLATE",
+    "modifies": "PARM-VALUE",
+    "cfg_branch_context": null,
+    "operand_unresolved": true,
+    "confidence": 1.0
+  },
+  {
+    "seq": 2,
+    "paragraph": "COBSWAIT-MAIN",
+    "line": 37,
+    "verb": "MOVE",
+    "proposition": "Set MVSWAIT-TIME to PARM-VALUE",
+    "proposition_source": "TEMPLATE",
+    "modifies": "MVSWAIT-TIME",
+    "cfg_branch_context": null,
+    "confidence": 1.0
+  },
+  {
+    "seq": 3,
+    "paragraph": "COBSWAIT-MAIN",
+    "line": 38,
+    "verb": "CALL",
+    "proposition": "Invoke external program 'MVSWAIT'",
+    "proposition_source": "TEMPLATE",
+    "modifies": null,
+    "cfg_branch_context": null,
+    "confidence": 1.0
+  },
+  {
+    "seq": 4,
+    "paragraph": "COBSWAIT-MAIN",
+    "line": 40,
+    "verb": "STOP RUN",
+    "proposition": "Terminate program execution",
+    "proposition_source": "TEMPLATE",
+    "modifies": null,
+    "cfg_branch_context": null,
+    "confidence": 1.0
+  }
+]

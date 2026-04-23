@@ -1,0 +1,32 @@
+{
+  "tier": "T-PASS2",
+  "file": "validation/pass2/COSGN00C_propositions.json",
+  "coverage": {
+    "tier": "T-PASS2-COVERAGE",
+    "pass": true,
+    "blocking": true,
+    "missing_in_propositions": [],
+    "extra_in_propositions": []
+  },
+  "ops": {
+    "tier": "T-PASS2-OPS",
+    "pass": true,
+    "blocking": false,
+    "errors": []
+  },
+  "ovr": {
+    "tier": "T-PASS2-OVR",
+    "pass": true,
+    "blocking": false,
+    "overrides_count": 2,
+    "errors": []
+  },
+  "pass": true,
+  "validator_version": "v1.0.0",
+  "stats": {
+    "total": 71,
+    "template": 58,
+    "partial": 3,
+    "llm": 10
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "paragraph": "END-PERFORM",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "GOBACK",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1000-ACCTFILE-GET-NEXT",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1100-DISPLAY-ACCT-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1300-POPUL-ACCT-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "WS-REISSUE-DATE",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "END-IF",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1350-WRITE-ACCT-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1400-POPUL-ARRAY-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1450-WRITE-ARRY-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1500-POPUL-VBRC-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "VB2-ACCT-ID",
+    "reachable": false,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1550-WRITE-VB1-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "1575-WRITE-VB2-RECORD",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "0000-ACCTFILE-OPEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "2000-OUTFILE-OPEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "3000-ARRFILE-OPEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "4000-VBRFILE-OPEN",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "9000-ACCTFILE-CLOSE",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "9999-ABEND-PROGRAM",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  },
+  {
+    "paragraph": "9910-DISPLAY-IO-STATUS",
+    "reachable": true,
+    "judge_prompt": "Score 0-5 for this paragraph's English translation vs COBOL source. 5=complete, 4=minor imprecision, 3=some implicit logic missing, 2=significant rule absent/wrong, 1=semantically incorrect, 0=missing/gibberish. Return JSON: {\"paragraph\":\"<name>\",\"score\":<int>,\"reason\":\"<sentence>\"}."
+  }
+]
