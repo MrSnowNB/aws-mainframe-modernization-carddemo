@@ -181,7 +181,7 @@ This check exists because REDEFINES misinterpretation is a documented production
 ### T04 Rubric (unchanged)
 
 - **5** — Complete, accurate, no information lost
-- **4** — Minor phrasing imprecision, all information present
+- **4** — Minor phrasing imprecision, all information present  
 - **3** — Some implicit logic missing, main flow captured
 - **2** — Significant business rule absent or wrong
 - **1** — Paragraph present but semantically incorrect
@@ -240,7 +240,7 @@ When a T04 paragraph score < 3, capture a **4-tuple correction trajectory**:
 ```
 [
   COBOL paragraph source,          ← input
-  incorrect translation,            ← model's failure output
+  incorrect translation,            ← model's failure output  
   T04 judge feedback,               ← "Missing: REDEFINES condition for WS-TRANS-TYPE"
   corrected translation             ← gold correction
 ]
