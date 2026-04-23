@@ -8,7 +8,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "DISPLAY 'START OF EXECUTION OF PROGRAM CBTRN01C'.",
+    "operands": [
+      "'START OF EXECUTION OF PROGRAM CBTRN01C'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 2,
@@ -19,7 +27,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM 0000-DALYTRAN-OPEN.",
+    "operands": [
+      "0000-DALYTRAN-OPEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 3,
@@ -30,7 +46,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM 0100-CUSTFILE-OPEN.",
+    "operands": [
+      "0100-CUSTFILE-OPEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 4,
@@ -41,7 +65,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM 0200-XREFFILE-OPEN.",
+    "operands": [
+      "0200-XREFFILE-OPEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 5,
@@ -52,7 +84,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM 0300-CARDFILE-OPEN.",
+    "operands": [
+      "0300-CARDFILE-OPEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 6,
@@ -63,7 +103,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM 0400-ACCTFILE-OPEN.",
+    "operands": [
+      "0400-ACCTFILE-OPEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 7,
@@ -74,7 +122,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM 0500-TRANFILE-OPEN.",
+    "operands": [
+      "0500-TRANFILE-OPEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 8,
@@ -85,7 +141,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM UNTIL END-OF-DAILY-TRANS-FILE = 'Y'",
+    "operands": [
+      "END-OF-DAILY-TRANS-FILE",
+      "'Y'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 9,
@@ -96,7 +162,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "operands": [
+      "END-OF-DAILY-TRANS-FILE",
+      "'N'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 10,
@@ -107,7 +183,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 1000-DALYTRAN-GET-NEXT",
+    "operands": [
+      "1000-DALYTRAN-GET-NEXT"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 11,
@@ -118,7 +202,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "operands": [
+      "END-OF-DAILY-TRANS-FILE",
+      "'N'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 12,
@@ -129,8 +223,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "raw": "DISPLAY DALYTRAN-RECORD",
+    "operands": [
+      "DALYTRAN-RECORD"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 13,
@@ -141,7 +243,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-XREF-READ-STATUS",
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "MOVE 0 TO WS-XREF-READ-STATUS",
+    "operands": [
+      "0",
+      "WS-XREF-READ-STATUS"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 14,
@@ -152,8 +264,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "raw": "MOVE DALYTRAN-CARD-NUM TO XREF-CARD-NUM",
+    "operands": [
+      "DALYTRAN-CARD-NUM",
+      "XREF-CARD-NUM"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 15,
@@ -164,7 +286,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 2000-LOOKUP-XREF",
+    "operands": [
+      "2000-LOOKUP-XREF"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 16,
@@ -175,7 +305,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "IF WS-XREF-READ-STATUS = 0",
+    "operands": [
+      "WS-XREF-READ-STATUS",
+      "0"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 17,
@@ -186,7 +326,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ACCT-READ-STATUS",
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "MOVE 0 TO WS-ACCT-READ-STATUS",
+    "operands": [
+      "0",
+      "WS-ACCT-READ-STATUS"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 18,
@@ -197,8 +347,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "raw": "MOVE XREF-ACCT-ID TO ACCT-ID",
+    "operands": [
+      "XREF-ACCT-ID",
+      "ACCT-ID"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 19,
@@ -209,7 +369,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 3000-READ-ACCOUNT",
+    "operands": [
+      "3000-READ-ACCOUNT"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 20,
@@ -220,7 +388,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "IF WS-ACCT-READ-STATUS NOT = 0",
+    "operands": [
+      "WS-ACCT-READ-STATUS",
+      "0"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 21,
@@ -231,8 +409,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "raw": "DISPLAY 'ACCOUNT ' ACCT-ID ' NOT FOUND'",
+    "operands": [
+      "'ACCOUNT '",
+      "ACCT-ID",
+      "' NOT FOUND'"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "literal"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 22,
@@ -243,8 +433,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
+    "raw": "DISPLAY 'CARD NUMBER ' DALYTRAN-CARD-NUM",
+    "operands": [
+      "'CARD NUMBER '",
+      "DALYTRAN-CARD-NUM"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 23,
@@ -255,7 +455,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 9000-DALYTRAN-CLOSE.",
+    "operands": [
+      "9000-DALYTRAN-CLOSE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 24,
@@ -266,7 +474,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 9100-CUSTFILE-CLOSE.",
+    "operands": [
+      "9100-CUSTFILE-CLOSE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 25,
@@ -277,7 +493,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 9200-XREFFILE-CLOSE.",
+    "operands": [
+      "9200-XREFFILE-CLOSE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 26,
@@ -288,7 +512,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 9300-CARDFILE-CLOSE.",
+    "operands": [
+      "9300-CARDFILE-CLOSE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 27,
@@ -299,7 +531,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 9400-ACCTFILE-CLOSE.",
+    "operands": [
+      "9400-ACCTFILE-CLOSE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 28,
@@ -310,7 +550,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "PERFORM 9500-TRANFILE-CLOSE.",
+    "operands": [
+      "9500-TRANFILE-CLOSE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 29,
@@ -321,7 +569,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'END OF EXECUTION OF PROGRAM CBTRN01C'.",
+    "operands": [
+      "'END OF EXECUTION OF PROGRAM CBTRN01C'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 30,
@@ -332,7 +588,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF END-OF-DAILY-TRANS-FILE = 'N'",
-    "confidence": 1.0
+    "raw": "GOBACK.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 31,
@@ -343,8 +603,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "READ DALYTRAN-FILE INTO DALYTRAN-RECORD.",
+    "operands": [
+      "DALYTRAN-FILE",
+      "DALYTRAN-RECORD"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 32,
@@ -355,7 +625,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF DALYTRAN-STATUS = '00'",
+    "operands": [
+      "DALYTRAN-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 33,
@@ -366,7 +646,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 34,
@@ -377,7 +667,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF DALYTRAN-STATUS = '10'",
+    "operands": [
+      "DALYTRAN-STATUS",
+      "'10'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 35,
@@ -388,7 +688,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE 16 TO APPL-RESULT",
+    "operands": [
+      "16",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 36,
@@ -399,7 +709,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 37,
@@ -410,7 +730,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 38,
@@ -421,7 +749,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 39,
@@ -432,7 +764,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-EOF",
+    "operands": [
+      "APPL-EOF"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 40,
@@ -443,7 +783,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "END-OF-DAILY-TRANS-FILE",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE 'Y' TO END-OF-DAILY-TRANS-FILE",
+    "operands": [
+      "'Y'",
+      "END-OF-DAILY-TRANS-FILE"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 41,
@@ -454,7 +804,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR READING DAILY TRANSACTION FILE'",
+    "operands": [
+      "'ERROR READING DAILY TRANSACTION FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 42,
@@ -465,7 +823,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE DALYTRAN-STATUS TO IO-STATUS",
+    "operands": [
+      "DALYTRAN-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 43,
@@ -476,7 +844,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 44,
@@ -487,7 +863,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 45,
@@ -498,7 +882,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 46,
@@ -509,8 +897,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "FD-XREF-CARD-NUM",
     "cfg_branch_context": null,
+    "raw": "MOVE XREF-CARD-NUM TO FD-XREF-CARD-NUM",
+    "operands": [
+      "XREF-CARD-NUM",
+      "FD-XREF-CARD-NUM"
+    ],
+    "operand_types": [
+      "unresolved",
+      "working-storage"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 47,
@@ -521,8 +919,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "READ XREF-FILE RECORD INTO CARD-XREF-RECORD",
+    "operands": [
+      "XREF-FILE",
+      "CARD-XREF-RECORD"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 48,
@@ -533,7 +941,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "DISPLAY 'INVALID CARD NUMBER FOR XREF'",
+    "operands": [
+      "'INVALID CARD NUMBER FOR XREF'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 49,
@@ -544,7 +960,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-XREF-READ-STATUS",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 4 TO WS-XREF-READ-STATUS",
+    "operands": [
+      "4",
+      "WS-XREF-READ-STATUS"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 50,
@@ -555,7 +981,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "DISPLAY 'SUCCESSFUL READ OF XREF'",
+    "operands": [
+      "'SUCCESSFUL READ OF XREF'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 51,
@@ -566,8 +1000,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "DISPLAY 'CARD NUMBER: ' XREF-CARD-NUM",
+    "operands": [
+      "'CARD NUMBER: '",
+      "XREF-CARD-NUM"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 52,
@@ -578,8 +1022,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "DISPLAY 'ACCOUNT ID : ' XREF-ACCT-ID",
+    "operands": [
+      "'ACCOUNT ID : '",
+      "XREF-ACCT-ID"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 53,
@@ -590,8 +1044,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "DISPLAY 'CUSTOMER ID: ' XREF-CUST-ID",
+    "operands": [
+      "'CUSTOMER ID: '",
+      "XREF-CUST-ID"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 54,
@@ -602,8 +1066,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "FD-ACCT-ID",
     "cfg_branch_context": null,
+    "raw": "MOVE ACCT-ID TO FD-ACCT-ID",
+    "operands": [
+      "ACCT-ID",
+      "FD-ACCT-ID"
+    ],
+    "operand_types": [
+      "unresolved",
+      "working-storage"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 55,
@@ -614,8 +1088,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "READ ACCOUNT-FILE RECORD INTO ACCOUNT-RECORD",
+    "operands": [
+      "ACCOUNT-FILE",
+      "ACCOUNT-RECORD"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 56,
@@ -626,7 +1110,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "DISPLAY 'INVALID ACCOUNT NUMBER FOUND'",
+    "operands": [
+      "'INVALID ACCOUNT NUMBER FOUND'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 57,
@@ -637,7 +1129,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ACCT-READ-STATUS",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 4 TO WS-ACCT-READ-STATUS",
+    "operands": [
+      "4",
+      "WS-ACCT-READ-STATUS"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 58,
@@ -648,7 +1150,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "DISPLAY 'SUCCESSFUL READ OF ACCOUNT FILE'",
+    "operands": [
+      "'SUCCESSFUL READ OF ACCOUNT FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 59,
@@ -659,7 +1169,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 8 TO APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 60,
@@ -670,8 +1190,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "OPEN INPUT DALYTRAN-FILE",
+    "operands": [
+      "DALYTRAN-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 61,
@@ -682,7 +1210,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF DALYTRAN-STATUS = '00'",
+    "operands": [
+      "DALYTRAN-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 62,
@@ -693,7 +1231,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 59
   },
   {
@@ -705,7 +1253,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 59
   },
   {
@@ -717,7 +1275,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 65,
@@ -728,7 +1294,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 66,
@@ -739,7 +1309,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR OPENING DAILY TRANSACTION FILE'",
+    "operands": [
+      "'ERROR OPENING DAILY TRANSACTION FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 67,
@@ -750,7 +1328,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE DALYTRAN-STATUS TO IO-STATUS",
+    "operands": [
+      "DALYTRAN-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 68,
@@ -761,7 +1349,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 69,
@@ -772,7 +1368,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 70,
@@ -783,7 +1387,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 71,
@@ -794,7 +1402,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 8 TO APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 72,
@@ -805,8 +1423,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "OPEN INPUT CUSTOMER-FILE",
+    "operands": [
+      "CUSTOMER-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 73,
@@ -817,7 +1443,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF CUSTFILE-STATUS = '00'",
+    "operands": [
+      "CUSTFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 74,
@@ -828,7 +1464,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 71
   },
   {
@@ -840,7 +1486,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 71
   },
   {
@@ -852,7 +1508,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 77,
@@ -863,7 +1527,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 78,
@@ -874,7 +1542,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR OPENING CUSTOMER FILE'",
+    "operands": [
+      "'ERROR OPENING CUSTOMER FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 79,
@@ -885,7 +1561,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE CUSTFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "CUSTFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 80,
@@ -896,7 +1582,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 81,
@@ -907,7 +1601,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 82,
@@ -918,7 +1620,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 83,
@@ -929,7 +1635,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 8 TO APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 84,
@@ -940,8 +1656,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "OPEN INPUT XREF-FILE",
+    "operands": [
+      "XREF-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 85,
@@ -952,7 +1676,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF XREFFILE-STATUS = '00'",
+    "operands": [
+      "XREFFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 86,
@@ -963,7 +1697,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 83
   },
   {
@@ -975,7 +1719,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 83
   },
   {
@@ -987,7 +1741,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 89,
@@ -998,7 +1760,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 90,
@@ -1009,7 +1775,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR OPENING CROSS REF FILE'",
+    "operands": [
+      "'ERROR OPENING CROSS REF FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 91,
@@ -1020,7 +1794,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE XREFFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "XREFFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 92,
@@ -1031,7 +1815,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 93,
@@ -1042,7 +1834,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 94,
@@ -1053,7 +1853,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 95,
@@ -1064,7 +1868,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 8 TO APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 96,
@@ -1075,8 +1889,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "OPEN INPUT CARD-FILE",
+    "operands": [
+      "CARD-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 97,
@@ -1087,7 +1909,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF CARDFILE-STATUS = '00'",
+    "operands": [
+      "CARDFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 98,
@@ -1098,7 +1930,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 95
   },
   {
@@ -1110,7 +1952,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 95
   },
   {
@@ -1122,7 +1974,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 101,
@@ -1133,7 +1993,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 102,
@@ -1144,7 +2008,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR OPENING CARD FILE'",
+    "operands": [
+      "'ERROR OPENING CARD FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 103,
@@ -1155,7 +2027,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE CARDFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "CARDFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 104,
@@ -1166,7 +2048,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 105,
@@ -1177,7 +2067,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 106,
@@ -1188,7 +2086,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 107,
@@ -1199,7 +2101,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 8 TO APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 108,
@@ -1210,8 +2122,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "OPEN INPUT ACCOUNT-FILE",
+    "operands": [
+      "ACCOUNT-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 109,
@@ -1222,7 +2142,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF ACCTFILE-STATUS = '00'",
+    "operands": [
+      "ACCTFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 110,
@@ -1233,7 +2163,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 107
   },
   {
@@ -1245,7 +2185,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 107
   },
   {
@@ -1257,7 +2207,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 113,
@@ -1268,7 +2226,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 114,
@@ -1279,7 +2241,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR OPENING ACCOUNT FILE'",
+    "operands": [
+      "'ERROR OPENING ACCOUNT FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 115,
@@ -1290,7 +2260,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE ACCTFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "ACCTFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 116,
@@ -1301,7 +2281,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 117,
@@ -1312,7 +2300,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 118,
@@ -1323,7 +2319,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 119,
@@ -1334,7 +2334,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 8 TO APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 120,
@@ -1345,8 +2355,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "OPEN INPUT TRANSACT-FILE",
+    "operands": [
+      "TRANSACT-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 121,
@@ -1357,7 +2375,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF TRANFILE-STATUS = '00'",
+    "operands": [
+      "TRANFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 122,
@@ -1368,7 +2396,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 119
   },
   {
@@ -1380,7 +2418,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 119
   },
   {
@@ -1392,7 +2440,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 125,
@@ -1403,7 +2459,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 126,
@@ -1414,7 +2474,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR OPENING TRANSACTION FILE'",
+    "operands": [
+      "'ERROR OPENING TRANSACTION FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 127,
@@ -1425,7 +2493,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE TRANFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "TRANFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 128,
@@ -1436,7 +2514,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 129,
@@ -1447,7 +2533,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 130,
@@ -1458,7 +2552,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 131,
@@ -1469,7 +2567,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "ADD 8 TO ZERO GIVING APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 132,
@@ -1480,8 +2588,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "CLOSE DALYTRAN-FILE",
+    "operands": [
+      "DALYTRAN-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 133,
@@ -1492,7 +2608,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF DALYTRAN-STATUS = '00'",
+    "operands": [
+      "DALYTRAN-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 134,
@@ -1503,7 +2629,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 131
   },
   {
@@ -1515,7 +2651,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 131
   },
   {
@@ -1527,7 +2673,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 137,
@@ -1538,7 +2692,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 138,
@@ -1549,7 +2707,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR CLOSING CUSTOMER FILE'",
+    "operands": [
+      "'ERROR CLOSING CUSTOMER FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 139,
@@ -1560,7 +2726,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE CUSTFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "CUSTFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 140,
@@ -1571,7 +2747,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 141,
@@ -1582,7 +2766,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 142,
@@ -1593,7 +2785,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF DALYTRAN-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 143,
@@ -1604,7 +2800,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "ADD 8 TO ZERO GIVING APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 144,
@@ -1615,8 +2821,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "CLOSE CUSTOMER-FILE",
+    "operands": [
+      "CUSTOMER-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 145,
@@ -1627,7 +2841,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF CUSTFILE-STATUS = '00'",
+    "operands": [
+      "CUSTFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 146,
@@ -1638,7 +2862,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 143
   },
   {
@@ -1650,7 +2884,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 143
   },
   {
@@ -1662,7 +2906,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 149,
@@ -1673,7 +2925,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 150,
@@ -1684,7 +2940,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR CLOSING CUSTOMER FILE'",
+    "operands": [
+      "'ERROR CLOSING CUSTOMER FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 151,
@@ -1695,7 +2959,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE CUSTFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "CUSTFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 152,
@@ -1706,7 +2980,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 153,
@@ -1717,7 +2999,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 154,
@@ -1728,7 +3018,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CUSTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 155,
@@ -1739,7 +3033,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "ADD 8 TO ZERO GIVING APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 156,
@@ -1750,8 +3054,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "CLOSE XREF-FILE",
+    "operands": [
+      "XREF-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 157,
@@ -1762,7 +3074,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF XREFFILE-STATUS = '00'",
+    "operands": [
+      "XREFFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 158,
@@ -1773,7 +3095,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 155
   },
   {
@@ -1785,7 +3117,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 155
   },
   {
@@ -1797,7 +3139,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 161,
@@ -1808,7 +3158,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 162,
@@ -1819,7 +3173,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR CLOSING CROSS REF FILE'",
+    "operands": [
+      "'ERROR CLOSING CROSS REF FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 163,
@@ -1830,7 +3192,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE XREFFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "XREFFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 164,
@@ -1841,7 +3213,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 165,
@@ -1852,7 +3232,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 166,
@@ -1863,7 +3251,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF XREFFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 167,
@@ -1874,7 +3266,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "ADD 8 TO ZERO GIVING APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 168,
@@ -1885,8 +3287,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "CLOSE CARD-FILE",
+    "operands": [
+      "CARD-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 169,
@@ -1897,7 +3307,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF CARDFILE-STATUS = '00'",
+    "operands": [
+      "CARDFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 170,
@@ -1908,7 +3328,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 167
   },
   {
@@ -1920,7 +3350,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 167
   },
   {
@@ -1932,7 +3372,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 173,
@@ -1943,7 +3391,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 174,
@@ -1954,7 +3406,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR CLOSING CARD FILE'",
+    "operands": [
+      "'ERROR CLOSING CARD FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 175,
@@ -1965,7 +3425,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE CARDFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "CARDFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 176,
@@ -1976,7 +3446,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 177,
@@ -1987,7 +3465,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 178,
@@ -1998,7 +3484,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF CARDFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 179,
@@ -2009,7 +3499,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "ADD 8 TO ZERO GIVING APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 180,
@@ -2020,8 +3520,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "CLOSE ACCOUNT-FILE",
+    "operands": [
+      "ACCOUNT-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 181,
@@ -2032,7 +3540,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF ACCTFILE-STATUS = '00'",
+    "operands": [
+      "ACCTFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 182,
@@ -2043,7 +3561,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 179
   },
   {
@@ -2055,7 +3583,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 179
   },
   {
@@ -2067,7 +3605,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 185,
@@ -2078,7 +3624,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 186,
@@ -2089,7 +3639,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR CLOSING ACCOUNT FILE'",
+    "operands": [
+      "'ERROR CLOSING ACCOUNT FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 187,
@@ -2100,7 +3658,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE ACCTFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "ACCTFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 188,
@@ -2111,7 +3679,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 189,
@@ -2122,7 +3698,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 190,
@@ -2133,7 +3717,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF ACCTFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 191,
@@ -2144,7 +3732,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "ADD 8 TO ZERO GIVING APPL-RESULT.",
+    "operands": [
+      "8",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 192,
@@ -2155,8 +3753,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "CLOSE TRANSACT-FILE",
+    "operands": [
+      "TRANSACT-FILE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 193,
@@ -2167,7 +3773,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF TRANFILE-STATUS = '00'",
+    "operands": [
+      "TRANFILE-STATUS",
+      "'00'"
+    ],
+    "operand_types": [
+      "working-storage",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 194,
@@ -2178,7 +3794,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
+    "raw": "MOVE 0 TO APPL-RESULT",
+    "operands": [
+      "0",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 191
   },
   {
@@ -2190,7 +3816,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "APPL-RESULT",
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
+    "raw": "MOVE 12 TO APPL-RESULT",
+    "operands": [
+      "12",
+      "APPL-RESULT"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 191
   },
   {
@@ -2202,7 +3838,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "IF APPL-AOK",
+    "operands": [
+      "APPL-AOK"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 197,
@@ -2213,7 +3857,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 198,
@@ -2224,7 +3872,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "DISPLAY 'ERROR CLOSING TRANSACTION FILE'",
+    "operands": [
+      "'ERROR CLOSING TRANSACTION FILE'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 199,
@@ -2235,7 +3891,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS",
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "MOVE TRANFILE-STATUS TO IO-STATUS",
+    "operands": [
+      "TRANFILE-STATUS",
+      "IO-STATUS"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 200,
@@ -2246,7 +3912,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-DISPLAY-IO-STATUS",
+    "operands": [
+      "Z-DISPLAY-IO-STATUS"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 201,
@@ -2257,7 +3931,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "PERFORM Z-ABEND-PROGRAM",
+    "operands": [
+      "Z-ABEND-PROGRAM"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 202,
@@ -2268,7 +3950,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF TRANFILE-STATUS = '00'",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 203,
@@ -2279,7 +3965,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "DISPLAY 'ABENDING PROGRAM'",
+    "operands": [
+      "'ABENDING PROGRAM'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 204,
@@ -2290,7 +3984,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "TIMING",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 0 TO TIMING",
+    "operands": [
+      "0",
+      "TIMING"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 205,
@@ -2301,7 +4005,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "ABCODE",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE 999 TO ABCODE",
+    "operands": [
+      "999",
+      "ABCODE"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 206,
@@ -2312,7 +4026,19 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "CALL 'CEE3ABD' USING ABCODE TIMING.",
+    "operands": [
+      "'CEE3ABD'",
+      "ABCODE",
+      "TIMING"
+    ],
+    "operand_types": [
+      "external-program",
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 207,
@@ -2323,8 +4049,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
+    "raw": "IF IO-STATUS NOT NUMERIC",
+    "operands": [
+      "IO-STATUS",
+      "NUMERIC"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 208,
@@ -2335,7 +4071,21 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS-04",
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "MOVE IO-STAT1 TO IO-STATUS-04(1:1)",
+    "operands": [
+      "IO-STAT1",
+      "IO-STATUS-04",
+      "1",
+      "1"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage",
+      "literal",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 209,
@@ -2346,7 +4096,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "TWO-BYTES-BINARY",
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "MOVE 0 TO TWO-BYTES-BINARY",
+    "operands": [
+      "0",
+      "TWO-BYTES-BINARY"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 210,
@@ -2357,7 +4117,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "TWO-BYTES-RIGHT",
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "MOVE IO-STAT2 TO TWO-BYTES-RIGHT",
+    "operands": [
+      "IO-STAT2",
+      "TWO-BYTES-RIGHT"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 211,
@@ -2368,7 +4138,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS-0403",
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "MOVE TWO-BYTES-BINARY TO IO-STATUS-0403",
+    "operands": [
+      "TWO-BYTES-BINARY",
+      "IO-STATUS-0403"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 212,
@@ -2379,7 +4159,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "DISPLAY 'FILE STATUS IS: NNNN' IO-STATUS-04",
+    "operands": [
+      "'FILE STATUS IS: NNNN'",
+      "IO-STATUS-04"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 213,
@@ -2390,7 +4180,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS-04",
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "MOVE '0000' TO IO-STATUS-04",
+    "operands": [
+      "'0000'",
+      "IO-STATUS-04"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 214,
@@ -2401,7 +4201,21 @@
     "proposition_source": "TEMPLATE",
     "modifies": "IO-STATUS-04",
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "MOVE IO-STATUS TO IO-STATUS-04(3:2)",
+    "operands": [
+      "IO-STATUS",
+      "IO-STATUS-04",
+      "3",
+      "2"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage",
+      "literal",
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 215,
@@ -2412,7 +4226,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "DISPLAY 'FILE STATUS IS: NNNN' IO-STATUS-04",
+    "operands": [
+      "'FILE STATUS IS: NNNN'",
+      "IO-STATUS-04"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 216,
@@ -2423,6 +4247,10 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF IO-STATUS NOT NUMERIC",
-    "confidence": 1.0
+    "raw": "EXIT.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   }
 ]

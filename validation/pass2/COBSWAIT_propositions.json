@@ -8,8 +8,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "PARM-VALUE",
     "cfg_branch_context": null,
+    "raw": "ACCEPT PARM-VALUE FROM SYSIN.",
+    "operands": [
+      "PARM-VALUE",
+      "SYSIN"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 2,
@@ -20,7 +30,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "MVSWAIT-TIME",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE PARM-VALUE TO MVSWAIT-TIME.",
+    "operands": [
+      "PARM-VALUE",
+      "MVSWAIT-TIME"
+    ],
+    "operand_types": [
+      "working-storage",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 3,
@@ -31,7 +51,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "CALL 'MVSWAIT' USING MVSWAIT-TIME.",
+    "operands": [
+      "'MVSWAIT'",
+      "MVSWAIT-TIME"
+    ],
+    "operand_types": [
+      "external-program",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 4,
@@ -42,6 +72,10 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "STOP RUN.",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   }
 ]

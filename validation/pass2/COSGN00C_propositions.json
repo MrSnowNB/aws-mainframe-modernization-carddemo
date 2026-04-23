@@ -8,8 +8,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "ERR-FLG-OFF",
     "cfg_branch_context": null,
+    "raw": "SET ERR-FLG-OFF TO TRUE",
+    "operands": [
+      "ERR-FLG-OFF",
+      "TRUE"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 2,
@@ -20,7 +30,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "MOVE SPACES TO WS-MESSAGE",
+    "operands": [
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 3,
@@ -31,8 +49,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "IF EIBCALEN = 0",
+    "operands": [
+      "EIBCALEN",
+      "0"
+    ],
+    "operand_types": [
+      "unresolved",
+      "literal"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 4,
@@ -43,8 +71,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "MOVE LOW-VALUES TO COSGN0AO",
+    "operands": [
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 5,
@@ -55,8 +91,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "MOVE -1 TO USERIDL OF COSGN0AI",
+    "operands": [
+      "1",
+      "USERIDL",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 6,
@@ -67,19 +115,36 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 7,
     "paragraph": "MAIN-PARA",
     "line": 85,
     "verb": "EVALUATE",
-    "proposition": "Branch on value of EIBAID",
+    "proposition": null,
     "proposition_source": "PARTIAL",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "EVALUATE EIBAID",
+    "operands": [
+      "EIBAID"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 0.5
+    "confidence": 0.5,
+    "needs_llm": true,
+    "proposition_stub": "Branch on value of EIBAID"
   },
   {
     "seq": 8,
@@ -90,7 +155,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
-    "confidence": 1.0
+    "raw": "PERFORM PROCESS-ENTER-KEY",
+    "operands": [
+      "PROCESS-ENTER-KEY"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 9,
@@ -101,8 +174,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "MOVE CCDA-MSG-THANK-YOU TO WS-MESSAGE",
+    "operands": [
+      "CCDA-MSG-THANK-YOU",
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "unresolved",
+      "working-storage"
+    ],
     "operand_unresolved": true,
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 2
   },
   {
@@ -114,7 +197,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-PLAIN-TEXT",
+    "operands": [
+      "SEND-PLAIN-TEXT"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 11,
@@ -125,7 +216,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ERR-FLG",
     "cfg_branch_context": "IF EIBCALEN = 0",
-    "confidence": 1.0
+    "raw": "MOVE 'Y' TO WS-ERR-FLG",
+    "operands": [
+      "'Y'",
+      "WS-ERR-FLG"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 12,
@@ -136,8 +237,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "MOVE CCDA-MSG-INVALID-KEY TO WS-MESSAGE",
+    "operands": [
+      "CCDA-MSG-INVALID-KEY",
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "unresolved",
+      "working-storage"
+    ],
     "operand_unresolved": true,
     "confidence": 1.0,
+    "needs_llm": false,
     "overrides_seq": 2
   },
   {
@@ -149,7 +260,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 14,
@@ -160,8 +279,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": "IF EIBCALEN = 0",
+    "raw": "EXEC CICS RETURN",
+    "operands": [
+      "RETURN"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 15,
@@ -172,20 +299,37 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS RECEIVE",
+    "operands": [
+      "RECEIVE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 16,
     "paragraph": "PROCESS-ENTER-KEY",
     "line": 117,
     "verb": "EVALUATE",
-    "proposition": "Branch on value of TRUE",
+    "proposition": null,
     "proposition_source": "PARTIAL",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
+    "raw": "EVALUATE TRUE",
+    "operands": [
+      "TRUE"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 0.5
+    "confidence": 0.5,
+    "needs_llm": true,
+    "proposition_stub": "Branch on value of TRUE"
   },
   {
     "seq": 17,
@@ -196,7 +340,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ERR-FLG",
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "MOVE 'Y' TO WS-ERR-FLG",
+    "operands": [
+      "'Y'",
+      "WS-ERR-FLG"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 18,
@@ -207,7 +361,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "MOVE 'Please enter User ID ...' TO WS-MESSAGE",
+    "operands": [
+      "'Please enter User ID ...'",
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 19,
@@ -218,8 +382,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
+    "raw": "MOVE -1 TO USERIDL OF COSGN0AI",
+    "operands": [
+      "1",
+      "USERIDL",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 20,
@@ -230,7 +406,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 21,
@@ -241,7 +425,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ERR-FLG",
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "MOVE 'Y' TO WS-ERR-FLG",
+    "operands": [
+      "'Y'",
+      "WS-ERR-FLG"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 22,
@@ -252,7 +446,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "MOVE 'Please enter Password ...' TO WS-MESSAGE",
+    "operands": [
+      "'Please enter Password ...'",
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 23,
@@ -263,8 +467,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
+    "raw": "MOVE -1 TO PASSWDL OF COSGN0AI",
+    "operands": [
+      "1",
+      "PASSWDL",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 24,
@@ -275,7 +491,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 25,
@@ -286,7 +510,11 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "CONTINUE",
+    "operands": [],
+    "operand_types": [],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 26,
@@ -297,8 +525,22 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
+    "raw": "MOVE FUNCTION UPPER-CASE(USERIDI OF COSGN0AI) TO",
+    "operands": [
+      "FUNCTION",
+      "UPPER-CASE",
+      "USERIDI",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 27,
@@ -309,8 +551,22 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
+    "raw": "MOVE FUNCTION UPPER-CASE(PASSWDI OF COSGN0AI) TO",
+    "operands": [
+      "FUNCTION",
+      "UPPER-CASE",
+      "PASSWDI",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 28,
@@ -321,7 +577,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "IF NOT ERR-FLG-ON",
+    "operands": [
+      "ERR-FLG-ON"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 29,
@@ -332,7 +596,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE TRUE",
-    "confidence": 1.0
+    "raw": "PERFORM READ-USER-SEC-FILE",
+    "operands": [
+      "READ-USER-SEC-FILE"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 30,
@@ -343,7 +615,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
-    "confidence": 1.0
+    "raw": "PERFORM POPULATE-HEADER-INFO",
+    "operands": [
+      "POPULATE-HEADER-INFO"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 31,
@@ -354,8 +634,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": null,
+    "raw": "MOVE WS-MESSAGE TO ERRMSGO OF COSGN0AO",
+    "operands": [
+      "WS-MESSAGE",
+      "ERRMSGO",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 32,
@@ -366,8 +658,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS SEND",
+    "operands": [
+      "SEND"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 33,
@@ -378,8 +678,18 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS SEND TEXT",
+    "operands": [
+      "SEND",
+      "TEXT"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 34,
@@ -390,8 +700,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS RETURN",
+    "operands": [
+      "RETURN"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 35,
@@ -402,8 +720,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE FUNCTION CURRENT-DATE TO WS-CURDATE-DATA",
+    "operands": [
+      "FUNCTION",
+      "CURRENT-DATE",
+      "WS-CURDATE-DATA"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 36,
@@ -414,8 +744,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE CCDA-TITLE01 TO TITLE01O OF COSGN0AO",
+    "operands": [
+      "CCDA-TITLE01",
+      "TITLE01O",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 37,
@@ -426,8 +768,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE CCDA-TITLE02 TO TITLE02O OF COSGN0AO",
+    "operands": [
+      "CCDA-TITLE02",
+      "TITLE02O",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 38,
@@ -438,8 +792,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-TRANID",
     "cfg_branch_context": null,
+    "raw": "MOVE WS-TRANID TO TRNNAMEO OF COSGN0AO",
+    "operands": [
+      "WS-TRANID",
+      "TRNNAMEO",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 39,
@@ -450,8 +816,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-PGMNAME",
     "cfg_branch_context": null,
+    "raw": "MOVE WS-PGMNAME TO PGMNAMEO OF COSGN0AO",
+    "operands": [
+      "WS-PGMNAME",
+      "PGMNAMEO",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 40,
@@ -462,8 +840,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURDATE-MONTH TO WS-CURDATE-MM",
+    "operands": [
+      "WS-CURDATE-MONTH",
+      "WS-CURDATE-MM"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 41,
@@ -474,8 +862,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURDATE-DAY TO WS-CURDATE-DD",
+    "operands": [
+      "WS-CURDATE-DAY",
+      "WS-CURDATE-DD"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 42,
@@ -486,8 +884,22 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURDATE-YEAR(3:2) TO WS-CURDATE-YY",
+    "operands": [
+      "WS-CURDATE-YEAR",
+      "3",
+      "2",
+      "WS-CURDATE-YY"
+    ],
+    "operand_types": [
+      "unresolved",
+      "literal",
+      "literal",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 43,
@@ -498,8 +910,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURDATE-MM-DD-YY TO CURDATEO OF COSGN0AO",
+    "operands": [
+      "WS-CURDATE-MM-DD-YY",
+      "CURDATEO",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 44,
@@ -510,8 +934,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURTIME-HOURS TO WS-CURTIME-HH",
+    "operands": [
+      "WS-CURTIME-HOURS",
+      "WS-CURTIME-HH"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 45,
@@ -522,8 +956,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURTIME-MINUTE TO WS-CURTIME-MM",
+    "operands": [
+      "WS-CURTIME-MINUTE",
+      "WS-CURTIME-MM"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 46,
@@ -534,8 +978,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURTIME-SECOND TO WS-CURTIME-SS",
+    "operands": [
+      "WS-CURTIME-SECOND",
+      "WS-CURTIME-SS"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 47,
@@ -546,8 +1000,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "MOVE WS-CURTIME-HH-MM-SS TO CURTIMEO OF COSGN0AO",
+    "operands": [
+      "WS-CURTIME-HH-MM-SS",
+      "CURTIMEO",
+      "COSGN0AO"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 48,
@@ -558,8 +1024,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS ASSIGN",
+    "operands": [
+      "ASSIGN"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 49,
@@ -570,8 +1044,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS ASSIGN",
+    "operands": [
+      "ASSIGN"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 50,
@@ -582,19 +1064,36 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": null,
+    "raw": "EXEC CICS READ",
+    "operands": [
+      "READ"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 51,
     "paragraph": "READ-USER-SEC-FILE",
     "line": 221,
     "verb": "EVALUATE",
-    "proposition": "Branch on value of WS-RESP-CD",
+    "proposition": null,
     "proposition_source": "PARTIAL",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 0.5
+    "raw": "EVALUATE WS-RESP-CD",
+    "operands": [
+      "WS-RESP-CD"
+    ],
+    "operand_types": [
+      "working-storage"
+    ],
+    "confidence": 0.5,
+    "needs_llm": true,
+    "proposition_stub": "Branch on value of WS-RESP-CD"
   },
   {
     "seq": 52,
@@ -605,8 +1104,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "IF SEC-USR-PWD = WS-USER-PWD",
+    "operands": [
+      "SEC-USR-PWD",
+      "WS-USER-PWD"
+    ],
+    "operand_types": [
+      "unresolved",
+      "working-storage"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 53,
@@ -617,8 +1126,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-TRANID",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE WS-TRANID TO CDEMO-FROM-TRANID",
+    "operands": [
+      "WS-TRANID",
+      "CDEMO-FROM-TRANID"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 54,
@@ -629,8 +1148,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-PGMNAME",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE WS-PGMNAME TO CDEMO-FROM-PROGRAM",
+    "operands": [
+      "WS-PGMNAME",
+      "CDEMO-FROM-PROGRAM"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 55,
@@ -641,8 +1170,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-USER-ID",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE WS-USER-ID TO CDEMO-USER-ID",
+    "operands": [
+      "WS-USER-ID",
+      "CDEMO-USER-ID"
+    ],
+    "operand_types": [
+      "working-storage",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 56,
@@ -653,8 +1192,18 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE SEC-USR-TYPE TO CDEMO-USER-TYPE",
+    "operands": [
+      "SEC-USR-TYPE",
+      "CDEMO-USER-TYPE"
+    ],
+    "operand_types": [
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 57,
@@ -665,8 +1214,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE ZEROS TO CDEMO-PGM-CONTEXT",
+    "operands": [
+      "CDEMO-PGM-CONTEXT"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 58,
@@ -677,8 +1234,16 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "IF CDEMO-USRTYP-ADMIN",
+    "operands": [
+      "CDEMO-USRTYP-ADMIN"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 59,
@@ -689,8 +1254,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "EXEC CICS XCTL",
+    "operands": [
+      "XCTL"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 60,
@@ -701,8 +1274,16 @@
     "proposition_source": "LLM",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "EXEC CICS XCTL",
+    "operands": [
+      "XCTL"
+    ],
+    "operand_types": [
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": null
+    "confidence": null,
+    "needs_llm": true
   },
   {
     "seq": 61,
@@ -713,7 +1294,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "MOVE 'Wrong Password. Try again ...' TO",
+    "operands": [
+      "'Wrong Password. Try again ...'"
+    ],
+    "operand_types": [
+      "literal"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 62,
@@ -724,8 +1313,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE -1 TO PASSWDL OF COSGN0AI",
+    "operands": [
+      "1",
+      "PASSWDL",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 63,
@@ -736,7 +1337,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 64,
@@ -747,7 +1356,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ERR-FLG",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "MOVE 'Y' TO WS-ERR-FLG",
+    "operands": [
+      "'Y'",
+      "WS-ERR-FLG"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 65,
@@ -758,7 +1377,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "MOVE 'User not found. Try again ...' TO WS-MESSAGE",
+    "operands": [
+      "'User not found. Try again ...'",
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 66,
@@ -769,8 +1398,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE -1 TO USERIDL OF COSGN0AI",
+    "operands": [
+      "1",
+      "USERIDL",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 67,
@@ -781,7 +1422,15 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 68,
@@ -792,7 +1441,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-ERR-FLG",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "MOVE 'Y' TO WS-ERR-FLG",
+    "operands": [
+      "'Y'",
+      "WS-ERR-FLG"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 69,
@@ -803,7 +1462,17 @@
     "proposition_source": "TEMPLATE",
     "modifies": "WS-MESSAGE",
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "MOVE 'Unable to verify the User ...' TO WS-MESSAGE",
+    "operands": [
+      "'Unable to verify the User ...'",
+      "WS-MESSAGE"
+    ],
+    "operand_types": [
+      "literal",
+      "working-storage"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 70,
@@ -814,8 +1483,20 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "raw": "MOVE -1 TO USERIDL OF COSGN0AI",
+    "operands": [
+      "1",
+      "USERIDL",
+      "COSGN0AI"
+    ],
+    "operand_types": [
+      "literal",
+      "unresolved",
+      "unresolved"
+    ],
     "operand_unresolved": true,
-    "confidence": 1.0
+    "confidence": 1.0,
+    "needs_llm": false
   },
   {
     "seq": 71,
@@ -826,6 +1507,14 @@
     "proposition_source": "TEMPLATE",
     "modifies": null,
     "cfg_branch_context": "EVALUATE WS-RESP-CD",
-    "confidence": 1.0
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "operands": [
+      "SEND-SIGNON-SCREEN"
+    ],
+    "operand_types": [
+      "paragraph"
+    ],
+    "confidence": 1.0,
+    "needs_llm": false
   }
 ]

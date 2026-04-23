@@ -181,6 +181,21 @@ def proposition_modifies(rec: dict) -> str | None:
 
 
 def build_propositions(annotations: list[dict]) -> list[dict]:
+    """Build Pass-2 proposition records from Pass-1 annotations.
+
+    Each record carries forward enough annotation context for the Pass-2
+    LLM branch to build a self-contained request payload without re-reading
+    the source file:
+      - `raw`             verbatim statement text (from annotation)
+      - `operands`        inventory of operand tokens
+      - `operand_types`   per-operand classification
+
+    Per review issue #1 (PARTIAL fallback quality): PARTIAL entries carry a
+    best-effort template stub as `proposition_stub` but ALSO set
+    `needs_llm = True` so the Pass-2 LLM branch refines them into final
+    `proposition` text. PARTIAL propositions are treated as provisional
+    only — they never ship to Pass 3 without LLM refinement.
+    """
     out: list[dict] = []
     for rec in annotations:
         prop, source = template_for(rec)
@@ -189,20 +204,35 @@ def build_propositions(annotations: list[dict]) -> list[dict]:
             "paragraph": rec["paragraph"],
             "line": rec["line"],
             "verb": rec["verb"],
-            "proposition": prop,
+            "proposition": prop if source == "TEMPLATE" else None,
             "proposition_source": source,
             "modifies": proposition_modifies(rec),
             "cfg_branch_context": rec.get("cfg_branch_context"),
+            # Carry forward annotation context so pass2_llm.py can build
+            # self-contained request payloads without re-reading .cbl source
+            # (addresses T-002 review issue #2: raw field was null in LLM/PARTIAL
+            # proposition records).
+            "raw": rec.get("raw"),
+            "operands": rec.get("operands", []),
+            "operand_types": rec.get("operand_types", []),
         }
         if rec.get("operand_unresolved"):
             entry["operand_unresolved"] = True
-        # Confidence: 1.0 for TEMPLATE, 0.5 for PARTIAL, null for LLM.
+        # Confidence + needs_llm routing:
+        #   TEMPLATE  → confidence=1.0, needs_llm=False (ships as-is to Pass 3)
+        #   PARTIAL   → confidence=0.5, needs_llm=True  (stub retained for
+        #              audit; LLM branch must refine before Pass 3)
+        #   LLM      → confidence=null, needs_llm=True  (no template exists)
         if source == "TEMPLATE":
             entry["confidence"] = 1.0
+            entry["needs_llm"] = False
         elif source == "PARTIAL":
             entry["confidence"] = 0.5
+            entry["needs_llm"] = True
+            entry["proposition_stub"] = prop  # preserved for audit trail
         else:
             entry["confidence"] = None
+            entry["needs_llm"] = True
         out.append(entry)
     return out
 
