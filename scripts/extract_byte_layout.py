@@ -155,8 +155,8 @@ def _expand_copybooks(
         if m:
             name = m.group(1).rstrip(".").upper()
             if name in visited:
-                # Cycle — skip but leave a comment marker.
-                expanded.append((lineno, f"*> COPY {name} (cycle skipped)"))
+                # Cycle — skip silently. (Same rationale as the not-found
+                # case: emitting placeholder text can poison sentence boundaries.)
                 continue
             found = None
             for d in copy_dirs:
@@ -168,10 +168,11 @@ def _expand_copybooks(
                 if found:
                     break
             if found is None:
-                # Copybook not found — emit a marker but keep going so that the
-                # extractor can still run. Downstream smoke will catch missing
-                # structure as FAIL, which is correct.
-                expanded.append((lineno, f"*> COPY {name} not found"))
+                # Copybook not found — skip entirely. Emitting any placeholder
+                # text here would risk absorbing into the next sentence and
+                # corrupting section/division detection. A missing copybook is
+                # itself a BLOCK condition that downstream validators will
+                # catch via missing qualified names.
                 continue
             sub = _load_source(found)
             sub = _expand_copybooks(sub, copy_dirs, visited | {name})
@@ -646,6 +647,9 @@ def run(source_path: Path, out_path: Path, copy_dirs: list[Path]) -> dict:
     section_state = "NONE"  # NONE, FILE, WORKING-STORAGE, LINKAGE
     in_data_div = False
     cur_fd: str | None = None
+    # FD-level VARYING metadata: maps fd_name -> {min, max, depending_on}
+    # from `RECORD IS VARYING IN SIZE FROM n TO m DEPENDING ON name` clauses.
+    fd_varying: dict[str, dict] = {}
     # We keep a per-section flat list preserving source order.
     items_by_section: dict[str, list[dict]] = {
         "file": [],
@@ -690,6 +694,18 @@ def run(source_path: Path, out_path: Path, copy_dirs: list[Path]) -> dict:
         mfd = FD_RE.match(sent)
         if mfd and section_state == "FILE":
             cur_fd = mfd.group("name").upper()
+            # Parse RECORD IS VARYING IN SIZE FROM n TO m DEPENDING ON <id>
+            mv = re.search(
+                r"RECORD\s+IS\s+VARYING\s+IN\s+SIZE\s+FROM\s+(\d+)\s+TO\s+(\d+)"
+                r"(?:\s+DEPENDING\s+ON\s+([A-Z0-9\-_]+))?",
+                sent, re.IGNORECASE,
+            )
+            if mv:
+                fd_varying[cur_fd] = {
+                    "min": int(mv.group(1)),
+                    "max": int(mv.group(2)),
+                    "depending_on": (mv.group(3) or "").upper() or None,
+                }
             continue
         # SD (sort) entry — treat like FD
         if up.startswith("SD ") and section_state == "FILE":
@@ -737,6 +753,21 @@ def run(source_path: Path, out_path: Path, copy_dirs: list[Path]) -> dict:
         for r in trees[sect]:
             _size_item(r, by_name, 0)
 
+    # Apply FD-level VARYING (RECORD IS VARYING IN SIZE) to each FD's 01-record.
+    # This overrides/augments the 01 record with variable_length and min/max
+    # byte counts derived from the FD clause.
+    for r in trees["file"]:
+        fd_name = r.get("fd")
+        if fd_name and fd_name in fd_varying:
+            v = fd_varying[fd_name]
+            r["variable_length"] = True
+            r["total_bytes_min"] = v["min"]
+            r["total_bytes_max"] = v["max"]
+            r["total_bytes"] = v["max"]
+            if v["depending_on"]:
+                r["fd_record_depending_on"] = v["depending_on"]
+            r["fd_record_format"] = "V"
+
     # Assign qualified names.
     for sect in ("file", "working_storage", "linkage"):
         for r in trees[sect]:
@@ -758,11 +789,16 @@ def run(source_path: Path, out_path: Path, copy_dirs: list[Path]) -> dict:
             "linkage": _tag(trees["linkage"], "linkage"),
         },
         "totals": {
+            # REDEFINES overlays must not contribute to section totals
+            # (they share storage with their target). Enforced at root level
+            # here; nested REDEFINES are already excluded inside _size_item.
             "working_storage_bytes": sum(
-                int(r.get("total_bytes_max", r.get("total_bytes", 0))) for r in trees["working_storage"]
+                int(r.get("total_bytes_max", r.get("total_bytes", 0)))
+                for r in trees["working_storage"] if "redefines" not in r
             ),
             "linkage_bytes": sum(
-                int(r.get("total_bytes_max", r.get("total_bytes", 0))) for r in trees["linkage"]
+                int(r.get("total_bytes_max", r.get("total_bytes", 0)))
+                for r in trees["linkage"] if "redefines" not in r
             ),
         },
     }
@@ -800,7 +836,11 @@ def main(argv: list[str] | None = None) -> int:
         copy_dirs = [Path(p) for p in args.copybook_dir]
     else:
         repo_root = source.resolve().parent.parent.parent  # app/cbl/X.cbl -> repo
-        copy_dirs = [repo_root / "app" / "cpy", repo_root / "app" / "cpy-bms"]
+        copy_dirs = [
+            repo_root / "app" / "cpy",
+            repo_root / "app" / "cpy-bms",
+            repo_root / "app" / "cpy-stubs",
+        ]
 
     out = Path(args.out)
     run(source, out, copy_dirs)
