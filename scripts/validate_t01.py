@@ -20,6 +20,18 @@ BUSINESS_DOMAINS = [
 SUBTYPES = ["CICS-Online", "Batch", "Utility", "Menu", "Copybook"]
 TASK_ID_RE = re.compile(r"^T-\d{4}-\d{2}-\d{2}-\d{3}$")
 
+# Accepted schema versions. Kept as an immutable set so adding future
+# versions (cobol-md/1.3, ...) is a one-line change. T-2026-04-24-001
+# introduced v1.2 for the Hercules byte-parity schema additions; all prior
+# versions remain valid so existing baseline/, baseline-v1.1/, and gold files
+# continue to pass T01 without modification.
+ACCEPTED_SCHEMA_VERSIONS = frozenset({
+    "cobol-md/1.0",      # T-001 baseline
+    "cobol-md/1.0.2",    # legal per docs v1.0.2 (reserved; not emitted today)
+    "cobol-md/1.1",      # T-2026-04-23-002 baseline-v1.1
+    "cobol-md/1.2",      # T-2026-04-24-001 baseline-v1.2 (Hercules byte-parity)
+})
+
 
 def validate(md_path: Path, repo_root: Path):
     content = md_path.read_text()
@@ -36,8 +48,11 @@ def validate(md_path: Path, repo_root: Path):
         if f not in data:
             errors.append(f"Missing required field: {f}")
 
-    if data.get("schema_version") != "cobol-md/1.0":
-        errors.append(f"schema_version must be 'cobol-md/1.0' (got {data.get('schema_version')!r})")
+    if data.get("schema_version") not in ACCEPTED_SCHEMA_VERSIONS:
+        errors.append(
+            f"schema_version must be one of {sorted(ACCEPTED_SCHEMA_VERSIONS)} "
+            f"(got {data.get('schema_version')!r})"
+        )
 
     if data.get("business_domain") not in BUSINESS_DOMAINS:
         errors.append(f"Invalid business_domain: {data.get('business_domain')!r}")
