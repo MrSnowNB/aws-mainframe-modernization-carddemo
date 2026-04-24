@@ -288,7 +288,7 @@ data_items:
     value: null
     redefines: "WS-ACCT-REISSUE-DATE"
     redefines_interpretations:
-      - condition: "ACCT-REISSUE-DATE is being copied from the account record into working storage (in 1300-POPUL-ACCT-RECORD, before date formatting)"
+      - condition: "WS-REISSUE-DATE is being populated from ACCT-REISSUE-DATE in the account record (in 1300-POPUL-ACCT-RECORD, before date formatting)"
         interpreted_as: "Flat ten-character string view of the reissue date, allowing the entire date to be moved as a single unit from the source account record field into the structured date group in one operation"
         encoding: "DISPLAY"
       - condition: "WS-ACCT-REISSUE-YYYY is being referenced after the flat move (in 1500-POPUL-VBRC-RECORD, extracting the year component)"
