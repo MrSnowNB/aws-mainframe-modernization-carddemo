@@ -1,0 +1,20 @@
+{
+  "tier": "T-PASS1-CP",
+  "program": "CBCUS01C",
+  "source_sha256": "233dbc3bc33a3b9ac555922085a92be56e88d16316bff624b5723c4c36c99714",
+  "byte_layouts_sha256": "fea8bac80e8635b0b5b4a94638f7d5adb932eb40531c51c6f354319183e65d81",
+  "pass": true,
+  "failures": [],
+  "fd_reports": [
+    {
+      "ddname": "CUSTFILE",
+      "logical_name": "CUSTFILE-FILE",
+      "record_format": "FB",
+      "sign_convention": "mainframe-ebcdic",
+      "derived_sign_convention": "mainframe-ebcdic",
+      "record_length": 500,
+      "derived_record_length": 500,
+      "record_varying": null
+    }
+  ]
+}

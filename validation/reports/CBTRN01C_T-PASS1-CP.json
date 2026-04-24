@@ -1,0 +1,70 @@
+{
+  "tier": "T-PASS1-CP",
+  "program": "CBTRN01C",
+  "source_sha256": "55c2aebd59528aa42b28878ba5ca4d17a00b3548fc25e4ce1529710d366fd576",
+  "byte_layouts_sha256": "8af78185f6bc5e91101cd1bce9184b52170781725defb35ad46918649a634952",
+  "pass": true,
+  "failures": [],
+  "fd_reports": [
+    {
+      "ddname": "DALYTRAN",
+      "logical_name": "DALYTRAN-FILE",
+      "record_format": "FB",
+      "sign_convention": "none",
+      "derived_sign_convention": "none",
+      "record_length": 350,
+      "derived_record_length": 350,
+      "record_varying": null
+    },
+    {
+      "ddname": "CUSTFILE",
+      "logical_name": "CUSTOMER-FILE",
+      "record_format": "FB",
+      "sign_convention": "mainframe-ebcdic",
+      "derived_sign_convention": "mainframe-ebcdic",
+      "record_length": 500,
+      "derived_record_length": 500,
+      "record_varying": null
+    },
+    {
+      "ddname": "XREFFILE",
+      "logical_name": "XREF-FILE",
+      "record_format": "FB",
+      "sign_convention": "none",
+      "derived_sign_convention": "none",
+      "record_length": 50,
+      "derived_record_length": 50,
+      "record_varying": null
+    },
+    {
+      "ddname": "CARDFILE",
+      "logical_name": "CARD-FILE",
+      "record_format": "FB",
+      "sign_convention": "none",
+      "derived_sign_convention": "none",
+      "record_length": 150,
+      "derived_record_length": 150,
+      "record_varying": null
+    },
+    {
+      "ddname": "ACCTFILE",
+      "logical_name": "ACCOUNT-FILE",
+      "record_format": "FB",
+      "sign_convention": "mainframe-ebcdic",
+      "derived_sign_convention": "mainframe-ebcdic",
+      "record_length": 300,
+      "derived_record_length": 300,
+      "record_varying": null
+    },
+    {
+      "ddname": "TRANFILE",
+      "logical_name": "TRANSACT-FILE",
+      "record_format": "FB",
+      "sign_convention": "none",
+      "derived_sign_convention": "none",
+      "record_length": 350,
+      "derived_record_length": 350,
+      "record_varying": null
+    }
+  ]
+}

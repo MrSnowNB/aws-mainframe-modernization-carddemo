@@ -1,0 +1,54 @@
+{
+  "tier": "T-PASS1-CP",
+  "program": "CBACT01C",
+  "source_sha256": "f8eb6e3a561ff96a1889a8f777a8998850a11dddae221da2c5018067d7b95551",
+  "byte_layouts_sha256": "2d2ed0f5832b35c3bf340247a81a33cac0e8b2d8c48dd569c45cba7763154330",
+  "pass": true,
+  "failures": [],
+  "fd_reports": [
+    {
+      "ddname": "ACCTFILE",
+      "logical_name": "ACCTFILE-FILE",
+      "record_format": "FB",
+      "sign_convention": "mainframe-ebcdic",
+      "derived_sign_convention": "mainframe-ebcdic",
+      "record_length": 300,
+      "derived_record_length": 300,
+      "record_varying": null
+    },
+    {
+      "ddname": "OUTFILE",
+      "logical_name": "OUT-FILE",
+      "record_format": "FB",
+      "sign_convention": "mainframe-ebcdic",
+      "derived_sign_convention": "mainframe-ebcdic",
+      "record_length": 107,
+      "derived_record_length": 107,
+      "record_varying": null
+    },
+    {
+      "ddname": "ARRYFILE",
+      "logical_name": "ARRY-FILE",
+      "record_format": "FB",
+      "sign_convention": "mainframe-ebcdic",
+      "derived_sign_convention": "mainframe-ebcdic",
+      "record_length": 110,
+      "derived_record_length": 110,
+      "record_varying": null
+    },
+    {
+      "ddname": "VBRCFILE",
+      "logical_name": "VBRC-FILE",
+      "record_format": "V",
+      "sign_convention": "none",
+      "derived_sign_convention": "none",
+      "record_length": 80,
+      "derived_record_length": 80,
+      "record_varying": {
+        "min": 10,
+        "max": 80,
+        "depending_on": "WS-RECD-LEN"
+      }
+    }
+  ]
+}
