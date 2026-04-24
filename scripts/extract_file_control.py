@@ -299,9 +299,10 @@ def parse_fds(joined: str, offsets):
         )
         recording_mode = m_rec.group(1).upper() if m_rec else None
 
-        # VARYING IN SIZE FROM <n> TO <m>
+        # VARYING IN SIZE FROM <n> TO <m> [DEPENDING ON <id>]
         m_var = re.search(
-            r"\bRECORD\s+IS\s+VARYING\s+IN\s+SIZE\s+FROM\s+(\d+)\s+TO\s+(\d+)",
+            r"\bRECORD\s+IS\s+VARYING\s+IN\s+SIZE\s+FROM\s+(\d+)\s+TO\s+(\d+)"
+            r"(?:\s+DEPENDING(?:\s+ON)?\s+([A-Z0-9][A-Z0-9-]*))?",
             header_flat, re.IGNORECASE,
         )
         record_varying = None
@@ -310,6 +311,8 @@ def parse_fds(joined: str, offsets):
                 "min": int(m_var.group(1)),
                 "max": int(m_var.group(2)),
             }
+            if m_var.group(3):
+                record_varying["depending_on"] = m_var.group(3).upper()
 
         fds.append({
             "name": name,
