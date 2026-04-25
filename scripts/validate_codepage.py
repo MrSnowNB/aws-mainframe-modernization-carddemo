@@ -228,6 +228,7 @@ def validate(file_control_doc: dict, byte_layout: dict) -> dict:
 
 
 def main(argv: list[str] | None = None) -> int:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     parser = argparse.ArgumentParser(
         prog="validate_codepage.py",
         description="T-PASS1-CP 100%-blocking validator (LLM-FREE).",

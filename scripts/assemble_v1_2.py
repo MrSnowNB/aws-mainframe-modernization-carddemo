@@ -336,6 +336,8 @@ def _hard_rule_check(md_text: str) -> list[str]:
 # ----------------------------------------------------------------------
 
 def main(argv: list[str] | None = None) -> int:
+    # Windows: prevent text-mode LF→CRLF conversion on stdout
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     parser = argparse.ArgumentParser(
         prog="assemble_v1_2.py",
         description=(
@@ -422,12 +424,12 @@ def main(argv: list[str] | None = None) -> int:
 
     # Write
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as fh:
+    with open(args.out, "w", encoding="utf-8", newline="") as fh:
         fh.write(out_text)
 
     if args.trace:
         os.makedirs(os.path.dirname(args.trace) or ".", exist_ok=True)
-        with open(args.trace, "w", encoding="utf-8") as fh:
+        with open(args.trace, "w", encoding="utf-8", newline="") as fh:
             json.dump(trace, fh, indent=2)
             fh.write("\n")
 

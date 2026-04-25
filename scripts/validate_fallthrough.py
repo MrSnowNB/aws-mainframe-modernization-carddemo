@@ -152,6 +152,7 @@ def validate(artifact: dict) -> dict:
 
 
 def main(argv: list[str] | None = None) -> int:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     parser = argparse.ArgumentParser(
         prog="validate_fallthrough.py",
         description="T-PASS1-FT 100%-blocking validator (LLM-FREE).",
