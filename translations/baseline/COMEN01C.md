@@ -84,6 +84,11 @@ copybooks_used:
     path: null
     sha: null
 
+bms_maps:
+  - map: "COMEN01"
+    copybook: "app/cpy-bms/COMEN01.CPY"
+    translation_status: pending-extraction
+
 # ── File I/O ───────────────────────────────────────────────────────────────────
 file_control: []
 
@@ -410,6 +415,7 @@ validation:
   t04_semantic_score: null
   t05_regression_pass: null
   overall: "PENDING"
+
 ---
 
 # COMEN01C — CardDemo Main Menu for Regular Users

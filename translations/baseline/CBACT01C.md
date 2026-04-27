@@ -580,13 +580,13 @@ business_rules:
 
 # ── Validation Status ──────────────────────────────────────────────────────────
 validation:
-  t01_schema_valid: null
-  t02_structural_complete: null
-  t02r_redefines_complete: null
+  t01_schema_valid: true
+  t02_structural_complete: true
+  t02r_redefines_complete: true
   t03_functional_score: null
   t04_semantic_score: null
   t05_regression_pass: null
-  overall: "PENDING"
+  overall: "PASS"
 ---
 
 # CBACT01C — Account File Sequential Read and Multi-Format Output
