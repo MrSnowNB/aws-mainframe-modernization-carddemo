@@ -304,6 +304,11 @@ validation:
   t04_semantic_score: null
   t05_regression_pass: null
   overall: "PENDING"
+
+bms_maps:
+  - map: "COSGN0A"
+    translation_status: pending-extraction
+    note: "CICS BMS screen map — structural fields not yet extracted into MD schema"
 ---
 
 # COSGN00C — CardDemo Application Sign-On Screen
