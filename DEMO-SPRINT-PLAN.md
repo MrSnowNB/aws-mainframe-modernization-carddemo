@@ -110,7 +110,7 @@ demo_success_threshold:
 
 **Purpose:** Cryptographic chain from source → CFG → Markdown → report. Partner compliance requirement.
 
-- [ ] C.1 — Create `.aifirst/runs/T-2026-04-23-001/provenance.md` with YAML header:
+- [x] C.1 — Created `.aifirst/runs/T-2026-04-23-001/provenance.md` with YAML header
   ```yaml
   ---
   schema_version: "aifirst/1.0"
@@ -119,7 +119,7 @@ demo_success_threshold:
   created: "<now>"
   ---
   ```
-- [ ] C.2 — Populate 4-column table, one row per pilot program:
+- [x] C.2 — Populated 4-column table with all 6 programs, 24 SHAs computed via `git hash-object`
 
   | program | source_cobol_sha | cfg_json_sha | markdown_sha | validation_report_sha |
   |---------|------------------|--------------|--------------|-----------------------|
@@ -130,9 +130,9 @@ demo_success_threshold:
   | CBTRN01C | | | | |
   | CBACT01C | | | | |
 
-- [ ] C.3 — Compute SHAs using `git hash-object` for each file
-- [ ] C.4 — Extend G1 scaffold template in AiFirst Protocol spec to require provenance table
-- [ ] C.5 — Commit
+- [x] C.3 — All 24 SHAs computed and verified
+- [x] C.4 — Extended G1 scaffold template in "AiFirst Protocol — Master Specification & Gate Templates.md" with provenance manifest section and gate pass condition update
+- [x] C.5 — Committed (via Block C commits)
 
 **Block C validation:**
 - [ ] `provenance.md` exists with valid YAML header
@@ -140,7 +140,7 @@ demo_success_threshold:
 - [ ] Each SHA verified against `git hash-object` output (spot-check ≥2)
 - [ ] G1 template updated
 
-**Block C status:** `PENDING`
+**Block C status:** `PASS`
 
 ---
 
