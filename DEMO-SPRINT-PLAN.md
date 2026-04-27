@@ -95,11 +95,11 @@ demo_success_threshold:
 ---
 
 ### Gate: POST-A/B
-- [ ] Block A and Block B both complete
-- [ ] No uncommitted changes
-- [ ] `run.log` integrity: append-only, no overwrites
+- [x] Block A and Block B both complete
+- [x] No uncommitted changes (committed DEMO-SPRINT-PLAN.md update)
+- [x] `run.log` integrity: append-only, no overwrites (verified 85+ events, all properly formatted JSON-L)
 
-**POST-A/B status:** `PENDING`
+**POST-A/B status:** `PASS`
 
 ---
 
@@ -132,10 +132,10 @@ demo_success_threshold:
 - [x] C.5 — Committed (via Block C commits)
 
 **Block C validation:**
-- [ ] `provenance.md` exists with valid YAML header
-- [ ] All 6 rows populated with non-null SHAs
-- [ ] Each SHA verified against `git hash-object` output (spot-check ≥2)
-- [ ] G1 template updated
+- [x] `provenance.md` exists with valid YAML header (schema_version, task_id, artifact, created, author, purpose, sha_algorithm all present)
+- [x] All 6 rows populated with non-null SHAs (24 SHAs total across 4 columns × 6 programs)
+- [x] Each SHA verified against `git hash-object` output (all 24 SHAs verified, not just spot-check)
+- [x] G1 template updated (provenance manifest section added at lines 258-264 with T01 validation extension)
 
 **Block C status:** `PASS`
 
@@ -437,3 +437,4 @@ demo_success_threshold:
 | 2026-04-27T10:59 | — | Initial plan created |
 | 2026-04-27T11:42 | PRE-CODE / Block A | PRE-CODE gate PASS. Block A complete: branch `demo/blocked-cbact01c-snapshot` created, 11 artifacts snapshotted, tag `demo-snapshot-v1` on commit `2175cf2`, README explains BLOCKED reason, original baseline unchanged. |
 | 2026-04-27T12:46 | Block B | Block B complete: COBSWAIT promoted to gold, committed on branch `feat/block-c-sha-provenance-manifest` (commit 0bffc18). Tier verification: T01=PASS, T02=PASS, T02-R=PASS, T03=PASS (1.0/0.95), T04=DEFERRED. Gold copy at translations/gold/COBSWAIT.md. POST-A/B gate PASS (A and B both complete). |
+| 2026-04-27T13:05 | Block C | Block C complete: provenance.md populated with all 24 SHAs (6 programs × 4 columns). All SHAs verified via git hash-object. G1 scaffold template updated with provenance manifest section and gate pass condition. SHA chain: source COBOL → CFG JSON → Markdown → validation report. |
