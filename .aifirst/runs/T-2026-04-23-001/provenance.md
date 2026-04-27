@@ -16,8 +16,8 @@ sha_algorithm: "git-blob-sha1"
 
 ## Manifest
 
-| program  | source_cobol_sha | cfg_json_sha | markdown_sha | validation_report_sha |
-|----------|------------------|--------------|--------------|-----------------------|
+| program | source_cobol_sha | cfg_json_sha | markdown_sha | validation_report_sha |
+|---------|------------------|--------------|--------------|-----------------------|
 | COBSWAIT | 7957347717cf04be2dc4f5be24aa94668cf780ab | 43655d729b50af9baf37f2c094adb2045cff2122 | 21e6845d3cfc70c1eca805f26f8f906faa42aea2 | cb93a7d6e6d142fbc0ffbc6a593d60dbb9d69f3d |
 | COMEN01C | 222db83b1ae9c01ef521342199d0234a4abd152d | c83ffa146cec8db57d02b79e0e6c3cdd35f10a1b | 05273fcdbcd703f74635bc803818f19206157bb5 | 6ca7ace2930c88a8d8c5a3911d009712eb739a19 |
 | CBCUS01C | ad4c512be0d7bd72a933966d299ea21fb31b6b5b | 74dd7e08b7d9fbc220f7490c0cb3cffe4768f140 | 0e2cbb702b607ea2159b6ed54b94c9361b2dd4fd | 541a17cd53daf163a869d47a2fd968e62a09723e |
@@ -27,8 +27,8 @@ sha_algorithm: "git-blob-sha1"
 
 ## Source Path Map
 
-| program  | source_cobol_path | cfg_json_path | markdown_path | validation_report_path |
-|----------|-------------------|---------------|---------------|------------------------|
+| program | source_cobol_path | cfg_json_path | markdown_path | validation_report_path |
+|---------|-------------------|---------------|---------------|------------------------|
 | COBSWAIT | app/cbl/COBSWAIT.cbl | validation/structure/COBSWAIT_cfg.json | translations/baseline/COBSWAIT.md | validation/reports/COBSWAIT_T02.json |
 | COMEN01C | app/cbl/COMEN01C.cbl | validation/structure/COMEN01C_cfg.json | translations/baseline/COMEN01C.md | validation/reports/COMEN01C_T02.json |
 | CBCUS01C | app/cbl/CBCUS01C.cbl | validation/structure/CBCUS01C_cfg.json | translations/baseline/CBCUS01C.md | validation/reports/CBCUS01C_T02.json |
@@ -40,8 +40,20 @@ sha_algorithm: "git-blob-sha1"
 
 To verify any row, run:
 
-```
-git hash-object <path>
+```bash
+git hash-object <path-to-file>
 ```
 
-Output must match the corresponding column for that row.
+Output must match the corresponding SHA column for that program's row.
+Example — verify COBSWAIT source:
+
+```bash
+git hash-object app/cbl/COBSWAIT.cbl
+# expected: 7957347717cf04be2dc4f5be24aa94668cf780ab
+```
+
+## Integrity Note
+
+This manifest is part of the AiFirst gate chain for task `T-2026-04-23-001`.
+Any artifact modification must be followed by a manifest update and a new `manifest_updated` event in `run.log`.
+The manifest itself must never be edited without a corresponding `run.log` entry — it is part of the append-only audit trail.

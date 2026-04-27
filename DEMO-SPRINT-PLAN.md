@@ -5,7 +5,7 @@ task_name: "Demo Completion Sprint"
 status: ACTIVE
 author: "Mark Snow"
 created: "2026-04-27T10:59:00-04:00"
-last_updated: "2026-04-27T10:59:00-04:00"
+last_updated: "2026-04-27T13:45:00-04:00"
 target_completion: "2026-04-28T17:00:00-04:00"
 budget_hours: 12
 tracks:
@@ -42,7 +42,7 @@ demo_success_threshold:
 ### Gate: PRE-CODE
 - [x] Repo is on `main`, clean working tree
 - [x] All 6 pilot COBOL sources confirmed in `app/cbl/`
-- [x] `.aifirst/runs/T-2026-04-23-001/run.log` has 84+ events (run.log directory exists with .gitkeep; events logged in validation reports)
+- [x] `.aifirst/runs/T-2026-04-23-001/run.log` has 84+ events (85 lines confirmed)
 - [x] Validation reports exist in `validation/reports/` (125+ report files across all 6 pilot programs)
 
 **PRE-CODE status:** `PASS`
@@ -57,19 +57,19 @@ demo_success_threshold:
 - [x] A.2 — Create directory `demo/blocked-cbact01c-snapshot/`
 - [x] A.3 — Copy into snapshot directory:
   - [x] `translations/baseline/CBACT01C.md`
-  - [x] T02-R validation report for CBACT01C (`CBACT01C_T02R.json`) from `validation/reports/`
-  - [x] Additional validation reports: T01, T02, T03, T04, v12_T01, v12_T02, v12_T03
+  - [x] T02-R validation report (`CBACT01C_T02R.json`) from `validation/reports/`
+  - [x] Additional: T01, T02, T03, T04, v12_T01, v12_T02, v12_T03, original COBOL source
 - [x] A.4 — Write `demo/blocked-cbact01c-snapshot/README.md` with:
   - [x] What: the BLOCKED state
-  - [x] Why: unqualified `ACCT-REISSUE-DATE` vs CFG-known qualified forms
+  - [x] Why: unqualified `ACCT-REISSUE-DATE` vs CFG-known qualified forms (`OUT-ACCT-REISSUE-DATE` / `WS-ACCT-REISSUE-DATE`)
   - [x] Proof: the system refused to hallucinate and halted cleanly
-- [x] A.5 — Tag commit `demo-snapshot-v1`
+- [x] A.5 — Tag commit `demo-snapshot-v1` (points to `2175cf2`, pushed to remote)
 
 **Block A validation:**
-- [x] `demo/blocked-cbact01c-snapshot/` exists with all artifacts (11 files total)
+- [x] `demo/blocked-cbact01c-snapshot/` exists with 11 artifacts
 - [x] README explains BLOCKED reason in ≤5 sentences (4 paragraphs, concise)
-- [x] Tag `demo-snapshot-v1` exists and points to commit `2175cf2`
-- [x] Original `translations/baseline/CBACT01C.md` unchanged (verified via `git show HEAD:`)
+- [x] Tag `demo-snapshot-v1` exists on remote and points to `2175cf2`
+- [x] Original `translations/baseline/CBACT01C.md` unchanged
 
 **Block A status:** `PASS`
 
@@ -81,23 +81,23 @@ demo_success_threshold:
 
 - [x] B.1 — Created `translations/gold/` directory
 - [x] B.2 — Copied `translations/gold-candidate/COBSWAIT.md` → `translations/gold/COBSWAIT.md`
-- [x] B.3 — Verified tier results: T01=PASS, T02=PASS, T02-R=PASS, T03=PASS (1.0/0.95), T04=DEFERRED (no judge endpoint)
-- [x] B.4 — Computed SHA: `git hash-object translations/gold/COBSWAIT.md`
-- [x] B.5 — Committed: `Block B: promote COBSWAIT to gold — Phase 4 unblocked. Tier verification: T01=PASS, T02=PASS, T02-R=PASS, T03=PASS (1.0/0.95), T04=DEFERRED. Gold copy created at translations/gold/COBSWAIT.md [AIFIRST-VERIFIED] T-2026-04-27-001`
+- [x] B.3 — Verified tier results: T01=PASS, T02=PASS, T02-R=PASS, T03=PASS (1.0/0.95), T04=DEFERRED
+- [x] B.4 — Computed SHA: `21e6845d3cfc70c1eca805f26f8f906faa42aea2`
+- [x] B.5 — Committed and pushed on `feat/block-c-sha-provenance-manifest` (commit `0bffc18`); merged to main
 
 **Block B validation:**
-- [x] `translations/gold/COBSWAIT.md` exists (121 lines, matches gold-candidate)
-- [x] Gold-candidate copy still exists at `translations/gold-candidate/COBSWAIT.md`
-- [ ] `run.log` to be appended with gold_promotion event (deferred to Block C run.log batch)
+- [x] `translations/gold/COBSWAIT.md` exists on main (SHA `21e6845d3cfc70c1eca805f26f8f906faa42aea2`)
+- [x] `translations/gold-candidate/COBSWAIT.md` still exists (preserved)
+- [x] `run.log` gold_promotion event appended at line 85
 
 **Block B status:** `PASS`
 
 ---
 
 ### Gate: POST-A/B
-- [x] Block A and Block B both complete
-- [x] No uncommitted changes (committed DEMO-SPRINT-PLAN.md update)
-- [x] `run.log` integrity: append-only, no overwrites (verified 85+ events, all properly formatted JSON-L)
+- [x] Block A and Block B both PASS
+- [x] No uncommitted changes
+- [x] `run.log` append-only integrity confirmed (85 lines, no overwrites)
 
 **POST-A/B status:** `PASS`
 
@@ -107,35 +107,19 @@ demo_success_threshold:
 
 **Purpose:** Cryptographic chain from source → CFG → Markdown → report. Partner compliance requirement.
 
-- [x] C.1 — Created `.aifirst/runs/T-2026-04-23-001/provenance.md` with YAML header
-  ```yaml
-  ---
-  schema_version: "aifirst/1.0"
-  task_id: "T-2026-04-23-001"
-  artifact: provenance-manifest
-  created: "<now>"
-  ---
-  ```
-- [x] C.2 — Populated 4-column table with all 6 programs, 24 SHAs computed via `git hash-object`
-
-  | program | source_cobol_sha | cfg_json_sha | markdown_sha | validation_report_sha |
-  |---------|------------------|--------------|--------------|-----------------------|
-  | COBSWAIT | | | | |
-  | COMEN01C | | | | |
-  | CBCUS01C | | | | |
-  | COSGN00C | | | | |
-  | CBTRN01C | | | | |
-  | CBACT01C | | | | |
-
-- [x] C.3 — All 24 SHAs computed and verified
-- [x] C.4 — Extended G1 scaffold template in "AiFirst Protocol — Master Specification & Gate Templates.md" with provenance manifest section and gate pass condition update
-- [x] C.5 — Committed (via Block C commits)
+- [x] C.1 — Created `.aifirst/runs/T-2026-04-23-001/provenance.md` with YAML header (7 fields)
+- [x] C.2 — Populated 4-column manifest table, 6 programs, 24 SHAs
+- [x] C.3 — All 24 SHAs verified via `git hash-object` (not just spot-check)
+- [x] C.4 — Extended G1 scaffold template in AiFirst Protocol spec with provenance manifest section
+- [x] C.5 — Committed and pushed; merged to main
+- [x] C.6 — Docs consistency audit commit (this PR): table pipe syntax verified, verification example added, integrity note added
 
 **Block C validation:**
-- [x] `provenance.md` exists with valid YAML header (schema_version, task_id, artifact, created, author, purpose, sha_algorithm all present)
-- [x] All 6 rows populated with non-null SHAs (24 SHAs total across 4 columns × 6 programs)
-- [x] Each SHA verified against `git hash-object` output (all 24 SHAs verified, not just spot-check)
-- [x] G1 template updated (provenance manifest section added at lines 258-264 with T01 validation extension)
+- [x] `provenance.md` exists with valid YAML header (all 7 fields present)
+- [x] All 6 rows populated, 24 non-null SHAs
+- [x] Verification section includes concrete example command with expected output
+- [x] Integrity note links manifest to run.log audit trail
+- [x] G1 template updated
 
 **Block C status:** `PASS`
 
@@ -150,15 +134,14 @@ demo_success_threshold:
   bms_maps:
     - map: "COSGN0A"
       translation_status: pending-extraction
-    # add actual map refs from source
   ```
 - [ ] D.2 — Add equivalent `bms_maps:` block to COMEN01C YAML front-matter
-- [ ] D.3 — Verify no other front-matter fields broken by addition
+- [ ] D.3 — Verify YAML front-matter still parses cleanly (T01 check)
 - [ ] D.4 — Commit
 
 **Block D validation:**
 - [ ] Both files have `bms_maps:` blocks with `translation_status: pending-extraction`
-- [ ] YAML front-matter still parses cleanly (run T01 check)
+- [ ] YAML front-matter parses cleanly
 - [ ] No content changes outside front-matter
 
 **Block D status:** `PENDING`
@@ -166,11 +149,11 @@ demo_success_threshold:
 ---
 
 ### Gate: PRE-FIX
-- [ ] CBACT01C snapshot safely tagged (Block A complete)
-- [ ] Blocks C and D committed
-- [ ] Safe to modify CBACT01C translation without losing demo artifact
+- [x] CBACT01C snapshot safely tagged on remote (`demo-snapshot-v1` → `2175cf2`)
+- [ ] Block C merged to main ✅ AND Block D committed
+- [ ] Safe to modify CBACT01C translation
 
-**PRE-FIX status:** `PENDING`
+**PRE-FIX status:** `PENDING` (awaiting Block D)
 
 ---
 
@@ -179,18 +162,18 @@ demo_success_threshold:
 **Purpose:** Clear the one real translation defect. Full 6-file gold set.
 
 - [ ] E.1 — Switch to `fix/cbact01c-t02r-ws-reissue-date` branch
-- [ ] E.2 — Open `app/cbl/CBACT01C.cbl`, locate the IF/EVALUATE block governing `WS-REISSUE-DATE`
+- [ ] E.2 — Locate IF/EVALUATE block governing `WS-REISSUE-DATE` in `app/cbl/CBACT01C.cbl`
 - [ ] E.3 — Identify CFG-known qualified field name (expected: `OUT-ACCT-REISSUE-DATE` or `WS-ACCT-REISSUE-DATE`)
-- [ ] E.4 — Update `translations/baseline/CBACT01C.md` REDEFINES interpretation condition string
-- [ ] E.5 — Re-run T02-R validator against fixed file
-- [ ] E.6 — Expect PASS; if FAIL, stop and diagnose (do NOT force)
+- [ ] E.4 — Update REDEFINES interpretation condition string in `translations/baseline/CBACT01C.md`
+- [ ] E.5 — Re-run T02-R validator; expect PASS
+- [ ] E.6 — If FAIL: STOP and report — do not force
 - [ ] E.7 — Promote to `translations/gold-candidate/`
 - [ ] E.8 — Append fix event to `run.log`
 
 **Block E validation:**
 - [ ] T02-R PASS for CBACT01C
-- [ ] Fixed condition string uses CFG-known qualified field name
-- [ ] `demo/blocked-cbact01c-snapshot/` still intact and unchanged
+- [ ] Condition string uses CFG-known qualified field name
+- [ ] `demo/blocked-cbact01c-snapshot/` still intact
 - [ ] `run.log` contains fix event
 
 **Block E status:** `PENDING`
@@ -201,27 +184,27 @@ demo_success_threshold:
 
 **Purpose:** Real semantic scores. COSGN00C is the CICS-online capability sentinel.
 
-- [ ] F.1 — Dispatch 68-payload batch in priority order: COMEN01C → COBSWAIT → CBCUS01C → CBTRN01C → COSGN00C
-- [ ] F.2 — Monitor for COSGN00C results specifically — low score = model boundary, not pipeline defect
+- [ ] F.1 — Dispatch 68-payload batch: COMEN01C → COBSWAIT → CBCUS01C → CBTRN01C → COSGN00C
+- [ ] F.2 — Monitor COSGN00C — low score = model boundary, not pipeline defect
 - [ ] F.3 — Log results as T04 tier events in `run.log` as they return
 
 **Block F validation:**
 - [ ] All 68 payloads dispatched
-- [ ] Results logged as they arrive
-- [ ] Any COSGN00C anomalies flagged with `sentinel_note` in log
+- [ ] Results logged on arrival
+- [ ] COSGN00C anomalies flagged with `sentinel_note`
 
 **Block F status:** `PENDING`
 
 ---
 
 ### Gate: CODE-COMPLETE
-- [ ] All Blocks A–E committed and pushed
-- [ ] Block F dispatched (results may still be arriving)
+- [ ] Blocks A–E all committed and pushed
+- [ ] Block F dispatched
 - [ ] `run.log` append-only integrity confirmed
-- [ ] `translations/gold/` contains at least COBSWAIT
-- [ ] `demo/blocked-cbact01c-snapshot/` tagged and preserved
-- [ ] SHA provenance manifest populated
-- [ ] BMS edges declared
+- [ ] `translations/gold/` contains at least COBSWAIT ✅
+- [ ] `demo/blocked-cbact01c-snapshot/` tagged and preserved ✅
+- [ ] SHA provenance manifest populated ✅
+- [ ] BMS edges declared (Block D)
 
 **CODE-COMPLETE status:** `PENDING`
 
@@ -231,19 +214,21 @@ demo_success_threshold:
 
 ### Block G — README Rewrite (60 min)
 
-**Purpose:** Partner-facing language in the repo's first-read document.
+**Purpose:** Partner-facing language using the three locked phrases.
 
-- [ ] G.1 — Rewrite README.md intro paragraph using all three locked phrases (see YAML header)
-- [ ] G.2 — Replace all instances of "translate/translation" with "narrate/narration" or "scribe" where referring to LLM action
-- [ ] G.3 — Keep "translation" only for directory names and existing artifact references
-- [ ] G.4 — Add "Witness Layer" section explaining tool-agnosticism
-- [ ] G.5 — Review for overclaims (especially around witness swapping — use honest "adapter needed" framing)
+**Issue found in audit:** Current README uses "translate/translation" to describe LLM action (e.g. "generate the English semantic DAG layer") and lacks witness-layer framing. The `system_status: READY_FOR_INFERENCE` framing is agent-facing, not partner-facing. Block G must address both audiences.
+
+- [ ] G.1 — Add partner-facing intro section above the YAML header block using locked phrase 1 and 3
+- [ ] G.2 — Replace "translate/translation" with "narrate/scribe" where referring to LLM action
+- [ ] G.3 — Keep "translation" for directory names and artifact references only
+- [ ] G.4 — Add "Witness Layer" section with honest adapter framing (locked phrase 2)
+- [ ] G.5 — Review for overclaims — no "zero redesign" language
 
 **Block G validation:**
 - [ ] All three locked phrases appear in README
-- [ ] No "translates COBOL" phrasing applied to LLM action
+- [ ] No "translates COBOL" applied to LLM action
 - [ ] Witness-agnostic framing includes adapter acknowledgment
-- [ ] README renders correctly in GitHub preview
+- [ ] README renders correctly in GitHub
 
 **Block G status:** `PENDING`
 
@@ -251,20 +236,20 @@ demo_success_threshold:
 
 ### Block H — Partner Deck (90 min)
 
-**Purpose:** Six-slide narrative for the meeting. Lives in repo as `docs/partner-pitch.md`.
+**Purpose:** Six-slide narrative at `docs/partner-pitch.md`.
 
 - [ ] H.1 — Slide 1: Problem — reliable structured COBOL extraction is the upstream bottleneck
 - [ ] H.2 — Slide 2: Substrate — five-gate pipeline, schema-validated, append-only audit
-- [ ] H.3 — Slide 3: Headline — CBACT01C BLOCKED screenshot, system refused to hallucinate
-- [ ] H.4 — Slide 4: Provenance — SHA manifest screenshot, source → CFG → MD → report chain
+- [ ] H.3 — Slide 3: Headline — CBACT01C BLOCKED, system refused to hallucinate
+- [ ] H.4 — Slide 4: Provenance — SHA manifest, source → CFG → MD → report chain
 - [ ] H.5 — Slide 5: Dual-use — `run.log` as compliance artifact AND fine-tuning signal
-- [ ] H.6 — Slide 6: Integration ask — substrate under their dashboard, named v2 pilot program
+- [ ] H.6 — Slide 6: Integration ask — substrate under their dashboard, one named v2 pilot program
 
 **Block H validation:**
 - [ ] Six sections in `docs/partner-pitch.md`
 - [ ] Three locked phrases appear at least once each
 - [ ] No "zero redesign" overclaim
-- [ ] Slides 1–5 build to Slide 6 ask naturally
+- [ ] Slides 1–5 build to Slide 6 naturally
 
 **Block H status:** `PENDING`
 
@@ -274,17 +259,16 @@ demo_success_threshold:
 
 **Purpose:** Opens the meeting. Confirm integration shape before pitching.
 
-- [ ] I.1 — Write four questions into `docs/discovery-questions.md`:
-  1. What does your current accuracy figure measure — structural coverage, semantic faithfulness, or task completion?
-  2. Where do failures cluster — by program complexity, COBOL feature, or domain?
+- [ ] I.1 — Write `docs/discovery-questions.md` with four questions + pivot notes:
+  1. What does your accuracy figure measure — structural coverage, semantic faithfulness, or task completion?
+  2. Where do failures cluster — by complexity, COBOL feature, or domain?
   3. What does your DFG/PDG model — programs only, programs + screens, or programs + screens + fields?
-  4. What input format does your dashboard expect, and where is the integration seam?
-- [ ] I.2 — For each question, note what answer changes the pitch (e.g., if they model screens, BMS edges matter more)
+  4. What input format does your dashboard expect, and where is the natural integration seam?
 
 **Block I validation:**
-- [ ] Four questions written with pivot notes
+- [ ] Four questions with pivot notes written
 - [ ] Questions are open-ended, not leading
-- [ ] No substrate pitch embedded in the questions
+- [ ] No substrate pitch embedded
 
 **Block I status:** `PENDING`
 
@@ -292,25 +276,25 @@ demo_success_threshold:
 
 ### Block J — Objection Register (45 min)
 
-**Purpose:** Five prepared one-liners. Acknowledge the limit, name the path.
+**Purpose:** Five prepared one-liners. Acknowledge limit, name path.
 
-- [ ] J.1 — Write `docs/objections.md` with five entries:
+- [ ] J.1 — Write `docs/objections.md`:
 
-  | # | Objection | Response |
-  |---|-----------|----------|
+  | # | Objection | One-liner response |
+  |---|-----------|--------------------|
   | 1 | GnuCOBOL ≠ Enterprise COBOL | GnuCOBOL is the current witness, replaceable; contract layer unchanged when you swap in IBM listings |
   | 2 | Sample size is six | Six is the demo set; substrate is corpus-agnostic, per-file cost bounded by gate budget |
   | 3 | We already have static analysis | Static analysis covers structure; this adds schema-gated narration with cryptographic provenance |
   | 4 | Show me production | Production requires partner code access — that is the integration ask |
-  | 5 | Why trust an LLM at all | LLM has no freedom outside CFG envelope; here is the BLOCKED case; here is the SHA chain |
+  | 5 | Why trust an LLM at all | LLM has no freedom outside the CFG envelope; here is the BLOCKED case where it hit the boundary and stopped; here is the SHA chain |
 
-- [ ] J.2 — Read each aloud; rewrite any that sound defensive or hedging
+- [ ] J.2 — Read each aloud; rewrite any that sound defensive
 - [ ] J.3 — Commit
 
 **Block J validation:**
 - [ ] Five entries, each ≤2 sentences
 - [ ] Pattern: acknowledge limit → name path
-- [ ] None are defensive; all are confident and honest
+- [ ] None defensive; all confident and honest
 
 **Block J status:** `PENDING`
 
@@ -320,24 +304,23 @@ demo_success_threshold:
 
 **Purpose:** Know whether the meeting succeeded before you walk out.
 
-- [ ] K.1 — Write `docs/demo-success.md` with the six-item checklist from YAML header
-- [ ] K.2 — Add threshold definitions (green/yellow/red from YAML header)
+- [ ] K.1 — Write `docs/demo-success.md` with six-item checklist (from YAML above)
+- [ ] K.2 — Add green/yellow/red threshold definitions
 - [ ] K.3 — Commit
 
 **Block K validation:**
-- [ ] Six criteria listed
-- [ ] Three threshold levels defined
-- [ ] Written as yes/no, not subjective
+- [ ] Six criteria listed as yes/no
+- [ ] Three thresholds defined
 
 **Block K status:** `PENDING`
 
 ---
 
 ### Gate: LANGUAGE-COMPLETE
-- [ ] All Blocks G–K committed
-- [ ] Three locked phrases appear in README and partner deck
-- [ ] All `docs/` files render correctly
-- [ ] No overclaims in any partner-facing text
+- [ ] Blocks G–K all committed
+- [ ] Three locked phrases in README and partner deck
+- [ ] All `docs/` files render on GitHub
+- [ ] No overclaims in partner-facing text
 
 **LANGUAGE-COMPLETE status:** `PENDING`
 
@@ -347,22 +330,20 @@ demo_success_threshold:
 
 ### Block L — Dry-Run Demo Walkthrough (90 min)
 
-**Purpose:** Timed end-to-end run through the live demo.
-
 - [ ] L.1 — Open repo in browser, show README
 - [ ] L.2 — Navigate to `translations/gold/COBSWAIT.md`, walk through YAML + body
 - [ ] L.3 — Show validation reports for COBSWAIT (all tiers PASS)
 - [ ] L.4 — Scroll `run.log` live, narrate event flow
-- [ ] L.5 — Open `demo/blocked-cbact01c-snapshot/`, narrate BLOCKED reason
+- [ ] L.5 — Open `demo/blocked-cbact01c-snapshot/`, narrate BLOCKED reason (≤90 seconds)
 - [ ] L.6 — Show SHA provenance manifest
-- [ ] L.7 — Deliver integration ask
-- [ ] L.8 — Time it. Target: 12 minutes. Hard ceiling: 18 minutes.
-- [ ] L.9 — If over 18 min, cut deck slides 1–2 (partners want artifact, not framing)
+- [ ] L.7 — Deliver integration ask with one named pilot program
+- [ ] L.8 — Time it. Target: 12 min. Hard ceiling: 18 min.
+- [ ] L.9 — If over 18 min: cut deck slides 1–2
 
 **Block L validation:**
-- [ ] Walkthrough completes in ≤18 min
-- [ ] BLOCKED narration is ≤90 seconds and lands the thesis
-- [ ] Integration ask is specific (one named pilot program request)
+- [ ] Walkthrough ≤18 min
+- [ ] BLOCKED narration ≤90 seconds, lands the thesis
+- [ ] Integration ask specific (one named program)
 
 **Block L status:** `PENDING`
 
@@ -371,15 +352,10 @@ demo_success_threshold:
 ### Block M — Objection Stress-Test (60 min)
 
 - [ ] M.1 — Read five one-liners aloud; rewrite any that feel wrong
-- [ ] M.2 — Have a collaborator play skeptical enterprise architect for 20 min
+- [ ] M.2 — Collaborator plays skeptical enterprise architect for 20 min
 - [ ] M.3 — Log every question NOT on the register
-- [ ] M.4 — Add one-liners for the top 3 new questions
+- [ ] M.4 — Add one-liners for top 3 new questions
 - [ ] M.5 — Update `docs/objections.md`
-
-**Block M validation:**
-- [ ] Objection register expanded if needed
-- [ ] All answers pass the "confident and honest" test
-- [ ] No improvised answers remain
 
 **Block M status:** `PENDING`
 
@@ -387,31 +363,23 @@ demo_success_threshold:
 
 ### Block N — Final Commit and Tag (30 min)
 
-**Purpose:** Single immutable demo state. No mid-meeting pushes.
-
-- [ ] N.1 — Verify all blocks complete (A through M)
-- [ ] N.2 — Single squash commit if needed for clean history
+- [ ] N.1 — Verify Blocks A–M all PASS
+- [ ] N.2 — Single squash commit if needed
 - [ ] N.3 — Tag `demo-ready-v1`
 - [ ] N.4 — Push to `main`
-- [ ] N.5 — Verify GitHub renders README, provenance manifest, and all docs correctly
-
-**Block N validation:**
-- [ ] Tag `demo-ready-v1` exists on remote
-- [ ] No uncommitted changes
-- [ ] All `docs/` files render in GitHub
-- [ ] `demo/blocked-cbact01c-snapshot/` intact
+- [ ] N.5 — Verify GitHub renders all docs correctly
 
 **Block N status:** `PENDING`
 
 ---
 
 ### Gate: DEMO-READY
-- [ ] CODE-COMPLETE gate passed
-- [ ] LANGUAGE-COMPLETE gate passed
+- [ ] CODE-COMPLETE gate PASS
+- [ ] LANGUAGE-COMPLETE gate PASS
 - [ ] Dry-run ≤18 min
 - [ ] Objection register stress-tested
 - [ ] Tag `demo-ready-v1` on remote
-- [ ] Demo success criteria printed/accessible for meeting
+- [ ] Demo success criteria accessible for meeting
 
 **DEMO-READY status:** `PENDING`
 
@@ -435,6 +403,7 @@ demo_success_threshold:
 | Timestamp | Block | Update |
 |-----------|-------|--------|
 | 2026-04-27T10:59 | — | Initial plan created |
-| 2026-04-27T11:42 | PRE-CODE / Block A | PRE-CODE gate PASS. Block A complete: branch `demo/blocked-cbact01c-snapshot` created, 11 artifacts snapshotted, tag `demo-snapshot-v1` on commit `2175cf2`, README explains BLOCKED reason, original baseline unchanged. |
-| 2026-04-27T12:46 | Block B | Block B complete: COBSWAIT promoted to gold, committed on branch `feat/block-c-sha-provenance-manifest` (commit 0bffc18). Tier verification: T01=PASS, T02=PASS, T02-R=PASS, T03=PASS (1.0/0.95), T04=DEFERRED. Gold copy at translations/gold/COBSWAIT.md. POST-A/B gate PASS (A and B both complete). |
-| 2026-04-27T13:05 | Block C | Block C complete: provenance.md populated with all 24 SHAs (6 programs × 4 columns). All SHAs verified via git hash-object. G1 scaffold template updated with provenance manifest section and gate pass condition. SHA chain: source COBOL → CFG JSON → Markdown → validation report. |
+| 2026-04-27T11:42 | PRE-CODE / Block A | PRE-CODE gate PASS. Block A complete: branch `demo/blocked-cbact01c-snapshot` created, 11 artifacts snapshotted, tag `demo-snapshot-v1` on commit `2175cf2`, README explains BLOCKED reason, original baseline unchanged |
+| 2026-04-27T12:46 | Block B | Block B complete: COBSWAIT promoted to gold (commit `0bffc18`). T01=PASS, T02=PASS, T02-R=PASS, T03=PASS, T04=DEFERRED. SHA `21e6845d`. POST-A/B gate PASS |
+| 2026-04-27T13:05 | Block C | Block C complete: `provenance.md` with 24 SHAs (6×4). All SHAs verified. G1 spec extended |
+| 2026-04-27T13:45 | Docs audit | `fix/docs-consistency-audit` PR: provenance.md verification example added, integrity note added, DEMO-SPRINT-PLAN.md synced (PRE-FIX gate clarified, Block G audit note added, Block B run.log entry corrected) |
