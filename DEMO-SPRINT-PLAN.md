@@ -5,7 +5,7 @@ task_name: "Demo Completion Sprint"
 status: ACTIVE
 author: "Mark Snow"
 created: "2026-04-27T10:59:00-04:00"
-last_updated: "2026-04-27T14:27:00-04:00"
+last_updated: "2026-04-27T17:55:00-04:00"
 target_completion: "2026-04-28T17:00:00-04:00"
 budget_hours: 12
 tracks:
@@ -130,7 +130,7 @@ demo_success_threshold:
 **Purpose:** Close "did you ignore the screen layer?" objection without scope expansion.
 
 - [x] D.1 — Add `bms_maps:` block to COSGN00C YAML front-matter (map: COSGN0A, status: pending-extraction)
-- [x] D.2 — Add `bms_maps:` block to COMEN01C YAML front-matter (map: COMEN01A, status: pending-extraction)
+- [x] D.2 — Add `bms_maps:` block to COMEN01C YAML front-matter (map: COMEN01, status: pending-extraction)
 - [x] D.3 — Verified YAML front-matter parses cleanly: COMEN01C T01=PASS, CBACT01C T01=PASS
 - [x] D.4 — Committed `287a35b` and pushed to `feat/block-d-bms-edge-declaration`
 - [x] D.5 — CBACT01C confirmed as batch program (no BMS screen layer — correct to omit)
@@ -158,22 +158,22 @@ demo_success_threshold:
 
 **Purpose:** Clear the one real translation defect. Full 6-file gold set.
 
-- [ ] E.1 — Switch to `fix/cbact01c-t02r-ws-reissue-date` branch
-- [ ] E.2 — Locate IF/EVALUATE block governing `WS-REISSUE-DATE` in `app/cbl/CBACT01C.cbl`
-- [ ] E.3 — Identify CFG-known qualified field name (expected: `OUT-ACCT-REISSUE-DATE` or `WS-ACCT-REISSUE-DATE`)
-- [ ] E.4 — Update REDEFINES interpretation condition string in `translations/baseline/CBACT01C.md`
-- [ ] E.5 — Re-run T02-R validator; expect PASS
-- [ ] E.6 — If FAIL: STOP and report — do not force
-- [ ] E.7 — Promote to `translations/gold-candidate/`
-- [ ] E.8 — Append fix event to `run.log`
+- [x] E.1 — Switched to `fix/cbact01c-t02r-ws-reissue-date` branch
+- [x] E.2 — Located IF/EVALUATE block governing `WS-REISSUE-DATE` in `app/cbl/CBACT01C.cbl` (lines 223–224)
+- [x] E.3 — CFG-known qualified field name confirmed: `WS-REISSUE-DATE`
+- [x] E.4 — Updated REDEFINES interpretation condition string in `translations/baseline/CBACT01C.md` (commit `b6fb99d`)
+- [x] E.5 — Re-ran T02-R validator: PASS (report `CBACT01C_baseline_v10_T02R_postfix.json`, SHA `83084442…`, exit=0)
+- [x] E.6 — No FAIL encountered — proceeded
+- [x] E.7 — Promoted to `translations/gold-candidate/CBACT01C.md` (commit `3ce9a609`)
+- [x] E.8 — Fix event appended to `.aifirst/runs/T-CBACT01C-T02R-FIX/run.log`
 
 **Block E validation:**
-- [ ] T02-R PASS for CBACT01C
-- [ ] Condition string uses CFG-known qualified field name
-- [ ] `demo/blocked-cbact01c-snapshot/` still intact
-- [ ] `run.log` contains fix event
+- [x] T02-R PASS for CBACT01C (SHA `83084442…`, exit=0)
+- [x] Condition string uses CFG-known qualified field name (`WS-REISSUE-DATE`)
+- [x] `demo/blocked-cbact01c-snapshot/` intact and unchanged
+- [x] `run.log` contains fix event (`T-CBACT01C-T02R-FIX`)
 
-**Block E status:** `PENDING`
+**Block E status:** `PASS`
 
 ---
 
@@ -195,15 +195,15 @@ demo_success_threshold:
 ---
 
 ### Gate: CODE-COMPLETE
-- [ ] Blocks A–E all committed and pushed
+- [x] Blocks A–E all committed and pushed
 - [ ] Block F dispatched
-- [ ] `run.log` append-only integrity confirmed
-- [ ] `translations/gold/` contains at least COBSWAIT ✅
-- [ ] `demo/blocked-cbact01c-snapshot/` tagged and preserved ✅
-- [ ] SHA provenance manifest populated ✅
-- [ ] BMS edges declared ✅ (Block D PASS)
+- [x] `run.log` append-only integrity confirmed
+- [x] `translations/gold/` contains at least COBSWAIT ✅
+- [x] `demo/blocked-cbact01c-snapshot/` tagged and preserved ✅
+- [x] SHA provenance manifest populated ✅
+- [x] BMS edges declared ✅ (Block D PASS)
 
-**CODE-COMPLETE status:** `PENDING`
+**CODE-COMPLETE status:** `PENDING` (awaiting Block F dispatch)
 
 ---
 
@@ -278,7 +278,7 @@ demo_success_threshold:
 - [ ] J.1 — Write `docs/objections.md`:
 
   | # | Objection | One-liner response |
-  |---|-----------|--------------------|
+  |---|-----------|-------------------|
   | 1 | GnuCOBOL ≠ Enterprise COBOL | GnuCOBOL is the current witness, replaceable; contract layer unchanged when you swap in IBM listings |
   | 2 | Sample size is six | Six is the demo set; substrate is corpus-agnostic, per-file cost bounded by gate budget |
   | 3 | We already have static analysis | Static analysis covers structure; this adds schema-gated narration with cryptographic provenance |
@@ -404,5 +404,6 @@ demo_success_threshold:
 | 2026-04-27T12:46 | Block B | COBSWAIT promoted to gold (commit `0bffc18`). T01=PASS, T02=PASS, T02-R=PASS, T03=PASS, T04=DEFERRED. SHA `21e6845d`. POST-A/B gate PASS |
 | 2026-04-27T13:05 | Block C | `provenance.md` with 24 SHAs (6×4). All SHAs verified. G1 spec extended |
 | 2026-04-27T13:45 | Docs audit | `fix/docs-consistency-audit` PR merged: provenance.md verification example, integrity note, DEMO-SPRINT-PLAN.md synced |
-| 2026-04-27T14:20 | Block D | BMS edge declarations committed (`287a35b`): COSGN00C (COSGN0A) and COMEN01C (COMEN01A) both pending-extraction. CBACT01C confirmed batch — no BMS. T01 PASS both files |
+| 2026-04-27T14:20 | Block D | BMS edge declarations committed (`287a35b`): COSGN00C (COSGN0A) and COMEN01C (COMEN01) both pending-extraction. CBACT01C confirmed batch — no BMS. T01 PASS both files |
 | 2026-04-27T14:27 | Block D / PRE-FIX | DEMO-SPRINT-PLAN.md cleanup: Block D → PASS, PRE-FIX → PASS, duplicate section removed, all checkboxes reconciled |
+| 2026-04-27T17:55 | Block E | CBACT01C T02-R defect fixed (commit `b6fb99d`): condition `ACCT-REISSUE-DATE` → `WS-REISSUE-DATE` (CFG-known, CBACT01C.cbl lines 223–224). T01/T02/T02-R/T03 all PASS post-fix. Promoted to `translations/gold-candidate/CBACT01C.md` (commit `3ce9a609`). Fix event in `.aifirst/runs/T-CBACT01C-T02R-FIX/run.log`. Block E → PASS. CODE-COMPLETE gate: Blocks A–E ✅, awaiting Block F dispatch only. D.2 map name corrected: COMEN01A → COMEN01 (matches committed YAML). |
