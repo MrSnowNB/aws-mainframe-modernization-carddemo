@@ -5,7 +5,11 @@ task_name: "Demo Completion Sprint"
 status: ACTIVE
 author: "Mark Snow"
 created: "2026-04-27T10:59:00-04:00"
+<<<<<<< HEAD
 last_updated: "2026-04-27T14:27:00-04:00"
+=======
+last_updated: "2026-04-27T17:42:00-04:00"
+>>>>>>> dcb91c8b4bb07a64a6863f95fc156aaf3fda6600
 target_completion: "2026-04-28T17:00:00-04:00"
 budget_hours: 12
 tracks:
@@ -130,7 +134,11 @@ demo_success_threshold:
 **Purpose:** Close "did you ignore the screen layer?" objection without scope expansion.
 
 - [x] D.1 — Add `bms_maps:` block to COSGN00C YAML front-matter (map: COSGN0A, status: pending-extraction)
+<<<<<<< HEAD
 - [x] D.2 — Add `bms_maps:` block to COMEN01C YAML front-matter (map: COMEN01A, status: pending-extraction)
+=======
+- [x] D.2 — Add `bms_maps:` block to COMEN01C YAML front-matter (map: COMEN01, status: pending-extraction)
+>>>>>>> dcb91c8b4bb07a64a6863f95fc156aaf3fda6600
 - [x] D.3 — Verified YAML front-matter parses cleanly: COMEN01C T01=PASS, CBACT01C T01=PASS
 - [x] D.4 — Committed `287a35b` and pushed to `feat/block-d-bms-edge-declaration`
 - [x] D.5 — CBACT01C confirmed as batch program (no BMS screen layer — correct to omit)
@@ -158,6 +166,7 @@ demo_success_threshold:
 
 **Purpose:** Clear the one real translation defect. Full 6-file gold set.
 
+<<<<<<< HEAD
 - [ ] E.1 — Switch to `fix/cbact01c-t02r-ws-reissue-date` branch
 - [ ] E.2 — Locate IF/EVALUATE block governing `WS-REISSUE-DATE` in `app/cbl/CBACT01C.cbl`
 - [ ] E.3 — Identify CFG-known qualified field name (expected: `OUT-ACCT-REISSUE-DATE` or `WS-ACCT-REISSUE-DATE`)
@@ -174,6 +183,24 @@ demo_success_threshold:
 - [ ] `run.log` contains fix event
 
 **Block E status:** `PENDING`
+=======
+- [x] E.1 — Switched to `fix/cbact01c-t02r-ws-reissue-date` branch
+- [x] E.2 — Located IF/EVALUATE block governing `WS-REISSUE-DATE` in `app/cbl/CBACT01C.cbl` (lines 223–224)
+- [x] E.3 — CFG-known qualified field name confirmed: `WS-REISSUE-DATE`
+- [x] E.4 — Updated REDEFINES interpretation condition string in `translations/baseline/CBACT01C.md` (commit `b6fb99d`)
+- [x] E.5 — Re-ran T02-R validator: PASS (`CBACT01C_baseline_v10_T02R_postfix.json` SHA `83084442…`)
+- [x] E.6 — No FAIL encountered — proceeded
+- [x] E.7 — Promoted to `translations/gold-candidate/CBACT01C.md` (commit `3ce9a609`)
+- [x] E.8 — Fix event appended to `.aifirst/runs/T-CBACT01C-T02R-FIX/run.log`
+
+**Block E validation:**
+- [x] T02-R PASS for CBACT01C (SHA `83084442…`, exit=0)
+- [x] Condition string uses CFG-known qualified field name (`WS-REISSUE-DATE`)
+- [x] `demo/blocked-cbact01c-snapshot/` intact and unchanged
+- [x] `run.log` contains fix event (`T-CBACT01C-T02R-FIX`)
+
+**Block E status:** `PASS`
+>>>>>>> dcb91c8b4bb07a64a6863f95fc156aaf3fda6600
 
 ---
 
@@ -195,6 +222,7 @@ demo_success_threshold:
 ---
 
 ### Gate: CODE-COMPLETE
+<<<<<<< HEAD
 - [ ] Blocks A–E all committed and pushed
 - [ ] Block F dispatched
 - [ ] `run.log` append-only integrity confirmed
@@ -204,6 +232,17 @@ demo_success_threshold:
 - [ ] BMS edges declared ✅ (Block D PASS)
 
 **CODE-COMPLETE status:** `PENDING`
+=======
+- [x] Blocks A–E all committed and pushed
+- [ ] Block F dispatched
+- [x] `run.log` append-only integrity confirmed
+- [x] `translations/gold/` contains at least COBSWAIT ✅
+- [x] `demo/blocked-cbact01c-snapshot/` tagged and preserved ✅
+- [x] SHA provenance manifest populated ✅
+- [x] BMS edges declared ✅ (Block D PASS)
+
+**CODE-COMPLETE status:** `PENDING` (awaiting Block F dispatch)
+>>>>>>> dcb91c8b4bb07a64a6863f95fc156aaf3fda6600
 
 ---
 
@@ -404,5 +443,11 @@ demo_success_threshold:
 | 2026-04-27T12:46 | Block B | COBSWAIT promoted to gold (commit `0bffc18`). T01=PASS, T02=PASS, T02-R=PASS, T03=PASS, T04=DEFERRED. SHA `21e6845d`. POST-A/B gate PASS |
 | 2026-04-27T13:05 | Block C | `provenance.md` with 24 SHAs (6×4). All SHAs verified. G1 spec extended |
 | 2026-04-27T13:45 | Docs audit | `fix/docs-consistency-audit` PR merged: provenance.md verification example, integrity note, DEMO-SPRINT-PLAN.md synced |
+<<<<<<< HEAD
 | 2026-04-27T14:20 | Block D | BMS edge declarations committed (`287a35b`): COSGN00C (COSGN0A) and COMEN01C (COMEN01A) both pending-extraction. CBACT01C confirmed batch — no BMS. T01 PASS both files |
 | 2026-04-27T14:27 | Block D / PRE-FIX | DEMO-SPRINT-PLAN.md cleanup: Block D → PASS, PRE-FIX → PASS, duplicate section removed, all checkboxes reconciled |
+=======
+| 2026-04-27T14:20 | Block D | BMS edge declarations committed (`287a35b`): COSGN00C (COSGN0A) and COMEN01C (COMEN01) both pending-extraction. CBACT01C confirmed batch — no BMS. T01 PASS both files |
+| 2026-04-27T14:27 | Block D / PRE-FIX | DEMO-SPRINT-PLAN.md cleanup: Block D → PASS, PRE-FIX → PASS, duplicate section removed, all checkboxes reconciled |
+| 2026-04-27T17:42 | Block E | CBACT01C T02-R defect fixed (commit `b6fb99d`): condition `ACCT-REISSUE-DATE` → `WS-REISSUE-DATE` (CFG-known). T01/T02/T02-R/T03 all PASS post-fix. Promoted to gold-candidate (commit `3ce9a609`). Block E → PASS. CODE-COMPLETE gate awaiting Block F dispatch only. |
+>>>>>>> dcb91c8b4bb07a64a6863f95fc156aaf3fda6600
