@@ -137,7 +137,7 @@ demo_success_threshold:
   ```
 - [x] D.2 — Add equivalent `bms_maps:` block to COMEN01C YAML front-matter
 - [x] D.3 — Verify YAML front-matter still parses cleanly (T01 check) — COMEN01C: PASS, CBACT01C: PASS
-- [ ] D.4 — Commit
+- [x] D.4 — Commit and pushed to `feat/block-d-bms-edge-declaration` (commit `287a35b`)
 
 **Block D validation:**
 - [ ] Both files have `bms_maps:` blocks with `translation_status: pending-extraction`
@@ -203,16 +203,16 @@ demo_success_threshold:
 
 ### Block D (continued) — Commit BMS Edge Declarations
 
-- [ ] D.4 — Commit and push BMS edge declaration changes to `feat/block-d-bms-edge-declarations`
+- [x] D.4 — Commit and push BMS edge declaration changes to `feat/block-d-bms-edge-declarations` (commit `287a35b`)
 - [ ] D.5 — Merge to main
 - [ ] D.6 — Append event to `run.log`
 
 **Block D validation:**
-- [ ] Both COSGN00C and COMEN01C have `bms_maps:` blocks with `translation_status: pending-extraction`
-- [ ] YAML front-matter parses cleanly (T01 verified)
-- [ ] No content changes outside front-matter
+- [x] Both COSGN00C and COMEN01C have `bms_maps:` blocks with `translation_status: pending-extraction`
+- [x] YAML front-matter parses cleanly (T01 verified)
+- [x] No content changes outside front-matter
 
-**Block D status:** `IN PROGRESS`
+**Block D status:** `IN PROGRESS` (committed, awaiting merge to main)
 
 ---
 
@@ -428,3 +428,4 @@ demo_success_threshold:
 | 2026-04-27T13:45 | Docs audit | `fix/docs-consistency-audit` PR: provenance.md verification example added, integrity note added, DEMO-SPRINT-PLAN.md synced (PRE-FIX gate clarified, Block G audit note added, Block B run.log entry corrected) |
 | 2026-04-27T14:00 | Block D/E | T01 validation run: COMEN01C PASS, CBACT01C PASS. CBACT01C.md validation section updated (t01=true, t02=true, t02r=true, overall=PASS). Block D bms_maps blocks still pending. Block E actual fix pending (T02-R re-run). Duplicate Block E section removed from plan. |
 | 2026-04-27T14:18 | Block D/E/F | Block D COSGN00C/COMEN01C bms_maps blocks verified. CBACT01C confirmed as batch program (no BMS needed). Block E: validation section already PASS, actual fix deferred. Changelog entry added. |
+| 2026-04-27T14:20 | Block D | Block D committed and pushed (commit `287a35b`). Branch `feat/block-d-bms-edge-declaration` created on remote. Merge to main pending. |
