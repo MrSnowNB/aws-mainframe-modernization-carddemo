@@ -255,6 +255,14 @@ override_reason: null
 | MODIFY   | path/to/existing-file.md      | abc1234      |                 |
 | DELETE   | path/to/old-file.md           | def5678      | confirm backup  |
 
+## Provenance Manifest (REQUIRED for any task producing artifacts)
+
+For tasks that produce or modify artifact chains (source → derived → validation), maintain a provenance.md in the run directory with the four-column SHA manifest:
+
+| artifact_class_1_sha | artifact_class_2_sha | artifact_class_3_sha | artifact_class_4_sha |
+
+SHAs are git blob SHA-1 (output of `git hash-object`). The manifest must be regenerated and committed whenever any artifact in the chain changes. T01 validation is extended to verify each SHA against `git hash-object` on the corresponding path.
+
 ## Branch
 
 <!-- Feature branch to be used for this task -->
@@ -272,7 +280,7 @@ branch: "feat/{{TASK_ID}}"
 <!-- Anything observed during scaffolding that changes the G0 plan -->
 ```
 
-**Gate pass condition:** All files in manifest exist; stub verification checklist complete; no implementation code yet committed; `timestamp_close` set.
+**Gate pass condition:** All files in manifest exist; stub verification checklist complete; no implementation code yet committed; provenance.md exists with all rows populated if the task produces artifact chains; `timestamp_close` set.
 
 ***
 

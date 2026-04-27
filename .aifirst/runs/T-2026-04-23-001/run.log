@@ -82,3 +82,4 @@
 {"event":"gate_close","task_id":"T-2026-04-23-001","gate":"G4","iteration":2,"status":"PASS","ts":"2026-04-23T15:46:53Z"}
 {"event":"gate_open","task_id":"T-2026-04-23-001","gate":"G5","agent":"claude-sonnet-4.6","ts":"2026-04-23T15:46:53Z"}
 {"event":"stop","task_id":"T-2026-04-23-001","gate":"G5","reason":"Gold promotion requires human reviewer sign-off per MASTER-ARCHITECTURE §4 and §7 Rule 6. 5 candidates staged at translations/gold-candidate/. 1 file (CBACT01C) held for re-baseline decision. T04 judgments still outstanding.","ts":"2026-04-23T15:46:53Z"}
+{"event":"step","task_id":"T-2026-04-23-001","gate":"G1","step_id":"T-2026-04-23-001-S-007","desc":"compute SHA provenance manifest for 6 programs (24 SHAs)","status":"PASS","agent":"claude-sonnet-4.6","ts":"2026-04-27T12:37:00-04:00"} 
