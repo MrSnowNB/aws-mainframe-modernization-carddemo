@@ -1,0 +1,19 @@
+{
+  "program_id": "COBSWAIT",
+  "gate_run_at": "2026-04-28T13:36:04.916101Z",
+  "source_sha": "7957347717cf04be2dc4f5be24aa94668cf780ab",
+  "md_sha": "f96290746a7a",
+  "gate_pass": false,
+  "failure_count": 1,
+  "warning_count": 0,
+  "failures": [
+    {
+      "check": "hallucinated_paragraphs",
+      "detail": "MD claims paragraphs not in source and not in dead_code_paragraphs",
+      "items": [
+        "MAIN-INLINE"
+      ]
+    }
+  ],
+  "warnings": []
+}

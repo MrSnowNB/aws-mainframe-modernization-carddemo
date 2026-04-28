@@ -1,0 +1,43 @@
+{
+  "program_id": "COSGN00C",
+  "source_sha": "c3e7f8e4fb96466d3822ad82ceda8a96fb555d78",
+  "cfg_sha": "7a1605ae9f39",
+  "extracted_at": "2026-04-28T13:32:24.169323Z",
+  "paragraphs_reachable": [
+    "MAIN-PARA",
+    "POPULATE-HEADER-INFO",
+    "PROCESS-ENTER-KEY",
+    "READ-USER-SEC-FILE",
+    "SEND-PLAIN-TEXT",
+    "SEND-SIGNON-SCREEN"
+  ],
+  "paragraphs_dead": [
+    "END-EVALUATE",
+    "END-EXEC",
+    "END-IF"
+  ],
+  "data_items_level01": [
+    "DFHCOMMAREA",
+    "WS-VARIABLES"
+  ],
+  "redefines_pairs": [],
+  "calls_to": [],
+  "copybooks": [
+    "COCOM01Y",
+    "COSGN00",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+  ],
+  "cics_commands": [
+    "RETURN",
+    "RECEIVE",
+    "SEND",
+    "ASSIGN",
+    "READ",
+    "XCTL"
+  ]
+}
