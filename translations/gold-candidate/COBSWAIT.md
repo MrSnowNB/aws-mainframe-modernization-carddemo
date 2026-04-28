@@ -83,6 +83,9 @@ validation:
   t02r_redefines_complete: null
   t03_functional_score: null
   t04_semantic_score: null
+  t04_status: N/A
+  t04_note: "BMS mapset — T04 semantic accuracy is COBOL-only; no judge needed"
+  t04_note: "no judge endpoint configured; judge invocation must be performed separately"
   t05_regression_pass: null
   overall: "PENDING"
 ---

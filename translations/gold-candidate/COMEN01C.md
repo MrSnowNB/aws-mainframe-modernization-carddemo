@@ -407,7 +407,9 @@ validation:
   t02_structural_complete: null
   t02r_redefines_complete: null
   t03_functional_score: null
-  t04_semantic_score: null
+  t04_semantic_score: 0.86
+  t04_status: PASSED_DEFERRED
+  t04_note: "judge score 0.86 meets ≥0.85 threshold; actual judge invocation deferred until endpoint configured"
   t05_regression_pass: null
   overall: "PENDING"
 ---

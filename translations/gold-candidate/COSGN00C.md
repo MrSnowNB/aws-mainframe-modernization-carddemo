@@ -302,6 +302,8 @@ validation:
   t02r_redefines_complete: null
   t03_functional_score: null
   t04_semantic_score: null
+  t04_status: DEFERRED
+  t04_note: "no judge endpoint configured; judge invocation must be performed separately"
   t05_regression_pass: null
   overall: "PENDING"
 ---
