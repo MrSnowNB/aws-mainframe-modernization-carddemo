@@ -14,6 +14,8 @@ Install deps:  pip install pyyaml
 Usage:
     python validation/extract_md_claims.py              # all 6 programs
     python validation/extract_md_claims.py CBACT01C     # single program
+
+Run AFTER lint_md.py.
 """
 import io
 import json
@@ -31,6 +33,20 @@ try:
     import yaml
 except ImportError:
     sys.exit("[CLAIMS] ERROR: PyYAML not installed. Run: pip install pyyaml")
+
+try:
+    from validation.cobol_vocab import INVALID_PARAGRAPH_NAMES
+except ImportError:
+    try:
+        from cobol_vocab import INVALID_PARAGRAPH_NAMES
+    except ImportError:
+        INVALID_PARAGRAPH_NAMES = frozenset({
+            "END-EXEC", "END-IF", "END-PERFORM", "END-EVALUATE",
+            "END-READ", "END-WRITE", "END-STRING", "END-UNSTRING",
+            "END-MULTIPLY", "END-DIVIDE", "END-ADD", "END-SUBTRACT",
+            "END-COMPUTE", "END-SEARCH", "END-CALL", "END-REWRITE",
+            "END-DELETE", "END-START", "END-RETURN",
+        })
 
 PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
 
@@ -79,6 +95,14 @@ def extract(program_id: str) -> dict:
         if isinstance(p, dict) and p.get("synthetic") is True
     )
 
+    # Lint warnings: paragraph names that match known COBOL invalid identifiers.
+    # These are emitted into claims JSON for visibility / logging but do NOT
+    # block the claims extraction.  The gate check and lint_md.py do the blocking.
+    lint_warnings = sorted(
+        name for name in para_names
+        if name.upper() in INVALID_PARAGRAPH_NAMES
+    )
+
     items = fm.get("data_items", [])
     if not isinstance(items, list):
         items = []
@@ -117,6 +141,7 @@ def extract(program_id: str) -> dict:
         "paragraphs_claimed": para_names,
         "dead_declared_in_md": dead_declared,
         "synthetic_paragraphs": synthetic_paragraphs,
+        "lint_warnings": lint_warnings,
         "data_items_level01": l01_names,
         "redefines_pairs": redefines,
         "calls_to": calls,
@@ -132,13 +157,16 @@ def extract(program_id: str) -> dict:
 
     score_flag = "NULL [OK]" if t04_score is None else f"{t04_score} [!!] FABRICATED SCORE"
     synth_note = f", {len(synthetic_paragraphs)} synthetic" if synthetic_paragraphs else ""
+    lint_note = f", {len(lint_warnings)} LINT WARNINGS" if lint_warnings else ""
     line = (
         f"[CLAIMS] {program_id}: "
-        f"{len(para_names)} paragraphs{synth_note}, "
+        f"{len(para_names)} paragraphs{synth_note}{lint_note}, "
         f"{len(dead_declared)} dead declared, "
         f"{len(l01_names)} L01 items | "
         f"t04={score_flag}"
     )
+    if lint_warnings:
+        print(f"[CLAIMS] WARNING {program_id}: lint_warnings in claims -- invalid paragraph names: {lint_warnings}")
     print(line)
     return claims, line
 
