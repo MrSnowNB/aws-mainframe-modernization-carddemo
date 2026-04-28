@@ -31,6 +31,20 @@ try:
 except AttributeError:
     pass
 
+try:
+    from validation.cobol_vocab import INVALID_PARAGRAPH_NAMES
+except ImportError:
+    try:
+        from cobol_vocab import INVALID_PARAGRAPH_NAMES
+    except ImportError:
+        INVALID_PARAGRAPH_NAMES = frozenset({
+            "END-EXEC", "END-IF", "END-PERFORM", "END-EVALUATE",
+            "END-READ", "END-WRITE", "END-STRING", "END-UNSTRING",
+            "END-MULTIPLY", "END-DIVIDE", "END-ADD", "END-SUBTRACT",
+            "END-COMPUTE", "END-SEARCH", "END-CALL", "END-REWRITE",
+            "END-DELETE", "END-START", "END-RETURN",
+        })
+
 PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
 
 
@@ -82,6 +96,25 @@ def compare(program_id: str) -> tuple:
         failures.append({"check": "hallucinated_paragraphs",
                          "detail": "MD claims paragraphs not in source, not dead-code, and not synthetic",
                          "items": unexplained})
+
+    # -- Check 2c: Dedicated invalid_paragraph_names check -------------------
+    # Catches COBOL scope terminators / reserved words that slipped into
+    # procedure_paragraphs: regardless of whether they also triggered Check 2.
+    # Provides an explicit failure category for triage instead of folding into
+    # the generic hallucinated_paragraphs bucket.
+    invalid_names = sorted(
+        name for name in cl_paragraphs
+        if name.upper() in INVALID_PARAGRAPH_NAMES
+    )
+    if invalid_names:
+        failures.append({"check": "invalid_paragraph_names",
+                         "detail": (
+                             "MD procedure_paragraphs contains COBOL scope terminators "
+                             "or reserved words that are never valid paragraph names. "
+                             "These are Cobol-REKT RC8 false positives inherited by the "
+                             "translation agent. Remove them from the MD."
+                         ),
+                         "items": invalid_names})
 
     if cl_synthetic and gt_reachable == set():
         warnings.append({"check": "synthetic_paragraphs_accepted",
@@ -137,6 +170,16 @@ def compare(program_id: str) -> tuple:
         failures.append({"check": "fabricated_t04_score",
                          "detail": "t04_semantic_score is non-null with no judge report present",
                          "value": cl["t04_score_in_md"]})
+
+    # -- Check 8: Propagated lint_warnings ------------------------------------
+    # If extract_md_claims emitted lint_warnings they are surfaced here as a
+    # warning (not failure) so the report is self-documenting even when
+    # lint_md.py was not run before claims extraction.
+    lint_warns = cl.get("lint_warnings", [])
+    if lint_warns:
+        warnings.append({"check": "lint_warnings_in_claims",
+                         "detail": "Claims JSON carries lint warnings -- run lint_md.py and fix before resubmitting",
+                         "items": lint_warns})
 
     # -- Emit report ----------------------------------------------------------
     gate_pass = len(failures) == 0
