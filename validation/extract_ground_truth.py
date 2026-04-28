@@ -13,7 +13,8 @@ Cobol-REKT RC8 known issue: scope terminators (END-IF, END-EXEC,
 END-PERFORM, END-EVALUATE, END-READ, END-WRITE, END-STRING,
 END-UNSTRING, END-MULTIPLY, END-DIVIDE, END-ADD, END-SUBTRACT,
 END-COMPUTE, END-SEARCH) are misidentified as paragraph names and
-reported as dead code. These are filtered out before gate comparison.
+reported as BOTH dead code AND reachable paragraphs in some programs.
+These are filtered from both lists before gate comparison.
 
 Usage:
     python validation/extract_ground_truth.py              # all 6 programs
@@ -34,14 +35,20 @@ except AttributeError:
 
 PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
 
-# Cobol-REKT RC8 false positives: structured statement scope terminators
-# misidentified as paragraph labels. Filter these from dead_code_paragraphs.
-COBOL_SCOPE_TERMINATORS = {
-    "END-EXEC", "END-IF", "END-PERFORM", "END-EVALUATE",
-    "END-READ", "END-WRITE", "END-STRING", "END-UNSTRING",
-    "END-MULTIPLY", "END-DIVIDE", "END-ADD", "END-SUBTRACT",
-    "END-COMPUTE", "END-SEARCH",
-}
+try:
+    from validation.cobol_vocab import COBOL_SCOPE_TERMINATORS
+except ImportError:
+    try:
+        from cobol_vocab import COBOL_SCOPE_TERMINATORS
+    except ImportError:
+        # Hard-coded fallback -- keep in sync with cobol_vocab.py
+        COBOL_SCOPE_TERMINATORS = frozenset({
+            "END-EXEC", "END-IF", "END-PERFORM", "END-EVALUATE",
+            "END-READ", "END-WRITE", "END-STRING", "END-UNSTRING",
+            "END-MULTIPLY", "END-DIVIDE", "END-ADD", "END-SUBTRACT",
+            "END-COMPUTE", "END-SEARCH", "END-CALL", "END-REWRITE",
+            "END-DELETE", "END-START", "END-RETURN",
+        })
 
 
 def log(run_id: str, lines: list, log_dir: Path):
@@ -64,18 +71,28 @@ def extract(program_id: str) -> dict:
     # Filter Cobol-REKT RC8 false-positive scope terminators from dead list
     raw_dead = cfg.get("dead_code_paragraphs", [])
     filtered_dead = [p for p in raw_dead if p not in COBOL_SCOPE_TERMINATORS]
-    suppressed = [p for p in raw_dead if p in COBOL_SCOPE_TERMINATORS]
+    suppressed_dead = set(p for p in raw_dead if p in COBOL_SCOPE_TERMINATORS)
+
+    # Filter Cobol-REKT RC8 false-positive scope terminators from reachable list.
+    # RC8 places some terminators (e.g. END-PERFORM) in the reachable paragraph
+    # list as well as / instead of the dead list depending on program structure.
+    raw_reachable = [
+        p["name"] for p in cfg.get("paragraphs", []) if p.get("reachable", False)
+    ]
+    filtered_reachable = [p for p in raw_reachable if p not in COBOL_SCOPE_TERMINATORS]
+    suppressed_reachable = set(p for p in raw_reachable if p in COBOL_SCOPE_TERMINATORS)
+
+    # Combine suppressed sets -- deduplicated, sorted for stable output
+    suppressed_all = sorted(suppressed_dead | suppressed_reachable)
 
     gt = {
         "program_id": program_id,
         "source_sha": cfg.get("source_sha", "unknown"),
         "cfg_sha": hashlib.sha256(raw).hexdigest()[:12],
         "extracted_at": datetime.datetime.utcnow().isoformat() + "Z",
-        "paragraphs_reachable": sorted({
-            p["name"] for p in cfg.get("paragraphs", []) if p.get("reachable", False)
-        }),
+        "paragraphs_reachable": sorted(set(filtered_reachable)),
         "paragraphs_dead": sorted(filtered_dead),
-        "scope_terminators_suppressed": sorted(suppressed),
+        "scope_terminators_suppressed": suppressed_all,
         "data_items_level01": sorted({
             d["name"] for d in cfg.get("data_items", []) if d.get("level") == 1
         }),
@@ -92,7 +109,7 @@ def extract(program_id: str) -> dict:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(gt, indent=2), encoding="utf-8")
 
-    suppressed_note = f", {len(suppressed)} terminators suppressed" if suppressed else ""
+    suppressed_note = f", {len(suppressed_all)} terminators suppressed" if suppressed_all else ""
     line = (
         f"[GT] {program_id}: "
         f"{len(gt['paragraphs_reachable'])} reachable, "
