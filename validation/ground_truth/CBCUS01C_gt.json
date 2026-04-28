@@ -1,0 +1,42 @@
+{
+  "program_id": "CBCUS01C",
+  "source_sha": "88a99d7fc534579e538c438a4860e72ec068730c",
+  "cfg_sha": "411554e980ee",
+  "extracted_at": "2026-04-28T13:32:24.160059Z",
+  "paragraphs_reachable": [
+    "0000-CUSTFILE-OPEN",
+    "1000-CUSTFILE-GET-NEXT",
+    "9000-CUSTFILE-CLOSE",
+    "END-PERFORM",
+    "Z-ABEND-PROGRAM",
+    "Z-DISPLAY-IO-STATUS"
+  ],
+  "paragraphs_dead": [
+    "GOBACK"
+  ],
+  "data_items_level01": [
+    "ABCODE",
+    "APPL-RESULT",
+    "CUSTFILE-STATUS",
+    "END-OF-FILE",
+    "FD-CUSTFILE-REC",
+    "IO-STATUS",
+    "IO-STATUS-04",
+    "TIMING",
+    "TWO-BYTES-ALPHA",
+    "TWO-BYTES-BINARY"
+  ],
+  "redefines_pairs": [
+    [
+      "TWO-BYTES-ALPHA",
+      "TWO-BYTES-BINARY"
+    ]
+  ],
+  "calls_to": [
+    "CEE3ABD"
+  ],
+  "copybooks": [
+    "CVCUS01Y"
+  ],
+  "cics_commands": []
+}

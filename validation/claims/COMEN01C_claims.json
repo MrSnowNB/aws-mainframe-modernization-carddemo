@@ -1,0 +1,53 @@
+{
+  "program_id": "COMEN01C",
+  "md_sha": "3f2f63ff7a21",
+  "extracted_at": "2026-04-28T13:33:36.276032Z",
+  "paragraphs_claimed": [
+    "BUILD-MENU-OPTIONS",
+    "END-EXEC",
+    "END-IF",
+    "END-PERFORM",
+    "MAIN-PARA",
+    "POPULATE-HEADER-INFO",
+    "PROCESS-ENTER-KEY",
+    "RECEIVE-MENU-SCREEN",
+    "RETURN-TO-SIGNON-SCREEN",
+    "SEND-MENU-SCREEN"
+  ],
+  "dead_declared_in_md": [
+    "END-EXEC",
+    "END-IF",
+    "END-PERFORM"
+  ],
+  "data_items_level01": [
+    "DFHCOMMAREA",
+    "WS-VARIABLES"
+  ],
+  "redefines_pairs": [],
+  "calls_to": [
+    "CDEMO-MENU-OPT-PGMNAME(WS-OPTION)",
+    "CDEMO-MENU-OPT-PGMNAME(WS-OPTION)",
+    "COSGN00C",
+    "COSGN00C"
+  ],
+  "copybooks": [
+    "COCOM01Y",
+    "COMEN01",
+    "COMEN02Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+  ],
+  "cics_commands": [
+    "RETURN",
+    "INQUIRE",
+    "XCTL",
+    "SEND",
+    "RECEIVE"
+  ],
+  "t04_score_in_md": null,
+  "t04_score_is_null": true
+}

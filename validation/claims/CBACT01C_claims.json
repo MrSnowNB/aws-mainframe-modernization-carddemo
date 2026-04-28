@@ -1,0 +1,78 @@
+{
+  "program_id": "CBACT01C",
+  "md_sha": "3b0a77e49f22",
+  "extracted_at": "2026-04-28T13:33:36.217187Z",
+  "paragraphs_claimed": [
+    "0000-ACCTFILE-OPEN",
+    "1000-ACCTFILE-GET-NEXT",
+    "1100-DISPLAY-ACCT-RECORD",
+    "1300-POPUL-ACCT-RECORD",
+    "1350-WRITE-ACCT-RECORD",
+    "1400-POPUL-ARRAY-RECORD",
+    "1450-WRITE-ARRY-RECORD",
+    "1500-POPUL-VBRC-RECORD",
+    "1550-WRITE-VB1-RECORD",
+    "1575-WRITE-VB2-RECORD",
+    "2000-OUTFILE-OPEN",
+    "3000-ARRFILE-OPEN",
+    "4000-VBRFILE-OPEN",
+    "9000-ACCTFILE-CLOSE",
+    "9910-DISPLAY-IO-STATUS",
+    "9999-ABEND-PROGRAM",
+    "END-IF",
+    "END-PERFORM",
+    "GOBACK",
+    "VB2-ACCT-ID",
+    "WS-REISSUE-DATE"
+  ],
+  "dead_declared_in_md": [
+    "END-IF",
+    "GOBACK",
+    "VB2-ACCT-ID",
+    "WS-REISSUE-DATE"
+  ],
+  "data_items_level01": [
+    "ABCODE",
+    "ACCTFILE-STATUS",
+    "APPL-RESULT",
+    "ARR-ARRAY-REC",
+    "ARRYFILE-STATUS",
+    "END-OF-FILE",
+    "FD-ACCTFILE-REC",
+    "IO-STATUS",
+    "IO-STATUS-04",
+    "OUT-ACCT-REC",
+    "OUTFILE-STATUS",
+    "TIMING",
+    "TWO-BYTES-ALPHA",
+    "TWO-BYTES-BINARY",
+    "VBR-REC",
+    "VBRC-REC1",
+    "VBRC-REC2",
+    "VBRCFILE-STATUS",
+    "WS-ACCT-REISSUE-DATE",
+    "WS-RECD-LEN",
+    "WS-REISSUE-DATE"
+  ],
+  "redefines_pairs": [
+    [
+      "TWO-BYTES-ALPHA",
+      "TWO-BYTES-BINARY"
+    ],
+    [
+      "WS-REISSUE-DATE",
+      "WS-ACCT-REISSUE-DATE"
+    ]
+  ],
+  "calls_to": [
+    "CEE3ABD",
+    "COBDATFT"
+  ],
+  "copybooks": [
+    "CODATECN",
+    "CVACT01Y"
+  ],
+  "cics_commands": [],
+  "t04_score_in_md": null,
+  "t04_score_is_null": true
+}

@@ -1,0 +1,44 @@
+{
+  "program_id": "COMEN01C",
+  "source_sha": "a404313748b0715a306336ac599b3e585697c05c",
+  "cfg_sha": "a85b06554743",
+  "extracted_at": "2026-04-28T13:32:24.168287Z",
+  "paragraphs_reachable": [
+    "BUILD-MENU-OPTIONS",
+    "MAIN-PARA",
+    "POPULATE-HEADER-INFO",
+    "PROCESS-ENTER-KEY",
+    "RECEIVE-MENU-SCREEN",
+    "RETURN-TO-SIGNON-SCREEN",
+    "SEND-MENU-SCREEN"
+  ],
+  "paragraphs_dead": [
+    "END-EXEC",
+    "END-IF",
+    "END-PERFORM"
+  ],
+  "data_items_level01": [
+    "DFHCOMMAREA",
+    "WS-VARIABLES"
+  ],
+  "redefines_pairs": [],
+  "calls_to": [],
+  "copybooks": [
+    "COCOM01Y",
+    "COMEN01",
+    "COMEN02Y",
+    "COTTL01Y",
+    "CSDAT01Y",
+    "CSMSG01Y",
+    "CSUSR01Y",
+    "DFHAID",
+    "DFHBMSCA"
+  ],
+  "cics_commands": [
+    "RETURN",
+    "INQUIRE",
+    "XCTL",
+    "SEND",
+    "RECEIVE"
+  ]
+}
