@@ -4,6 +4,7 @@ extract_md_claims.py -- extract structural claims from a gold-candidate MD file.
 
 Reads:  translations/gold-candidate/{PROGRAM}.md
 Writes: validation/claims/{PROGRAM}_claims.json
+        validation/logs/claims_{TIMESTAMP}.log    (append-only run log)
 
 No LLM. Parses YAML frontmatter only -- no interpretation of prose body.
 Runnable on any machine with Python 3.8+ and PyYAML.
@@ -21,7 +22,6 @@ import hashlib
 import datetime
 from pathlib import Path
 
-# Force UTF-8 stdout for Windows cp1252 safety
 try:
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 except AttributeError:
@@ -35,8 +35,15 @@ except ImportError:
 PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
 
 
+def log(run_id: str, lines: list, log_dir: Path):
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / f"claims_{run_id}.log"
+    with open(log_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    return log_path
+
+
 def parse_frontmatter(md_path: Path) -> dict:
-    """Extract the YAML block between the first pair of --- delimiters."""
     text = md_path.read_text(encoding="utf-8")
     parts = text.split("---")
     if len(parts) < 3:
@@ -48,12 +55,11 @@ def extract(program_id: str) -> dict:
     md_path = Path(f"translations/gold-candidate/{program_id}.md")
     if not md_path.exists():
         print(f"[CLAIMS] ERROR: {md_path} not found -- skipping {program_id}")
-        return {}
+        return {}, ""
 
     md_bytes = md_path.read_bytes()
     fm = parse_frontmatter(md_path)
 
-    # -- Paragraphs -----------------------------------------------------------
     proc = fm.get("procedure_paragraphs", [])
     if not isinstance(proc, list):
         proc = []
@@ -62,55 +68,43 @@ def extract(program_id: str) -> dict:
         p["name"] if isinstance(p, dict) else str(p)
         for p in proc
     )
-
-    # Dead-code paragraphs the MD explicitly marks reachable:false
     dead_declared = sorted(
         p["name"]
         for p in proc
         if isinstance(p, dict) and p.get("reachable") is False
     )
-
-    # Synthetic paragraphs: MD-invented labels for inline-only sources
-    # (programs with no named paragraphs). Declared via synthetic: true.
     synthetic_paragraphs = sorted(
         p["name"]
         for p in proc
         if isinstance(p, dict) and p.get("synthetic") is True
     )
 
-    # -- Data items (level-01 only) -------------------------------------------
     items = fm.get("data_items", [])
     if not isinstance(items, list):
         items = []
-
     l01_names = sorted(
         d["name"]
         for d in items
         if isinstance(d, dict) and d.get("level") == 1
     )
-
     redefines = sorted(
         [d["name"], d["redefines"]]
         for d in items
         if isinstance(d, dict) and d.get("redefines")
     )
 
-    # -- Calls, copybooks, CICS -----------------------------------------------
     calls_raw = fm.get("calls_to", [])
     calls = sorted(
         c["program"] if isinstance(c, dict) else str(c)
         for c in (calls_raw if isinstance(calls_raw, list) else [])
     )
-
     cpyb_raw = fm.get("copybooks_used", [])
     copybooks = sorted(
         c["name"] if isinstance(c, dict) else str(c)
         for c in (cpyb_raw if isinstance(cpyb_raw, list) else [])
     )
-
     cics = fm.get("cics_commands", [])
 
-    # -- Validation block: detect fabricated T04 score ------------------------
     val = fm.get("validation", {})
     if not isinstance(val, dict):
         val = {}
@@ -138,20 +132,32 @@ def extract(program_id: str) -> dict:
 
     score_flag = "NULL [OK]" if t04_score is None else f"{t04_score} [!!] FABRICATED SCORE"
     synth_note = f", {len(synthetic_paragraphs)} synthetic" if synthetic_paragraphs else ""
-    print(
+    line = (
         f"[CLAIMS] {program_id}: "
         f"{len(para_names)} paragraphs{synth_note}, "
         f"{len(dead_declared)} dead declared, "
         f"{len(l01_names)} L01 items | "
         f"t04={score_flag}"
     )
-    return claims
+    print(line)
+    return claims, line
 
 
 if __name__ == "__main__":
+    run_id = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    log_dir = Path("validation/logs")
     targets = sys.argv[1:] if sys.argv[1:] else PROGRAMS
     unknown = [p for p in targets if p not in PROGRAMS]
+    run_lines = [f"# extract_md_claims run {run_id}", f"# targets: {targets}"]
     if unknown:
-        print(f"[CLAIMS] WARNING: unknown program(s): {unknown}")
+        warn = f"[CLAIMS] WARNING: unknown program(s): {unknown}"
+        print(warn)
+        run_lines.append(warn)
     for p in targets:
-        extract(p)
+        if p in PROGRAMS:
+            result = extract(p)
+            if result:
+                _, line = result
+                run_lines.append(line)
+    log(run_id, run_lines, log_dir)
+    print(f"[CLAIMS] log written: validation/logs/claims_{run_id}.log")

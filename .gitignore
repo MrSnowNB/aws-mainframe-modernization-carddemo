@@ -12,10 +12,13 @@ venv/
 # Regenerate locally with: python validation/extract_ground_truth.py
 #                           python validation/extract_md_claims.py
 #                           python validation/gate_compare.py
-# Committed on first run for audit trail; excluded going forward.
 validation/ground_truth/
 validation/claims/
 validation/reports/
+
+# Gate run logs — committed for audit trail, excluded from gitignore
+# Remove the next line if you want logs tracked in git
+validation/logs/
 
 # OS
 .DS_Store
