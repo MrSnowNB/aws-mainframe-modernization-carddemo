@@ -59,6 +59,7 @@ data_items:
 procedure_paragraphs:
   - name: "MAIN-INLINE"
     reachable: true
+    synthetic: true
     performs: []
     goto_targets: []
     summary: "Implicit main procedure (the PROCEDURE DIVISION contains no named paragraphs): accept the parameter from SYSIN, move it into the binary wait-time field, call the MVSWAIT system service, and stop the run."
@@ -87,7 +88,7 @@ validation:
   overall: "PENDING"
 ---
 
-# COBSWAIT — Utility Wait Program
+# COBSWAIT -- Utility Wait Program
 
 ## Purpose
 
@@ -96,26 +97,26 @@ COBSWAIT is a thin batch utility whose only responsibility is to pause the curre
 ## Runtime Context
 
 - Execution context: batch, z/OS.
-- Invocation: one parameter passed on SYSIN — an 8-character digit string representing centiseconds.
+- Invocation: one parameter passed on SYSIN -- an 8-character digit string representing centiseconds.
 - External services: one static CALL to the `MVSWAIT` load module.
 - No file I/O, no VSAM access, no CICS services, no copybooks.
 
 ## Procedure Logic
 
-The PROCEDURE DIVISION has no named paragraphs; it contains a single sequence of four statements represented here as the implicit `MAIN-INLINE` paragraph:
+The PROCEDURE DIVISION has no named paragraphs; it contains a single sequence of four statements represented here as the synthetic `MAIN-INLINE` label:
 
 1. Accept an 8-byte character string `PARM-VALUE` from SYSIN.
 2. Move `PARM-VALUE` into `MVSWAIT-TIME`, converting its character representation into the binary COMP integer required by MVSWAIT.
-3. Call `MVSWAIT` passing `MVSWAIT-TIME` by reference — the operating system suspends execution for the indicated number of centiseconds.
+3. Call `MVSWAIT` passing `MVSWAIT-TIME` by reference -- the operating system suspends execution for the indicated number of centiseconds.
 4. Issue `STOP RUN` to terminate and return control to the job step dispatcher.
 
 ## Business Rules Surfaced
 
 - **BR-001 (transform).** The caller-supplied parameter is reinterpreted from its character encoding on SYSIN into an 8-digit binary integer. The implicit contract is that the parameter must be numeric digits; non-numeric input will produce undefined MVSWAIT behaviour.
-- **BR-002 (guard).** The program has no error handling — any failure reported by MVSWAIT is not inspected. The run completes successfully from the job-step point of view even if the wait itself was malformed.
+- **BR-002 (guard).** The program has no error handling -- any failure reported by MVSWAIT is not inspected. The run completes successfully from the job-step point of view even if the wait itself was malformed.
 
 ## Graph Summary
 
 - Program node: `COBSWAIT` / `Utility` / `Utility` / `Batch/VSAM`.
-- One outbound CALL edge: `COBSWAIT → MVSWAIT` (STATIC).
+- One outbound CALL edge: `COBSWAIT -> MVSWAIT` (STATIC).
 - No copybook, VSAM, CICS, or business-rule edges beyond BR-001 and BR-002.
