@@ -22,6 +22,13 @@ Patch history:
     is cleared when the matching END-IF / END-EVALUATE is consumed.  Previously
     the context bled into every subsequent statement in the paragraph, causing the
     LLM to treat unconditional post-scope code as conditionally guarded.
+  P5 (2026-04-29): Add CICS branch command detection.  EXEC CICS commands such as
+    RETURN, XCTL, LINK, HANDLE, and ABEND are conditional branch / state-machine
+    transition points in pseudo-conversational CICS programs.  Previously they
+    received no cfg_branch_context and were emitted to Pass 2 as unconditional
+    cics-interaction.  Now they carry is_cics_branch=True and a descriptive
+    cfg_branch_context so the LLM can correctly classify them as state-machine
+    or guard-with-override.
 """
 
 from __future__ import annotations
@@ -62,6 +69,18 @@ SCOPE_TERMINATORS = {"END-IF", "END-EVALUATE", "END-EXEC", "END-PERFORM", "END-R
 # Used in the statement loop to detect scope closes without consuming a verb.
 _SCOPE_CLOSE_PATTERN = re.compile(
     r"^\s+(END-IF|END-EVALUATE)\b",
+    re.IGNORECASE,
+)
+
+# P5: CICS commands that represent conditional branch / state-machine transitions
+# in pseudo-conversational CICS programs (CardDemo uses all of these).
+# Non-branch CICS commands (SEND, RECEIVE, READ, WRITE, etc.) are NOT listed here
+# and will continue to be classified as cics-interaction by the LLM.
+CICS_BRANCH_COMMANDS = {"HANDLE", "RETURN", "XCTL", "LINK", "ABEND"}
+
+# Regex to extract the first CICS command token from the text following EXEC CICS.
+_CICS_COMMAND_PATTERN = re.compile(
+    r"^\s*([A-Z][A-Z0-9\-]*)",
     re.IGNORECASE,
 )
 
@@ -175,6 +194,18 @@ def build_branch_context(verb: str, text: str) -> str | None:
         return f"IF {text.strip()}"
     if verb == "EVALUATE":
         return f"EVALUATE {text.strip()}"
+    return None
+
+
+def extract_cics_command(rest: str) -> str | None:
+    """P5: Extract the first CICS command token from text following EXEC CICS.
+
+    Returns the uppercased command name (e.g. 'RETURN', 'XCTL') or None if
+    the text is blank or unparseable.
+    """
+    m = _CICS_COMMAND_PATTERN.match(rest)
+    if m:
+        return m.group(1).upper()
     return None
 
 
@@ -293,7 +324,29 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
         if any(t == "unresolved" for t in op_types):
             rec["operand_unresolved"] = True
 
-        if verb in BRANCH_VERBS and rec["cfg_branch_context"] is None:
+        # -----------------------------------------------------------------
+        # P5: CICS branch command detection.
+        # Check BEFORE the standard BRANCH_VERBS block so that CICS branch
+        # annotations are applied on the same pass as the record is built.
+        # -----------------------------------------------------------------
+        if verb == "EXEC CICS":
+            cics_cmd = extract_cics_command(rest)
+            if cics_cmd and cics_cmd in CICS_BRANCH_COMMANDS:
+                # Summarise options from rest (first 60 chars, stripped).
+                options_summary = rest.strip()[:60].rstrip()
+                branch_ctx = f"EXEC CICS {cics_cmd} {options_summary}".strip()
+                rec["cfg_branch_context"] = branch_ctx
+                rec["is_cics_branch"] = True
+                rec["cics_command"] = cics_cmd
+                # CICS branches do NOT increment _scope_depth — they are
+                # point exits, not block-scoped constructs.
+            else:
+                # Non-branch CICS command: record the command for Pass 2
+                # context but leave cfg_branch_context as-is.
+                if cics_cmd:
+                    rec["cics_command"] = cics_cmd
+
+        elif verb in BRANCH_VERBS and rec["cfg_branch_context"] is None:
             rec["cfg_branch_context"] = build_branch_context(verb, rest)
             if rec["cfg_branch_context"] is None:
                 rec["cfg_branch_unresolved"] = True
@@ -327,8 +380,14 @@ def selftest() -> int:
     # We verify indirectly: no annotation should carry a non-null branch context.
     assert all(a["cfg_branch_context"] is None for a in anns), \
         "selftest P3: unexpected branch context on COBSWAIT annotation"
+    # P5: COBSWAIT uses EXEC CICS but via a CALL verb wrapper; no is_cics_branch
+    # flag should appear on any annotation (COBSWAIT has no direct EXEC CICS).
+    assert not any(a.get("is_cics_branch") for a in anns), \
+        "selftest P5: unexpected is_cics_branch on COBSWAIT annotation"
     print(json.dumps({"selftest": "PASS", "annotations": len(anns), "verbs": verbs,
-                      "phantoms_filtered": len(phantoms), "p3_scope_depth_ok": True}))
+                      "phantoms_filtered": len(phantoms),
+                      "p3_scope_depth_ok": True,
+                      "p5_cics_branch_ok": True}))
     return 0
 
 
@@ -360,6 +419,7 @@ def main() -> int:
         "phantoms_filtered": len(phantoms),
         "unresolved_operands": sum(1 for a in annotations if a.get("operand_unresolved")),
         "branch_verbs": sum(1 for a in annotations if a["verb"] in BRANCH_VERBS),
+        "cics_branches": sum(1 for a in annotations if a.get("is_cics_branch")),
         "out": str(args.out),
     }))
     return 0
