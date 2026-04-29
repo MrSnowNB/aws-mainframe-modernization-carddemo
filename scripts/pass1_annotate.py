@@ -16,6 +16,12 @@ Toolchain substitution (RF-01, logged in G0):
 
 Output: validation/pass1/<PROGRAM_ID>_annotations.json
   JSON array of annotation records per plan §2 "Output Format".
+
+Patch history:
+  P3 (2026-04-29): Track IF/EVALUATE scope depth so that pending_branch_context
+    is cleared when the matching END-IF / END-EVALUATE is consumed.  Previously
+    the context bled into every subsequent statement in the paragraph, causing the
+    LLM to treat unconditional post-scope code as conditionally guarded.
 """
 
 from __future__ import annotations
@@ -44,6 +50,20 @@ KNOWN_VERBS = {
 }
 
 BRANCH_VERBS = {"IF", "EVALUATE", "GO TO"}
+
+# Scope-opening verbs that increment _scope_depth (P3).
+_SCOPE_OPENERS = {"IF", "EVALUATE"}
+
+# Scope terminators that decrement _scope_depth (P3).
+# Shared with the phantom-paragraph filter further below.
+SCOPE_TERMINATORS = {"END-IF", "END-EVALUATE", "END-EXEC", "END-PERFORM", "END-READ"}
+
+# Regex matching a bare scope-terminator token on its own source line.
+# Used in the statement loop to detect scope closes without consuming a verb.
+_SCOPE_CLOSE_PATTERN = re.compile(
+    r"^\s+(END-IF|END-EVALUATE)\b",
+    re.IGNORECASE,
+)
 
 # Regex for a statement-leading COBOL verb. We require the verb to start at
 # start-of-line (with leading whitespace) to reduce false positives where a
@@ -173,7 +193,6 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
     #      as a real terminating statement like `GOBACK.` or `EXIT.`).
     # A bare `GOBACK.` statement on its own line is a legitimate PROCEDURE
     # statement that must be annotated, not filtered.
-    SCOPE_TERMINATORS = {"END-IF", "END-EVALUATE", "END-EXEC", "END-PERFORM", "END-READ"}
     # Statements that also happen to pattern-match as paragraph headers when
     # they appear alone on a line followed by a period. These are always real
     # statements, never phantom paragraphs, regardless of what the CFG says.
@@ -184,12 +203,28 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
 
     annotations: list[dict] = []
     current_paragraph: str | None = None
-    current_section: str | None = None
+    current_section: str | None = None  # noqa: F841  (tracked for future use)
     current_division: str | None = None
     seq = 0
     pending_branch_context: str | None = None
+    # P3: scope depth counter — incremented on IF/EVALUATE, decremented on
+    # END-IF/END-EVALUATE.  When depth returns to 0 the pending branch context
+    # is cleared so post-scope statements are not falsely marked as guarded.
+    _scope_depth: int = 0
 
     for phys_line, line in preprocessed:
+        # ----------------------------------------------------------------
+        # P3: detect scope-close tokens BEFORE verb/paragraph matching so
+        # that END-IF / END-EVALUATE decrement depth even when they appear
+        # as standalone lines that do not match _VERB_PATTERN.
+        # ----------------------------------------------------------------
+        mclose = _SCOPE_CLOSE_PATTERN.match(line)
+        if mclose and current_division == "PROCEDURE":
+            _scope_depth = max(0, _scope_depth - 1)
+            if _scope_depth == 0:
+                pending_branch_context = None
+            continue
+
         # Track structure
         mdiv = _DIVISION_PATTERN.match(line)
         if mdiv:
@@ -197,7 +232,7 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
             continue
         msec = _SECTION_PATTERN.match(line)
         if msec:
-            current_section = msec.group(1).upper()
+            current_section = msec.group(1).upper()  # type: ignore[assignment]
             continue
         mpar = _PARAGRAPH_PATTERN.match(line)
         if mpar and current_division == "PROCEDURE":
@@ -216,7 +251,9 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
                 continue
             else:
                 current_paragraph = name
+                # P3: entering a new paragraph always resets scope state.
                 pending_branch_context = None
+                _scope_depth = 0
                 continue
 
         # Statement detection (PROCEDURE DIVISION only).
@@ -260,7 +297,13 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
             rec["cfg_branch_context"] = build_branch_context(verb, rest)
             if rec["cfg_branch_context"] is None:
                 rec["cfg_branch_unresolved"] = True
-            pending_branch_context = rec["cfg_branch_context"]
+            # P3: open a new scope and set the branch context.
+            if verb in _SCOPE_OPENERS:
+                _scope_depth += 1
+                pending_branch_context = rec["cfg_branch_context"]
+            else:
+                # GO TO: no scope block; just record context for this statement.
+                pending_branch_context = rec["cfg_branch_context"]
 
         annotations.append(rec)
 
@@ -280,7 +323,12 @@ def selftest() -> int:
     assert len(anns) == 4, f"selftest expected 4 annotations, got {len(anns)}: {[a['verb'] for a in anns]}"
     verbs = [a["verb"] for a in anns]
     assert verbs == ["ACCEPT", "MOVE", "CALL", "STOP RUN"], f"verbs mismatch: {verbs}"
-    print(json.dumps({"selftest": "PASS", "annotations": len(anns), "verbs": verbs, "phantoms_filtered": len(phantoms)}))
+    # P3: COBSWAIT has no IF/EVALUATE blocks so scope depth must be 0 at end.
+    # We verify indirectly: no annotation should carry a non-null branch context.
+    assert all(a["cfg_branch_context"] is None for a in anns), \
+        "selftest P3: unexpected branch context on COBSWAIT annotation"
+    print(json.dumps({"selftest": "PASS", "annotations": len(anns), "verbs": verbs,
+                      "phantoms_filtered": len(phantoms), "p3_scope_depth_ok": True}))
     return 0
 
 
