@@ -38,6 +38,26 @@ Patch history:
     number + identifier patterns and unions the result with the CFG inventory.
     This is zero-cost (the preprocess() call is already required) and catches
     all COPY-expanded field names deterministically.
+  P1 (2026-04-29): Replace seq±1 CFG edge placeholders with real paragraph
+    call-graph edges derived from the Cobol-REKT CFG JSON paragraphs[].performs
+    and paragraphs[].goto_targets arrays.
+
+    Previously cfg_predecessors/cfg_successors were hardcoded [seq-1]/[seq+1],
+    a pure sequential walk with no knowledge of cross-paragraph flow.  The LLM
+    received no context about which paragraphs call which, so PERFORM targets
+    and GO TO destinations appeared as isolated islands.
+
+    The fix adds resolve_cfg_edges() which runs as a second pass over the
+    completed annotation list.  It builds a paragraph→first_seq index, then
+    for every PERFORM or GO TO annotation it:
+      • Resolves the target paragraph name from the annotation operands.
+      • Overwrites cfg_successors with [target_first_seq] when resolvable,
+        retaining [seq+1] as fallback for unresolvable targets.
+      • Back-patches cfg_predecessors on the first statement of the target
+        paragraph to include the calling seq.
+      • Adds cfg_perform_target or cfg_goto_target key with the paragraph name
+        for Pass 2 context.
+    Seq±1 fallback is retained wherever no CFG paragraph edge resolves.
 """
 
 from __future__ import annotations
@@ -75,32 +95,25 @@ _SCOPE_OPENERS = {"IF", "EVALUATE"}
 SCOPE_TERMINATORS = {"END-IF", "END-EVALUATE", "END-EXEC", "END-PERFORM", "END-READ"}
 
 # Regex matching a bare scope-terminator token on its own source line.
-# Used in the statement loop to detect scope closes without consuming a verb.
 _SCOPE_CLOSE_PATTERN = re.compile(
     r"^\s+(END-IF|END-EVALUATE)\b",
     re.IGNORECASE,
 )
 
-# P5: CICS commands that represent conditional branch / state-machine transitions
-# in pseudo-conversational CICS programs (CardDemo uses all of these).
+# P5: CICS commands that are state-machine branch points.
 CICS_BRANCH_COMMANDS = {"HANDLE", "RETURN", "XCTL", "LINK", "ABEND"}
 
-# Regex to extract the first CICS command token from the text following EXEC CICS.
+# Regex to extract the first CICS command token from text following EXEC CICS.
 _CICS_COMMAND_PATTERN = re.compile(
     r"^\s*([A-Z][A-Z0-9\-]*)",
     re.IGNORECASE,
 )
 
-# P2: Regex to detect a data-item definition line in the expanded DATA DIVISION.
-# Matches lines like:  "   05  WS-CARD-CREDIT-LMT    PIC ..."
-# Level numbers 01–49 and 77 are recognised; 66 (RENAMES) and 88 (condition
-# names) are intentionally excluded because they are not storage fields.
+# P2: Data-item definition line pattern (level + name in DATA DIVISION).
 _DATA_ITEM_PATTERN = re.compile(
     r"^\s+(0[1-9]|[1-4][0-9]|77)\s+([A-Z][A-Z0-9\-]*)\b",
     re.IGNORECASE,
 )
-
-# Level numbers to skip in the data-item scan (condition names, renames).
 _SKIP_LEVELS = {"66", "88"}
 
 # Regex for a statement-leading COBOL verb.
@@ -140,49 +153,151 @@ def preprocess(src_path: Path) -> list[tuple[int, str]]:
 
 
 def build_expanded_inventory(preprocessed: list[tuple[int, str]]) -> set[str]:
-    """P2: Scan the cobc -E expanded source for DATA DIVISION field definitions.
-
-    Returns a set of uppercased data-item names found in the expanded source.
-    This catches all COPY-expanded fields that the Cobol-REKT CFG tool may have
-    missed.  Only DATA DIVISION lines are scanned; the scan stops at PROCEDURE
-    DIVISION to avoid false positives from paragraph names.
-
-    Level 66 (RENAMES) and 88 (condition names) are excluded because they are
-    not primary storage fields and should not be treated as operands.
-    """
+    """P2: Scan cobc -E expanded DATA DIVISION for field definitions."""
     inventory: set[str] = set()
     in_data_division = False
-
     for _lineno, line in preprocessed:
-        # Detect division boundaries.
         mdiv = _DIVISION_PATTERN.match(line)
         if mdiv:
             div = mdiv.group(1).upper()
             if div == "DATA":
                 in_data_division = True
             elif div == "PROCEDURE":
-                # Stop scanning once we hit PROCEDURE DIVISION.
                 break
             else:
                 in_data_division = False
             continue
-
         if not in_data_division:
             continue
-
-        # Check for level-number + identifier pattern.
         m = _DATA_ITEM_PATTERN.match(line)
         if m:
             level = m.group(1).lstrip("0") or "0"
             if level in _SKIP_LEVELS:
                 continue
             name = m.group(2).upper()
-            # Exclude FILLER (unnamed fields) and reserved words that
-            # occasionally appear as level entries in old COBOL.
             if name not in ("FILLER", "COPY"):
                 inventory.add(name)
-
     return inventory
+
+
+def build_cfg_call_index(cfg: dict) -> dict[str, list[str]]:
+    """P1: Build a map of paragraph_name → list[paragraph_names_it_performs_or_gotos].
+
+    The Cobol-REKT CFG JSON stores paragraphs[].performs as the list of ALL
+    paragraphs reachable from a given paragraph (transitively, per smojol’s
+    analysis), not just direct calls.  We use this as a best-available
+    approximation: for each PERFORM/GO TO verb annotation we will try to match
+    the target operand name against the performs list of the paragraph it lives in.
+    This is sufficient for the LLM context purpose — we are not trying to
+    replicate a full control-flow analyser, just to give the LLM a non-trivial
+    predecessor/successor edge rather than the meaningless seq±1 placeholder.
+
+    Also collects goto_targets per paragraph for GO TO resolution.
+
+    Returns:
+        {
+            "PARA-NAME": {
+                "performs": ["PARA-A", "PARA-B", ...],
+                "goto_targets": ["PARA-C", ...]
+            },
+            ...
+        }
+    """
+    index: dict[str, dict] = {}
+    for p in cfg.get("paragraphs", []):
+        name = p.get("name", "").upper()
+        if not name:
+            continue
+        # Filter out non-paragraph tokens that smojol sometimes puts in performs
+        # (e.g. "UNTIL", "VARYING").
+        performs = [
+            t.upper() for t in p.get("performs", [])
+            if re.match(r'^[A-Z][A-Z0-9\-]+$', t, re.IGNORECASE)
+            and t.upper() not in {"UNTIL", "VARYING", "TIMES", "THROUGH", "THRU"}
+        ]
+        gotos = [t.upper() for t in p.get("goto_targets", [])]
+        index[name] = {"performs": performs, "goto_targets": gotos}
+    return index
+
+
+def resolve_cfg_edges(
+    annotations: list[dict],
+    cfg_call_index: dict[str, dict],
+) -> None:
+    """P1: Post-pass that replaces seq±1 edge placeholders with real call-graph edges.
+
+    Mutates annotations in-place.
+
+    Algorithm:
+    1.  Build paragraph → first_seq mapping from the annotation list itself
+        (seq of the first statement belonging to each paragraph).
+    2.  For every annotation whose verb is PERFORM or GO TO:
+        a.  Extract the target paragraph name from the first 'paragraph' operand.
+        b.  Look up the target’s first_seq.
+        c.  If found: overwrite cfg_successors with [target_first_seq],
+            add cfg_perform_target or cfg_goto_target key,
+            back-patch cfg_predecessors on the target’s first annotation.
+        d.  If not found: leave cfg_successors as-is (seq+1 fallback).
+    3.  Seq±1 fallback is retained wherever resolution fails — this keeps
+        the output valid even for programs where the CFG JSON has no paragraph
+        information (e.g. COBSWAIT).
+    """
+    if not annotations:
+        return
+
+    # Step 1: paragraph → first_seq index (built from annotations, not CFG JSON,
+    # so it reflects the actual statements we annotated).
+    para_first_seq: dict[str, int] = {}
+    for ann in annotations:
+        p = ann["paragraph"].upper()
+        if p not in para_first_seq:
+            para_first_seq[p] = ann["seq"]
+
+    # Step 2: seq → annotation index for O(1) back-patching.
+    seq_index: dict[int, dict] = {ann["seq"]: ann for ann in annotations}
+
+    for ann in annotations:
+        verb = ann["verb"]
+        if verb not in ("PERFORM", "GO TO"):
+            continue
+
+        # Extract the first 'paragraph' type operand as the target name.
+        target_name: str | None = None
+        for op, ot in zip(ann.get("operands", []), ann.get("operand_types", [])):
+            if ot == "paragraph":
+                target_name = op.upper()
+                break
+
+        if not target_name:
+            continue
+
+        # Resolve target first_seq from the annotation-derived index.
+        target_seq = para_first_seq.get(target_name)
+
+        # Fall back to CFG call index check: confirm the target is a known
+        # paragraph in the CFG (avoids wiring to stray tokens).
+        caller_para = ann["paragraph"].upper()
+        caller_info = cfg_call_index.get(caller_para, {})
+        known_targets = set(caller_info.get("performs", []) + caller_info.get("goto_targets", []))
+
+        if target_seq is None or (known_targets and target_name not in known_targets):
+            # Target not resolvable or not confirmed in CFG — keep seq+1 fallback.
+            ann["cfg_edge_unresolved"] = True
+            continue
+
+        # Wire the edge.
+        ann["cfg_successors"] = [target_seq]
+        if verb == "PERFORM":
+            ann["cfg_perform_target"] = target_name
+        else:
+            ann["cfg_goto_target"] = target_name
+
+        # Back-patch the target’s first annotation’s predecessors.
+        target_ann = seq_index.get(target_seq)
+        if target_ann is not None:
+            preds = target_ann.get("cfg_predecessors", [])
+            if ann["seq"] not in preds:
+                target_ann["cfg_predecessors"] = preds + [ann["seq"]]
 
 
 def identify_operands(verb: str, rest: str, data_items_inventory: set[str]) -> tuple[list[str], list[str]]:
@@ -265,17 +380,16 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
     """Return (annotations, phantom_filter_events)."""
     cfg = load_cfg(cfg_path)
 
-    # P2: Build inventory from TWO sources and union them:
-    #   1. Cobol-REKT CFG JSON data_items array (original path).
-    #   2. cobc -E expanded source DATA DIVISION scan (new path).
-    # The CFG path is kept so that programs where cobc -E partially fails
-    # (e.g. missing copybook paths) still get as much coverage as possible.
+    # P2: Build data inventory from CFG JSON + cobc -E expanded source (union).
     cfg_inventory: set[str] = {
         d["name"].upper() for d in cfg.get("data_items", []) if d.get("name")
     }
     preprocessed = preprocess(src_path)
     expanded_inventory: set[str] = build_expanded_inventory(preprocessed)
     data_items_inventory: set[str] = cfg_inventory | expanded_inventory
+
+    # P1: Build paragraph call-graph index from CFG JSON.
+    cfg_call_index = build_cfg_call_index(cfg)
 
     cfg_paragraphs = {p.get("name", "").upper() for p in cfg.get("paragraphs", []) if p.get("name")}
 
@@ -350,6 +464,8 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
             "operand_types": op_types,
             "cfg_reachable": current_paragraph.upper() in cfg_paragraphs,
             "cfg_branch_context": pending_branch_context,
+            # P1: seq±1 placeholders — resolve_cfg_edges() overwrites these
+            # for PERFORM/GO TO statements after the first pass completes.
             "cfg_predecessors": [seq - 1] if seq > 1 else [],
             "cfg_successors": [seq + 1],
             "division": current_division,
@@ -384,8 +500,12 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
 
         annotations.append(rec)
 
+    # Tidy last annotation.
     if annotations:
         annotations[-1]["cfg_successors"] = []
+
+    # P1: Second pass — resolve real call-graph edges.
+    resolve_cfg_edges(annotations, cfg_call_index)
 
     return annotations, phantom_events
 
@@ -398,19 +518,26 @@ def selftest() -> int:
     assert len(anns) == 4, f"selftest expected 4 annotations, got {len(anns)}: {[a['verb'] for a in anns]}"
     verbs = [a["verb"] for a in anns]
     assert verbs == ["ACCEPT", "MOVE", "CALL", "STOP RUN"], f"verbs mismatch: {verbs}"
+    # P3
     assert all(a["cfg_branch_context"] is None for a in anns), \
         "selftest P3: unexpected branch context on COBSWAIT annotation"
+    # P5
     assert not any(a.get("is_cics_branch") for a in anns), \
         "selftest P5: unexpected is_cics_branch on COBSWAIT annotation"
-    # P2: verify the expanded inventory is a superset of the CFG inventory
-    # (i.e. build_expanded_inventory ran without error and returned a set).
-    from scripts.pass1_annotate import preprocess as _pp, build_expanded_inventory as _bei  # noqa: F401
-    # Re-run inline to check the function is importable and callable.
+    # P2
     pre = preprocess(src)
     exp_inv = build_expanded_inventory(pre)
     assert isinstance(exp_inv, set), "selftest P2: build_expanded_inventory must return a set"
+    # P1: COBSWAIT has no PERFORM/GO TO so no edges should have been resolved
+    # (all should retain seq+1 or [] fallback).  Verify resolve_cfg_edges ran
+    # without raising by checking no annotation has cfg_perform_target.
+    assert not any(a.get("cfg_perform_target") for a in anns), \
+        "selftest P1: unexpected cfg_perform_target on COBSWAIT (no PERFORM statements)"
+    assert not any(a.get("cfg_goto_target") for a in anns), \
+        "selftest P1: unexpected cfg_goto_target on COBSWAIT (no GO TO statements)"
     print(json.dumps({"selftest": "PASS", "annotations": len(anns), "verbs": verbs,
                       "phantoms_filtered": len(phantoms),
+                      "p1_edge_resolution_ok": True,
                       "p2_expanded_inventory_size": len(exp_inv),
                       "p3_scope_depth_ok": True,
                       "p5_cics_branch_ok": True}))
@@ -439,6 +566,11 @@ def main() -> int:
     if args.phantoms_out:
         args.phantoms_out.parent.mkdir(parents=True, exist_ok=True)
         args.phantoms_out.write_text(json.dumps(phantoms, indent=2))
+
+    resolved_edges = sum(
+        1 for a in annotations
+        if a.get("cfg_perform_target") or a.get("cfg_goto_target")
+    )
     print(json.dumps({
         "program_id": args.program_id,
         "annotations": len(annotations),
@@ -446,7 +578,8 @@ def main() -> int:
         "unresolved_operands": sum(1 for a in annotations if a.get("operand_unresolved")),
         "branch_verbs": sum(1 for a in annotations if a["verb"] in BRANCH_VERBS),
         "cics_branches": sum(1 for a in annotations if a.get("is_cics_branch")),
-        "inventory_size": -1,  # not exported; see build_expanded_inventory internals
+        "cfg_edges_resolved": resolved_edges,
+        "cfg_edges_unresolved": sum(1 for a in annotations if a.get("cfg_edge_unresolved")),
         "out": str(args.out),
     }))
     return 0
