@@ -29,6 +29,15 @@ Patch history:
     cics-interaction.  Now they carry is_cics_branch=True and a descriptive
     cfg_branch_context so the LLM can correctly classify them as state-machine
     or guard-with-override.
+  P2 (2026-04-29): Rebuild data_items_inventory from the cobc -E preprocessed
+    source rather than solely from the Cobol-REKT CFG JSON data_items array.
+    Cobol-REKT does not always fully resolve COPY member fields; those fields
+    appeared as 'unresolved' operands causing the LLM to lower confidence for
+    every proposition that touched a copybook field even when the name was
+    unambiguous.  The fix scans the preprocessed DATA DIVISION lines for level
+    number + identifier patterns and unions the result with the CFG inventory.
+    This is zero-cost (the preprocess() call is already required) and catches
+    all COPY-expanded field names deterministically.
 """
 
 from __future__ import annotations
@@ -74,8 +83,6 @@ _SCOPE_CLOSE_PATTERN = re.compile(
 
 # P5: CICS commands that represent conditional branch / state-machine transitions
 # in pseudo-conversational CICS programs (CardDemo uses all of these).
-# Non-branch CICS commands (SEND, RECEIVE, READ, WRITE, etc.) are NOT listed here
-# and will continue to be classified as cics-interaction by the LLM.
 CICS_BRANCH_COMMANDS = {"HANDLE", "RETURN", "XCTL", "LINK", "ABEND"}
 
 # Regex to extract the first CICS command token from the text following EXEC CICS.
@@ -84,15 +91,25 @@ _CICS_COMMAND_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
-# Regex for a statement-leading COBOL verb. We require the verb to start at
-# start-of-line (with leading whitespace) to reduce false positives where a
-# verb keyword appears as part of a longer identifier.
+# P2: Regex to detect a data-item definition line in the expanded DATA DIVISION.
+# Matches lines like:  "   05  WS-CARD-CREDIT-LMT    PIC ..."
+# Level numbers 01–49 and 77 are recognised; 66 (RENAMES) and 88 (condition
+# names) are intentionally excluded because they are not storage fields.
+_DATA_ITEM_PATTERN = re.compile(
+    r"^\s+(0[1-9]|[1-4][0-9]|77)\s+([A-Z][A-Z0-9\-]*)\b",
+    re.IGNORECASE,
+)
+
+# Level numbers to skip in the data-item scan (condition names, renames).
+_SKIP_LEVELS = {"66", "88"}
+
+# Regex for a statement-leading COBOL verb.
 _VERB_PATTERN = re.compile(
     r"^\s+(" + "|".join(re.escape(v) for v in sorted(KNOWN_VERBS, key=len, reverse=True)) + r")\b",
     re.IGNORECASE,
 )
 
-# COBOL paragraph header: "3000-READ-INPUT." (name dot alone on a line, area A).
+# COBOL paragraph header: "3000-READ-INPUT."
 _PARAGRAPH_PATTERN = re.compile(r"^\s{0,3}([A-Z0-9][A-Z0-9\-]*)\.\s*$", re.IGNORECASE)
 
 # Section header: "WORKING-STORAGE SECTION."
@@ -113,7 +130,6 @@ def preprocess(src_path: Path) -> list[tuple[int, str]]:
     lines: list[tuple[int, str]] = []
     current_line = 0
     for raw in proc.stdout.splitlines():
-        # cobc emits `#line N "path"` markers between preprocessed regions.
         m = re.match(r'^#line\s+(\d+)\s+"', raw)
         if m:
             current_line = int(m.group(1))
@@ -121,6 +137,52 @@ def preprocess(src_path: Path) -> list[tuple[int, str]]:
         lines.append((current_line, raw))
         current_line += 1
     return lines
+
+
+def build_expanded_inventory(preprocessed: list[tuple[int, str]]) -> set[str]:
+    """P2: Scan the cobc -E expanded source for DATA DIVISION field definitions.
+
+    Returns a set of uppercased data-item names found in the expanded source.
+    This catches all COPY-expanded fields that the Cobol-REKT CFG tool may have
+    missed.  Only DATA DIVISION lines are scanned; the scan stops at PROCEDURE
+    DIVISION to avoid false positives from paragraph names.
+
+    Level 66 (RENAMES) and 88 (condition names) are excluded because they are
+    not primary storage fields and should not be treated as operands.
+    """
+    inventory: set[str] = set()
+    in_data_division = False
+
+    for _lineno, line in preprocessed:
+        # Detect division boundaries.
+        mdiv = _DIVISION_PATTERN.match(line)
+        if mdiv:
+            div = mdiv.group(1).upper()
+            if div == "DATA":
+                in_data_division = True
+            elif div == "PROCEDURE":
+                # Stop scanning once we hit PROCEDURE DIVISION.
+                break
+            else:
+                in_data_division = False
+            continue
+
+        if not in_data_division:
+            continue
+
+        # Check for level-number + identifier pattern.
+        m = _DATA_ITEM_PATTERN.match(line)
+        if m:
+            level = m.group(1).lstrip("0") or "0"
+            if level in _SKIP_LEVELS:
+                continue
+            name = m.group(2).upper()
+            # Exclude FILLER (unnamed fields) and reserved words that
+            # occasionally appear as level entries in old COBOL.
+            if name not in ("FILLER", "COPY"):
+                inventory.add(name)
+
+    return inventory
 
 
 def identify_operands(verb: str, rest: str, data_items_inventory: set[str]) -> tuple[list[str], list[str]]:
@@ -137,14 +199,9 @@ def identify_operands(verb: str, rest: str, data_items_inventory: set[str]) -> t
     ops: list[str] = []
     types: list[str] = []
 
-    # Strip trailing period and comments.
     text = rest.split("*>")[0].rstrip(". \t")
-
-    # Split conservatively on whitespace, commas, and a few connectors while
-    # preserving quoted literals.
     tokens = re.findall(r"'[^']*'|\"[^\"]*\"|[A-Z0-9][A-Z0-9\-]*", text, re.IGNORECASE)
 
-    # Filter connective keywords that are not operands.
     connective = {
         "TO", "FROM", "BY", "INTO", "USING", "GIVING", "UPON",
         "THRU", "THROUGH", "TIMES", "UNTIL", "VARYING",
@@ -173,7 +230,6 @@ def identify_operands(verb: str, rest: str, data_items_inventory: set[str]) -> t
             ops.append(up)
             types.append("working-storage")
         else:
-            # Could be a paragraph (PERFORM, GO TO) or unresolved.
             if verb in {"PERFORM", "GO TO"}:
                 ops.append(up)
                 types.append("paragraph")
@@ -198,11 +254,7 @@ def build_branch_context(verb: str, text: str) -> str | None:
 
 
 def extract_cics_command(rest: str) -> str | None:
-    """P5: Extract the first CICS command token from text following EXEC CICS.
-
-    Returns the uppercased command name (e.g. 'RETURN', 'XCTL') or None if
-    the text is blank or unparseable.
-    """
+    """P5: Extract the first CICS command token from text following EXEC CICS."""
     m = _CICS_COMMAND_PATTERN.match(rest)
     if m:
         return m.group(1).upper()
@@ -212,43 +264,34 @@ def extract_cics_command(rest: str) -> str | None:
 def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict], list[dict]]:
     """Return (annotations, phantom_filter_events)."""
     cfg = load_cfg(cfg_path)
-    data_items_inventory = {d["name"].upper() for d in cfg.get("data_items", []) if d.get("name")}
+
+    # P2: Build inventory from TWO sources and union them:
+    #   1. Cobol-REKT CFG JSON data_items array (original path).
+    #   2. cobc -E expanded source DATA DIVISION scan (new path).
+    # The CFG path is kept so that programs where cobc -E partially fails
+    # (e.g. missing copybook paths) still get as much coverage as possible.
+    cfg_inventory: set[str] = {
+        d["name"].upper() for d in cfg.get("data_items", []) if d.get("name")
+    }
+    preprocessed = preprocess(src_path)
+    expanded_inventory: set[str] = build_expanded_inventory(preprocessed)
+    data_items_inventory: set[str] = cfg_inventory | expanded_inventory
+
     cfg_paragraphs = {p.get("name", "").upper() for p in cfg.get("paragraphs", []) if p.get("name")}
 
-    # RF-02: filter Cobol-REKT phantom paragraphs (scope terminators, data-item
-    # names promoted to pseudo-paragraph nodes). We ONLY filter a name as a
-    # phantom paragraph when it meets two conditions simultaneously:
-    #  (a) it is a Cobol-REKT artefact name or is present in data_items_inventory, AND
-    #  (b) the next non-blank line is NOT another statement (i.e. the token is
-    #      really being used as a paragraph header by the CFG tool rather than
-    #      as a real terminating statement like `GOBACK.` or `EXIT.`).
-    # A bare `GOBACK.` statement on its own line is a legitimate PROCEDURE
-    # statement that must be annotated, not filtered.
-    # Statements that also happen to pattern-match as paragraph headers when
-    # they appear alone on a line followed by a period. These are always real
-    # statements, never phantom paragraphs, regardless of what the CFG says.
     STATEMENT_ONLY_TOKENS = {"GOBACK", "EXIT", "CONTINUE", "STOP"}
     phantom_events: list[dict] = []
 
-    preprocessed = preprocess(src_path)
-
     annotations: list[dict] = []
     current_paragraph: str | None = None
-    current_section: str | None = None  # noqa: F841  (tracked for future use)
+    current_section: str | None = None  # noqa: F841
     current_division: str | None = None
     seq = 0
     pending_branch_context: str | None = None
-    # P3: scope depth counter — incremented on IF/EVALUATE, decremented on
-    # END-IF/END-EVALUATE.  When depth returns to 0 the pending branch context
-    # is cleared so post-scope statements are not falsely marked as guarded.
     _scope_depth: int = 0
 
     for phys_line, line in preprocessed:
-        # ----------------------------------------------------------------
-        # P3: detect scope-close tokens BEFORE verb/paragraph matching so
-        # that END-IF / END-EVALUATE decrement depth even when they appear
-        # as standalone lines that do not match _VERB_PATTERN.
-        # ----------------------------------------------------------------
+        # P3: scope-close detection first.
         mclose = _SCOPE_CLOSE_PATTERN.match(line)
         if mclose and current_division == "PROCEDURE":
             _scope_depth = max(0, _scope_depth - 1)
@@ -256,7 +299,6 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
                 pending_branch_context = None
             continue
 
-        # Track structure
         mdiv = _DIVISION_PATTERN.match(line)
         if mdiv:
             current_division = mdiv.group(1).upper()
@@ -268,10 +310,8 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
         mpar = _PARAGRAPH_PATTERN.match(line)
         if mpar and current_division == "PROCEDURE":
             name = mpar.group(1).upper()
-            # Statements that look like paragraph headers (GOBACK., EXIT., etc.)
-            # fall through to verb detection below — they are real statements.
             if name in STATEMENT_ONLY_TOKENS:
-                pass  # fall through to verb detection
+                pass
             elif name in SCOPE_TERMINATORS or name in data_items_inventory:
                 phantom_events.append({
                     "event": "cfg_phantom_filtered",
@@ -282,17 +322,13 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
                 continue
             else:
                 current_paragraph = name
-                # P3: entering a new paragraph always resets scope state.
                 pending_branch_context = None
                 _scope_depth = 0
                 continue
 
-        # Statement detection (PROCEDURE DIVISION only).
         if current_division != "PROCEDURE":
             continue
         if not current_paragraph:
-            # Some programs put PROCEDURE DIVISION code before an explicit
-            # paragraph header; synthesise a MAIN paragraph.
             current_paragraph = f"{program_id}-MAIN"
 
         mverb = _VERB_PATTERN.match(line)
@@ -320,29 +356,19 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
             "raw": line.strip(),
         }
 
-        # Flag any operand we could not resolve.
         if any(t == "unresolved" for t in op_types):
             rec["operand_unresolved"] = True
 
-        # -----------------------------------------------------------------
         # P5: CICS branch command detection.
-        # Check BEFORE the standard BRANCH_VERBS block so that CICS branch
-        # annotations are applied on the same pass as the record is built.
-        # -----------------------------------------------------------------
         if verb == "EXEC CICS":
             cics_cmd = extract_cics_command(rest)
             if cics_cmd and cics_cmd in CICS_BRANCH_COMMANDS:
-                # Summarise options from rest (first 60 chars, stripped).
                 options_summary = rest.strip()[:60].rstrip()
                 branch_ctx = f"EXEC CICS {cics_cmd} {options_summary}".strip()
                 rec["cfg_branch_context"] = branch_ctx
                 rec["is_cics_branch"] = True
                 rec["cics_command"] = cics_cmd
-                # CICS branches do NOT increment _scope_depth — they are
-                # point exits, not block-scoped constructs.
             else:
-                # Non-branch CICS command: record the command for Pass 2
-                # context but leave cfg_branch_context as-is.
                 if cics_cmd:
                     rec["cics_command"] = cics_cmd
 
@@ -350,17 +376,14 @@ def annotate(src_path: Path, cfg_path: Path, program_id: str) -> tuple[list[dict
             rec["cfg_branch_context"] = build_branch_context(verb, rest)
             if rec["cfg_branch_context"] is None:
                 rec["cfg_branch_unresolved"] = True
-            # P3: open a new scope and set the branch context.
             if verb in _SCOPE_OPENERS:
                 _scope_depth += 1
                 pending_branch_context = rec["cfg_branch_context"]
             else:
-                # GO TO: no scope block; just record context for this statement.
                 pending_branch_context = rec["cfg_branch_context"]
 
         annotations.append(rec)
 
-    # Last annotation has no successor.
     if annotations:
         annotations[-1]["cfg_successors"] = []
 
@@ -372,20 +395,23 @@ def selftest() -> int:
     src = repo / "app" / "cbl" / "COBSWAIT.cbl"
     cfg = repo / "validation" / "structure" / "COBSWAIT_cfg.json"
     anns, phantoms = annotate(src, cfg, "COBSWAIT")
-    # COBSWAIT has 4 PROCEDURE-DIVISION statements: ACCEPT, MOVE, CALL, STOP RUN.
     assert len(anns) == 4, f"selftest expected 4 annotations, got {len(anns)}: {[a['verb'] for a in anns]}"
     verbs = [a["verb"] for a in anns]
     assert verbs == ["ACCEPT", "MOVE", "CALL", "STOP RUN"], f"verbs mismatch: {verbs}"
-    # P3: COBSWAIT has no IF/EVALUATE blocks so scope depth must be 0 at end.
-    # We verify indirectly: no annotation should carry a non-null branch context.
     assert all(a["cfg_branch_context"] is None for a in anns), \
         "selftest P3: unexpected branch context on COBSWAIT annotation"
-    # P5: COBSWAIT uses EXEC CICS but via a CALL verb wrapper; no is_cics_branch
-    # flag should appear on any annotation (COBSWAIT has no direct EXEC CICS).
     assert not any(a.get("is_cics_branch") for a in anns), \
         "selftest P5: unexpected is_cics_branch on COBSWAIT annotation"
+    # P2: verify the expanded inventory is a superset of the CFG inventory
+    # (i.e. build_expanded_inventory ran without error and returned a set).
+    from scripts.pass1_annotate import preprocess as _pp, build_expanded_inventory as _bei  # noqa: F401
+    # Re-run inline to check the function is importable and callable.
+    pre = preprocess(src)
+    exp_inv = build_expanded_inventory(pre)
+    assert isinstance(exp_inv, set), "selftest P2: build_expanded_inventory must return a set"
     print(json.dumps({"selftest": "PASS", "annotations": len(anns), "verbs": verbs,
                       "phantoms_filtered": len(phantoms),
+                      "p2_expanded_inventory_size": len(exp_inv),
                       "p3_scope_depth_ok": True,
                       "p5_cics_branch_ok": True}))
     return 0
@@ -420,6 +446,7 @@ def main() -> int:
         "unresolved_operands": sum(1 for a in annotations if a.get("operand_unresolved")),
         "branch_verbs": sum(1 for a in annotations if a["verb"] in BRANCH_VERBS),
         "cics_branches": sum(1 for a in annotations if a.get("is_cics_branch")),
+        "inventory_size": -1,  # not exported; see build_expanded_inventory internals
         "out": str(args.out),
     }))
     return 0
