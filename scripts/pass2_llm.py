@@ -27,7 +27,7 @@ Rule 8 envelope enforced on every payload:
   - temperature = 0
   - seed = 42
   - response_format = {"type": "json_object"}
-  - max_tokens bounded
+  - max_tokens bounded (P4: per-verb, not global flat 400)
   - structured system prompt declaring the required JSON response schema
   - user prompt contains ONLY annotation context (no raw COBOL is
     forwarded except the single statement `raw` string, per prompt
@@ -40,6 +40,17 @@ Review issues addressed:
   #2  Every payload includes the annotation `raw` field so the LLM has
       the original statement text.
   #3  Payload files (`*_llm_requests.jsonl`) are emitted to disk here.
+
+Patch history:
+  P4 (2026-04-29): Add VERB_MAX_TOKENS per-verb override map.  All
+    payloads previously used max_tokens=400 regardless of verb complexity.
+    EVALUATE blocks with multiple WHEN arms and EXEC CICS interactions with
+    RESP/RESP2 checks regularly exceeded 400 tokens in their JSON response,
+    causing truncated JSON that pass2_merge.py rejected, leaving the
+    proposition as PARTIAL and re-queuing it.  The fix uses a per-verb
+    token budget that scales with expected response complexity while keeping
+    the CLI --max-tokens flag as the overrideable default for any verb not
+    listed in VERB_MAX_TOKENS.
 """
 
 from __future__ import annotations
@@ -61,6 +72,32 @@ SEMANTIC_PATTERN_ENUM = [
     "file-io",
     "unknown",
 ]
+
+# P4: Per-verb max_tokens budget.
+#
+# Rationale for each value:
+#   EVALUATE       700  — multiple WHEN arms each generate a clause in the
+#                         proposition + reads list; 400 truncates routinely.
+#   EXEC CICS      600  — RESP/RESP2 handling, COMMAREA operands, and the
+#                         state-machine pattern description all add tokens.
+#   EXEC SQL       600  — SQL predicates and INTO operand lists expand output.
+#   IF             500  — complex conditions (AND/OR chains) plus ELSE clause.
+#   CALL           500  — USING/GIVING argument lists for programs with many
+#                         parameters.
+#   MOVE CORRESPONDING  500  — group-item field enumeration in reads list.
+#
+# Any verb NOT listed here uses the CLI --max-tokens default (400 unless
+# overridden).  The CLI flag overrides the DEFAULT only; verbs in this map
+# always use the map value.  If you need to raise a specific verb budget
+# further, update this dict rather than the CLI default.
+VERB_MAX_TOKENS: dict[str, int] = {
+    "EVALUATE":            700,
+    "EXEC CICS":           600,
+    "EXEC SQL":            600,
+    "IF":                  500,
+    "CALL":                500,
+    "MOVE CORRESPONDING":  500,
+}
 
 SYSTEM_PROMPT = (
     "You are a COBOL-to-English semantic annotator. "
@@ -115,8 +152,16 @@ def build_user_prompt(prop: dict, program_id: str) -> str:
 
 
 def build_payload(prop: dict, program_id: str, model: str,
-                  max_tokens: int) -> dict[str, Any]:
-    """Build a Rule-8-conformant chat-completions payload."""
+                  default_max_tokens: int) -> dict[str, Any]:
+    """Build a Rule-8-conformant chat-completions payload.
+
+    P4: max_tokens is resolved as:
+      1. VERB_MAX_TOKENS[verb]  if the verb has a per-verb budget, else
+      2. default_max_tokens     (the CLI --max-tokens value, default 400).
+    """
+    verb = prop.get("verb", "")
+    max_tokens = VERB_MAX_TOKENS.get(verb, default_max_tokens)
+
     return {
         # Routing keys (not part of the wire payload; stripped by dispatcher).
         "_routing": {
@@ -125,8 +170,12 @@ def build_payload(prop: dict, program_id: str, model: str,
             "seq": prop["seq"],
             "paragraph": prop["paragraph"],
             "line": prop["line"],
-            "verb": prop["verb"],
+            "verb": verb,
             "proposition_source": prop["proposition_source"],
+            "max_tokens_used": max_tokens,       # P4: surfaced for audit
+            "max_tokens_source": (
+                "verb_map" if verb in VERB_MAX_TOKENS else "cli_default"
+            ),
         },
         # Wire payload (Rule 8 envelope).
         "model": model,
@@ -150,7 +199,14 @@ def main() -> int:
                     help="Output JSONL file of request payloads")
     ap.add_argument("--model", default="gpt-4o-2024-08-06",
                     help="Model ID to set in the payload. Does not call the endpoint.")
-    ap.add_argument("--max-tokens", type=int, default=400)
+    ap.add_argument(
+        "--max-tokens", type=int, default=400,
+        help=(
+            "Default max_tokens for verbs not listed in VERB_MAX_TOKENS. "
+            "Verbs with a per-verb budget (EVALUATE, EXEC CICS, etc.) always "
+            "use their map value regardless of this flag."
+        ),
+    )
     args = ap.parse_args()
 
     propositions = json.loads(args.propositions.read_text())
@@ -167,6 +223,13 @@ def main() -> int:
     for p in targets:
         buckets[p["proposition_source"]] = buckets.get(p["proposition_source"], 0) + 1
 
+    # P4: per-verb token budget breakdown for the audit manifest.
+    verb_token_usage: dict[str, int] = {}
+    for p in targets:
+        verb = p.get("verb", "unknown")
+        used = VERB_MAX_TOKENS.get(verb, args.max_tokens)
+        verb_token_usage[verb] = max(verb_token_usage.get(verb, 0), used)
+
     stats = {
         "program_id": args.program_id,
         "total_propositions": len(propositions),
@@ -177,8 +240,11 @@ def main() -> int:
             "temperature": 0,
             "seed": 42,
             "response_format": "json_object",
-            "max_tokens": args.max_tokens,
+            "default_max_tokens": args.max_tokens,
             "model": args.model,
+            # P4: show the max budget ceiling across all emitted payloads.
+            "max_tokens_ceiling": max(verb_token_usage.values()) if verb_token_usage else args.max_tokens,
+            "verb_token_budgets": VERB_MAX_TOKENS,
         },
     }
     print(json.dumps(stats))
