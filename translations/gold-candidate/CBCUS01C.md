@@ -1,4 +1,4 @@
----
+  ---
 schema_version: "cobol-md/1.0"
 program_id: "CBCUS01C"
 source_file: "app/cbl/CBCUS01C.cbl"

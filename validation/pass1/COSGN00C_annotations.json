@@ -136,10 +136,11 @@
       5
     ],
     "cfg_successors": [
-      7
+      30
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   },
   {
     "seq": 7,
@@ -181,10 +182,11 @@
       7
     ],
     "cfg_successors": [
-      9
+      15
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM PROCESS-ENTER-KEY"
+    "raw": "PERFORM PROCESS-ENTER-KEY",
+    "cfg_perform_target": "PROCESS-ENTER-KEY"
   },
   {
     "seq": 9,
@@ -228,10 +230,11 @@
       9
     ],
     "cfg_successors": [
-      11
+      33
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-PLAIN-TEXT"
+    "raw": "PERFORM SEND-PLAIN-TEXT",
+    "cfg_perform_target": "SEND-PLAIN-TEXT"
   },
   {
     "seq": 11,
@@ -299,10 +302,11 @@
       12
     ],
     "cfg_successors": [
-      14
+      30
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   },
   {
     "seq": 14,
@@ -316,7 +320,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "IF EIBCALEN = 0",
+    "cfg_branch_context": "EXEC CICS RETURN RETURN",
     "cfg_predecessors": [
       13
     ],
@@ -325,7 +329,9 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS RETURN",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "is_cics_branch": true,
+    "cics_command": "RETURN"
   },
   {
     "seq": 15,
@@ -341,14 +347,16 @@
     "cfg_reachable": true,
     "cfg_branch_context": null,
     "cfg_predecessors": [
-      14
+      14,
+      8
     ],
     "cfg_successors": [
       16
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS RECEIVE",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "cics_command": "RECEIVE"
   },
   {
     "seq": 16,
@@ -465,10 +473,11 @@
       19
     ],
     "cfg_successors": [
-      21
+      30
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   },
   {
     "seq": 21,
@@ -562,10 +571,11 @@
       23
     ],
     "cfg_successors": [
-      25
+      30
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   },
   {
     "seq": 25,
@@ -603,7 +613,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE TRUE",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       25
     ],
@@ -632,7 +642,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE TRUE",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       26
     ],
@@ -655,7 +665,7 @@
       "working-storage"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE TRUE",
+    "cfg_branch_context": "IF NOT ERR-FLG-ON",
     "cfg_predecessors": [
       27
     ],
@@ -677,15 +687,16 @@
       "paragraph"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE TRUE",
+    "cfg_branch_context": "IF NOT ERR-FLG-ON",
     "cfg_predecessors": [
       28
     ],
     "cfg_successors": [
-      30
+      50
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM READ-USER-SEC-FILE"
+    "raw": "PERFORM READ-USER-SEC-FILE",
+    "cfg_perform_target": "READ-USER-SEC-FILE"
   },
   {
     "seq": 30,
@@ -701,13 +712,21 @@
     "cfg_reachable": true,
     "cfg_branch_context": null,
     "cfg_predecessors": [
-      29
+      29,
+      6,
+      13,
+      20,
+      24,
+      63,
+      67,
+      71
     ],
     "cfg_successors": [
-      31
+      35
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM POPULATE-HEADER-INFO"
+    "raw": "PERFORM POPULATE-HEADER-INFO",
+    "cfg_perform_target": "POPULATE-HEADER-INFO"
   },
   {
     "seq": 31,
@@ -757,7 +776,8 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS SEND",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "cics_command": "SEND"
   },
   {
     "seq": 33,
@@ -775,14 +795,16 @@
     "cfg_reachable": true,
     "cfg_branch_context": null,
     "cfg_predecessors": [
-      32
+      32,
+      10
     ],
     "cfg_successors": [
       34
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS SEND TEXT",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "cics_command": "SEND"
   },
   {
     "seq": 34,
@@ -796,7 +818,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": null,
+    "cfg_branch_context": "EXEC CICS RETURN RETURN",
     "cfg_predecessors": [
       33
     ],
@@ -805,7 +827,9 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS RETURN",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "is_cics_branch": true,
+    "cics_command": "RETURN"
   },
   {
     "seq": 35,
@@ -825,7 +849,8 @@
     "cfg_reachable": true,
     "cfg_branch_context": null,
     "cfg_predecessors": [
-      34
+      34,
+      30
     ],
     "cfg_successors": [
       36
@@ -1171,7 +1196,8 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS ASSIGN",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "cics_command": "ASSIGN"
   },
   {
     "seq": 49,
@@ -1194,7 +1220,8 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS ASSIGN",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "cics_command": "ASSIGN"
   },
   {
     "seq": 50,
@@ -1210,14 +1237,16 @@
     "cfg_reachable": true,
     "cfg_branch_context": null,
     "cfg_predecessors": [
-      49
+      49,
+      29
     ],
     "cfg_successors": [
       51
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS READ",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "cics_command": "READ"
   },
   {
     "seq": 51,
@@ -1424,7 +1453,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": "EXEC CICS XCTL XCTL",
     "cfg_predecessors": [
       58
     ],
@@ -1433,7 +1462,9 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS XCTL",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "is_cics_branch": true,
+    "cics_command": "XCTL"
   },
   {
     "seq": 60,
@@ -1447,7 +1478,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": "EXEC CICS XCTL XCTL",
     "cfg_predecessors": [
       59
     ],
@@ -1456,7 +1487,9 @@
     ],
     "division": "PROCEDURE",
     "raw": "EXEC CICS XCTL",
-    "operand_unresolved": true
+    "operand_unresolved": true,
+    "is_cics_branch": true,
+    "cics_command": "XCTL"
   },
   {
     "seq": 61,
@@ -1470,7 +1503,7 @@
       "literal"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       60
     ],
@@ -1496,7 +1529,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       61
     ],
@@ -1519,15 +1552,16 @@
       "paragraph"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       62
     ],
     "cfg_successors": [
-      64
+      30
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   },
   {
     "seq": 64,
@@ -1543,7 +1577,7 @@
       "working-storage"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       63
     ],
@@ -1567,7 +1601,7 @@
       "working-storage"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       64
     ],
@@ -1593,7 +1627,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       65
     ],
@@ -1616,15 +1650,16 @@
       "paragraph"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       66
     ],
     "cfg_successors": [
-      68
+      30
     ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   },
   {
     "seq": 68,
@@ -1640,7 +1675,7 @@
       "working-storage"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       67
     ],
@@ -1664,7 +1699,7 @@
       "working-storage"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       68
     ],
@@ -1690,7 +1725,7 @@
       "unresolved"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       69
     ],
@@ -1713,12 +1748,15 @@
       "paragraph"
     ],
     "cfg_reachable": true,
-    "cfg_branch_context": "EVALUATE WS-RESP-CD",
+    "cfg_branch_context": null,
     "cfg_predecessors": [
       70
     ],
-    "cfg_successors": [],
+    "cfg_successors": [
+      30
+    ],
     "division": "PROCEDURE",
-    "raw": "PERFORM SEND-SIGNON-SCREEN"
+    "raw": "PERFORM SEND-SIGNON-SCREEN",
+    "cfg_perform_target": "SEND-SIGNON-SCREEN"
   }
 ]
