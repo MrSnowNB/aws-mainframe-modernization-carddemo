@@ -12,7 +12,7 @@ Runnable on any machine with Python 3.8+ and PyYAML.
 Install deps:  pip install pyyaml
 
 Usage:
-    python validation/extract_md_claims.py              # all 6 programs
+    python validation/extract_md_claims.py              # all programs (auto-discovered)
     python validation/extract_md_claims.py CBACT01C     # single program
 
 Run AFTER lint_md.py.
@@ -48,7 +48,13 @@ except ImportError:
             "END-DELETE", "END-START", "END-RETURN",
         })
 
-PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
+
+def _discover_programs() -> list[str]:
+    """Auto-discover programs that have an MD file in translations/gold-candidate/."""
+    gc_dir = Path("translations/gold-candidate")
+    if not gc_dir.exists():
+        return []
+    return sorted(p.stem for p in gc_dir.glob("*.md"))
 
 
 def log(run_id: str, lines: list, log_dir: Path):
@@ -95,9 +101,6 @@ def extract(program_id: str) -> dict:
         if isinstance(p, dict) and p.get("synthetic") is True
     )
 
-    # Lint warnings: paragraph names that match known COBOL invalid identifiers.
-    # These are emitted into claims JSON for visibility / logging but do NOT
-    # block the claims extraction.  The gate check and lint_md.py do the blocking.
     lint_warnings = sorted(
         name for name in para_names
         if name.upper() in INVALID_PARAGRAPH_NAMES
@@ -174,18 +177,26 @@ def extract(program_id: str) -> dict:
 if __name__ == "__main__":
     run_id = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
     log_dir = Path("validation/logs")
-    targets = sys.argv[1:] if sys.argv[1:] else PROGRAMS
-    unknown = [p for p in targets if p not in PROGRAMS]
+
+    # Auto-discover all programs with a gold-candidate MD; explicit args override
+    discovered = _discover_programs()
+    targets = sys.argv[1:] if sys.argv[1:] else discovered
+
+    # Warn only for programs that have no MD file
+    unknown = [p for p in targets
+               if not Path(f"translations/gold-candidate/{p}.md").exists()]
     run_lines = [f"# extract_md_claims run {run_id}", f"# targets: {targets}"]
     if unknown:
-        warn = f"[CLAIMS] WARNING: unknown program(s): {unknown}"
+        warn = f"[CLAIMS] WARNING: no MD file found for: {unknown}"
         print(warn)
         run_lines.append(warn)
+
     for p in targets:
-        if p in PROGRAMS:
+        if Path(f"translations/gold-candidate/{p}.md").exists():
             result = extract(p)
             if result:
                 _, line = result
                 run_lines.append(line)
+
     log(run_id, run_lines, log_dir)
     print(f"[CLAIMS] log written: validation/logs/claims_{run_id}.log")
