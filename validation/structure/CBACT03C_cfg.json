@@ -8,7 +8,9 @@
       "name": "0000-XREFFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTXREFFI"
+        "9000-XREFFILE-CLOSE",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -17,7 +19,9 @@
       "name": "1000-XREFFILE-GET-NEXT",
       "reachable": true,
       "performs": [
-        "READXREFFILE-FI"
+        "0000-XREFFILE-OPEN",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -26,7 +30,8 @@
       "name": "9000-XREFFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSEXREFFILE-F"
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -34,9 +39,7 @@
     {
       "name": "9910-DISPLAY-IO-STATUS",
       "reachable": true,
-      "performs": [
-        "IFIO-STATUSNOTN"
-      ],
+      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -46,185 +49,6 @@
       "performs": [
         "9910-DISPLAY-IO-STATUS"
       ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEXREFFILE-F",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "CLOSEXREFFILE-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEXREFFILE-F",
-      "reachable": true,
-      "performs": [
-        "MOVEXREFFILE-ST",
-        "SUBTRACTAPPL-RE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYCARD-XRE",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYCARD-XRE",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "GOBACK",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFIO-STATUSNOTN",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT1TOI",
-        "MOVEIO-STATUSTO"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFXREFFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "0000-XREFFILE-OPEN",
-        "MOVEXREFFILE-ST",
-        "DISPLAYCARD-XRE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT1TOI",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT2TOT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT2TOT",
-      "reachable": true,
-      "performs": [
-        "MOVETWO-BYTES-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STATUSTO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETWO-BYTES-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREFFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREFFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREFFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTXREFFI",
-      "reachable": true,
-      "performs": [
-        "9000-XREFFILE-CLOSE",
-        "OPENINPUTXREFFI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTXREFFI",
-      "reachable": true,
-      "performs": [
-        "MOVEXREFFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "PERFORMUNTILEND",
-      "reachable": true,
-      "performs": [
-        "1000-XREFFILE-GET-NEXT",
-        "GOBACK",
-        "9000-XREFFILE-CLOSE",
-        "DISPLAYCARD-XRE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READXREFFILE-FI",
-      "reachable": true,
-      "performs": [
-        "IFXREFFILE-STAT",
-        "READXREFFILE-FI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READXREFFILE-FI",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "SUBTRACTAPPL-RE",
-      "reachable": true,
-      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     }

@@ -8,7 +8,9 @@
       "name": "0000-ACCTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTACCTFI"
+        "2000-OUTFILE-OPEN",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -17,7 +19,16 @@
       "name": "1000-ACCTFILE-GET-NEXT",
       "reachable": true,
       "performs": [
-        "READACCTFILE-FI"
+        "1100-DISPLAY-ACCT-RECORD",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS",
+        "1575-WRITE-VB2-RECORD",
+        "1550-WRITE-VB1-RECORD",
+        "1500-POPUL-VBRC-RECORD",
+        "1450-WRITE-ARRY-RECORD",
+        "1400-POPUL-ARRAY-RECORD",
+        "1350-WRITE-ACCT-RECORD",
+        "1300-POPUL-ACCT-RECORD"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -35,7 +46,7 @@
       "name": "1300-POPUL-ACCT-RECORD",
       "reachable": true,
       "performs": [
-        "MOVEACCT-IDTOOU"
+        "1350-WRITE-ACCT-RECORD"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -44,7 +55,9 @@
       "name": "1350-WRITE-ACCT-RECORD",
       "reachable": true,
       "performs": [
-        "WRITEOUT-ACCT-R"
+        "1400-POPUL-ARRAY-RECORD",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -53,7 +66,7 @@
       "name": "1400-POPUL-ARRAY-RECORD",
       "reachable": true,
       "performs": [
-        "MOVEACCT-IDTOAR"
+        "1450-WRITE-ARRY-RECORD"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -62,7 +75,9 @@
       "name": "1450-WRITE-ARRY-RECORD",
       "reachable": true,
       "performs": [
-        "WRITEARR-ARRAY-"
+        "1500-POPUL-VBRC-RECORD",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -71,7 +86,7 @@
       "name": "1500-POPUL-VBRC-RECORD",
       "reachable": true,
       "performs": [
-        "MOVEACCT-IDTOVB"
+        "1550-WRITE-VB1-RECORD"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -80,7 +95,9 @@
       "name": "1550-WRITE-VB1-RECORD",
       "reachable": true,
       "performs": [
-        "MOVEVBRC-REC1TO"
+        "1575-WRITE-VB2-RECORD",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -89,7 +106,9 @@
       "name": "1575-WRITE-VB2-RECORD",
       "reachable": true,
       "performs": [
-        "MOVEVBRC-REC2TO"
+        "0000-ACCTFILE-OPEN",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -98,7 +117,9 @@
       "name": "2000-OUTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENOUTPUTOUT-F"
+        "3000-ARRFILE-OPEN",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -107,7 +128,9 @@
       "name": "3000-ARRFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENOUTPUTARRY-"
+        "4000-VBRFILE-OPEN",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -116,7 +139,9 @@
       "name": "4000-VBRFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENOUTPUTVBRC-"
+        "9000-ACCTFILE-CLOSE",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -125,7 +150,8 @@
       "name": "9000-ACCTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSEACCTFILE-F"
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -133,9 +159,7 @@
     {
       "name": "9910-DISPLAY-IO-STATUS",
       "reachable": true,
-      "performs": [
-        "IFIO-STATUSNOTN"
-      ],
+      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -145,785 +169,6 @@
       "performs": [
         "9910-DISPLAY-IO-STATUS"
       ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEACCTFILE-F",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "CLOSEACCTFILE-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEACCTFILE-F",
-      "reachable": true,
-      "performs": [
-        "MOVEACCTFILE-ST",
-        "SUBTRACTAPPL-RE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYACCOUNT-",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "GOBACK",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFACCT-CURR-CYC",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-GROUP-"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFACCTFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "1100-DISPLAY-ACCT-RECORD",
-        "MOVEACCTFILE-ST",
-        "INITIALIZEARR-A"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFARRYFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "1500-POPUL-VBRC-RECORD",
-        "MOVEARRYFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFIO-STATUSNOTN",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT1TOI",
-        "MOVEIO-STATUSTO"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFOUTFILE-STATU",
-      "reachable": true,
-      "performs": [
-        "1400-POPUL-ARRAY-RECORD",
-        "MOVEOUTFILE-STA"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFVBRCFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "1575-WRITE-VB2-RECORD",
-        "MOVEVBRCFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFVBRCFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "0000-ACCTFILE-OPEN",
-        "MOVEVBRCFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "INITIALIZEARR-A",
-      "reachable": true,
-      "performs": [
-        "INITIALIZEVBRC-",
-        "1450-WRITE-ARRY-RECORD",
-        "1400-POPUL-ARRAY-RECORD",
-        "1350-WRITE-ACCT-RECORD",
-        "1300-POPUL-ACCT-RECORD",
-        "1100-DISPLAY-ACCT-RECORD"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "INITIALIZEVBRC-",
-      "reachable": true,
-      "performs": [
-        "1575-WRITE-VB2-RECORD",
-        "1550-WRITE-VB1-RECORD",
-        "1500-POPUL-VBRC-RECORD"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-ACTIVE",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CURR-B",
-        "MOVEACCT-ACTIVE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-ACTIVE",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CURR-B",
-        "MOVEACCT-ACTIVE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-ACTIVE",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-ACTIVE",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CASH-C",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-OPEN-D",
-        "MOVEACCT-CASH-C"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CASH-C",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CREDIT",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CASH-C",
-        "MOVEACCT-CREDIT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CREDIT",
-      "reachable": true,
-      "performs": [
-        "MOVEWS-ACCT-REI",
-        "MOVEACCT-CREDIT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CREDIT",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CREDIT",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CREDIT",
-        "MOVEACCT-CURR-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CURR-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [
-        "1450-WRITE-ARRY-RECORD",
-        "MOVEACCT-CURR-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CREDIT",
-        "MOVEACCT-CURR-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-C",
-      "reachable": true,
-      "performs": [
-        "IFACCT-CURR-CYC",
-        "MOVEACCT-CURR-C"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-CURR-C",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-EXPIRA",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-REISSU",
-        "MOVEACCT-EXPIRA"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-EXPIRA",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-GROUP-",
-      "reachable": true,
-      "performs": [
-        "1350-WRITE-ACCT-RECORD",
-        "MOVEACCT-GROUP-"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-GROUP-",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOAR",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CURR-B",
-        "MOVEACCT-IDTOAR"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOAR",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOOU",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-ACTIVE",
-        "MOVEACCT-IDTOOU"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOOU",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOVB",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-ACTIVE",
-        "MOVEACCT-IDTOVB"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOVB",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-OPEN-D",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-EXPIRA",
-        "MOVEACCT-OPEN-D"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-OPEN-D",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-REISSU",
-      "reachable": true,
-      "performs": [
-        "MOVECODATECN-0U",
-        "MOVEACCT-REISSU"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-REISSU",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEARRYFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEARRYFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECODATECN-0U",
-      "reachable": true,
-      "performs": [
-        "MOVEACCT-CURR-C",
-        "MOVECODATECN-0U"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECODATECN-0U",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT1TOI",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT2TOT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT2TOT",
-      "reachable": true,
-      "performs": [
-        "MOVETWO-BYTES-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STATUSTO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEOUTFILE-STA",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEOUTFILE-STA",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETWO-BYTES-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRC-REC1TO",
-      "reachable": true,
-      "performs": [
-        "IFVBRCFILE-STAT",
-        "WRITEVBR-REC",
-        "MOVEVBRC-REC1TO"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRC-REC1TO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRC-REC2TO",
-      "reachable": true,
-      "performs": [
-        "IFVBRCFILE-STAT",
-        "WRITEVBR-REC",
-        "MOVEVBRC-REC2TO"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRC-REC2TO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRCFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRCFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEVBRCFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEWS-ACCT-REI",
-      "reachable": true,
-      "performs": [
-        "1550-WRITE-VB1-RECORD",
-        "MOVEWS-ACCT-REI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEWS-ACCT-REI",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTACCTFI",
-      "reachable": true,
-      "performs": [
-        "2000-OUTFILE-OPEN",
-        "OPENINPUTACCTFI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTACCTFI",
-      "reachable": true,
-      "performs": [
-        "MOVEACCTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENOUTPUTARRY-",
-      "reachable": true,
-      "performs": [
-        "4000-VBRFILE-OPEN",
-        "OPENOUTPUTARRY-"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENOUTPUTARRY-",
-      "reachable": true,
-      "performs": [
-        "MOVEARRYFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENOUTPUTOUT-F",
-      "reachable": true,
-      "performs": [
-        "3000-ARRFILE-OPEN",
-        "OPENOUTPUTOUT-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENOUTPUTOUT-F",
-      "reachable": true,
-      "performs": [
-        "MOVEOUTFILE-STA"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENOUTPUTVBRC-",
-      "reachable": true,
-      "performs": [
-        "9000-ACCTFILE-CLOSE",
-        "OPENOUTPUTVBRC-"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENOUTPUTVBRC-",
-      "reachable": true,
-      "performs": [
-        "MOVEVBRCFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "PERFORMUNTILEND",
-      "reachable": true,
-      "performs": [
-        "1000-ACCTFILE-GET-NEXT",
-        "GOBACK",
-        "9000-ACCTFILE-CLOSE",
-        "DISPLAYACCOUNT-"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READACCTFILE-FI",
-      "reachable": true,
-      "performs": [
-        "IFACCTFILE-STAT",
-        "READACCTFILE-FI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READACCTFILE-FI",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "SUBTRACTAPPL-RE",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "WRITEARR-ARRAY-",
-      "reachable": true,
-      "performs": [
-        "IFARRYFILE-STAT",
-        "WRITEARR-ARRAY-"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "WRITEARR-ARRAY-",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "WRITEOUT-ACCT-R",
-      "reachable": true,
-      "performs": [
-        "IFOUTFILE-STATU",
-        "WRITEOUT-ACCT-R"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "WRITEOUT-ACCT-R",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "WRITEVBR-REC",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "WRITEVBR-REC",
-      "reachable": true,
-      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     }

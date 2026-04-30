@@ -8,7 +8,9 @@
       "name": "0000-CUSTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTCUSTFI"
+        "9000-CUSTFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -17,7 +19,9 @@
       "name": "1000-CUSTFILE-GET-NEXT",
       "reachable": true,
       "performs": [
-        "READCUSTFILE-FI"
+        "0000-CUSTFILE-OPEN",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -26,187 +30,9 @@
       "name": "9000-CUSTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSECUSTFILE-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECUSTFILE-F",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "CLOSECUSTFILE-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECUSTFILE-F",
-      "reachable": true,
-      "performs": [
-        "MOVECUSTFILE-ST",
-        "SUBTRACTAPPL-RE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYCUSTOMER",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYCUSTOMER",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "GOBACK",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFCUSTFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "0000-CUSTFILE-OPEN",
-        "MOVECUSTFILE-ST",
-        "DISPLAYCUSTOMER"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFIO-STATUSNOTN",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT1TOI",
-        "MOVEIO-STATUSTO"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECUSTFILE-ST",
-      "reachable": true,
-      "performs": [
         "Z-ABEND-PROGRAM",
         "Z-DISPLAY-IO-STATUS"
       ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECUSTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECUSTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT1TOI",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT2TOT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT2TOT",
-      "reachable": true,
-      "performs": [
-        "MOVETWO-BYTES-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STATUSTO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETWO-BYTES-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCUSTFI",
-      "reachable": true,
-      "performs": [
-        "9000-CUSTFILE-CLOSE",
-        "OPENINPUTCUSTFI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCUSTFI",
-      "reachable": true,
-      "performs": [
-        "MOVECUSTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "PERFORMUNTILEND",
-      "reachable": true,
-      "performs": [
-        "1000-CUSTFILE-GET-NEXT",
-        "GOBACK",
-        "9000-CUSTFILE-CLOSE",
-        "DISPLAYCUSTOMER"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READCUSTFILE-FI",
-      "reachable": true,
-      "performs": [
-        "IFCUSTFILE-STAT",
-        "READCUSTFILE-FI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READCUSTFILE-FI",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "SUBTRACTAPPL-RE",
-      "reachable": true,
-      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -222,9 +48,7 @@
     {
       "name": "Z-DISPLAY-IO-STATUS",
       "reachable": true,
-      "performs": [
-        "IFIO-STATUSNOTN"
-      ],
+      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     }

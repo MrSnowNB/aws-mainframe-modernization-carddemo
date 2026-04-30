@@ -8,7 +8,9 @@
       "name": "0000-DALYTRAN-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTDALYTR"
+        "0100-CUSTFILE-OPEN",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -17,7 +19,9 @@
       "name": "0100-CUSTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTCUSTOM"
+        "0200-XREFFILE-OPEN",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -26,7 +30,9 @@
       "name": "0200-XREFFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTXREF-F"
+        "0300-CARDFILE-OPEN",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -35,7 +41,9 @@
       "name": "0300-CARDFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTCARD-F"
+        "0400-ACCTFILE-OPEN",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -44,7 +52,9 @@
       "name": "0400-ACCTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTACCOUN"
+        "0500-TRANFILE-OPEN",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -53,7 +63,9 @@
       "name": "0500-TRANFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTTRANSA"
+        "9000-DALYTRAN-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -62,7 +74,9 @@
       "name": "1000-DALYTRAN-GET-NEXT",
       "reachable": true,
       "performs": [
-        "READDALYTRAN-FI"
+        "2000-LOOKUP-XREF",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -71,7 +85,7 @@
       "name": "2000-LOOKUP-XREF",
       "reachable": true,
       "performs": [
-        "MOVEXREF-CARD-N"
+        "3000-READ-ACCOUNT"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -80,7 +94,7 @@
       "name": "3000-READ-ACCOUNT",
       "reachable": true,
       "performs": [
-        "MOVEACCT-IDTOFD"
+        "0000-DALYTRAN-OPEN"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -89,7 +103,9 @@
       "name": "9000-DALYTRAN-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSEDALYTRAN-F"
+        "9100-CUSTFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -98,7 +114,9 @@
       "name": "9100-CUSTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSECUSTOMER-F"
+        "9200-XREFFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -107,7 +125,9 @@
       "name": "9200-XREFFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSEXREF-FILEI"
+        "9300-CARDFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -116,7 +136,9 @@
       "name": "9300-CARDFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSECARD-FILEI"
+        "9400-ACCTFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -125,7 +147,9 @@
       "name": "9400-ACCTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSEACCOUNT-FI"
+        "9500-TRANFILE-CLOSE",
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -134,155 +158,8 @@
       "name": "9500-TRANFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSETRANSACT-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEACCOUNT-FI",
-      "reachable": true,
-      "performs": [
-        "9500-TRANFILE-CLOSE",
-        "CLOSEACCOUNT-FI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEACCOUNT-FI",
-      "reachable": true,
-      "performs": [
-        "MOVEACCTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECARD-FILE",
-      "reachable": true,
-      "performs": [
-        "MOVECARDFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECARD-FILEI",
-      "reachable": true,
-      "performs": [
-        "9400-ACCTFILE-CLOSE",
-        "CLOSECARD-FILE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECUSTOMER-F",
-      "reachable": true,
-      "performs": [
-        "9200-XREFFILE-CLOSE",
-        "CLOSECUSTOMER-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECUSTOMER-F",
-      "reachable": true,
-      "performs": [
-        "MOVECUSTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEDALYTRAN-F",
-      "reachable": true,
-      "performs": [
-        "9100-CUSTFILE-CLOSE",
-        "CLOSEDALYTRAN-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEDALYTRAN-F",
-      "reachable": true,
-      "performs": [
-        "MOVECUSTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSETRANSACT-F",
-      "reachable": true,
-      "performs": [
         "Z-ABEND-PROGRAM",
-        "CLOSETRANSACT-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSETRANSACT-F",
-      "reachable": true,
-      "performs": [
-        "MOVETRANFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEXREF-FILE",
-      "reachable": true,
-      "performs": [
-        "MOVEXREFFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSEXREF-FILEI",
-      "reachable": true,
-      "performs": [
-        "9300-CARDFILE-CLOSE",
-        "CLOSEXREF-FILE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYDALYTRAN",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "GOBACK",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFDALYTRAN-STAT",
-      "reachable": true,
-      "performs": [
-        "2000-LOOKUP-XREF",
-        "MOVEDALYTRAN-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFIO-STATUSNOTN",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT1TOI",
-        "MOVEIO-STATUSTO"
+        "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -291,7 +168,15 @@
       "name": "MAIN-PARA",
       "reachable": true,
       "performs": [
-        "PERFORMUNTILEND",
+        "1000-DALYTRAN-GET-NEXT",
+        "9500-TRANFILE-CLOSE",
+        "9400-ACCTFILE-CLOSE",
+        "9300-CARDFILE-CLOSE",
+        "9200-XREFFILE-CLOSE",
+        "9100-CUSTFILE-CLOSE",
+        "9000-DALYTRAN-CLOSE",
+        "3000-READ-ACCOUNT",
+        "2000-LOOKUP-XREF",
         "0500-TRANFILE-OPEN",
         "0400-ACCTFILE-OPEN",
         "0300-CARDFILE-OPEN",
@@ -299,388 +184,6 @@
         "0100-CUSTFILE-OPEN",
         "0000-DALYTRAN-OPEN"
       ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOFD",
-      "reachable": true,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "MOVEACCT-IDTOFD"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCT-IDTOFD",
-      "reachable": true,
-      "performs": [
-        "READACCOUNT-FIL"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEACCTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECARDFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECARDFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECUSTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECUSTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECUSTFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEDALYTRAN-CA",
-      "reachable": true,
-      "performs": [
-        "MOVEXREF-ACCT-I",
-        "2000-LOOKUP-XREF"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEDALYTRAN-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEDALYTRAN-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT1TOI",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT2TOT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT2TOT",
-      "reachable": true,
-      "performs": [
-        "MOVETWO-BYTES-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STATUSTO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETRANFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETRANFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETWO-BYTES-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREF-ACCT-I",
-      "reachable": true,
-      "performs": [
-        "3000-READ-ACCOUNT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREF-CARD-N",
-      "reachable": true,
-      "performs": [
-        "3000-READ-ACCOUNT",
-        "MOVEXREF-CARD-N"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREF-CARD-N",
-      "reachable": true,
-      "performs": [
-        "READXREF-FILERE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREFFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEXREFFILE-ST",
-      "reachable": true,
-      "performs": [
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTACCOUN",
-      "reachable": true,
-      "performs": [
-        "0500-TRANFILE-OPEN",
-        "OPENINPUTACCOUN"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTACCOUN",
-      "reachable": true,
-      "performs": [
-        "MOVEACCTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCARD-F",
-      "reachable": true,
-      "performs": [
-        "0400-ACCTFILE-OPEN",
-        "OPENINPUTCARD-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCARD-F",
-      "reachable": true,
-      "performs": [
-        "MOVECARDFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCUSTOM",
-      "reachable": true,
-      "performs": [
-        "0200-XREFFILE-OPEN",
-        "OPENINPUTCUSTOM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCUSTOM",
-      "reachable": true,
-      "performs": [
-        "MOVECUSTFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTDALYTR",
-      "reachable": true,
-      "performs": [
-        "0100-CUSTFILE-OPEN",
-        "OPENINPUTDALYTR"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTDALYTR",
-      "reachable": true,
-      "performs": [
-        "MOVEDALYTRAN-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTTRANSA",
-      "reachable": true,
-      "performs": [
-        "9000-DALYTRAN-CLOSE",
-        "OPENINPUTTRANSA"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTTRANSA",
-      "reachable": true,
-      "performs": [
-        "MOVETRANFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTXREF-F",
-      "reachable": true,
-      "performs": [
-        "0300-CARDFILE-OPEN",
-        "OPENINPUTXREF-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTXREF-F",
-      "reachable": true,
-      "performs": [
-        "MOVEXREFFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "PERFORMUNTILEND",
-      "reachable": true,
-      "performs": [
-        "1000-DALYTRAN-GET-NEXT",
-        "GOBACK",
-        "9500-TRANFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9000-DALYTRAN-CLOSE",
-        "MOVEDALYTRAN-CA",
-        "DISPLAYDALYTRAN"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READACCOUNT-FIL",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READDALYTRAN-FI",
-      "reachable": true,
-      "performs": [
-        "IFDALYTRAN-STAT",
-        "READDALYTRAN-FI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READDALYTRAN-FI",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READXREF-FILERE",
-      "reachable": true,
-      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -696,9 +199,7 @@
     {
       "name": "Z-DISPLAY-IO-STATUS",
       "reachable": true,
-      "performs": [
-        "IFIO-STATUSNOTN"
-      ],
+      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     }

@@ -8,7 +8,9 @@
       "name": "0000-CARDFILE-OPEN",
       "reachable": true,
       "performs": [
-        "OPENINPUTCARDFI"
+        "9000-CARDFILE-CLOSE",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -17,7 +19,9 @@
       "name": "1000-CARDFILE-GET-NEXT",
       "reachable": true,
       "performs": [
-        "READCARDFILE-FI"
+        "0000-CARDFILE-OPEN",
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -26,7 +30,8 @@
       "name": "9000-CARDFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "CLOSECARDFILE-F"
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -34,9 +39,7 @@
     {
       "name": "9910-DISPLAY-IO-STATUS",
       "reachable": true,
-      "performs": [
-        "IFIO-STATUSNOTN"
-      ],
+      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -46,177 +49,6 @@
       "performs": [
         "9910-DISPLAY-IO-STATUS"
       ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECARDFILE-F",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "CLOSECARDFILE-F"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "CLOSECARDFILE-F",
-      "reachable": true,
-      "performs": [
-        "MOVECARDFILE-ST",
-        "SUBTRACTAPPL-RE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "DISPLAYCARD-REC",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "GOBACK",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFCARDFILE-STAT",
-      "reachable": true,
-      "performs": [
-        "0000-CARDFILE-OPEN",
-        "MOVECARDFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "IFIO-STATUSNOTN",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT1TOI",
-        "MOVEIO-STATUSTO"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECARDFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECARDFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVECARDFILE-ST",
-      "reachable": true,
-      "performs": [
-        "9999-ABEND-PROGRAM",
-        "9910-DISPLAY-IO-STATUS"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT1TOI",
-      "reachable": true,
-      "performs": [
-        "MOVEIO-STAT2TOT"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STAT2TOT",
-      "reachable": true,
-      "performs": [
-        "MOVETWO-BYTES-B"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVEIO-STATUSTO",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "MOVETWO-BYTES-B",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCARDFI",
-      "reachable": true,
-      "performs": [
-        "9000-CARDFILE-CLOSE",
-        "OPENINPUTCARDFI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "OPENINPUTCARDFI",
-      "reachable": true,
-      "performs": [
-        "MOVECARDFILE-ST"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "PERFORMUNTILEND",
-      "reachable": true,
-      "performs": [
-        "1000-CARDFILE-GET-NEXT",
-        "GOBACK",
-        "9000-CARDFILE-CLOSE",
-        "DISPLAYCARD-REC"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READCARDFILE-FI",
-      "reachable": true,
-      "performs": [
-        "IFCARDFILE-STAT",
-        "READCARDFILE-FI"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "READCARDFILE-FI",
-      "reachable": true,
-      "performs": [],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "SUBTRACTAPPL-RE",
-      "reachable": true,
-      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     }
