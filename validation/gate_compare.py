@@ -15,8 +15,9 @@ Exit codes:
     1 = one or more programs FAIL
 
 Usage:
-    python validation/gate_compare.py              # all 6 programs
+    python validation/gate_compare.py              # all known programs
     python validation/gate_compare.py CBACT01C     # single program
+    python validation/gate_compare.py --all        # all gold-candidates in translations/
 
 Run AFTER extract_ground_truth.py and extract_md_claims.py.
 """
@@ -45,7 +46,29 @@ except ImportError:
             "END-DELETE", "END-START", "END-RETURN",
         })
 
-PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
+# ---------------------------------------------------------------------------
+# PROGRAMS registry — auto-discovers any program that has both a
+# ground_truth JSON and a claims JSON, so new programs never need to be
+# manually added here.  The explicit list is kept as a fallback and for
+# documentation purposes.
+# ---------------------------------------------------------------------------
+_EXPLICIT_PROGRAMS = [
+    "CBACT01C", "CBACT02C", "CBCUS01C", "CBTRN01C",
+    "COBSWAIT", "COMEN01C", "COSGN00C",
+]
+
+def _discover_programs() -> list:
+    """Return union of explicit list + any program with both gt and claims files."""
+    gt_dir = Path("validation/ground_truth")
+    cl_dir = Path("validation/claims")
+    discovered = set(_EXPLICIT_PROGRAMS)
+    if gt_dir.exists() and cl_dir.exists():
+        gt_ids = {p.stem.replace("_gt", "") for p in gt_dir.glob("*_gt.json")}
+        cl_ids = {p.stem.replace("_claims", "") for p in cl_dir.glob("*_claims.json")}
+        discovered |= (gt_ids & cl_ids)
+    return sorted(discovered)
+
+PROGRAMS = _discover_programs()
 
 
 def log(run_id: str, lines: list, log_dir: Path):
@@ -98,10 +121,6 @@ def compare(program_id: str) -> tuple:
                          "items": unexplained})
 
     # -- Check 2c: Dedicated invalid_paragraph_names check -------------------
-    # Catches COBOL scope terminators / reserved words that slipped into
-    # procedure_paragraphs: regardless of whether they also triggered Check 2.
-    # Provides an explicit failure category for triage instead of folding into
-    # the generic hallucinated_paragraphs bucket.
     invalid_names = sorted(
         name for name in cl_paragraphs
         if name.upper() in INVALID_PARAGRAPH_NAMES
@@ -172,9 +191,6 @@ def compare(program_id: str) -> tuple:
                          "value": cl["t04_score_in_md"]})
 
     # -- Check 8: Propagated lint_warnings ------------------------------------
-    # If extract_md_claims emitted lint_warnings they are surfaced here as a
-    # warning (not failure) so the report is self-documenting even when
-    # lint_md.py was not run before claims extraction.
     lint_warns = cl.get("lint_warnings", [])
     if lint_warns:
         warnings.append({"check": "lint_warnings_in_claims",
@@ -223,17 +239,25 @@ def compare(program_id: str) -> tuple:
 if __name__ == "__main__":
     run_id = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
     log_dir = Path("validation/logs")
-    targets = sys.argv[1:] if sys.argv[1:] else PROGRAMS
+
+    args = sys.argv[1:]
+    if "--all" in args:
+        targets = PROGRAMS
+    elif args:
+        targets = args
+    else:
+        targets = PROGRAMS
+
     unknown = [p for p in targets if p not in PROGRAMS]
     all_log_lines = [f"# gate_compare run {run_id}", f"# targets: {targets}"]
     if unknown:
-        warn = f"[GATE] WARNING: unknown program(s): {unknown}"
+        warn = f"[GATE] WARNING: unknown program(s): {unknown} -- no ground_truth/claims files found"
         print(warn)
         all_log_lines.append(warn)
 
     results = {}
     for p in targets:
-        if p in PROGRAMS:
+        if p in PROGRAMS or p not in unknown:
             passed, lines = compare(p)
             results[p] = passed
             all_log_lines.extend(lines)
