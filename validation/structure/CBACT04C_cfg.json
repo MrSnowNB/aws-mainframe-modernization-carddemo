@@ -1,15 +1,14 @@
 {
   "program_id": "CBACT04C",
   "source_file": "app/cbl/CBACT04C.cbl",
-  "source_sha": "",
+  "source_sha": "e63090114e1c2e41c5eb607ea1f277f05c0ae69a",
   "cfg_tool": "Cobol-REKT smojol-cli + extract_cfg_summary.py",
   "paragraphs": [
     {
       "name": "0000-TCATBALF-OPEN",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "OPENINPUTTCATBA"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -18,8 +17,7 @@
       "name": "0100-XREFFILE-OPEN",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "OPENINPUTXREF-F"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -28,8 +26,7 @@
       "name": "0200-DISCGRP-OPEN",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "OPENINPUTDISCGR"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -38,8 +35,7 @@
       "name": "0300-ACCTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "OPENI-OACCOUNT-"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -48,8 +44,7 @@
       "name": "0400-TRANFILE-OPEN",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "OPENOUTPUTTRANS"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -58,8 +53,7 @@
       "name": "1000-TCATBALF-GET-NEXT",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "READTCATBAL-FIL"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -68,8 +62,7 @@
       "name": "1050-UPDATE-ACCOUNT",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "ADDWS-TOTAL-INT"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -77,35 +70,65 @@
     {
       "name": "1100-GET-ACCT-DATA",
       "reachable": true,
-      "performs": [],
+      "performs": [
+        "READACCOUNT-FIL"
+      ],
       "goto_targets": [],
       "goto_flag": false
     },
     {
       "name": "1110-GET-XREF-DATA",
       "reachable": true,
-      "performs": [],
+      "performs": [
+        "READXREF-FILEIN"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "1200-A-GET-DEFAULT-INT-RATE",
+      "reachable": true,
+      "performs": [
+        "READDISCGRP-FIL"
+      ],
       "goto_targets": [],
       "goto_flag": false
     },
     {
       "name": "1200-GET-INTEREST-RATE",
       "reachable": true,
-      "performs": [],
+      "performs": [
+        "READDISCGRP-FIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "1300-B-WRITE-TX",
+      "reachable": true,
+      "performs": [
+        "1400-COMPUTE-FEES",
+        "MOVEWS-MONTHLY-",
+        "STRINGPARM-DATE"
+      ],
       "goto_targets": [],
       "goto_flag": false
     },
     {
       "name": "1300-COMPUTE-INTEREST",
       "reachable": true,
-      "performs": [],
+      "performs": [
+        "COMPUTEWS-MONTH"
+      ],
       "goto_targets": [],
       "goto_flag": false
     },
     {
       "name": "1400-COMPUTE-FEES",
       "reachable": true,
-      "performs": [],
+      "performs": [
+        "9000-TCATBALF-CLOSE"
+      ],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -113,8 +136,7 @@
       "name": "9000-TCATBALF-CLOSE",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "CLOSETCATBAL-FI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -123,8 +145,7 @@
       "name": "9100-XREFFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "CLOSEXREF-FILEI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -133,8 +154,7 @@
       "name": "9200-DISCGRP-CLOSE",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "CLOSEDISCGRP-FI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -143,8 +163,7 @@
       "name": "9300-ACCTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "CLOSEACCOUNT-FI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -153,8 +172,7 @@
       "name": "9400-TRANFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "CLOSETRANSACT-F"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -162,14 +180,849 @@
     {
       "name": "9910-DISPLAY-IO-STATUS",
       "reachable": true,
-      "performs": [],
+      "performs": [
+        "IFIO-STATUSNOTN"
+      ],
       "goto_targets": [],
       "goto_flag": false
     },
     {
       "name": "9999-ABEND-PROGRAM",
       "reachable": true,
+      "performs": [
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "ADDWS-MONTHLY-I",
+      "reachable": true,
+      "performs": [
+        "1300-B-WRITE-TX"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "ADDWS-TOTAL-INT",
+      "reachable": true,
+      "performs": [
+        "1100-GET-ACCT-DATA",
+        "ADDWS-TOTAL-INT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "ADDWS-TOTAL-INT",
+      "reachable": true,
+      "performs": [
+        "REWRITEFD-ACCTF"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEACCOUNT-FI",
+      "reachable": true,
+      "performs": [
+        "9400-TRANFILE-CLOSE",
+        "CLOSEACCOUNT-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEACCOUNT-FI",
+      "reachable": true,
+      "performs": [
+        "MOVEACCTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEDISCGRP-FI",
+      "reachable": true,
+      "performs": [
+        "9300-ACCTFILE-CLOSE",
+        "CLOSEDISCGRP-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEDISCGRP-FI",
+      "reachable": true,
+      "performs": [
+        "MOVEDISCGRP-STA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSETCATBAL-FI",
+      "reachable": true,
+      "performs": [
+        "9100-XREFFILE-CLOSE",
+        "CLOSETCATBAL-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSETCATBAL-FI",
+      "reachable": true,
+      "performs": [
+        "MOVETCATBALF-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSETRANSACT-F",
+      "reachable": true,
+      "performs": [
+        "Z-GET-DB2-FORMAT-TIMESTAMP",
+        "CLOSETRANSACT-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSETRANSACT-F",
+      "reachable": true,
+      "performs": [
+        "MOVETRANFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEXREF-FILE",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEXREF-FILEI",
+      "reachable": true,
+      "performs": [
+        "9200-DISCGRP-CLOSE",
+        "CLOSEXREF-FILE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "COMPUTEWS-MONTH",
+      "reachable": true,
+      "performs": [
+        "1300-B-WRITE-TX",
+        "COMPUTEWS-MONTH"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "COMPUTEWS-MONTH",
+      "reachable": true,
+      "performs": [
+        "ADDWS-MONTHLY-I"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "DISPLAYTRAN-CAT",
+      "reachable": true,
+      "performs": [
+        "MOVEACCT-GROUP-",
+        "MOVETRANCAT-ACC",
+        "1050-UPDATE-ACCOUNT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "GOBACK",
+      "reachable": true,
       "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFDISCGRP-STATU",
+      "reachable": true,
+      "performs": [
+        "1200-A-GET-DEFAULT-INT-RATE",
+        "MOVEDISCGRP-STA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFIO-STATUSNOTN",
+      "reachable": true,
+      "performs": [
+        "MOVEIO-STAT1TOI",
+        "MOVEIO-STATUSTO"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFTCATBALF-STAT",
+      "reachable": true,
+      "performs": [
+        "1050-UPDATE-ACCOUNT",
+        "MOVETCATBALF-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCT-GROUP-",
+      "reachable": true,
+      "performs": [
+        "MOVETRANCAT-CDT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-DDTODB2",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-HHTODB2"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-HHTODB2",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-MINTODB"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-MILTODB",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-MINTODB",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-SSTODB2"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-MMTODB2",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-DDTODB2"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-SSTODB2",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-MILTODB"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECOB-YYYYTOD",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-MMTODB2"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDB2-FORMAT-",
+      "reachable": true,
+      "performs": [
+        "MOVEDB2-FORMAT-"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDB2-FORMAT-",
+      "reachable": true,
+      "performs": [
+        "WRITEFD-TRANFIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDISCGRP-STA",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDISCGRP-STA",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDISCGRP-STA",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDISCGRP-STA",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEFUNCTIONCUR",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "MOVEFUNCTIONCUR"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEFUNCTIONCUR",
+      "reachable": true,
+      "performs": [
+        "MOVECOB-YYYYTOD"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STAT1TOI",
+      "reachable": true,
+      "performs": [
+        "MOVEIO-STAT2TOT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STAT2TOT",
+      "reachable": true,
+      "performs": [
+        "MOVETWO-BYTES-B"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STATUSTO",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVESPACESTOTRA",
+      "reachable": true,
+      "performs": [
+        "MOVESPACESTOTRA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVESPACESTOTRA",
+      "reachable": true,
+      "performs": [
+        "MOVESPACESTOTRA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVESPACESTOTRA",
+      "reachable": true,
+      "performs": [
+        "MOVEXREF-CARD-N"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETCATBALF-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETCATBALF-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETCATBALF-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANCAT-ACC",
+      "reachable": true,
+      "performs": [
+        "MOVETRANCAT-ACC"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANCAT-ACC",
+      "reachable": true,
+      "performs": [
+        "MOVETRANCAT-ACC",
+        "1100-GET-ACCT-DATA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANCAT-ACC",
+      "reachable": true,
+      "performs": [
+        "1110-GET-XREF-DATA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANCAT-CDT",
+      "reachable": true,
+      "performs": [
+        "MOVETRANCAT-TYP"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANCAT-TYP",
+      "reachable": true,
+      "performs": [
+        "1400-COMPUTE-FEES",
+        "1300-COMPUTE-INTEREST",
+        "1200-GET-INTEREST-RATE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETWO-BYTES-B",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEWS-MONTHLY-",
+      "reachable": true,
+      "performs": [
+        "MOVESPACESTOTRA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREF-CARD-N",
+      "reachable": true,
+      "performs": [
+        "MOVEDB2-FORMAT-",
+        "Z-GET-DB2-FORMAT-TIMESTAMP"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENI-OACCOUNT-",
+      "reachable": true,
+      "performs": [
+        "0400-TRANFILE-OPEN",
+        "OPENI-OACCOUNT-"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENI-OACCOUNT-",
+      "reachable": true,
+      "performs": [
+        "MOVEACCTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTDISCGR",
+      "reachable": true,
+      "performs": [
+        "0300-ACCTFILE-OPEN",
+        "OPENINPUTDISCGR"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTDISCGR",
+      "reachable": true,
+      "performs": [
+        "MOVEDISCGRP-STA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTTCATBA",
+      "reachable": true,
+      "performs": [
+        "0100-XREFFILE-OPEN",
+        "OPENINPUTTCATBA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTTCATBA",
+      "reachable": true,
+      "performs": [
+        "MOVETCATBALF-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTXREF-F",
+      "reachable": true,
+      "performs": [
+        "0200-DISCGRP-OPEN",
+        "OPENINPUTXREF-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTXREF-F",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENOUTPUTTRANS",
+      "reachable": true,
+      "performs": [
+        "1000-TCATBALF-GET-NEXT",
+        "OPENOUTPUTTRANS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENOUTPUTTRANS",
+      "reachable": true,
+      "performs": [
+        "MOVETRANFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "PERFORMUNTILEND",
+      "reachable": true,
+      "performs": [
+        "0000-TCATBALF-OPEN",
+        "GOBACK",
+        "9400-TRANFILE-CLOSE",
+        "9300-ACCTFILE-CLOSE",
+        "9200-DISCGRP-CLOSE",
+        "9100-XREFFILE-CLOSE",
+        "9000-TCATBALF-CLOSE",
+        "DISPLAYTRAN-CAT",
+        "1000-TCATBALF-GET-NEXT",
+        "1050-UPDATE-ACCOUNT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READACCOUNT-FIL",
+      "reachable": true,
+      "performs": [
+        "1110-GET-XREF-DATA",
+        "READACCOUNT-FIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READACCOUNT-FIL",
+      "reachable": true,
+      "performs": [
+        "MOVEACCTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READDISCGRP-FIL",
+      "reachable": true,
+      "performs": [
+        "IFDISCGRP-STATU",
+        "READDISCGRP-FIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READDISCGRP-FIL",
+      "reachable": true,
+      "performs": [
+        "1300-COMPUTE-INTEREST",
+        "READDISCGRP-FIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READDISCGRP-FIL",
+      "reachable": true,
+      "performs": [
+        "MOVEDISCGRP-STA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READDISCGRP-FIL",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READTCATBAL-FIL",
+      "reachable": true,
+      "performs": [
+        "IFTCATBALF-STAT",
+        "READTCATBAL-FIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READTCATBAL-FIL",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READXREF-FILEIN",
+      "reachable": true,
+      "performs": [
+        "1200-GET-INTEREST-RATE",
+        "READXREF-FILEIN"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READXREF-FILEIN",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "REWRITEFD-ACCTF",
+      "reachable": true,
+      "performs": [
+        "MOVEACCTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "STRINGPARM-DATE",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "WRITEFD-TRANFIL",
+      "reachable": true,
+      "performs": [
+        "MOVETRANFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "Z-GET-DB2-FORMAT-TIMESTAMP",
+      "reachable": true,
+      "performs": [
+        "MOVEFUNCTIONCUR"
+      ],
       "goto_targets": [],
       "goto_flag": false
     }
