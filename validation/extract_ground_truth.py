@@ -33,7 +33,7 @@ try:
 except AttributeError:
     pass
 
-PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
+PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C", "CBACT02C"]
 
 try:
     from validation.cobol_vocab import COBOL_SCOPE_TERMINATORS

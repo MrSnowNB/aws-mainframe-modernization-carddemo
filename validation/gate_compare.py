@@ -45,7 +45,7 @@ except ImportError:
             "END-DELETE", "END-START", "END-RETURN",
         })
 
-PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
+PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C", "CBACT02C"]
 
 
 def log(run_id: str, lines: list, log_dir: Path):

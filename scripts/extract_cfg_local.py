@@ -57,6 +57,15 @@ def clean_preprocessed(text: str) -> str:
         lines.append(line)
     return "\n".join(lines)
 
+# List of known scope terminators to ignore as paragraph names
+COBOL_SCOPE_TERMINATORS = {
+    "END-EXEC", "END-IF", "END-PERFORM", "END-EVALUATE",
+    "END-READ", "END-WRITE", "END-STRING", "END-UNSTRING",
+    "END-MULTIPLY", "END-DIVIDE", "END-ADD", "END-SUBTRACT",
+    "END-COMPUTE", "END-SEARCH", "END-CALL", "END-REWRITE",
+    "END-DELETE", "END-START", "END-RETURN",
+}
+
 def extract_paragraphs(text: str) -> list[str]:
     paragraphs = []
     in_proc = False
@@ -72,7 +81,7 @@ def extract_paragraphs(text: str) -> list[str]:
         m = re.match(r"^\s{0,3}([A-Z0-9][A-Z0-9\-]*)\.\s*$", line, re.IGNORECASE)
         if m:
             name = m.group(1).upper()
-            if name not in ("EXIT", "GOBACK", "STOP"):
+            if name not in ("EXIT", "GOBACK", "STOP") and name not in COBOL_SCOPE_TERMINATORS:
                 if name not in paragraphs:
                     paragraphs.append(name)
     return paragraphs
