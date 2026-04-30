@@ -5,18 +5,7 @@
   "cfg_tool": "Gemini-CLI extract_cfg_local.py (No-Smojol Fallback)",
   "paragraphs": [
     {
-      "name": "END-PERFORM",
-      "reachable": true,
-      "performs": [
-        "0000-CARDFILE-OPEN",
-        "1000-CARDFILE-GET-NEXT",
-        "9000-CARDFILE-CLOSE"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "1000-CARDFILE-GET-NEXT",
+      "name": "0000-CARDFILE-OPEN",
       "reachable": true,
       "performs": [
         "9910-DISPLAY-IO-STATUS",
@@ -26,7 +15,7 @@
       "goto_flag": false
     },
     {
-      "name": "0000-CARDFILE-OPEN",
+      "name": "1000-CARDFILE-GET-NEXT",
       "reachable": true,
       "performs": [
         "9910-DISPLAY-IO-STATUS",
@@ -46,14 +35,14 @@
       "goto_flag": false
     },
     {
-      "name": "9999-ABEND-PROGRAM",
+      "name": "9910-DISPLAY-IO-STATUS",
       "reachable": true,
       "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
     {
-      "name": "9910-DISPLAY-IO-STATUS",
+      "name": "9999-ABEND-PROGRAM",
       "reachable": true,
       "performs": [],
       "goto_targets": [],
@@ -275,8 +264,7 @@
     }
   ],
   "copybooks_used": [
-    "CVACT02Y",
-    "of"
+    "CVACT02Y"
   ],
   "calls_to": [
     "CEE3ABD"
