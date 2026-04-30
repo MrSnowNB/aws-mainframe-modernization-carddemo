@@ -1,0 +1,5 @@
+{"ts": "2026-04-30T08:20:00Z", "event": "gate_open", "task_id": "T-PASS1-PASS2-PATCH", "gate": "G0", "agent": "gemini-cli-agent"}
+{"ts": "2026-04-30T08:20:01Z", "event": "step", "task_id": "T-PASS1-PASS2-PATCH", "gate": "G0", "step_id": "S-001", "desc": "Setup GnuCOBOL 3.2 64-bit on Windows (Arnold Trembley distribution)", "status": "PASS"}
+{"ts": "2026-04-30T08:20:02Z", "event": "step", "task_id": "T-PASS1-PASS2-PATCH", "gate": "G0", "step_id": "S-002", "desc": "Apply Pass 1 & Pass 2 toolchain patches for ambiguity and CICS branch detection", "status": "PASS", "branch": "fix/pass1-pass2-ambiguity-patches"}
+{"ts": "2026-04-30T08:20:03Z", "event": "selftest", "task_id": "T-PASS1-PASS2-PATCH", "status": "PASS", "results": {"annotations": 4, "verbs": ["ACCEPT", "MOVE", "CALL", "STOP RUN"], "p1_edge_resolution_ok": true, "p2_expanded_inventory_size": 2, "p3_scope_depth_ok": true, "p5_cics_branch_ok": true}}
+{"ts": "2026-04-30T08:20:04Z", "event": "merge", "task_id": "T-PASS1-PASS2-PATCH", "from": "fix/pass1-pass2-ambiguity-patches", "to": "main", "status": "SUCCESS"}
