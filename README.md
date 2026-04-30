@@ -1,131 +1,338 @@
 ---
 document_type: AI-First Living README
 project_name: COBOL-MD-PIPELINE (CardDemo Modernization)
-current_phase: Phase 2 - Local Inference Execution
-system_status: READY_FOR_INFERENCE
-target_architecture: Directed Acyclic Graph (DAG) via AI Router
+current_phase: Phase 3 - Batch Translation (6 of ~40 programs complete)
+system_status: PIPELINE_OPERATIONAL
+target_architecture: 3-Pass Deterministic + Bounded-LLM DAG
 cleared_validation_gates:
   - T01_YAML_PARSE: true
   - T02_COMPLETENESS: true
-  - T02-R_REDEFINES_BOUNDS: true (CBACT01C verified)
+  - T02-R_REDEFINES_BOUNDS: true
   - T03_STRUCTURAL_MATCH: true
-pending_action: TRIGGER_AGENT_LOOP
+  - PASS1_SELFTEST: true
+  - PASS2_TOKEN_BUDGETS: true
+  - GATE_PIPELINE: true
+pending_action: RUN_BATCH_REMAINING_34_PROGRAMS
 ---
 
-# AWS CardDemo Modernization: COBOL-to-MD Semantic Graph
+# AWS CardDemo Modernization: COBOL → Verified English MD Pipeline
 
-## 🚀 Current Project Stage: Local Inference Ready (Phase 1 Complete)
-The deterministic tooling and validation scaffolding for the legacy translation pipeline is **100% complete and mathematically verified**.
+## What This Project Does
 
-**Recent Milestones:**
-* Control Flow Graphs (CFG) and static memory allocations for the pilot batch have been successfully mapped to the intermediate schema without relying on LLM inference.
-* The critical `REDEFINES` memory overlay trap (`T02-R`) has been isolated and patched. All volatile memory states are now strictly bounded to their fully qualified 01-level parent variables, preventing downstream database corruption.
-* The "containment vessel" is structurally sound.
+This pipeline translates each COBOL program in the AWS CardDemo mainframe application into a **verified, human-readable English Markdown file with YAML front-matter**. Each output `.md` file is a structured specification that describes:
 
-**Next Steps (Agentic Handoff):**
-The local mesh is now cleared to begin Phase 2. The orchestration agents will ingest the statically verified `.json` memory layouts and `.cbl` logic blocks to generate the English semantic DAG layer. Because the memory states and spaghetti logic (`GOTO`s) are mathematically locked by the tooling layer, the generated Markdown/YAML nodes are ready for execution via the AI router and eventual 1:1 state comparison against the mainframe emulator.
+- What the program does (purpose and business function)
+- Every data field it reads and writes (with memory layout)
+- Its paragraph-by-paragraph logic in plain English
+- Its call graph (which paragraphs call which)
+- Its CICS screen navigation state machine (for online programs)
+- Dead code paragraphs that are never reached
 
-*Note to routing agent: System state is `READY_FOR_INFERENCE`. Await trigger to begin batch file ingestion.*
+These `.md` files are the **verified intermediate layer** — usable by cloud architects, modernization teams, or downstream code-generation pipelines without repeating the comprehension work.
+
+**Current status:** 6 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 34.
 
 ---
 
-## Why this protocol header exists
+## How This Differs From Existing Tools
 
-The block above is not decorative. Lines 1–11 form a **machine-readable contract** the orchestration loop parses before it dispatches any inference work. The pattern borrows directly from the emerging AGENTS.md convention — a root-level markdown file that gives AI coding agents persistent, project-specific operational guidance (build commands, conventions, testing rules, hard constraints) that cannot be inferred from the code alone ([augmentcode, *How to Build Your AGENTS.md (2026)*](https://www.augmentcode.com/guides/how-to-build-agents-md)). The format was donated to the Agentic AI Foundation under the Linux Foundation in December 2025, alongside Anthropic's Model Context Protocol ([augmentcode](https://www.augmentcode.com/guides/how-to-build-agents-md)).
+Commercial tools like IBM watsonx Code Assistant, AWS Transform for Mainframe, and Micro Focus Enterprise Analyzer either:
+- **Transpile** — convert COBOL syntax to Java/Python line-for-line, producing code a developer still cannot read
+- **Summarize** — produce an LLM narrative with no verification, generating plausible-sounding but untrustworthy documentation
 
-The design principle: **serve clean markdown with frontmatter metadata**, because when agents fetch docs they should receive structured content rather than HTML-wrapped paragraphs ([Vercel, *Make your documentation readable by AI agents*](https://vercel.com/kb/guide/make-your-documentation-readable-by-ai-agents)). Addy Osmani frames this as **Agent Experience (AX)** — the analog of Developer Experience for machine consumers. Clean, parseable formats (OpenAPI schemas, `llms.txt`, explicit type definitions) beat prose specifications because they let the agent optimize for the right thing ([Addy Osmani, *How to write a good spec for AI agents*](https://addyosmani.com/blog/good-spec/)). Hyperdev extends the same pattern to path-specific instructions with YAML frontmatter glob patterns for GitHub Copilot ([Hyperdev, *Why Your AI Agents Need Contextual Documentation*](https://hyperdev.matsuoka.com/p/why-your-ai-agents-need-contextual)).
+This pipeline does neither. It produces **proposition-level English claims**, each traceable to a specific source line, with a confidence score and an automated gate that fails any document claiming a paragraph or data field that does not exist in the COBOL source. No commercial tool provides this anti-hallucination guarantee.
 
-In our case, when the Qwen mesh sees `system_status: READY_FOR_INFERENCE` and `T02-R_REDEFINES_BOUNDS: true`, it has the green light to pass raw CFG/memory data to local models for DAG generation. No prose parsing required.
+The academic consensus (Arigela & Virwal 2025, AlphaTrans 2024, IBM ICSE 2025) confirms: LLMs alone fail at repository-scale COBOL. The correct architecture is static analysis first, bounded LLM second, automated verification third. This pipeline implements exactly that.
 
-## Project context: AWS CardDemo
+---
 
-CardDemo is an open-source sample mainframe application published by AWS in December 2022 to let customers, partners, and the mainframe community experiment with modernization approaches on a real, non-trivial COBOL/CICS codebase ([AWS Open Source Blog, *Introducing Open Source AWS CardDemo*](https://aws.amazon.com/blogs/opensource/introducing-open-source-aws-carddemo-for-mainframe-modernization/)). AWS's own prescriptive guidance uses CardDemo as the reference workload for AWS Transform for Mainframe — its agentic AI service that performs code analysis, business-logic extraction, code decomposition, migration-wave planning, and COBOL→Java refactoring. AWS recommends starting with 15,000–20,000 LOC chunks and combining the tool with human expertise ([AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/modernize-carddemo-mainframe-app.html)).
-
-This repository takes a different approach from AWS Transform's opinionated Java refactor: instead of emitting Java directly, we emit a **verified intermediate semantic graph** (Markdown + YAML nodes, validated against a CFG) so downstream consumers — Qwen, a mainframe emulator, or a Java/Go/Rust backend — can plug in without re-doing the comprehension work.
-
-## Why REDEFINES was the gating risk
-
-The `T02-R` gate that just cleared on CBACT01C is not a cosmetic check. `REDEFINES` lets multiple COBOL variables share the same memory location, which is a powerful optimization in constrained mainframe environments but a well-known source of silent corruption when tooling misinterprets overlapping bounds ([Mainframestechhelp, *COBOL REDEFINES*](https://www.mainframestechhelp.com/tutorials/cobol/redefines.htm); [Luiz Melo, *REDEFINES – How to Save Memory and Reuse Storage*](https://www.linkedin.com/pulse/redefines-how-save-memory-reuse-same-storage-area-luiz-melo-be3ef)).
-
-Static-analysis practitioners treat `REDEFINES` alongside `OCCURS` and unvalidated `MOVE` as the three canonical COBOL buffer-overflow vectors, because if one field is overfilled it silently corrupts whatever variable shares its layout ([IN-COM Data Systems, *How to Find Buffer Overflows in COBOL Using Static Analysis*, 2025](https://www.in-com.com/blog/how-to-find-buffer-overflows-in-cobol-using-static-analysis/)). Any translation pipeline that hallucinates the bounds of a redefined group at the intermediate-representation stage will propagate that corruption into every downstream artifact — unit tests, emulator replay, and the final Java/target code.
-
-Locking the redefines interpretation to a CFG-known 01-level parent via a deterministic validator (`validate_t02r.py`) — not an LLM — is what makes the rest of the pipeline trustable. It is the "containment vessel" referenced above.
-
-## Why the handoff is from deterministic tools to a local LLM mesh
-
-Recent peer-reviewed work has converged on a consistent finding: **LLMs alone struggle with repository-scale COBOL**, but a hybrid pipeline where static analysis does the structural heavy lifting and LLMs do the semantic narrative work is dramatically more reliable:
-
-* Arigela & Virwal (2025) report that for COBOL programs exceeding 15,000 LOC, combining flowcharts with vector-DB chunking reduces LLM hallucination rates by **70%**, raises BLEU by **15.8 points**, and lifts developer productivity by **45%** in banking-domain pilots ([*Prompt Engineering Pipelines for Legacy Modernization*, IJAIT 2025](https://aircconline.com/ijait/V15N5/15525ijait01.pdf)).
-* Ibrahimzada et al.'s **AlphaTrans** (ACM 2024) demonstrates that a neuro-symbolic approach — program-analysis decomposition, reverse call-order translation, multi-level validation — achieves 96.4% syntactic correctness at repository scale where direct LLM translation collapses ([*AlphaTrans*, Proc. ACM SE 2024](https://dl.acm.org/doi/10.1145/3729379)).
-* Dau et al.'s **XMainframe** (2024) shows that even mainframe-specialized LLMs depend on high-quality pre-training corpora rather than ad-hoc prompting ([*XMainframe*, arXiv:2408.04660](https://arxiv.org/abs/2408.04660)).
-* IBM's WCA4Z team (Kumar, Saha et al., ICSE 2025) emphasizes that LLM translations "cannot be trusted" without an automated equivalence-checking harness — symbolic execution + mocked JUnits — proving the original and translated programs are semantically equivalent ([*Automated Validation of COBOL to Java Transformation*, FSE 2024](https://dl.acm.org/doi/10.1145/3691620.3695365); [*Automated Testing of COBOL to Java Transformation*, FSE 2025](https://dl.acm.org/doi/10.1145/3696630.3728548)).
-* Gandhi et al. (2024) document that direct COBOL→Java LLM translation hits only 60% execution accuracy; adding execution-guided logic refinement plus readability feedback raises it to **81.99%** with a 0.610 readability score ([*Translation of Low-Resource COBOL to Logically Correct and Readable Java*, ACM 2024](https://dl.acm.org/doi/10.1145/3643795.3648388)).
-* Diggs et al. (2024) specifically study **LLM-generated documentation** for legacy languages (MUMPS, mainframe assembly) and report encouraging results only when the legacy context is tightly scoped ([*Leveraging LLMs for Legacy Code Modernization*, arXiv:2411.14971](https://arxiv.org/abs/2411.14971)).
-
-Our architecture mirrors the same consensus: the tooling layer (validators T01/T02/T02-R/T03, CFG extraction, memory-layout JSONs) eliminates the classes of error LLMs demonstrably make, and only then hands structured input to the local Qwen mesh for the narrative DAG layer.
-
-## Why this matters at enterprise scale
-
-Mainframes remain structurally embedded in finance. Gartner's published forecast puts enterprise IT spending in the banking and securities sector at **$715 billion by 2025**, with the mainframe positioned as a re-emerging pillar of hybrid-cloud strategy rather than a sunset platform ([Statista, *Global banking & securities IT spending 2025*](https://cashmere.io/v/BgC0HK); [Statista, *Role of the mainframe in hybrid IT strategy 2021*](https://cashmere.io/v/MezlLN)). One review of higher-ed legacy modernization reports LLM-assisted efforts yielding **35–40% cost savings and 50% timeline reductions** versus traditional rewrites ([Damarched, *Applying LLMs to Legacy System Modernization in Higher Education IT*, IJISRT 2026](https://www.ijisrt.com/applying-llms-to-legacy-system-modernization-in-higher-education-it-leveraging-large-language-models-beyond-chatbots-to-modernize-core-student-and-administrative-systems-in-universitiesa-suggestive-review-study-)).
-
-The venture landscape has responded accordingly: CB Insights' generative-AI market map identified 430+ genAI startups across 60 categories, with code-generation copilots (Code Llama, IBM's open-sourced code tooling trained on 100+ languages) emerging as a top-funded horizontal — explicitly because sectors with sensitive data like financial services demand local/fine-tuned deployment over hosted APIs ([CB Insights, *The generative AI market map*](https://app.cbinsights.com/research/generative-ai-startups-market-map/)). That matches the decision to run this project on a local Qwen mesh rather than a cloud API.
-
-## Repository layout
+## Repository Layout
 
 ```
-app/cbl/                               COBOL source (read-only, G0 #6)
+app/cbl/                                  COBOL source — READ ONLY, never modify
+app/copybooks/                            COPY member sources
 scripts/
-  validate_t01.py .. validate_t03.py   frozen validators (G0 #4)
-  assemble_v1_2.py                     v1.2 MD assembler
+  pass1_annotate.py                       Pass 1 — deterministic statement annotator
+  pass2_llm.py                            Pass 2 — LLM payload builder
+  pass2_template.py                       Pass 2 — template renderer for simple verbs
+  pass2_override.py                       Pass 2 — manual overrides
+  pass3_synthesize.py                     Pass 3 — MD renderer
+  validate_t01.py .. validate_t03.py      Frozen structural validators (do not modify)
+  extract_byte_layout.py                  Data layout extractor
+  extract_cfg_summary.py                  CFG summarizer
+  extract_fallthrough.py                  Fallthrough path extractor
+  extract_file_control.py                 FILE CONTROL section extractor
+  extract_paragraph_io.py                 Paragraph I/O extractor
 translations/
-  baseline/*.md                        v1.0 hand-verified intermediate MD
-  baseline-v1.2/*.md                   v1.2 auto-assembled with Hercules-parity fields
+  gold-candidate/*.md                     Gate-verified completed translations
+  baseline/*.md                           v1.0 hand-verified intermediate MD
 validation/
-  structure/*_cfg.json                 ground-truth CFG field sets
-  pass1/{byte_layouts,fallthrough,
-         paragraph_io,file_control}/   Pass-1 extractor outputs
-  reports/                             per-program T0x validator reports
-.aifirst/runs/T-*/run.log              per-task deterministic event log
+  structure/*_cfg.json                    Cobol-REKT static analysis output (CFG)
+  pass1/*_annotations.json               Pass 1 statement annotation output
+  pass1/*_phantoms.json                   Pass 1 filtered phantom paragraph log
+  pass2/*_propositions.json              Pass 2 proposition set
+  pass2/*_llm_requests.jsonl             Pass 2 LLM API call queue
+  claims/                                 extract_md_claims output
+  ground_truth/                           extract_ground_truth output
+  logs/                                   Gate run logs (timestamped)
+  cobol_vocab.py                          Single source of truth for COBOL reserved words
+  extract_ground_truth.py                 Gate: extract CFG facts
+  extract_md_claims.py                    Gate: extract MD claims
+  gate_compare.py                         Gate: compare claims vs ground truth
+  lint_md.py                              Pre-commit MD linter
+.aifirst/runs/T-*/run.log               Per-task deterministic event log
 ```
 
-## Validation gate definitions
+---
 
-| Gate    | What it proves                                                                 | Enforcer              |
-|---------|--------------------------------------------------------------------------------|-----------------------|
-| T01     | Every MD file parses as YAML and matches `schema_version: cobol-md/1.0`        | `validate_t01.py`     |
-| T02     | Every field declared in the CFG is present in the MD (completeness)            | `validate_t02.py`     |
-| T02-R   | Every `redefines_interpretations[*].condition` references a CFG-known field    | `validate_t02r.py`    |
-| T03     | MD structural shape matches the CFG hierarchy (01-levels, groups, OCCURS)      | `validate_t03.py`     |
+## The 3-Pass Translation Pipeline
 
-All validators use `--cfg --md --out` (T02/T02-R/T03) or `--md --repo-root --out` (T01). They are frozen; the orchestration agent must not modify them.
+Every COBOL program passes through four sequential stages. Zero LLM calls happen until Stage 2, and even there the LLM is bounded to one statement at a time with all context pre-computed.
 
-## Hard constraints for the agent loop (G0)
+### Stage 0 — Static Analysis (Cobol-REKT)
+**Tool:** `smojol-cli` (Cobol-REKT RC8)  
+**Input:** `app/cbl/PROGNAME.cbl`  
+**Output:** `validation/structure/PROGNAME_cfg.json`
 
-1. No edits to `app/cbl/**` — COBOL source is the ground truth.
-2. No edits to `scripts/validate_t0*.py` — validators are frozen.
-3. Baselines in `translations/baseline/**` are read-only except within an explicitly opened fix-forward task (e.g. `T-CBACT01C-T02R-FIX`).
-4. No LLM dispatch for structural/bounds decisions — use the CFG and the COBOL source deterministically.
-5. Every task run produces a `.aifirst/runs/T-<id>/run.log` with before/after SHAs for reproducibility.
+Extracts every paragraph, data item, and PERFORM call relationship from the source without any inference. This JSON is the ground truth that all downstream stages use.
+
+```json
+{
+  "paragraphs": [{"name": "3000-READ-CARD", "reachable": true}],
+  "data_items":  [{"name": "WS-CARD-NUM", "level": "05", "picture": "X(16)"}],
+  "call_graph":  [{"from": "1000-MAIN", "to": "3000-READ-CARD"}]
+}
+```
+
+---
+
+### Stage 1 — Annotation (Pass 1)
+**Script:** `scripts/pass1_annotate.py`  
+**Input:** `.cbl` source + `_cfg.json`  
+**Output:** `validation/pass1/PROGNAME_annotations.json`
+
+Walks every line of the preprocessed source (`cobc -E`) and emits one annotation record per statement:
+
+```json
+{
+  "seq": 42,
+  "paragraph": "3000-READ-CARD",
+  "line": 387,
+  "verb": "READ",
+  "operands": ["CARD-FILE"],
+  "operand_types": ["working-storage"],
+  "cfg_branch_context": null,
+  "cfg_edges_in": ["1000-MAIN:seq41"],
+  "cfg_edges_out": ["3100-HANDLE-ERROR:seq55"],
+  "cics_branch": false,
+  "confidence_floor": 0.9
+}
+```
+
+**Zero LLM. Deterministic and reproducible.**
+
+Active patches (all merged to main as of 2026-04-30):
+- **P1** — Real paragraph call-graph edges replace seq±1 placeholders
+- **P2** — Data inventory built from `cobc -E` expanded source (catches COPY member fields)
+- **P3** — IF/EVALUATE scope depth tracked to clear branch context after END-IF/END-EVALUATE
+- **P5** — CICS RETURN/XCTL/LINK/HANDLE/ABEND detected as branch points
+
+**Prerequisite:** GnuCOBOL 3.2 must be installed and `cobc` on PATH. Windows users: download the pre-built binary from Arnold Trembley's distribution at https://sourceforge.net/projects/gnucobol/files/gnucobol/3.2/ and add the `bin\` folder to your user PATH.
+
+Verify before running:
+```powershell
+cobc --version
+python scripts/pass1_annotate.py --selftest
+# Expected: {"selftest": "PASS", ...}
+```
+
+---
+
+### Stage 2 — Proposition Building (Pass 2)
+**Scripts:** `scripts/pass2_llm.py` + `scripts/pass2_template.py`  
+**Input:** `_annotations.json`  
+**Output:** `validation/pass2/PROGNAME_llm_requests.jsonl`
+
+Simple statements (MOVE, ADD, OPEN, CLOSE) are rendered to English via deterministic templates — no LLM needed. Complex statements (IF, EVALUATE, EXEC CICS, CALL) are packaged as bounded LLM requests with full annotation context:
+
+```json
+{
+  "temperature": 0,
+  "seed": 42,
+  "model": "gpt-4o-2024-08-06",
+  "max_tokens_ceiling": 700,
+  "verb_token_budgets": {
+    "EVALUATE": 700, "EXEC CICS": 600, "EXEC SQL": 600,
+    "IF": 500, "CALL": 500, "MOVE CORRESPONDING": 500
+  }
+}
+```
+
+Active patches:
+- **P4** — Per-verb token budgets prevent PARTIAL truncation loops on complex EVALUATE blocks
+
+---
+
+### Stage 3 — Synthesis (Pass 3)
+**Script:** `scripts/pass3_synthesize.py`  
+**Input:** LLM responses merged with propositions  
+**Output:** `translations/gold-candidate/PROGNAME.md`
+
+Renders the final `.md` with YAML front-matter and structured English sections:
+
+```yaml
+---
+program_id: COSGN00C
+source_file: app/cbl/COSGN00C.cbl
+paragraphs_total: 18
+paragraphs_reachable: 15
+data_items: 47
+translation_confidence: 0.87
+gate_status: PASS
+---
+```
+
+Followed by: Purpose, Data Layout, Paragraph Logic, Call Graph, CICS Screen Flow, Dead Code.
+
+---
+
+### Stage 4 — Gate Verification
+**Scripts:** `validation/extract_ground_truth.py` → `extract_md_claims.py` → `gate_compare.py`  
+**Output:** `validation/logs/gate_TIMESTAMP.log`
+
+Automatically compares every claim in the `.md` against the CFG ground truth. Exits 1 (FAIL) if any paragraph is hallucinated, any data field is invented, or any call target does not exist in the source. **A program is not done until this gate passes.**
+
+---
+
+## Completed Translations
+
+| Program | Description | Size | Gate |
+|---|---|---|---|
+| [CBACT01C.md](translations/gold-candidate/CBACT01C.md) | Account file batch processor | 41 KB | ✅ PASS |
+| [CBCUS01C.md](translations/gold-candidate/CBCUS01C.md) | Customer file processor | 22 KB | ✅ PASS |
+| [CBTRN01C.md](translations/gold-candidate/CBTRN01C.md) | Daily transaction processor | 38 KB | ✅ PASS |
+| [COBSWAIT.md](translations/gold-candidate/COBSWAIT.md) | Wait utility | 4 KB | ✅ PASS |
+| [COMEN01C.md](translations/gold-candidate/COMEN01C.md) | Main menu handler | 31 KB | ✅ PASS |
+| [COSGN00C.md](translations/gold-candidate/COSGN00C.md) | Sign-on screen (CICS) | 26 KB | ✅ PASS |
+
+**Remaining:** ~34 programs pending. Next target: COCRDUPC (card update screen).
+
+---
+
+## Per-Program Recipe for Batch Agent
+
+Run this sequence for each COBOL program. All steps must pass before moving to the next program.
+
+### Prerequisites (verify once before starting batch)
+```powershell
+cobc --version                   # GnuCOBOL 3.2+
+python --version                 # Python 3.10+
+smojol --version                 # Cobol-REKT RC8 for Stage 0
+python scripts/pass1_annotate.py --selftest  # must return PASS
+```
+
+### Stage 0 — Generate CFG
+```powershell
+smojol analyze app/cbl/PROGNAME.cbl --out validation/structure/PROGNAME_cfg.json
+```
+
+### Stage 1 — Annotate
+```powershell
+python scripts/pass1_annotate.py `
+  --src app/cbl/PROGNAME.cbl `
+  --cfg validation/structure/PROGNAME_cfg.json `
+  --program-id PROGNAME `
+  --out validation/pass1/PROGNAME_annotations.json `
+  --phantoms-out validation/pass1/PROGNAME_phantoms.json
+```
+Verify stdout shows `cfg_edges_resolved > 0` and `cfg_edges_unresolved == 0` before proceeding.
+
+### Stage 2 — Build Propositions
+```powershell
+python scripts/pass2_llm.py `
+  --annotations validation/pass1/PROGNAME_annotations.json `
+  --program-id PROGNAME `
+  --out validation/pass2/PROGNAME_llm_requests.jsonl
+```
+Verify envelope shows `max_tokens_ceiling: 700` and `verb_token_budgets` present.
+
+### Stage 3 — Synthesize MD
+```powershell
+python scripts/pass3_synthesize.py `
+  --requests validation/pass2/PROGNAME_llm_requests.jsonl `
+  --program-id PROGNAME `
+  --out translations/gold-candidate/PROGNAME.md
+```
+
+### Stage 4 — Gate Check
+```powershell
+python validation/gate_compare.py --program-id PROGNAME
+# Exit 0 = PASS. Exit 1 = FAIL — fix MD before committing.
+```
+
+### Baseline Verification (run before starting any batch)
+```powershell
+# Confirm the 6 completed programs still pass before adding more
+foreach ($p in @("CBACT01C","CBCUS01C","CBTRN01C","COBSWAIT","COMEN01C","COSGN00C")) {
+    python validation/gate_compare.py --program-id $p
+}
+# All 6 must show PASS
+```
+
+---
+
+## Hard Constraints for Agent Loop
+
+1. **No edits to `app/cbl/**`** — COBOL source is the immutable ground truth.
+2. **No edits to `scripts/validate_t0*.py`** — structural validators are frozen.
+3. **No LLM calls for structural/bounds decisions** — use CFG and COBOL source deterministically.
+4. **Gate must pass before a program is considered done** — `gate_compare.py` exit 0 is the acceptance criterion.
+5. **Every task run produces `.aifirst/runs/T-<id>/run.log`** with before/after SHAs for reproducibility.
+6. A program's `.md` is **not promoted to gold-candidate** until `gate_status: PASS` is confirmed.
+
+---
+
+## Validation Gate Definitions
+
+| Gate | What it proves | Enforcer |
+|---|---|---|
+| T01 | Every MD parses as YAML and matches `schema_version: cobol-md/1.0` | `validate_t01.py` |
+| T02 | Every field in the CFG is present in the MD (completeness) | `validate_t02.py` |
+| T02-R | Every `redefines_interpretations[*].condition` references a CFG-known field | `validate_t02r.py` |
+| T03 | MD structural shape matches CFG hierarchy (01-levels, groups, OCCURS) | `validate_t03.py` |
+| GATE | No hallucinated paragraphs, data fields, or call targets in the MD | `gate_compare.py` |
+| LINT | No scope terminator names used as paragraph names in the MD | `lint_md.py` |
+
+---
+
+## Why the Hybrid Pipeline
+
+Recent peer-reviewed work converges on the same finding: LLMs alone fail at repository-scale COBOL, but a hybrid pipeline where static analysis does structural heavy lifting and LLMs do bounded semantic narrative is dramatically more reliable:
+
+- Arigela & Virwal (2025) report combining flowcharts with vector-DB chunking reduces LLM hallucination rates by **70%** and raises BLEU by **15.8 points** in banking-domain pilots ([IJAIT 2025](https://aircconline.com/ijait/V15N5/15525ijait01.pdf)).
+- AlphaTrans (ACM 2024) achieves 96.4% syntactic correctness at repository scale where direct LLM translation collapses ([ACM](https://dl.acm.org/doi/10.1145/3729379)).
+- IBM ICSE 2025 emphasizes LLM translations "cannot be trusted" without automated equivalence checking ([FSE 2024](https://dl.acm.org/doi/10.1145/3691620.3695365)).
+- Gandhi et al. (2024) show direct COBOL→Java translation hits only 60% execution accuracy; adding execution-guided refinement raises it to **81.99%** ([ACM 2024](https://dl.acm.org/doi/10.1145/3643795.3648388)).
+
+This pipeline implements the same consensus: static analysis eliminates the classes of error LLMs demonstrably make, and only then hands structured input to the LLM for narrative generation.
+
+---
+
+## Project Context: AWS CardDemo
+
+CardDemo is an open-source sample mainframe application published by AWS in December 2022 for mainframe modernization experimentation ([AWS Open Source Blog](https://aws.amazon.com/blogs/opensource/introducing-open-source-aws-carddemo-for-mainframe-modernization/)). AWS's own guidance uses CardDemo as the reference workload for AWS Transform for Mainframe. This repository takes a different approach: instead of emitting Java directly, we emit a **verified intermediate semantic layer** (Markdown + YAML, validated against the CFG) so any downstream consumer can plug in without re-doing the comprehension work.
+
+---
 
 ## References
 
-* [AWS Open Source Blog — *Introducing Open Source AWS CardDemo for Mainframe Modernization* (2022)](https://aws.amazon.com/blogs/opensource/introducing-open-source-aws-carddemo-for-mainframe-modernization/)
-* [AWS Prescriptive Guidance — *Modernize the CardDemo mainframe application using AWS Transform*](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/modernize-carddemo-mainframe-app.html)
-* [augmentcode — *How to Build Your AGENTS.md (2026)*](https://www.augmentcode.com/guides/how-to-build-agents-md)
-* [Vercel — *Make your documentation readable by AI agents*](https://vercel.com/kb/guide/make-your-documentation-readable-by-ai-agents)
-* [Addy Osmani — *How to write a good spec for AI agents*](https://addyosmani.com/blog/good-spec/)
-* [Hyperdev — *Why Your AI Agents Need Contextual Documentation*](https://hyperdev.matsuoka.com/p/why-your-ai-agents-need-contextual)
-* [IN-COM Data Systems — *How to Find Buffer Overflows in COBOL Using Static Analysis* (2025)](https://www.in-com.com/blog/how-to-find-buffer-overflows-in-cobol-using-static-analysis/)
-* [Luiz Melo — *REDEFINES — How to Save Memory and Reuse the Same Storage Area* (2025)](https://www.linkedin.com/pulse/redefines-how-save-memory-reuse-same-storage-area-luiz-melo-be3ef)
-* [Mainframestechhelp — *COBOL REDEFINES*](https://www.mainframestechhelp.com/tutorials/cobol/redefines.htm)
-* Arigela & Virwal — [*Prompt Engineering Pipelines for Legacy Modernization: COBOL, PL/I and Bidirectional Code–Natural Language Transformation Using LLMs*, IJAIT 2025](https://aircconline.com/ijait/V15N5/15525ijait01.pdf) — DOI [10.5121/ijait.2025.15501](https://doi.org/10.5121/ijait.2025.15501).
-* Ibrahimzada et al. — [*AlphaTrans: A Neuro-Symbolic Compositional Approach for Repository-Level Code Translation and Validation*, ACM 2024](https://dl.acm.org/doi/10.1145/3729379).
-* Dau et al. — [*XMainframe: A Large Language Model for Mainframe Modernization*, arXiv:2408.04660](https://arxiv.org/abs/2408.04660).
-* Kumar, Saha et al. — [*Automated Validation of COBOL to Java Transformation*, FSE 2024](https://dl.acm.org/doi/10.1145/3691620.3695365).
-* Hans et al. — [*Automated Testing of COBOL to Java Transformation*, FSE 2025](https://dl.acm.org/doi/10.1145/3696630.3728548).
-* Gandhi et al. — [*Translation of Low-Resource COBOL to Logically Correct and Readable Java*, ACM 2024](https://dl.acm.org/doi/10.1145/3643795.3648388).
-* Diggs et al. — [*Leveraging LLMs for Legacy Code Modernization: Challenges and Opportunities for LLM-Generated Documentation*, arXiv:2411.14971](https://arxiv.org/abs/2411.14971).
-* Damarched — [*Applying LLMs to Legacy System Modernization in Higher Education IT*, IJISRT 2026](https://www.ijisrt.com/applying-llms-to-legacy-system-modernization-in-higher-education-it-leveraging-large-language-models-beyond-chatbots-to-modernize-core-student-and-administrative-systems-in-universitiesa-suggestive-review-study-).
-* [CB Insights — *The generative AI market map*](https://app.cbinsights.com/research/generative-ai-startups-market-map/).
-* [Statista — *Global banking & securities IT spending 2025* (Gartner)](https://cashmere.io/v/BgC0HK).
-* [Statista — *Role of the mainframe in hybrid IT strategy 2021* (Broadcom/EMA)](https://cashmere.io/v/MezlLN).
+- [AWS Open Source Blog — *Introducing Open Source AWS CardDemo* (2022)](https://aws.amazon.com/blogs/opensource/introducing-open-source-aws-carddemo-for-mainframe-modernization/)
+- [AWS Prescriptive Guidance — *Modernize CardDemo using AWS Transform*](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/modernize-carddemo-mainframe-app.html)
+- Arigela & Virwal — [*Prompt Engineering Pipelines for Legacy Modernization*, IJAIT 2025](https://aircconline.com/ijait/V15N5/15525ijait01.pdf)
+- Ibrahimzada et al. — [*AlphaTrans*, ACM 2024](https://dl.acm.org/doi/10.1145/3729379)
+- Dau et al. — [*XMainframe*, arXiv:2408.04660](https://arxiv.org/abs/2408.04660)
+- Kumar, Saha et al. — [*Automated Validation of COBOL to Java Transformation*, FSE 2024](https://dl.acm.org/doi/10.1145/3691620.3695365)
+- Gandhi et al. — [*Translation of Low-Resource COBOL to Logically Correct and Readable Java*, ACM 2024](https://dl.acm.org/doi/10.1145/3643795.3648388)
+- Diggs et al. — [*Leveraging LLMs for Legacy Code Modernization*, arXiv:2411.14971](https://arxiv.org/abs/2411.14971)
+- [IN-COM — *How to Find Buffer Overflows in COBOL Using Static Analysis* (2025)](https://www.in-com.com/blog/how-to-find-buffer-overflows-in-cobol-using-static-analysis/)
+- [CB Insights — *The generative AI market map*](https://app.cbinsights.com/research/generative-ai-startups-market-map/)
