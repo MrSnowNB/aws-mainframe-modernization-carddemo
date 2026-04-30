@@ -4,8 +4,8 @@ extract_cfg_summary.py
 Converts Cobol-REKT cfg-{PROG}.cbl.json -> validation/structure/{PROG}_cfg.json
 
 Usage:
-    python validation/extract_cfg_summary.py CBACT04C
-    python validation/extract_cfg_summary.py --all
+    py validation/extract_cfg_summary.py CBACT04C
+    py validation/extract_cfg_summary.py --all
 """
 
 import json
@@ -20,38 +20,74 @@ STRUCT_DIR = ROOT / "validation" / "structure"
 SRC_DIR    = ROOT / "app" / "cbl"
 CFG_TOOL   = "Cobol-REKT smojol-cli + extract_cfg_summary.py"
 
-# Paragraph name pattern: COBOL paragraph names are all-caps with hyphens/digits
-# Excludes internal Cobol-REKT labels like "ProcedureDivisionBodyContext/..."
+# Real COBOL paragraph names: uppercase letters, digits, hyphens; no slashes or spaces.
 _PARA_RE = re.compile(r'^[A-Z0-9][A-Z0-9\-]{1,}$')
+
+# Exact labels that Cobol-REKT emits as synthetic graph nodes — never paragraph names.
 _SKIP_LABELS = {
-    "YES", "NO", "ELSE", "EXIT", "CONTINUE", "UNTIL", "END-PERFORM",
-    "END-IF", "END-READ", "END-EVALUATE", "END-STRING", "END-COMPUTE",
+    "YES", "NO", "ELSE", "EXIT", "CONTINUE", "UNTIL",
+    "END-PERFORM", "END-IF", "END-READ", "END-EVALUATE",
+    "END-STRING", "END-COMPUTE", "END-EXEC", "END-CALL",
+    "END-SEARCH", "END-UNSTRING", "END-MULTIPLY", "END-DIVIDE",
+    "END-ADD", "END-SUBTRACT", "END-RETURN",
 }
 
-# Statement-type prefixes emitted by Cobol-REKT as truncated node labels
+# COBOL statement verbs.  Cobol-REKT builds inline-code node labels by
+# concatenating the verb with the first operand, e.g.:
+#   MOVECARDFILE-ST   CLOSECARDFILE-F   PERFORMUNTILEND   GOBACK
+# None of these can ever be a user-defined paragraph name, so reject
+# ANY label that starts with one of these verbs — no digit-guard needed.
 _STMT_PREFIXES = (
-    "PERFORM", "DISPLAY", "MOVE", "ADD", "SUBTRACT",
-    "MULTIPLY", "DIVIDE", "COMPUTE", "READ", "WRITE",
-    "REWRITE", "OPEN", "CLOSE", "IF", "EVALUATE", "STRING",
-    "CALL", "GOBACK", "STOP", "GO", "INITIALIZE",
-    "INSPECT", "UNSTRING", "SET",
+    "ACCEPT",
+    "ADD",
+    "CALL",
+    "CLOSE",
+    "COMPUTE",
+    "CONTINUE",
+    "DISPLAY",
+    "DIVIDE",
+    "EVALUATE",
+    "EXIT",
+    "GO",
+    "GOBACK",
+    "IF",
+    "INITIALIZE",
+    "INSPECT",
+    "MERGE",
+    "MOVE",
+    "MULTIPLY",
+    "NEXT",
+    "OPEN",
+    "PERFORM",
+    "READ",
+    "RELEASE",
+    "RETURN",
+    "REWRITE",
+    "SEARCH",
+    "SET",
+    "SORT",
+    "STOP",
+    "STRING",
+    "SUBTRACT",
+    "UNSTRING",
+    "WRITE",
 )
 
 
 def is_paragraph_node(label: str) -> bool:
-    """True if this label looks like a user-defined COBOL paragraph name."""
+    """True only if label is a user-defined COBOL paragraph name."""
     if '/' in label or ' ' in label:
         return False
     if label in _SKIP_LABELS:
         return False
     if not _PARA_RE.match(label):
         return False
+    # Reject every label that begins with a COBOL statement verb.
+    # Real paragraph names never start with a verb (they start with
+    # a sequence number like 0000- or a unique alphabetic prefix).
     for prefix in _STMT_PREFIXES:
-        if label.startswith(prefix) and len(label) > len(prefix):
-            remainder = label[len(prefix):]
-            # Statement nodes like "PERFORM0300-ACC" have a digit right after prefix
-            if remainder and remainder[0].isdigit():
-                return False
+        if label.startswith(prefix):
+            return False
     return True
 
 
@@ -71,12 +107,12 @@ def extract(prog_name: str):
     nodes = {n["id"]: n for n in data.get("nodes", [])}
     edges = data.get("edges", [])
 
-    # Adjacency maps
+    # Build outgoing-edge adjacency map.
     out_edges: dict[str, list[tuple[str, str]]] = {}
     for e in edges:
         out_edges.setdefault(e["fromNodeID"], []).append((e["toNodeID"], e["edgeType"]))
 
-    # Identify paragraph nodes
+    # Identify paragraph nodes using the tightened filter.
     para_nodes = {n["id"]: n for n in nodes.values()
                   if is_paragraph_node(n.get("label", ""))}
 
@@ -107,8 +143,7 @@ def extract(prog_name: str):
         result: list[str] = []
         node = nodes.get(start_id, {})
         orig = node.get("originalText", "").upper()
-        lbl  = node.get("label", "").upper()
-        if "GO TO" in orig or "GOTO" in lbl:
+        if "GO TO" in orig:
             for (to_id, _) in out_edges.get(start_id, []):
                 if to_id in para_nodes:
                     t = para_nodes[to_id]["label"]
@@ -121,7 +156,7 @@ def extract(prog_name: str):
                         result.append(t)
         return result
 
-    # Reachability BFS from ProcedureDivisionBodyContext root
+    # BFS from ProcedureDivisionBodyContext root to find reachable nodes.
     root_id = next(
         (nid for nid, n in nodes.items()
          if "ProcedureDivisionBodyContext" in n.get("label", "")),
@@ -140,11 +175,11 @@ def extract(prog_name: str):
 
     reachable_paras = {nid for nid in para_nodes if nid in reachable_ids}
 
-    # Build paragraph list
+    # Assemble paragraph records.
     paragraphs = []
     for nid, n in para_nodes.items():
-        performs  = collect_performs(nid)
-        gotos     = collect_gotos(nid)
+        performs = collect_performs(nid)
+        gotos    = collect_gotos(nid)
         paragraphs.append({
             "name":         n["label"],
             "reachable":    nid in reachable_paras,
