@@ -172,15 +172,6 @@ data_items:
 
 # ── Procedure Paragraphs ───────────────────────────────────────────────────────
 procedure_paragraphs:
-  - name: "END-PERFORM"
-    reachable: true
-    performs:
-      - "0000-XREFFILE-OPEN"
-      - "1000-XREFFILE-GET-NEXT"
-      - "9000-XREFFILE-CLOSE"
-    goto_targets: []
-    summary: "Implicit main control block (the procedure division body before the first named paragraph): displays a start-of-execution banner, opens the XREFFILE, enters a PERFORM UNTIL loop that reads and displays each cross-reference record until end-of-file, closes the file, displays an end-of-execution banner, and issues GOBACK"
-
   - name: "1000-XREFFILE-GET-NEXT"
     reachable: true
     performs:
@@ -362,5 +353,5 @@ Inspects IO-STATUS to determine which display path to use. If IO-STATUS is non-n
 - **VSAM READ:** CBACT03C reads XREFFILE (INDEXED, sequential access, key FD-XREF-CARD-NUM)
 - **REDEFINES (1):** TWO-BYTES-ALPHA/TWO-BYTES-BINARY (binary-vs-character dual-view for VSAM status decoding)
 - **RULES (active):** BR-001 through BR-009, all reachable
-- **DEAD CODE PARAGRAPHS:** None detected; all 6 CFG paragraphs are reachable
+- **DEAD CODE PARAGRAPHS:** None detected; all 5 CFG paragraphs are reachable
 - **GOTO FLAGS:** No GOTO statements present in source; all goto_targets arrays are empty; no irreducible GOTOs flagged
