@@ -2,15 +2,13 @@
   "program_id": "CBACT03C",
   "source_file": "app/cbl/CBACT03C.cbl",
   "source_sha": "e9adeca181e49c31223cd334919697268782e93e",
-  "cfg_tool": "Gemini-CLI extract_cfg_local.py (No-Smojol Fallback)",
+  "cfg_tool": "Cobol-REKT smojol-cli + extract_cfg_summary.py",
   "paragraphs": [
     {
-      "name": "END-PERFORM",
+      "name": "0000-XREFFILE-OPEN",
       "reachable": true,
       "performs": [
-        "0000-XREFFILE-OPEN",
-        "1000-XREFFILE-GET-NEXT",
-        "9000-XREFFILE-CLOSE"
+        "OPENINPUTXREFFI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -19,18 +17,7 @@
       "name": "1000-XREFFILE-GET-NEXT",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "0000-XREFFILE-OPEN",
-      "reachable": true,
-      "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "READXREFFILE-FI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -39,8 +26,16 @@
       "name": "9000-XREFFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "9910-DISPLAY-IO-STATUS",
-        "9999-ABEND-PROGRAM"
+        "CLOSEXREFFILE-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "9910-DISPLAY-IO-STATUS",
+      "reachable": true,
+      "performs": [
+        "IFIO-STATUSNOTN"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -48,222 +43,190 @@
     {
       "name": "9999-ABEND-PROGRAM",
       "reachable": true,
+      "performs": [
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEXREFFILE-F",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "CLOSEXREFFILE-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEXREFFILE-F",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST",
+        "SUBTRACTAPPL-RE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "DISPLAYCARD-XRE",
+      "reachable": true,
       "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
     {
-      "name": "9910-DISPLAY-IO-STATUS",
+      "name": "DISPLAYCARD-XRE",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "GOBACK",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFIO-STATUSNOTN",
+      "reachable": true,
+      "performs": [
+        "MOVEIO-STAT1TOI",
+        "MOVEIO-STATUSTO"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFXREFFILE-STAT",
+      "reachable": true,
+      "performs": [
+        "0000-XREFFILE-OPEN",
+        "MOVEXREFFILE-ST",
+        "DISPLAYCARD-XRE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STAT1TOI",
+      "reachable": true,
+      "performs": [
+        "MOVEIO-STAT2TOT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STAT2TOT",
+      "reachable": true,
+      "performs": [
+        "MOVETWO-BYTES-B"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STATUSTO",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETWO-BYTES-B",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "9999-ABEND-PROGRAM",
+        "9910-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTXREFFI",
+      "reachable": true,
+      "performs": [
+        "9000-XREFFILE-CLOSE",
+        "OPENINPUTXREFFI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTXREFFI",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "PERFORMUNTILEND",
+      "reachable": true,
+      "performs": [
+        "1000-XREFFILE-GET-NEXT",
+        "GOBACK",
+        "9000-XREFFILE-CLOSE",
+        "DISPLAYCARD-XRE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READXREFFILE-FI",
+      "reachable": true,
+      "performs": [
+        "IFXREFFILE-STAT",
+        "READXREFFILE-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READXREFFILE-FI",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "SUBTRACTAPPL-RE",
       "reachable": true,
       "performs": [],
       "goto_targets": [],
       "goto_flag": false
     }
-  ],
-  "data_items": [
-    {
-      "name": "FD-XREFFILE-REC",
-      "level": 1,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-XREF-CARD-NUM",
-      "level": 5,
-      "picture": "X(16)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-XREF-DATA",
-      "level": 5,
-      "picture": "X(34)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CARD-XREF-RECORD",
-      "level": 1,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREF-CARD-NUM",
-      "level": 5,
-      "picture": "X(16)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREF-CUST-ID",
-      "level": 5,
-      "picture": "9(09)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREF-ACCT-ID",
-      "level": 5,
-      "picture": "9(11)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREFFILE-STATUS",
-      "level": 1,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREFFILE-STAT1",
-      "level": 5,
-      "picture": "X",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREFFILE-STAT2",
-      "level": 5,
-      "picture": "X",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS",
-      "level": 1,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STAT1",
-      "level": 5,
-      "picture": "X",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STAT2",
-      "level": 5,
-      "picture": "X",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-BINARY",
-      "level": 1,
-      "picture": "9(4)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-ALPHA",
-      "level": 1,
-      "picture": null,
-      "redefines": "TWO-BYTES-BINARY",
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-LEFT",
-      "level": 5,
-      "picture": "X",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-RIGHT",
-      "level": 5,
-      "picture": "X",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS-04",
-      "level": 1,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS-0401",
-      "level": 5,
-      "picture": "9",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS-0403",
-      "level": 5,
-      "picture": "999",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "APPL-RESULT",
-      "level": 1,
-      "picture": "S9(9)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "APPL-AOK",
-      "level": 88,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "APPL-EOF",
-      "level": 88,
-      "picture": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "END-OF-FILE",
-      "level": 1,
-      "picture": "X(01)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "ABCODE",
-      "level": 1,
-      "picture": "S9(9)",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TIMING",
-      "level": 1,
-      "picture": "S9(9)",
-      "redefines": null,
-      "reachable": true
-    }
-  ],
-  "redefines_clauses": [
-    {
-      "name": "TWO-BYTES-ALPHA",
-      "level": 1,
-      "picture": null,
-      "redefines": "TWO-BYTES-BINARY",
-      "reachable": true
-    }
-  ],
-  "copybooks_used": [
-    "CVACT03Y",
-    "of"
-  ],
-  "calls_to": [
-    "CEE3ABD"
-  ],
-  "cics_commands": [],
-  "dead_code_paragraphs": [],
-  "dead_code_items": [],
-  "irreducible_gotos": [],
-  "smojol_cfg_path": null,
-  "smojol_node_count": 0
+  ]
 }

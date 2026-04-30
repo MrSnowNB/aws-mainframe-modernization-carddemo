@@ -1,401 +1,14 @@
 {
   "program_id": "CBTRN01C",
   "source_file": "app/cbl/CBTRN01C.cbl",
-  "source_sha": "6494be3b695bd33f27b39f8d13dc5b510f92b7ed",
-  "cfg_tool": "Cobol-REKT smojol-cli v0.1.0-RC8 + extract_cfg_summary.py",
+  "source_sha": "a3791908587baac3a6e7c10162698ac40a9d6197",
+  "cfg_tool": "Cobol-REKT smojol-cli + extract_cfg_summary.py",
   "paragraphs": [
-    {
-      "name": "MAIN-PARA",
-      "reachable": true,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "END-PERFORM",
-      "reachable": false,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "GOBACK",
-      "reachable": false,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "1000-DALYTRAN-GET-NEXT",
-      "reachable": true,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "2000-LOOKUP-XREF",
-      "reachable": true,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "END-READ",
-      "reachable": false,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
-    {
-      "name": "3000-READ-ACCOUNT",
-      "reachable": true,
-      "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
-      ],
-      "goto_targets": [],
-      "goto_flag": false
-    },
     {
       "name": "0000-DALYTRAN-OPEN",
       "reachable": true,
       "performs": [
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "OPENINPUTDALYTR"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -404,47 +17,7 @@
       "name": "0100-CUSTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "OPENINPUTCUSTOM"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -453,47 +26,7 @@
       "name": "0200-XREFFILE-OPEN",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "OPENINPUTXREF-F"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -502,47 +35,7 @@
       "name": "0300-CARDFILE-OPEN",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "OPENINPUTCARD-F"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -551,47 +44,7 @@
       "name": "0400-ACCTFILE-OPEN",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "OPENINPUTACCOUN"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -600,47 +53,34 @@
       "name": "0500-TRANFILE-OPEN",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "OPENINPUTTRANSA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "1000-DALYTRAN-GET-NEXT",
+      "reachable": true,
+      "performs": [
+        "READDALYTRAN-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "2000-LOOKUP-XREF",
+      "reachable": true,
+      "performs": [
+        "MOVEXREF-CARD-N"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "3000-READ-ACCOUNT",
+      "reachable": true,
+      "performs": [
+        "MOVEACCT-IDTOFD"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -649,47 +89,7 @@
       "name": "9000-DALYTRAN-CLOSE",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "CLOSEDALYTRAN-F"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -698,47 +98,7 @@
       "name": "9100-CUSTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "CLOSECUSTOMER-F"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -747,47 +107,7 @@
       "name": "9200-XREFFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "CLOSEXREF-FILEI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -796,47 +116,7 @@
       "name": "9300-CARDFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "CLOSECARD-FILEI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -845,47 +125,7 @@
       "name": "9400-ACCTFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "CLOSEACCOUNT-FI"
       ],
       "goto_targets": [],
       "goto_flag": false
@@ -894,48 +134,553 @@
       "name": "9500-TRANFILE-CLOSE",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-ABEND-PROGRAM"
+        "CLOSETRANSACT-F"
       ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEACCOUNT-FI",
+      "reachable": true,
+      "performs": [
+        "9500-TRANFILE-CLOSE",
+        "CLOSEACCOUNT-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEACCOUNT-FI",
+      "reachable": true,
+      "performs": [
+        "MOVEACCTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSECARD-FILE",
+      "reachable": true,
+      "performs": [
+        "MOVECARDFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSECARD-FILEI",
+      "reachable": true,
+      "performs": [
+        "9400-ACCTFILE-CLOSE",
+        "CLOSECARD-FILE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSECUSTOMER-F",
+      "reachable": true,
+      "performs": [
+        "9200-XREFFILE-CLOSE",
+        "CLOSECUSTOMER-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSECUSTOMER-F",
+      "reachable": true,
+      "performs": [
+        "MOVECUSTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEDALYTRAN-F",
+      "reachable": true,
+      "performs": [
+        "9100-CUSTFILE-CLOSE",
+        "CLOSEDALYTRAN-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEDALYTRAN-F",
+      "reachable": true,
+      "performs": [
+        "MOVECUSTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSETRANSACT-F",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "CLOSETRANSACT-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSETRANSACT-F",
+      "reachable": true,
+      "performs": [
+        "MOVETRANFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEXREF-FILE",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "CLOSEXREF-FILEI",
+      "reachable": true,
+      "performs": [
+        "9300-CARDFILE-CLOSE",
+        "CLOSEXREF-FILE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "DISPLAYDALYTRAN",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "GOBACK",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFDALYTRAN-STAT",
+      "reachable": true,
+      "performs": [
+        "2000-LOOKUP-XREF",
+        "MOVEDALYTRAN-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "IFIO-STATUSNOTN",
+      "reachable": true,
+      "performs": [
+        "MOVEIO-STAT1TOI",
+        "MOVEIO-STATUSTO"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MAIN-PARA",
+      "reachable": true,
+      "performs": [
+        "PERFORMUNTILEND",
+        "0500-TRANFILE-OPEN",
+        "0400-ACCTFILE-OPEN",
+        "0300-CARDFILE-OPEN",
+        "0200-XREFFILE-OPEN",
+        "0100-CUSTFILE-OPEN",
+        "0000-DALYTRAN-OPEN"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCT-IDTOFD",
+      "reachable": true,
+      "performs": [
+        "0000-DALYTRAN-OPEN",
+        "MOVEACCT-IDTOFD"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCT-IDTOFD",
+      "reachable": true,
+      "performs": [
+        "READACCOUNT-FIL"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEACCTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECARDFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECARDFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECUSTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECUSTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVECUSTFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDALYTRAN-CA",
+      "reachable": true,
+      "performs": [
+        "MOVEXREF-ACCT-I",
+        "2000-LOOKUP-XREF"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDALYTRAN-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEDALYTRAN-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STAT1TOI",
+      "reachable": true,
+      "performs": [
+        "MOVEIO-STAT2TOT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STAT2TOT",
+      "reachable": true,
+      "performs": [
+        "MOVETWO-BYTES-B"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEIO-STATUSTO",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETRANFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVETWO-BYTES-B",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREF-ACCT-I",
+      "reachable": true,
+      "performs": [
+        "3000-READ-ACCOUNT"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREF-CARD-N",
+      "reachable": true,
+      "performs": [
+        "3000-READ-ACCOUNT",
+        "MOVEXREF-CARD-N"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREF-CARD-N",
+      "reachable": true,
+      "performs": [
+        "READXREF-FILERE"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "MOVEXREFFILE-ST",
+      "reachable": true,
+      "performs": [
+        "Z-ABEND-PROGRAM",
+        "Z-DISPLAY-IO-STATUS"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTACCOUN",
+      "reachable": true,
+      "performs": [
+        "0500-TRANFILE-OPEN",
+        "OPENINPUTACCOUN"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTACCOUN",
+      "reachable": true,
+      "performs": [
+        "MOVEACCTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTCARD-F",
+      "reachable": true,
+      "performs": [
+        "0400-ACCTFILE-OPEN",
+        "OPENINPUTCARD-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTCARD-F",
+      "reachable": true,
+      "performs": [
+        "MOVECARDFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTCUSTOM",
+      "reachable": true,
+      "performs": [
+        "0200-XREFFILE-OPEN",
+        "OPENINPUTCUSTOM"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTCUSTOM",
+      "reachable": true,
+      "performs": [
+        "MOVECUSTFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTDALYTR",
+      "reachable": true,
+      "performs": [
+        "0100-CUSTFILE-OPEN",
+        "OPENINPUTDALYTR"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTDALYTR",
+      "reachable": true,
+      "performs": [
+        "MOVEDALYTRAN-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTTRANSA",
+      "reachable": true,
+      "performs": [
+        "9000-DALYTRAN-CLOSE",
+        "OPENINPUTTRANSA"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTTRANSA",
+      "reachable": true,
+      "performs": [
+        "MOVETRANFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTXREF-F",
+      "reachable": true,
+      "performs": [
+        "0300-CARDFILE-OPEN",
+        "OPENINPUTXREF-F"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "OPENINPUTXREF-F",
+      "reachable": true,
+      "performs": [
+        "MOVEXREFFILE-ST"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "PERFORMUNTILEND",
+      "reachable": true,
+      "performs": [
+        "1000-DALYTRAN-GET-NEXT",
+        "GOBACK",
+        "9500-TRANFILE-CLOSE",
+        "9400-ACCTFILE-CLOSE",
+        "9300-CARDFILE-CLOSE",
+        "9200-XREFFILE-CLOSE",
+        "9100-CUSTFILE-CLOSE",
+        "9000-DALYTRAN-CLOSE",
+        "MOVEDALYTRAN-CA",
+        "DISPLAYDALYTRAN"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READACCOUNT-FIL",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READDALYTRAN-FI",
+      "reachable": true,
+      "performs": [
+        "IFDALYTRAN-STAT",
+        "READDALYTRAN-FI"
+      ],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READDALYTRAN-FI",
+      "reachable": true,
+      "performs": [],
+      "goto_targets": [],
+      "goto_flag": false
+    },
+    {
+      "name": "READXREF-FILERE",
+      "reachable": true,
+      "performs": [],
       "goto_targets": [],
       "goto_flag": false
     },
@@ -943,34 +688,6 @@
       "name": "Z-ABEND-PROGRAM",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
-        "Z-DISPLAY-IO-STATUS",
         "Z-DISPLAY-IO-STATUS"
       ],
       "goto_targets": [],
@@ -980,509 +697,10 @@
       "name": "Z-DISPLAY-IO-STATUS",
       "reachable": true,
       "performs": [
-        "0000-DALYTRAN-OPEN",
-        "0100-CUSTFILE-OPEN",
-        "0200-XREFFILE-OPEN",
-        "0300-CARDFILE-OPEN",
-        "0400-ACCTFILE-OPEN",
-        "0500-TRANFILE-OPEN",
-        "UNTIL",
-        "1000-DALYTRAN-GET-NEXT",
-        "2000-LOOKUP-XREF",
-        "3000-READ-ACCOUNT",
-        "9000-DALYTRAN-CLOSE",
-        "9100-CUSTFILE-CLOSE",
-        "9200-XREFFILE-CLOSE",
-        "9300-CARDFILE-CLOSE",
-        "9400-ACCTFILE-CLOSE",
-        "9500-TRANFILE-CLOSE",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM",
-        "Z-ABEND-PROGRAM"
+        "IFIO-STATUSNOTN"
       ],
       "goto_targets": [],
       "goto_flag": false
     }
-  ],
-  "data_items": [
-    {
-      "name": "FD-TRAN-RECORD",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-TRAN-ID",
-      "level": 5,
-      "picture": "X(16)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CUST-DATA",
-      "level": 5,
-      "picture": "X(334)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CUSTFILE-REC",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CUST-ID",
-      "level": 5,
-      "picture": "9(09)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CUST-DATA",
-      "level": 5,
-      "picture": "X(491)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-XREFFILE-REC",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-XREF-CARD-NUM",
-      "level": 5,
-      "picture": "X(16)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-XREF-DATA",
-      "level": 5,
-      "picture": "X(34)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CARDFILE-REC",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CARD-NUM",
-      "level": 5,
-      "picture": "X(16)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-CARD-DATA",
-      "level": 5,
-      "picture": "X(134)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-ACCTFILE-REC",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-ACCT-ID",
-      "level": 5,
-      "picture": "9(11)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-ACCT-DATA",
-      "level": 5,
-      "picture": "X(289)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-TRANFILE-REC",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-TRANS-ID",
-      "level": 5,
-      "picture": "X(16)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "FD-ACCT-DATA",
-      "level": 5,
-      "picture": "X(334)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "DALYTRAN-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "DALYTRAN-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "DALYTRAN-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CUSTFILE-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CUSTFILE-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CUSTFILE-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREFFILE-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREFFILE-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "XREFFILE-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CARDFILE-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CARDFILE-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "CARDFILE-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "ACCTFILE-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "ACCTFILE-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "ACCTFILE-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TRANFILE-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TRANFILE-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TRANFILE-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STAT1",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STAT2",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-BINARY",
-      "level": 1,
-      "picture": "9(4)",
-      "usage": "BINARY",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-ALPHA",
-      "level": 1,
-      "picture": null,
-      "usage": "BINARY",
-      "redefines": "TWO-BYTES-BINARY",
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-LEFT",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TWO-BYTES-RIGHT",
-      "level": 5,
-      "picture": "X",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS-04",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS-0401",
-      "level": 5,
-      "picture": "9",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "IO-STATUS-0403",
-      "level": 5,
-      "picture": "999",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "APPL-RESULT",
-      "level": 1,
-      "picture": "S9(9)",
-      "usage": "COMP",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "APPL-AOK",
-      "level": 88,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "APPL-EOF",
-      "level": 88,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "END-OF-DAILY-TRANS-FILE",
-      "level": 1,
-      "picture": "X(01)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "ABCODE",
-      "level": 1,
-      "picture": "S9(9)",
-      "usage": "BINARY",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "TIMING",
-      "level": 1,
-      "picture": "S9(9)",
-      "usage": "BINARY",
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "WS-MISC-VARIABLES",
-      "level": 1,
-      "picture": null,
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "WS-XREF-READ-STATUS",
-      "level": 5,
-      "picture": "9(04)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    },
-    {
-      "name": "WS-ACCT-READ-STATUS",
-      "level": 5,
-      "picture": "9(04)",
-      "usage": null,
-      "redefines": null,
-      "reachable": true
-    }
-  ],
-  "redefines_clauses": [
-    {
-      "name": "TWO-BYTES-ALPHA",
-      "redefines": "TWO-BYTES-BINARY",
-      "picture": null,
-      "usage": "BINARY"
-    }
-  ],
-  "copybooks_used": [
-    "CVACT01Y",
-    "CVACT02Y",
-    "CVACT03Y",
-    "CVCUS01Y",
-    "CVTRA05Y",
-    "CVTRA06Y"
-  ],
-  "calls_to": [
-    "CEE3ABD"
-  ],
-  "cics_commands": [],
-  "dead_code_paragraphs": [
-    "END-PERFORM",
-    "GOBACK",
-    "END-READ"
-  ],
-  "dead_code_items": [],
-  "irreducible_gotos": [],
-  "smojol_cfg_path": "/tmp/rekt-reports/CBTRN01C/CBTRN01C.cbl.report/cfg/cfg-CBTRN01C.cbl.json",
-  "smojol_node_count": 47
+  ]
 }
