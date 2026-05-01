@@ -1,5 +1,5 @@
 ---
-# ── Identity ──────────────────────────────────────────────────────────────────
+# ── Identity ──────────────────────────────────────────────────────────────────────────────
 schema_version: "cobol-md/1.0"
 program_id: "CBACT01C"
 source_file: "app/cbl/CBACT01C.cbl"
@@ -9,11 +9,11 @@ translating_agent: "claude-opus-4-5 (subagent)"
 aifirst_task_id: "T-2026-04-23-001"
 cfg_source: "validation/structure/CBACT01C_cfg.json"
 
-# ── Classification ─────────────────────────────────────────────────────────────
+# ── Classification ─────────────────────────────────────────────────────────────────────────
 business_domain: "Account Management"
 subtype: "Batch"
 
-# ── Structural Metadata ────────────────────────────────────────────────────────
+# ── Structural Metadata ───────────────────────────────────────────────────────────────────
 author: "AWS"
 date_written: null
 lines_of_code: 248
@@ -27,7 +27,7 @@ environment:
   target: "Batch/VSAM"
   runtime: "z/OS"
 
-# ── Graph Edges ────────────────────────────────────────────────────────────────
+# ── Graph Edges ────────────────────────────────────────────────────────────────────────────
 calls_to:
   - program: "COBDATFT"
     condition: "unconditional"
@@ -46,7 +46,7 @@ copybooks_used:
     path: "app/cpy/CODATECN.cpy"
     sha: null
 
-# ── File I/O ──────────────────────────────────────────────────────────────────
+# ── File I/O ──────────────────────────────────────────────────────────────────────────────
 file_control:
   - ddname: "ACCTFILE"
     organization: "INDEXED"
@@ -69,11 +69,11 @@ file_control:
     record_key: null
     crud: ["CREATE"]
 
-# ── CICS ───────────────────────────────────────────────────────────────────────
+# ── CICS ──────────────────────────────────────────────────────────────────────────────────
 cics_commands: []
 transaction_ids: []
 
-# ── Data Layer ─────────────────────────────────────────────────────────────────
+# ── Data Layer ──────────────────────────────────────────────────────────────────────────────
 data_items:
   - name: "FD-ACCTFILE-REC"
     level: 01
@@ -297,36 +297,8 @@ data_items:
     dead_code_flag: false
     semantic: "Flat ten-character alias for WS-ACCT-REISSUE-DATE; enables bulk assignment of the full date string while WS-ACCT-REISSUE-DATE provides field-level access to individual date components"
 
-# ── Procedure Paragraphs ───────────────────────────────────────────────────────
+# ── Procedure Paragraphs ───────────────────────────────────────────────────────────────────
 procedure_paragraphs:
-  - name: "END-PERFORM"
-    reachable: true
-    performs:
-      - "0000-ACCTFILE-OPEN"
-      - "2000-OUTFILE-OPEN"
-      - "3000-ARRFILE-OPEN"
-      - "4000-VBRFILE-OPEN"
-      - "1000-ACCTFILE-GET-NEXT"
-      - "9000-ACCTFILE-CLOSE"
-      - "1100-DISPLAY-ACCT-RECORD"
-      - "1300-POPUL-ACCT-RECORD"
-      - "1350-WRITE-ACCT-RECORD"
-      - "1400-POPUL-ARRAY-RECORD"
-      - "1450-WRITE-ARRY-RECORD"
-      - "1500-POPUL-VBRC-RECORD"
-      - "1550-WRITE-VB1-RECORD"
-      - "1575-WRITE-VB2-RECORD"
-      - "9910-DISPLAY-IO-STATUS"
-      - "9999-ABEND-PROGRAM"
-    goto_targets: []
-    summary: "Implicit main control block (the procedure division body before the first named paragraph): opens all four output files, drives the PERFORM UNTIL read loop over ACCTFILE, closes ACCTFILE, and issues GOBACK"
-
-  - name: "GOBACK"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artefact node representing the program return point; marked unreachable by static analysis because the GOBACK statement is embedded in the top-level implicit paragraph and the CFG tool emitted it as a separate, unreachable node"
-
   - name: "1000-ACCTFILE-GET-NEXT"
     reachable: true
     performs:
@@ -355,18 +327,6 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Maps account fields from the input ACCOUNT-RECORD into the OUT-ACCT-REC output layout, calls the COBDATFT date-formatting sub-routine to convert the reissue date, and applies a default debit value of 2525.00 when the current-cycle debit amount is zero"
 
-  - name: "WS-REISSUE-DATE"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artefact node corresponding to the WS-REISSUE-DATE data-item name; emitted as a procedure paragraph by the CFG tool in error — it is a working-storage REDEFINES item, not an executable paragraph, and is marked unreachable"
-
-  - name: "END-IF"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artefact node representing an END-IF scope terminator; marked unreachable by the static analysis tool and does not correspond to an actual named paragraph in the source"
-
   - name: "1350-WRITE-ACCT-RECORD"
     reachable: true
     performs:
@@ -394,12 +354,6 @@ procedure_paragraphs:
     performs: []
     goto_targets: []
     summary: "Populates both variable-length record staging areas (VBRC-REC1 and VBRC-REC2) from the current account record and displays their content for diagnostic purposes"
-
-  - name: "VB2-ACCT-ID"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artefact node corresponding to the VB2-ACCT-ID data-item name; emitted as a procedure paragraph by the CFG tool in error — it is a working-storage field inside VBRC-REC2, not an executable paragraph, and is marked unreachable"
 
   - name: "1550-WRITE-VB1-RECORD"
     reachable: true
@@ -471,11 +425,11 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Decodes and displays the two-byte I/O status code in a normalised four-digit format, handling both standard numeric status codes and VSAM extended (non-numeric or '9x') status codes"
 
-# ── Business Rules ─────────────────────────────────────────────────────────────
+# ── Business Rules ─────────────────────────────────────────────────────────────────────────────
 business_rules:
   - id: "BR-001"
     rule: "The main read loop continues only while END-OF-FILE equals 'N'; once any read sets END-OF-FILE to 'Y', the program exits the loop and proceeds to file close and termination"
-    source_paragraph: "END-PERFORM"
+    source_paragraph: "1000-ACCTFILE-GET-NEXT"
     rule_type: "guard"
     confidence: "high"
     reachable: true
@@ -578,7 +532,7 @@ business_rules:
     confidence: "high"
     reachable: true
 
-# ── Validation Status ──────────────────────────────────────────────────────────
+# ── Validation Status ───────────────────────────────────────────────────────────────────────────
 validation:
   t01_schema_valid: true
   t02_structural_complete: true
@@ -625,14 +579,6 @@ Two working-storage records serve as staging buffers for the variable-length out
 
 ## Procedure Logic
 
-### END-PERFORM (Main Control — Implicit Top-Level Body)
-
-The program entry point displays a start-of-execution banner, then serially performs the four file-open paragraphs in order: ACCTFILE (input), OUTFILE, ARRYFILE, and VBRCFILE (all output). It then enters a conditional PERFORM UNTIL loop that continues as long as END-OF-FILE remains 'N'. Inside the loop body, if END-OF-FILE is still 'N', it performs the record-read paragraph (1000-ACCTFILE-GET-NEXT), and if END-OF-FILE remains 'N' after the read, it displays the ACCOUNT-RECORD to standard output. After the loop exits, it performs the ACCTFILE close paragraph, displays an end-of-execution banner, and issues GOBACK to return control to the operating system.
-
-### GOBACK (CFG Node — Static Analysis Artefact)
-
-This node appears in the CFG as unreachable because the static analysis tool emitted the GOBACK statement as a separate paragraph boundary rather than treating it as part of the top-level implicit paragraph. No action is taken here at runtime; the actual GOBACK is executed as part of the implicit main body.
-
 ### 1000-ACCTFILE-GET-NEXT
 
 Issues a sequential READ against ACCTFILE, directing the record into the ACCOUNT-RECORD working-storage area. If the file status is '00' (successful), APPL-RESULT is set to zero, the ARR-ARRAY-REC is initialised to spaces/zeros, and the program chains through six sub-paragraphs: display the record, populate and write the flat output record, populate and write the array record, populate the variable-length records and write both the short and long variants. If the file status is '10' (end-of-file), APPL-RESULT is set to 16. Any other status sets APPL-RESULT to 12. After the status branch, a second conditional checks APPL-RESULT: if APPL-AOK (value 0), processing continues normally; if APPL-EOF (value 16), END-OF-FILE is set to 'Y' to trigger loop exit; otherwise, the error display and abend path is taken.
@@ -644,14 +590,6 @@ Emits eleven labelled lines to standard output, one for each named account field
 ### 1300-POPUL-ACCT-RECORD
 
 Copies nine account fields directly from ACCOUNT-RECORD to their corresponding positions in OUT-ACCT-REC. For the reissue date, the raw date string is simultaneously copied to the CODATECN input field and to WS-REISSUE-DATE (the flat alias for the structured date work area), and the date-type codes are set. The external assembler program COBDATFT is then called with the CODATECN-REC communication area to perform date format conversion, and the formatted output date is moved to OUT-ACCT-REISSUE-DATE. The current-cycle credit amount is copied directly. If the current-cycle debit on the input record is zero, OUT-ACCT-CURR-CYC-DEBIT is set to the constant 2525.00 (the default injection rule); otherwise it is not explicitly set in this paragraph (the source data flow suggests the field retains whatever value was present from previous initialisation). Finally, the group identifier is copied.
-
-### WS-REISSUE-DATE (CFG Node — Static Analysis Artefact)
-
-This CFG node was emitted because the tool misidentified the working-storage REDEFINES data item name as a procedure paragraph label. It is not an executable paragraph; it is a data item in working storage and is marked unreachable.
-
-### END-IF (CFG Node — Static Analysis Artefact)
-
-This CFG node represents an END-IF scope terminator that the tool surfaced as a separate unreachable node. It does not correspond to a named paragraph; it is marked unreachable.
 
 ### 1350-WRITE-ACCT-RECORD
 
@@ -668,10 +606,6 @@ Writes ARR-ARRAY-REC to ARRYFILE. If ARRYFILE-STATUS is not '00' and not '10', t
 ### 1500-POPUL-VBRC-RECORD
 
 Populates both variable-length record staging areas from ACCOUNT-RECORD. The account identifier is moved to both VB1-ACCT-ID and VB2-ACCT-ID. VB1-ACCT-ACTIVE-STATUS receives the account active-status flag. VB2-ACCT-CURR-BAL and VB2-ACCT-CREDIT-LIMIT receive the corresponding balance fields. WS-ACCT-REISSUE-YYYY (the year subfield of the structured date group, populated via the WS-REISSUE-DATE flat alias in the earlier paragraph) is moved to VB2-ACCT-REISSUE-YYYY. Both completed records are then displayed to standard output for diagnostic purposes.
-
-### VB2-ACCT-ID (CFG Node — Static Analysis Artefact)
-
-This CFG node was emitted because the tool misidentified the VB2-ACCT-ID data item name inside VBRC-REC2 as a procedure paragraph. It is a working-storage subfield, not an executable paragraph, and is marked unreachable.
 
 ### 1550-WRITE-VB1-RECORD
 
@@ -738,5 +672,4 @@ Inspects IO-STATUS to determine which display path to use. If IO-STATUS is non-n
 - **SEQUENTIAL WRITE (variable-length):** CBACT01C writes VBRCFILE (two records per ACCTFILE input: 12-byte short and 39-byte long variants)
 - **REDEFINES (2):** TWO-BYTES-ALPHA/TWO-BYTES-BINARY (binary-vs-character dual-view for VSAM status decoding); WS-REISSUE-DATE/WS-ACCT-REISSUE-DATE (flat-vs-structured dual-view for reissue date handling)
 - **RULES (active):** BR-001 through BR-015, all reachable
-- **DEAD CODE PARAGRAPHS (CFG artefacts):** GOBACK, WS-REISSUE-DATE, END-IF, VB2-ACCT-ID — all marked unreachable by Phase 0 static analysis; three of these are misidentified data items or scope terminators, not true paragraphs
-- **GOTO FLAGS:** No GOTO statements present in source; all goto_targets arrays are empty; no irreducible GOTOs flagged by Cobol-REKT
+- **GOTO FLAGS:** No GOTO statements present in source; all goto_targets arrays are empty
