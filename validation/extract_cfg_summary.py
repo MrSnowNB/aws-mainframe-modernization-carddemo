@@ -2,6 +2,7 @@
 """
 extract_cfg_summary.py
 Converts Cobol-REKT cfg-{PROG}.cbl.json -> validation/structure/{PROG}_cfg.json
+Also parses app/cbl/{PROG}.cbl DATA DIVISION for Level-01 data items.
 
 Usage:
     py validation/extract_cfg_summary.py CBACT04C
@@ -32,47 +33,68 @@ _SKIP_LABELS = {
     "END-ADD", "END-SUBTRACT", "END-RETURN",
 }
 
-# COBOL statement verbs.  Cobol-REKT builds inline-code node labels by
-# concatenating the verb with the first operand, e.g.:
-#   MOVECARDFILE-ST   CLOSECARDFILE-F   PERFORMUNTILEND   GOBACK
-# None of these can ever be a user-defined paragraph name, so reject
-# ANY label that starts with one of these verbs — no digit-guard needed.
+# COBOL statement verbs — any CFG node label starting with one of these
+# is an inline-code node, never a user paragraph name.
 _STMT_PREFIXES = (
-    "ACCEPT",
-    "ADD",
-    "CALL",
-    "CLOSE",
-    "COMPUTE",
-    "CONTINUE",
-    "DISPLAY",
-    "DIVIDE",
-    "EVALUATE",
-    "EXIT",
-    "GO",
-    "GOBACK",
-    "IF",
-    "INITIALIZE",
-    "INSPECT",
-    "MERGE",
-    "MOVE",
-    "MULTIPLY",
-    "NEXT",
-    "OPEN",
-    "PERFORM",
-    "READ",
-    "RELEASE",
-    "RETURN",
-    "REWRITE",
-    "SEARCH",
-    "SET",
-    "SORT",
-    "STOP",
-    "STRING",
-    "SUBTRACT",
-    "UNSTRING",
-    "WRITE",
+    "ACCEPT", "ADD", "CALL", "CLOSE", "COMPUTE", "CONTINUE",
+    "DISPLAY", "DIVIDE", "EVALUATE", "EXIT", "GO", "GOBACK",
+    "IF", "INITIALIZE", "INSPECT", "MERGE", "MOVE", "MULTIPLY",
+    "NEXT", "OPEN", "PERFORM", "READ", "RELEASE", "RETURN",
+    "REWRITE", "SEARCH", "SET", "SORT", "STOP", "STRING",
+    "SUBTRACT", "UNSTRING", "WRITE",
 )
 
+# -------------------------------------------------------------------
+# Level-01 DATA DIVISION parser
+# -------------------------------------------------------------------
+# COBOL fixed format: cols 1-6 = sequence, col 7 = indicator (* = comment),
+# cols 8-11 = area A (level numbers live here), cols 12-72 = area B.
+# A Level-01 declaration looks like:  "       01  NAME ..."
+_L01_RE = re.compile(
+    r'^.{6}[^*]\s*01\s+([A-Z0-9][A-Z0-9-]*)(?:\s|\.)'
+    , re.IGNORECASE
+)
+_DATA_DIV_RE = re.compile(r'^\s+DATA\s+DIVISION',     re.IGNORECASE)
+_PROC_DIV_RE = re.compile(r'^\s+PROCEDURE\s+DIVISION', re.IGNORECASE)
+
+
+def extract_l01_items(src_path: Path) -> list[dict]:
+    """
+    Parse a COBOL fixed-format source file and return all Level-01
+    data item declarations found in the DATA DIVISION.
+
+    Returns a list of {"name": str, "level": 1} dicts in source order,
+    de-duplicated by name.  Items defined only in COPYbooks are not
+    included (they are not physically present in the .cbl file).
+    """
+    if not src_path.exists():
+        return []
+    items: list[dict] = []
+    seen:  set[str]   = set()
+    in_data_div = False
+    for raw_line in src_path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if _PROC_DIV_RE.search(raw_line):
+            break
+        if _DATA_DIV_RE.search(raw_line):
+            in_data_div = True
+            continue
+        if not in_data_div:
+            continue
+        # Skip comment lines: indicator column (index 6) is '*'
+        if len(raw_line) > 6 and raw_line[6] == '*':
+            continue
+        m = _L01_RE.match(raw_line)
+        if m:
+            name = m.group(1).upper()
+            if name not in seen:
+                seen.add(name)
+                items.append({"name": name, "level": 1})
+    return items
+
+
+# -------------------------------------------------------------------
+# Paragraph-node filter
+# -------------------------------------------------------------------
 
 def is_paragraph_node(label: str) -> bool:
     """True only if label is a user-defined COBOL paragraph name."""
@@ -82,20 +104,25 @@ def is_paragraph_node(label: str) -> bool:
         return False
     if not _PARA_RE.match(label):
         return False
-    # Reject every label that begins with a COBOL statement verb.
-    # Real paragraph names never start with a verb (they start with
-    # a sequence number like 0000- or a unique alphabetic prefix).
     for prefix in _STMT_PREFIXES:
         if label.startswith(prefix):
             return False
     return True
 
 
+# -------------------------------------------------------------------
+# Helpers
+# -------------------------------------------------------------------
+
 def sha1_file(path: Path) -> str:
     h = hashlib.sha1()
     h.update(path.read_bytes())
     return h.hexdigest()
 
+
+# -------------------------------------------------------------------
+# Main extractor
+# -------------------------------------------------------------------
 
 def extract(prog_name: str):
     cfg_file = REKT_DIR / f"{prog_name}.cbl.report" / "cfg" / f"cfg-{prog_name}.cbl.json"
@@ -107,12 +134,10 @@ def extract(prog_name: str):
     nodes = {n["id"]: n for n in data.get("nodes", [])}
     edges = data.get("edges", [])
 
-    # Build outgoing-edge adjacency map.
     out_edges: dict[str, list[tuple[str, str]]] = {}
     for e in edges:
         out_edges.setdefault(e["fromNodeID"], []).append((e["toNodeID"], e["edgeType"]))
 
-    # Identify paragraph nodes using the tightened filter.
     para_nodes = {n["id"]: n for n in nodes.values()
                   if is_paragraph_node(n.get("label", ""))}
 
@@ -156,7 +181,6 @@ def extract(prog_name: str):
                         result.append(t)
         return result
 
-    # BFS from ProcedureDivisionBodyContext root to find reachable nodes.
     root_id = next(
         (nid for nid, n in nodes.items()
          if "ProcedureDivisionBodyContext" in n.get("label", "")),
@@ -175,7 +199,6 @@ def extract(prog_name: str):
 
     reachable_paras = {nid for nid in para_nodes if nid in reachable_ids}
 
-    # Assemble paragraph records.
     paragraphs = []
     for nid, n in para_nodes.items():
         performs = collect_performs(nid)
@@ -190,18 +213,22 @@ def extract(prog_name: str):
 
     paragraphs.sort(key=lambda p: (not p["reachable"], p["name"]))
 
-    src_file = SRC_DIR / f"{prog_name}.cbl"
+    src_file   = SRC_DIR / f"{prog_name}.cbl"
+    data_items = extract_l01_items(src_file)
+
     output = {
         "program_id":  prog_name,
         "source_file": f"app/cbl/{prog_name}.cbl",
         "source_sha":  sha1_file(src_file) if src_file.exists() else "",
         "cfg_tool":    CFG_TOOL,
         "paragraphs":  paragraphs,
+        "data_items":  data_items,
     }
 
     out_file = STRUCT_DIR / f"{prog_name}_cfg.json"
     out_file.write_text(json.dumps(output, indent=2), encoding="utf-8")
-    print(f"[OK] {prog_name}: {len(paragraphs)} paragraphs -> {out_file}")
+    print(f"[OK] {prog_name}: {len(paragraphs)} paragraphs, "
+          f"{len(data_items)} L01 items -> {out_file}")
     return True
 
 
