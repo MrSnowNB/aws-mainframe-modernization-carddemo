@@ -128,25 +128,27 @@
            EVALUATE TRUE                                                         
       ******************************************************************        
       *            NOT FIRST TIME INTO CARDDEMO AND NOT A CANCEL                 
+      *            TYPE A CFG FIX: plain WHEN + nested IF/END-IF                 
       ******************************************************************        
                WHEN CDEMO-PGM-REENTER                                            
-                AND NOT CCARD-AID-CLEAR                                          
-                AND NOT CCARD-AID-PFK03                                          
-                AND NOT CCARD-AID-PFK12                                          
-                    PERFORM 2000-PROCESS-INPUTS                                  
-                       THRU 2000-PROCESS-INPUTS-EXIT                             
-                    IF INPUT-ERROR                                               
-                        PERFORM 1000-SEND-MAP                                    
-                           THRU 1000-SEND-MAP-EXIT                               
-                        PERFORM COMMON-RETURN                                    
-                    END-IF                                                       
-                    MOVE CDEMO-ACCT-ID  TO CC-ACCT-ID-N                         
-                    MOVE CDEMO-CARD-NUM TO CC-CARD-NUM-N                         
-                    PERFORM 9000-READ-DATA                                       
-                       THRU 9000-READ-DATA-EXIT                                  
-                    PERFORM 1000-SEND-MAP                                        
-                       THRU 1000-SEND-MAP-EXIT                                  
-                    PERFORM COMMON-RETURN                                        
+                   IF NOT CCARD-AID-CLEAR                                        
+                  AND NOT CCARD-AID-PFK03                                        
+                  AND NOT CCARD-AID-PFK12                                        
+                       PERFORM 2000-PROCESS-INPUTS                               
+                          THRU 2000-PROCESS-INPUTS-EXIT                          
+                       IF INPUT-ERROR                                            
+                           PERFORM 1000-SEND-MAP                                 
+                              THRU 1000-SEND-MAP-EXIT                            
+                           PERFORM COMMON-RETURN                                 
+                       END-IF                                                    
+                       MOVE CDEMO-ACCT-ID  TO CC-ACCT-ID-N                      
+                       MOVE CDEMO-CARD-NUM TO CC-CARD-NUM-N                      
+                       PERFORM 9000-READ-DATA                                    
+                          THRU 9000-READ-DATA-EXIT                               
+                       PERFORM 1000-SEND-MAP                                     
+                          THRU 1000-SEND-MAP-EXIT                                
+                       PERFORM COMMON-RETURN                                     
+                   END-IF                                                        
       ******************************************************************        
       *            USER PRESSED CLEAR - GO BACK TO MAIN MENU                     
       ******************************************************************        
