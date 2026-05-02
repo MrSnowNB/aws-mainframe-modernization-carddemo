@@ -21,11 +21,13 @@
 
 | # | File | Problem | Status |
 |---|---|---|---|
-| P1 | `scripts/pass1_annotate.py` | CFG edges are sequential seq±1 instead of real call-graph edges | ⬜ |
-| P2 | `scripts/pass1_annotate.py` | Copybook fields unresolved — inventory built from CFG JSON not from `cobc -E` expanded source | ⬜ |
-| P3 | `scripts/pass1_annotate.py` | `pending_branch_context` bleeds past `END-IF` / `END-EVALUATE` scope | ⬜ |
-| P4 | `scripts/pass2_llm.py` | `max_tokens=400` truncates EVALUATE/CICS payloads causing PARTIAL loops | ⬜ |
-| P5 | `scripts/pass1_annotate.py` | `EXEC CICS` not in `BRANCH_VERBS` — CICS state-machine branches unannotated | ⬜ |
+| P1 | `scripts/pass1_annotate.py` | CFG edges are sequential seq±1 instead of real call-graph edges | ✅ |
+| P2 | `scripts/pass1_annotate.py` | Copybook fields unresolved — inventory built from CFG JSON not from `cobc -E` expanded source | ✅ |
+| P3 | `scripts/pass1_annotate.py` | `pending_branch_context` bleeds past `END-IF` / `END-EVALUATE` scope | ✅ |
+| P4 | `scripts/pass2_llm.py` | `max_tokens=400` truncates EVALUATE/CICS payloads causing PARTIAL loops | ✅ |
+| P5 | `scripts/pass1_annotate.py` | `EXEC CICS` not in `BRANCH_VERBS` — CICS state-machine branches unannotated | ✅ |
+
+> **Note (2026-04-30):** All 5 patches merged to `main`. Status updated to ✅ to reflect merge. See README.md → "Stage 1 — Annotation (Pass 1)" for the authoritative active-patch list.
 
 ---
 
@@ -69,7 +71,7 @@ statement for Pass 2 context.
   statements that target it.
 - Seq±1 fallback retained for statements where no CFG edge resolves.
 
-### Status: ⬜
+### Status: ✅ Merged to main (2026-04-30)
 
 ---
 
@@ -98,7 +100,7 @@ separate copybook expansion step.
   as `working-storage` rather than `unresolved` in the annotation output.
 - Zero regression on fields that were already resolved via the CFG JSON path.
 
-### Status: ⬜
+### Status: ✅ Merged to main (2026-04-30)
 
 ---
 
@@ -130,7 +132,7 @@ statement loop rather than only using it for paragraph phantom filtering.
 - Selftest passes without regression (COBSWAIT has no IF blocks, so selftest
   is unaffected; add a targeted unit assertion in validate_pass1.py).
 
-### Status: ⬜
+### Status: ✅ Merged to main (2026-04-30)
 
 ---
 
@@ -170,7 +172,7 @@ overrideable but complex verbs get headroom automatically.
 - CLI `--max-tokens` still overrides the default for all verbs (regression guard).
 - No change to the wire payload structure for verbs not in `VERB_MAX_TOKENS`.
 
-### Status: ⬜
+### Status: ✅ Merged to main (2026-04-30)
 
 ---
 
@@ -207,7 +209,7 @@ includes `state-machine` in `SEMANTIC_PATTERN_ENUM` so no Pass 2 changes needed.
 - Selftest unaffected (COBSWAIT uses `EXEC CICS` but only `ACCEPT`/`MOVE`/`CALL`/
   `STOP RUN` are annotated per the current 4-statement assertion).
 
-### Status: ⬜
+### Status: ✅ Merged to main (2026-04-30)
 
 ---
 
@@ -250,3 +252,4 @@ python -c "import json; [print(l['verb'] if '_routing' not in l else l['_routing
 |---|---|
 | 2026-04-29 | Branch created from main @ cd4f747 |
 | 2026-04-29 | All 5 problems identified from pass1_annotate.py + pass2_llm.py code review |
+| 2026-04-30 | All 5 patches merged to main per README.md Stage 1 active-patch list |

@@ -5,7 +5,7 @@ task_name: "Demo Completion Sprint"
 status: ACTIVE
 author: "Mark Snow"
 created: "2026-04-27T10:59:00-04:00"
-last_updated: "2026-04-27T17:55:00-04:00"
+last_updated: "2026-05-02T12:10:00-04:00"
 target_completion: "2026-04-28T17:00:00-04:00"
 budget_hours: 12
 tracks:
@@ -407,3 +407,4 @@ demo_success_threshold:
 | 2026-04-27T14:20 | Block D | BMS edge declarations committed (`287a35b`): COSGN00C (COSGN0A) and COMEN01C (COMEN01) both pending-extraction. CBACT01C confirmed batch — no BMS. T01 PASS both files |
 | 2026-04-27T14:27 | Block D / PRE-FIX | DEMO-SPRINT-PLAN.md cleanup: Block D → PASS, PRE-FIX → PASS, duplicate section removed, all checkboxes reconciled |
 | 2026-04-27T17:55 | Block E | CBACT01C T02-R defect fixed (commit `b6fb99d`): condition `ACCT-REISSUE-DATE` → `WS-REISSUE-DATE` (CFG-known, CBACT01C.cbl lines 223–224). T01/T02/T02-R/T03 all PASS post-fix. Promoted to `translations/gold-candidate/CBACT01C.md` (commit `3ce9a609`). Fix event in `.aifirst/runs/T-CBACT01C-T02R-FIX/run.log`. Block E → PASS. CODE-COMPLETE gate: Blocks A–E ✅, awaiting Block F dispatch only. D.2 map name corrected: COMEN01A → COMEN01 (matches committed YAML). |
+| 2026-05-02T12:10 | Gate fixes (branch `fix/gate-failures-cbact01c-02c-03c`) | Structural gate raised from 5/8 to **8/8 PASS**. Root causes: (1) `extract_cfg_summary.py` L01 data-item parser added — `01`-level `data_items` now written to `_cfg.json`, eliminating false hallucination flags on all data fields; (2) `is_paragraph_node()` tightened to reject Cobol-REKT synthetic verb-prefixed CFG labels. MD content fixes: CBACT01C — removed hallucinated paragraphs `END-IF`, `END-PERFORM`, `GOBACK`, `VB2-ACCT-ID`, `WS-REISSUE-DATE`; CBACT02C — fixed missing YAML frontmatter `---` block, removed `END-PERFORM` paragraph and `CARD-RECORD` data item; CBACT03C — removed `CARD-XREF-RECORD` data item. Gate result confirmed locally before push. Ready for Mark's review and merge. |
