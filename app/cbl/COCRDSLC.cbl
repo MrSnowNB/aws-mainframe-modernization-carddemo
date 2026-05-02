@@ -138,7 +138,7 @@
                     IF INPUT-ERROR                                               
                         PERFORM 1000-SEND-MAP                                    
                            THRU 1000-SEND-MAP-EXIT                               
-                        GO TO COMMON-RETURN                                      
+                        PERFORM COMMON-RETURN                                    
                     END-IF                                                       
                     MOVE CDEMO-ACCT-ID  TO CC-ACCT-ID-N                         
                     MOVE CDEMO-CARD-NUM TO CC-CARD-NUM-N                         
@@ -146,11 +146,11 @@
                        THRU 9000-READ-DATA-EXIT                                  
                     PERFORM 1000-SEND-MAP                                        
                        THRU 1000-SEND-MAP-EXIT                                  
-                    GO TO COMMON-RETURN                                          
+                    PERFORM COMMON-RETURN                                        
       ******************************************************************        
       *            USER PRESSED CLEAR - GO BACK TO MAIN MENU                     
       ******************************************************************        
-               WHEN CCARD-AID-CLEAR                                              
+               WHEN CCARD-AID-CLEAR                                             
                     MOVE LIT-MENUPGM        TO CDEMO-TO-PROGRAM                 
                     MOVE 'CMEN'             TO CDEMO-TO-TRANID                   
                     MOVE LIT-THISPGM        TO CDEMO-FROM-PROGRAM               
@@ -190,7 +190,7 @@
       ******************************************************************        
       *            COMING FROM CREDIT CARD LIST SCREEN                           
       *            TYPE A CFG FIX: plain WHEN + nested IF/END-IF                 
-      *            ELSE removed: unmatched case falls to WHEN OTHER              
+      *            GO TO replaced with PERFORM for smojol CFG compat             
       ******************************************************************        
                WHEN CDEMO-PGM-ENTER                                              
                    IF CDEMO-FROM-PROGRAM EQUAL LIT-CCLISTPGM                    
@@ -201,13 +201,17 @@
                           THRU 9000-READ-DATA-EXIT                               
                        PERFORM 1000-SEND-MAP                                     
                          THRU 1000-SEND-MAP-EXIT                                 
-                       GO TO COMMON-RETURN                                       
+                       PERFORM COMMON-RETURN                                     
+                   ELSE                                                          
+                       PERFORM 1000-SEND-MAP                                     
+                          THRU 1000-SEND-MAP-EXIT                                
+                       PERFORM COMMON-RETURN                                     
                    END-IF                                                        
                WHEN OTHER                                                        
                     MOVE 'UNEXPECTED STATE' TO WS-MSG                           
                     PERFORM 1000-SEND-MAP                                        
                        THRU 1000-SEND-MAP-EXIT                                   
-                    GO TO COMMON-RETURN                                          
+                    PERFORM COMMON-RETURN                                        
            END-EVALUATE                                                          
                                                                                  
        COMMON-RETURN.                                                            
