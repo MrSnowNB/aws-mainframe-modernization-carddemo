@@ -1,0 +1,3496 @@
+{
+  "children": [
+    {
+      "children": [],
+      "id": "41e5e6fc-18b0-4064-bce2-10130d8468bd",
+      "label": "0000-MAIN",
+      "name": "0000-MAIN",
+      "originalText": "0000-MAIN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "a25189d8-a90a-4d85-a0b4-700f927e0816",
+          "label": "_DIALECT_1​​​​ ",
+          "name": "_DIALECT_1​​​​ ",
+          "originalText": "_DIALECT_ 1 ​​​​ ​​​​ ​​​​​​ ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "f3026820-4f0a-4f35-a18d-b2aec9f227fa",
+          "label": "INITIALIZECC-WO",
+          "name": "INITIALIZECC-WO",
+          "originalText": "INITIALIZE CC-WORK-AREA\n                      WS-MISC-STORAGE\n                      WS-COMMAREA",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "8512b6fe-0ded-4533-a9b7-042b07114d3a",
+          "label": "MOVELIT-THISTRA",
+          "name": "MOVELIT-THISTRA",
+          "originalText": "MOVE LIT-THISTRANID       TO WS-TRANID",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "099cfcec-a0ed-442b-a88b-7c9380d723ec",
+          "label": "SETWS-RETURN-MS",
+          "name": "SETWS-RETURN-MS",
+          "originalText": "SET WS-RETURN-MSG-OFF  TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "94ee15cd-9eee-4986-bd3b-cfbedb0de2ae",
+                  "label": "INITIALIZECARDD",
+                  "name": "INITIALIZECARDD",
+                  "originalText": "INITIALIZE CARDDEMO-COMMAREA\n                         WS-THIS-PROGCOMMAREA",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "2a04d0a1-6ab7-4ec7-a2cd-ab252090082f",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "INITIALIZE CARDDEMO-COMMAREA\n                         WS-THIS-PROGCOMMAREA",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "b9af94be-6a85-424d-87be-dc14b7a453c3",
+                  "label": "ELSE",
+                  "name": "ELSE",
+                  "originalText": "ELSE",
+                  "type": "SYMBOL",
+                  "categories": [
+                    "SYMBOL"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "c1c00385-c3b9-4b3f-b209-924f6d8b27f6",
+                  "label": "MOVEDFHCOMMAREA",
+                  "name": "MOVEDFHCOMMAREA",
+                  "originalText": "MOVE DFHCOMMAREA (1:LENGTH OF CARDDEMO-COMMAREA)  TO\n                                CARDDEMO-COMMAREA",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "6a906090-60ca-4b94-bbe6-3734e430477d",
+                  "label": "MOVEDFHCOMMAREA",
+                  "name": "MOVEDFHCOMMAREA",
+                  "originalText": "MOVE DFHCOMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA ) TO\n                                WS-THIS-PROGCOMMAREA",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "d2a10478-88fd-4752-a0e0-82b05d155e1c",
+              "label": "No",
+              "name": "No",
+              "originalText": "ELSE\n              MOVE DFHCOMMAREA (1:LENGTH OF CARDDEMO-COMMAREA)  TO\n                                CARDDEMO-COMMAREA\n              MOVE DFHCOMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA ) TO\n                                WS-THIS-PROGCOMMAREA",
+              "type": "IF_NO",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "c43d17e8-876a-477d-8d74-5e06ff5bd1ff",
+          "label": "IS \nEIBCALEN IS EQUAL TO 0\n               OR?\n",
+          "name": "IS \nEIBCALEN IS EQUAL TO 0\n               OR?\n",
+          "originalText": "IF EIBCALEN IS EQUAL TO 0\n               OR (CDEMO-FROM-PROGRAM \u003d LIT-MENUPGM\n               AND NOT CDEMO-PGM-REENTER)\n              INITIALIZE CARDDEMO-COMMAREA\n                         WS-THIS-PROGCOMMAREA\n           ELSE\n              MOVE DFHCOMMAREA (1:LENGTH OF CARDDEMO-COMMAREA)  TO\n                                CARDDEMO-COMMAREA\n              MOVE DFHCOMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA ) TO\n                                WS-THIS-PROGCOMMAREA\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "247e4256-2ec2-4b1b-96e4-790577ffb9b6",
+          "label": "PERFORM YYYY-STORE-PFKEY\n     ",
+          "name": "PERFORMYYYY-STO",
+          "originalText": "PERFORM YYYY-STORE-PFKEY\n              THRU YYYY-STORE-PFKEY-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "31e4d658-0e08-4fdd-b7d4-4270c6f6dd2f",
+          "label": "SETPFK-INVALIDT",
+          "name": "SETPFK-INVALIDT",
+          "originalText": "SET PFK-INVALID TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "38eef083-ebb2-4430-b5d3-b09ff379108b",
+                  "label": "SETPFK-VALIDTOT",
+                  "name": "SETPFK-VALIDTOT",
+                  "originalText": "SET PFK-VALID TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "1ad917f9-06eb-4127-8ed7-230b952f45c2",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET PFK-VALID TO TRUE",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "c5351944-c281-4815-853d-c213f7ed3648",
+          "label": "IS \nCCARD-AID-ENTER OR\n              CCARD-A?\n",
+          "name": "IS \nCCARD-AID-ENTER OR\n              CCARD-A?\n",
+          "originalText": "IF CCARD-AID-ENTER OR\n              CCARD-AID-PFK03\n              SET PFK-VALID TO TRUE\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "586aa462-f5b4-4380-a25c-368b8f9849d2",
+                  "label": "SETCCARD-AID-EN",
+                  "name": "SETCCARD-AID-EN",
+                  "originalText": "SET CCARD-AID-ENTER TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "00102abf-7d96-47c9-a596-de6b9300d226",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET CCARD-AID-ENTER TO TRUE",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "2afe3647-0ab0-4e15-a126-d255404825e2",
+          "label": "IS \nPFK-INVALID?\n",
+          "name": "IS \nPFK-INVALID?\n",
+          "originalText": "IF PFK-INVALID\n              SET CCARD-AID-ENTER TO TRUE\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "8b3f5db2-a525-4a04-a595-969cd984edbf",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE TRUE\n              WHEN CCARD-AID-PFK03\n       \n       \n       \n                   IF CDEMO-FROM-TRANID    EQUAL LOW-VALUES\n                   OR CDEMO-FROM-TRANID    EQUAL SPACES\n                      MOVE LIT-MENUTRANID  TO CDEMO-TO-TRANID\n                   ELSE\n                      MOVE CDEMO-FROM-TRANID  TO CDEMO-TO-TRANID\n                   END-IF\n                   IF CDEMO-FROM-PROGRAM   EQUAL LOW-VALUES\n                   OR CDEMO-FROM-PROGRAM   EQUAL SPACES\n                      MOVE LIT-MENUPGM     TO CDEMO-TO-PROGRAM\n                   ELSE\n                      MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM\n                   END-IF\n       \n                   MOVE LIT-THISTRANID     TO CDEMO-FROM-TRANID\n                   MOVE LIT-THISPGM        TO CDEMO-FROM-PROGRAM\n       \n                   SET  CDEMO-USRTYP-USER  TO TRUE\n                   SET  CDEMO-PGM-ENTER    TO TRUE\n                   MOVE LIT-THISMAPSET     TO CDEMO-LAST-MAPSET\n                   MOVE LIT-THISMAP        TO CDEMO-LAST-MAP\n       \n                   _DIALECT_ 2 ​​​​ ​​​​ ​​​​\n                             ​​​​​​​ ​​​​​​​​​​​​​​​​​​\n                   ​​​​​​​​\n              WHEN CDEMO-PGM-ENTER\n       \n       \n       \n       \n                   PERFORM 1000-SEND-MAP THRU\n                           1000-SEND-MAP-EXIT\n                   GO TO COMMON-RETURN\n              WHEN CDEMO-PGM-REENTER\n                   PERFORM 2000-PROCESS-INPUTS\n                      THRU 2000-PROCESS-INPUTS-EXIT\n                   IF INPUT-ERROR\n                      PERFORM 1000-SEND-MAP\n                         THRU 1000-SEND-MAP-EXIT\n                      GO TO COMMON-RETURN\n                   ELSE\n                      PERFORM 9000-READ-ACCT\n                         THRU 9000-READ-ACCT-EXIT\n                      PERFORM 1000-SEND-MAP\n                         THRU 1000-SEND-MAP-EXIT\n                      GO TO COMMON-RETURN\n                   END-IF\n             WHEN OTHER\n                   MOVE LIT-THISPGM    TO ABEND-CULPRIT\n                   MOVE \u00270001\u0027         TO ABEND-CODE\n                   MOVE SPACES         TO ABEND-REASON\n                   MOVE \u0027UNEXPECTED DATA SCENARIO\u0027\n                                       TO WS-RETURN-MSG\n                   PERFORM SEND-PLAIN-TEXT\n                      THRU SEND-PLAIN-TEXT-EXIT\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "765e4920-8316-42fd-affb-31ac29bd5427",
+                  "label": "MOVEWS-RETURN-M",
+                  "name": "MOVEWS-RETURN-M",
+                  "originalText": "MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "4d6f047f-4a0a-446c-96ed-a93aeea2ee6f",
+                  "label": "PERFORM 1000-SEND-MAP\n        ",
+                  "name": "PERFORM1000-SEN",
+                  "originalText": "PERFORM 1000-SEND-MAP\n                 THRU 1000-SEND-MAP-EXIT",
+                  "type": "PERFORM",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "5ed938c8-6796-4a0a-8a1b-7c4da37b4826",
+                  "label": "GO TO COMMON-RETURN",
+                  "name": "GOTOCOMMON-RETU",
+                  "originalText": "GO TO COMMON-RETURN",
+                  "type": "GOTO",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "fb273da3-3ff9-4a7d-a642-25eecb17f9b2",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG\n              PERFORM 1000-SEND-MAP\n                 THRU 1000-SEND-MAP-EXIT\n              GO TO COMMON-RETURN",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "c120a6e2-f512-486a-92d1-4321ebc84518",
+          "label": "IS \nINPUT-ERROR?\n",
+          "name": "IS \nINPUT-ERROR?\n",
+          "originalText": "IF INPUT-ERROR\n              MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG\n              PERFORM 1000-SEND-MAP\n                 THRU 1000-SEND-MAP-EXIT\n              GO TO COMMON-RETURN\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "712d32c8-d392-4901-995b-9a43c0aeb1c3",
+      "label": "_DIALECT_1​​​​ ",
+      "name": "_DIALECT_1​​​​ ",
+      "originalText": "_DIALECT_ 1 ​​​​ ​​​​ ​​​​​​ ​​​​​\n           ​​​​​​​​\n       \n           INITIALIZE CC-WORK-AREA\n                      WS-MISC-STORAGE\n                      WS-COMMAREA\n       \n       \n       \n           MOVE LIT-THISTRANID       TO WS-TRANID\n       \n       \n       \n           SET WS-RETURN-MSG-OFF  TO TRUE\n       \n       \n       \n           IF EIBCALEN IS EQUAL TO 0\n               OR (CDEMO-FROM-PROGRAM \u003d LIT-MENUPGM\n               AND NOT CDEMO-PGM-REENTER)\n              INITIALIZE CARDDEMO-COMMAREA\n                         WS-THIS-PROGCOMMAREA\n           ELSE\n              MOVE DFHCOMMAREA (1:LENGTH OF CARDDEMO-COMMAREA)  TO\n                                CARDDEMO-COMMAREA\n              MOVE DFHCOMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA ) TO\n                                WS-THIS-PROGCOMMAREA\n           END-IF\n       \n       \n       \n       \n       \n           PERFORM YYYY-STORE-PFKEY\n              THRU YYYY-STORE-PFKEY-EXIT\n       \n       \n       \n       \n       \n           SET PFK-INVALID TO TRUE\n           IF CCARD-AID-ENTER OR\n              CCARD-AID-PFK03\n              SET PFK-VALID TO TRUE\n           END-IF\n       \n           IF PFK-INVALID\n              SET CCARD-AID-ENTER TO TRUE\n           END-IF\n       \n       \n       \n       \n       \n       \n       \n       \n           EVALUATE TRUE\n              WHEN CCARD-AID-PFK03\n       \n       \n       \n                   IF CDEMO-FROM-TRANID    EQUAL LOW-VALUES\n                   OR CDEMO-FROM-TRANID    EQUAL SPACES\n                      MOVE LIT-MENUTRANID  TO CDEMO-TO-TRANID\n                   ELSE\n                      MOVE CDEMO-FROM-TRANID  TO CDEMO-TO-TRANID\n                   END-IF\n                   IF CDEMO-FROM-PROGRAM   EQUAL LOW-VALUES\n                   OR CDEMO-FROM-PROGRAM   EQUAL SPACES\n                      MOVE LIT-MENUPGM     TO CDEMO-TO-PROGRAM\n                   ELSE\n                      MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM\n                   END-IF\n       \n                   MOVE LIT-THISTRANID     TO CDEMO-FROM-TRANID\n                   MOVE LIT-THISPGM        TO CDEMO-FROM-PROGRAM\n       \n                   SET  CDEMO-USRTYP-USER  TO TRUE\n                   SET  CDEMO-PGM-ENTER    TO TRUE\n                   MOVE LIT-THISMAPSET     TO CDEMO-LAST-MAPSET\n                   MOVE LIT-THISMAP        TO CDEMO-LAST-MAP\n       \n                   _DIALECT_ 2 ​​​​ ​​​​ ​​​​\n                             ​​​​​​​ ​​​​​​​​​​​​​​​​​​\n                   ​​​​​​​​\n              WHEN CDEMO-PGM-ENTER\n       \n       \n       \n       \n                   PERFORM 1000-SEND-MAP THRU\n                           1000-SEND-MAP-EXIT\n                   GO TO COMMON-RETURN\n              WHEN CDEMO-PGM-REENTER\n                   PERFORM 2000-PROCESS-INPUTS\n                      THRU 2000-PROCESS-INPUTS-EXIT\n                   IF INPUT-ERROR\n                      PERFORM 1000-SEND-MAP\n                         THRU 1000-SEND-MAP-EXIT\n                      GO TO COMMON-RETURN\n                   ELSE\n                      PERFORM 9000-READ-ACCT\n                         THRU 9000-READ-ACCT-EXIT\n                      PERFORM 1000-SEND-MAP\n                         THRU 1000-SEND-MAP-EXIT\n                      GO TO COMMON-RETURN\n                   END-IF\n             WHEN OTHER\n                   MOVE LIT-THISPGM    TO ABEND-CULPRIT\n                   MOVE \u00270001\u0027         TO ABEND-CODE\n                   MOVE SPACES         TO ABEND-REASON\n                   MOVE \u0027UNEXPECTED DATA SCENARIO\u0027\n                                       TO WS-RETURN-MSG\n                   PERFORM SEND-PLAIN-TEXT\n                      THRU SEND-PLAIN-TEXT-EXIT\n           END-EVALUATE\n       \n       \n       \n           IF INPUT-ERROR\n              MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG\n              PERFORM 1000-SEND-MAP\n                 THRU 1000-SEND-MAP-EXIT\n              GO TO COMMON-RETURN\n           END-IF\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "4d366251-3abb-4071-a5e0-65ba1b975c0e",
+      "label": "COMMON-RETURN",
+      "name": "COMMON-RETURN",
+      "originalText": "COMMON-RETURN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "5ffe70e1-b875-4710-9a5e-4ee350920038",
+          "label": "MOVEWS-RETURN-M",
+          "name": "MOVEWS-RETURN-M",
+          "originalText": "MOVE WS-RETURN-MSG     TO CCARD-ERROR-MSG",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "de04c38e-b355-4e4b-8c10-a039a61e2139",
+          "label": "MOVECARDDEMO-CO",
+          "name": "MOVECARDDEMO-CO",
+          "originalText": "MOVE  CARDDEMO-COMMAREA    TO WS-COMMAREA",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "3dc34ae3-ac79-4c7c-96d7-815fd0e8d344",
+          "label": "MOVEWS-THIS-PRO",
+          "name": "MOVEWS-THIS-PRO",
+          "originalText": "MOVE  WS-THIS-PROGCOMMAREA TO\n                  WS-COMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA )",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "5ed0f6ed-f739-421c-b1f6-6ca904a132de",
+          "label": "_DIALECT_3​​​​ ",
+          "name": "_DIALECT_3​​​​ ",
+          "originalText": "_DIALECT_ 3 ​​​​ ​​​​ ​​​​​​\n                ​​​​​​​ ​​​​​​​​​​​​​​​​\n                ​​​​​​​​ ​​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "f26de6db-6a3e-4d4e-a33d-c24a1083bbe0",
+      "label": "MOVEWS-RETURN-M",
+      "name": "MOVEWS-RETURN-M",
+      "originalText": "MOVE WS-RETURN-MSG     TO CCARD-ERROR-MSG\n       \n           MOVE  CARDDEMO-COMMAREA    TO WS-COMMAREA\n           MOVE  WS-THIS-PROGCOMMAREA TO\n                  WS-COMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA )\n       \n           _DIALECT_ 3 ​​​​ ​​​​ ​​​​​​\n                ​​​​​​​ ​​​​​​​​​​​​​​​​\n                ​​​​​​​​ ​​​​​​​​​​​​​\n           ​​​​​​​​\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "76d28ce2-62af-4c47-951e-df1c1d64cb50",
+      "label": "0000-MAIN-EXIT",
+      "name": "0000-MAIN-EXIT",
+      "originalText": "0000-MAIN-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "ef3f6882-2779-4274-b69e-a8887e9835f2",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "906f1302-293a-44e0-a0f0-454190cc32f7",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "e3659290-fc73-49aa-9e06-f271574a5ff6",
+      "label": "0000-MAIN-EXIT",
+      "name": "0000-MAIN-EXIT",
+      "originalText": "0000-MAIN-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "2deebc29-07fb-4c67-9f0a-10c3a2f2ad55",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "0dd5f22a-f23b-4669-9959-20036cb4d33f",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "b98403be-7cc7-4a91-a015-ab92f58ddbd3",
+      "label": "1000-SEND-MAP",
+      "name": "1000-SEND-MAP",
+      "originalText": "1000-SEND-MAP.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "7898d66c-b391-4656-858c-61e7414f1e94",
+          "label": "PERFORM 1100-SCREEN-INIT\n     ",
+          "name": "PERFORM1100-SCR",
+          "originalText": "PERFORM 1100-SCREEN-INIT\n              THRU 1100-SCREEN-INIT-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "de517df6-9456-480b-98f1-88a41c09b771",
+          "label": "PERFORM 1200-SETUP-SCREEN-VARS",
+          "name": "PERFORM1200-SET",
+          "originalText": "PERFORM 1200-SETUP-SCREEN-VARS\n              THRU 1200-SETUP-SCREEN-VARS-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "b673139a-84eb-4df3-add6-d8298f13222e",
+          "label": "PERFORM 1300-SETUP-SCREEN-ATTR",
+          "name": "PERFORM1300-SET",
+          "originalText": "PERFORM 1300-SETUP-SCREEN-ATTRS\n              THRU 1300-SETUP-SCREEN-ATTRS-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "8148d4a0-5cf3-4cd5-a293-77ac4afd4690",
+          "label": "PERFORM 1400-SEND-SCREEN\n     ",
+          "name": "PERFORM1400-SEN",
+          "originalText": "PERFORM 1400-SEND-SCREEN\n              THRU 1400-SEND-SCREEN-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "ca21ac0e-88bb-4389-a842-88ff992affd1",
+      "label": "PERFORM1100-SCR",
+      "name": "PERFORM1100-SCR",
+      "originalText": "PERFORM 1100-SCREEN-INIT\n              THRU 1100-SCREEN-INIT-EXIT\n           PERFORM 1200-SETUP-SCREEN-VARS\n              THRU 1200-SETUP-SCREEN-VARS-EXIT\n           PERFORM 1300-SETUP-SCREEN-ATTRS\n              THRU 1300-SETUP-SCREEN-ATTRS-EXIT\n           PERFORM 1400-SEND-SCREEN\n              THRU 1400-SEND-SCREEN-EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "4c3e7b67-d7c0-4ed4-9588-1c47ca26e13a",
+      "label": "1000-SEND-MAP-EXIT",
+      "name": "1000-SEND-MAP-EXIT",
+      "originalText": "1000-SEND-MAP-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "a59ff5eb-9197-459e-bcf2-04e3d4d5e2d1",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "6f24770a-6774-4a2b-955f-ec5f08a7eb2d",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "6d181c49-9c21-4158-8cc8-6a3fd36e3053",
+      "label": "1100-SCREEN-INIT",
+      "name": "1100-SCREEN-INIT",
+      "originalText": "1100-SCREEN-INIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "795462ba-033d-4ecf-9d98-e36562083951",
+          "label": "MOVELOW-VALUEST",
+          "name": "MOVELOW-VALUEST",
+          "originalText": "MOVE LOW-VALUES             TO CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "e8daeb80-c5a6-4a60-8605-c76457800423",
+          "label": "MOVEFUNCTIONCUR",
+          "name": "MOVEFUNCTIONCUR",
+          "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "c10e7c93-7fc5-4b28-a40a-7ba51ae174b9",
+          "label": "MOVECCDA-TITLE0",
+          "name": "MOVECCDA-TITLE0",
+          "originalText": "MOVE CCDA-TITLE01           TO TITLE01O OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "6bf4e3c2-5fbb-488b-a62e-9ef13ad94ef9",
+          "label": "MOVECCDA-TITLE0",
+          "name": "MOVECCDA-TITLE0",
+          "originalText": "MOVE CCDA-TITLE02           TO TITLE02O OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "5eedab7b-ec55-46f9-b305-88356000ef5c",
+          "label": "MOVELIT-THISTRA",
+          "name": "MOVELIT-THISTRA",
+          "originalText": "MOVE LIT-THISTRANID         TO TRNNAMEO OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "e198d98d-8677-4064-8aec-d6eee2d3d9d8",
+          "label": "MOVELIT-THISPGM",
+          "name": "MOVELIT-THISPGM",
+          "originalText": "MOVE LIT-THISPGM            TO PGMNAMEO OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "80fe9784-a8fa-40fe-89c2-b76db88b4974",
+          "label": "MOVEFUNCTIONCUR",
+          "name": "MOVEFUNCTIONCUR",
+          "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "46ed58d9-4e9d-48f1-911d-948b57b596eb",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "48f3dbdb-f636-41a4-922b-f67672644299",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "ee0f4696-817e-4a05-9bf6-9daeae867267",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "22ab0301-9814-4e2d-a935-035b1bc503cd",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "7d86d1bf-7da5-43ba-98fa-21face8b3c55",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "eecedfd9-7e60-41a6-b294-3815fd70fe0a",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "7030f50d-81ee-4e4a-8a6b-682c3185d121",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "b21696d8-4582-443c-96ed-1494ec27dcbe",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "c8972747-dbb6-4712-b7e5-43de17dc6b09",
+      "label": "MOVELOW-VALUEST",
+      "name": "MOVELOW-VALUEST",
+      "originalText": "MOVE LOW-VALUES             TO CACTVWAO\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF CACTVWAO\n           MOVE CCDA-TITLE02           TO TITLE02O OF CACTVWAO\n           MOVE LIT-THISTRANID         TO TRNNAMEO OF CACTVWAO\n           MOVE LIT-THISPGM            TO PGMNAMEO OF CACTVWAO\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF CACTVWAO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF CACTVWAO\n       \n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "2153061d-63ac-4303-9f24-b721a00d37f6",
+      "label": "1100-SCREEN-INIT-EXIT",
+      "name": "1100-SCREEN-INIT-EXIT",
+      "originalText": "1100-SCREEN-INIT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "b40ae71b-173a-4e65-bcec-e52c61586dbe",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "e3333820-bb02-44d9-8cea-6a6308c9d14a",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "90fcd3be-92f1-4be1-be92-7a2d49a2b6d5",
+      "label": "1200-SETUP-SCREEN-VARS",
+      "name": "1200-SETUP-SCREEN-VARS",
+      "originalText": "1200-SETUP-SCREEN-VARS.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "0af3ab07-c307-4aa9-99d9-9bdcd7ece02b",
+                  "label": "SETWS-PROMPT-FO",
+                  "name": "SETWS-PROMPT-FO",
+                  "originalText": "SET  WS-PROMPT-FOR-INPUT TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "fd7c7e2b-2ef7-4571-b1ee-89cfa7b20bea",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET  WS-PROMPT-FOR-INPUT TO TRUE",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "e7ee0915-09cd-4d3e-a6e5-90686b8fcd7c",
+                  "label": "ELSE",
+                  "name": "ELSE",
+                  "originalText": "ELSE",
+                  "type": "SYMBOL",
+                  "categories": [
+                    "SYMBOL"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "a0d032b8-a2aa-4bf2-994c-669f6e6829e2",
+                          "label": "MOVELOW-VALUEST",
+                          "name": "MOVELOW-VALUEST",
+                          "originalText": "MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "0c87e569-d079-441d-8a40-0902cf4e6983",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "c543c934-0d3f-4d7a-86c9-00b6b97a0d9f",
+                          "label": "ELSE",
+                          "name": "ELSE",
+                          "originalText": "ELSE",
+                          "type": "SYMBOL",
+                          "categories": [
+                            "SYMBOL"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "1d638c5f-2c9b-441b-833f-2a9b146b56f2",
+                          "label": "MOVECC-ACCT-IDT",
+                          "name": "MOVECC-ACCT-IDT",
+                          "originalText": "MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "c06ff09c-12ce-40c7-aa9a-2c7cff92b7eb",
+                      "label": "No",
+                      "name": "No",
+                      "originalText": "ELSE\n                 MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO",
+                      "type": "IF_NO",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "9cc8564d-9cc0-4b92-a802-cc47cc82c437",
+                  "label": "IS \nFLG-ACCTFILTER-BLANK?\n",
+                  "name": "IS \nFLG-ACCTFILTER-BLANK?\n",
+                  "originalText": "IF FLG-ACCTFILTER-BLANK\n                 MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO\n              ELSE\n                 MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO\n              END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "22441ef7-9c4c-4d51-88f9-11aee233d852",
+                          "label": "MOVEACCT-ACTIVE",
+                          "name": "MOVEACCT-ACTIVE",
+                          "originalText": "MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "3b5c15f5-eb8f-4dd0-91df-918290d4a730",
+                          "label": "MOVEACCT-CURR-B",
+                          "name": "MOVEACCT-CURR-B",
+                          "originalText": "MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "e86c8690-5c01-4492-b0bc-ffdc3558fe66",
+                          "label": "MOVEACCT-CREDIT",
+                          "name": "MOVEACCT-CREDIT",
+                          "originalText": "MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "c1f71214-3357-4636-b923-5273f285d7eb",
+                          "label": "MOVEACCT-CASH-C",
+                          "name": "MOVEACCT-CASH-C",
+                          "originalText": "MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "cf1eafee-f73b-41a3-8e21-b0124819ffa7",
+                          "label": "MOVEACCT-CURR-C",
+                          "name": "MOVEACCT-CURR-C",
+                          "originalText": "MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "33d75104-2d9c-4ab4-a38a-0e1508567f03",
+                          "label": "MOVEACCT-CURR-C",
+                          "name": "MOVEACCT-CURR-C",
+                          "originalText": "MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "97988bcf-6495-4aaf-8445-f67a95ce8345",
+                          "label": "MOVEACCT-OPEN-D",
+                          "name": "MOVEACCT-OPEN-D",
+                          "originalText": "MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "22197745-d783-435a-abe2-fc60c0d9826f",
+                          "label": "MOVEACCT-EXPIRA",
+                          "name": "MOVEACCT-EXPIRA",
+                          "originalText": "MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "e4e71c6f-5e4e-4e77-aaf7-302bfe843f40",
+                          "label": "MOVEACCT-REISSU",
+                          "name": "MOVEACCT-REISSU",
+                          "originalText": "MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "0d4ed856-255b-43e9-bb94-72a5dba1727d",
+                          "label": "MOVEACCT-GROUP-",
+                          "name": "MOVEACCT-GROUP-",
+                          "originalText": "MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "60c5ebdf-2f49-4b12-b6ce-d8eb33927ea2",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO\n       \n                 MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO\n       \n                 MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO\n                 MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO\n                 MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO\n                 MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "4a6c572c-eeac-43af-b142-4f52c5bfae2d",
+                  "label": "IS \nFOUND-ACCT-IN-MASTER\n              OR FO?\n",
+                  "name": "IS \nFOUND-ACCT-IN-MASTER\n              OR FO?\n",
+                  "originalText": "IF FOUND-ACCT-IN-MASTER\n              OR FOUND-CUST-IN-MASTER\n                 MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO\n       \n                 MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO\n       \n                 MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO\n                 MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO\n                 MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO\n                 MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO\n              END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "278ba8dc-bf5c-45d0-992a-6d2481e52825",
+                          "label": "MOVECUST-IDTOAC",
+                          "name": "MOVECUST-IDTOAC",
+                          "originalText": "MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "6c7c5565-6cd2-4616-86ec-1c3d59b786c2",
+                          "label": "STRINGCUST-SSN(",
+                          "name": "STRINGCUST-SSN(",
+                          "originalText": "STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING",
+                          "type": "GENERIC_STATEMENT",
+                          "categories": [
+                            "GENERIC_CODE"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "97c8abff-b3c2-4f5f-9168-cfa8da3e046a",
+                          "label": "MOVECUST-FICO-C",
+                          "name": "MOVECUST-FICO-C",
+                          "originalText": "MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "ecf5164b-784e-4ebc-904e-2272e5002749",
+                          "label": "MOVECUST-DOB-YY",
+                          "name": "MOVECUST-DOB-YY",
+                          "originalText": "MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "1b1f42c2-7b03-4925-843e-68f33eafb7de",
+                          "label": "MOVECUST-FIRST-",
+                          "name": "MOVECUST-FIRST-",
+                          "originalText": "MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "8e4f1563-e2ca-4a5a-857a-0cd48784361a",
+                          "label": "MOVECUST-MIDDLE",
+                          "name": "MOVECUST-MIDDLE",
+                          "originalText": "MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "81e14091-6b08-47c5-a2b9-b9b9e5f597e1",
+                          "label": "MOVECUST-LAST-N",
+                          "name": "MOVECUST-LAST-N",
+                          "originalText": "MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "f416f020-f399-4636-be57-47e7f5987dc6",
+                          "label": "MOVECUST-ADDR-L",
+                          "name": "MOVECUST-ADDR-L",
+                          "originalText": "MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "e14629e1-4c89-46e7-830b-2fe8b7b22db9",
+                          "label": "MOVECUST-ADDR-L",
+                          "name": "MOVECUST-ADDR-L",
+                          "originalText": "MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "f0d82592-e984-40fd-88a0-7aba78efe9ef",
+                          "label": "MOVECUST-ADDR-L",
+                          "name": "MOVECUST-ADDR-L",
+                          "originalText": "MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "17be37b7-95e7-4c58-84fe-fa5739951568",
+                          "label": "MOVECUST-ADDR-S",
+                          "name": "MOVECUST-ADDR-S",
+                          "originalText": "MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "c4c6178d-0ea2-43bb-927c-e051b76d6d74",
+                          "label": "MOVECUST-ADDR-Z",
+                          "name": "MOVECUST-ADDR-Z",
+                          "originalText": "MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "9b0b5ad2-4a8d-4449-84f0-c780cdd73b87",
+                          "label": "MOVECUST-ADDR-C",
+                          "name": "MOVECUST-ADDR-C",
+                          "originalText": "MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "0922cee3-20d6-4581-aac4-9f8690e97484",
+                          "label": "MOVECUST-PHONE-",
+                          "name": "MOVECUST-PHONE-",
+                          "originalText": "MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "5cc55bb5-78e5-491e-bbb0-46f9aa6eadd8",
+                          "label": "MOVECUST-PHONE-",
+                          "name": "MOVECUST-PHONE-",
+                          "originalText": "MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "221af89d-ef45-4f12-9c58-b0bb9fc88aa7",
+                          "label": "MOVECUST-GOVT-I",
+                          "name": "MOVECUST-GOVT-I",
+                          "originalText": "MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "a0583d1f-a009-42db-92be-dd5f5bc2b39d",
+                          "label": "MOVECUST-EFT-AC",
+                          "name": "MOVECUST-EFT-AC",
+                          "originalText": "MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "87510eb9-4e2a-4959-97ac-4e735f00550e",
+                          "label": "MOVECUST-PRI-CA",
+                          "name": "MOVECUST-PRI-CA",
+                          "originalText": "MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "a890ddac-bedb-4901-9cd6-aedb5569a869",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO\n       \n                STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING\n                MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO\n                MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO\n                MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO\n                MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO\n                MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO\n                MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO\n                MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO\n                MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO\n                MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO\n                MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO\n                MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO\n                MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO\n                MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO\n                MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "28570654-7313-4260-82ab-08ae46485b60",
+                  "label": "IS \nFOUND-CUST-IN-MASTER?\n",
+                  "name": "IS \nFOUND-CUST-IN-MASTER?\n",
+                  "originalText": "IF FOUND-CUST-IN-MASTER\n                MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO\n       \n                STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING\n                MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO\n                MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO\n                MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO\n                MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO\n                MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO\n                MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO\n                MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO\n                MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO\n                MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO\n                MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO\n                MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO\n                MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO\n                MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO\n                MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO\n              END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "3910bbd2-633a-4c7e-8002-15e926382bf1",
+              "label": "No",
+              "name": "No",
+              "originalText": "ELSE\n              IF FLG-ACCTFILTER-BLANK\n                 MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO\n              ELSE\n                 MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-ACCT-IN-MASTER\n              OR FOUND-CUST-IN-MASTER\n                 MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO\n       \n                 MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO\n       \n                 MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO\n                 MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO\n                 MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO\n                 MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-CUST-IN-MASTER\n                MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO\n       \n                STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING\n                MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO\n                MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO\n                MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO\n                MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO\n                MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO\n                MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO\n                MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO\n                MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO\n                MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO\n                MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO\n                MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO\n                MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO\n                MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO\n                MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO\n              END-IF",
+              "type": "IF_NO",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "1e872cd3-fe3a-4177-803f-b7754fd295ff",
+          "label": "IS \nEIBCALEN \u003d 0?\n",
+          "name": "IS \nEIBCALEN \u003d 0?\n",
+          "originalText": "IF EIBCALEN \u003d 0\n              SET  WS-PROMPT-FOR-INPUT TO TRUE\n           ELSE\n              IF FLG-ACCTFILTER-BLANK\n                 MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO\n              ELSE\n                 MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-ACCT-IN-MASTER\n              OR FOUND-CUST-IN-MASTER\n                 MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO\n       \n                 MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO\n       \n                 MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO\n                 MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO\n                 MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO\n                 MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-CUST-IN-MASTER\n                MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO\n       \n                STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING\n                MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO\n                MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO\n                MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO\n                MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO\n                MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO\n                MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO\n                MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO\n                MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO\n                MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO\n                MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO\n                MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO\n                MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO\n                MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO\n                MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO\n              END-IF\n       \n            END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "4bd96994-99b4-4363-80d9-2540510f5dca",
+                  "label": "SETWS-PROMPT-FO",
+                  "name": "SETWS-PROMPT-FO",
+                  "originalText": "SET WS-PROMPT-FOR-INPUT TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "a8569d30-4730-46ab-83bf-b8326cdd87ee",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET WS-PROMPT-FOR-INPUT TO TRUE",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "e7e9ff27-b6ca-4e54-9b44-f0ed83e0c6ac",
+          "label": "IS \nWS-NO-INFO-MESSAGE?\n",
+          "name": "IS \nWS-NO-INFO-MESSAGE?\n",
+          "originalText": "IF WS-NO-INFO-MESSAGE\n             SET WS-PROMPT-FOR-INPUT TO TRUE\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "4be8518d-c721-4868-bb6c-0c475b1d2a54",
+          "label": "MOVEWS-RETURN-M",
+          "name": "MOVEWS-RETURN-M",
+          "originalText": "MOVE WS-RETURN-MSG          TO ERRMSGO OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "dd5bf2ca-f8dd-421d-8af0-af631172b19c",
+          "label": "MOVEWS-INFO-MSG",
+          "name": "MOVEWS-INFO-MSG",
+          "originalText": "MOVE WS-INFO-MSG            TO INFOMSGO OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "e192da76-6ccb-40aa-b84d-4c900f0f736d",
+      "label": "IFEIBCALEN\u003d0SET",
+      "name": "IFEIBCALEN\u003d0SET",
+      "originalText": "IF EIBCALEN \u003d 0\n              SET  WS-PROMPT-FOR-INPUT TO TRUE\n           ELSE\n              IF FLG-ACCTFILTER-BLANK\n                 MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO\n              ELSE\n                 MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-ACCT-IN-MASTER\n              OR FOUND-CUST-IN-MASTER\n                 MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO\n       \n                 MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO\n       \n                 MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO\n                 MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO\n                 MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO\n                 MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-CUST-IN-MASTER\n                MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO\n       \n                STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING\n                MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO\n                MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO\n                MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO\n                MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO\n                MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO\n                MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO\n                MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO\n                MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO\n                MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO\n                MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO\n                MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO\n                MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO\n                MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO\n                MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO\n              END-IF\n       \n            END-IF\n       \n       \n           IF WS-NO-INFO-MESSAGE\n             SET WS-PROMPT-FOR-INPUT TO TRUE\n           END-IF\n       \n           MOVE WS-RETURN-MSG          TO ERRMSGO OF CACTVWAO\n       \n           MOVE WS-INFO-MSG            TO INFOMSGO OF CACTVWAO\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "930c26fa-1f06-440a-a550-e9ceaa840bb0",
+      "label": "1200-SETUP-SCREEN-VARS-EXIT",
+      "name": "1200-SETUP-SCREEN-VARS-EXIT",
+      "originalText": "1200-SETUP-SCREEN-VARS-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "160447bd-df46-4309-8bc3-9138d92cffe0",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "8295ce5f-2276-4233-8dfd-bd1df8da0278",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "3ad11a83-cfa9-4c76-838b-128d45784949",
+      "label": "1300-SETUP-SCREEN-ATTRS",
+      "name": "1300-SETUP-SCREEN-ATTRS",
+      "originalText": "1300-SETUP-SCREEN-ATTRS.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "f1d4765e-c00d-48fe-9837-7f44f29b5beb",
+          "label": "MOVEDFHBMFSETOA",
+          "name": "MOVEDFHBMFSETOA",
+          "originalText": "MOVE DFHBMFSE               TO ACCTSIDA OF CACTVWAI",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "5cd6f240-93b2-4fab-8a1a-2d1dee466a36",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE TRUE\n              WHEN FLG-ACCTFILTER-NOT-OK\n              WHEN FLG-ACCTFILTER-BLANK\n                   MOVE -1             TO ACCTSIDL OF CACTVWAI\n              WHEN OTHER\n                   MOVE -1             TO ACCTSIDL OF CACTVWAI\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "383470dc-1b87-4ada-81a4-44be6f121cc9",
+          "label": "MOVEDFHDFCOLTOA",
+          "name": "MOVEDFHDFCOLTOA",
+          "originalText": "MOVE DFHDFCOL               TO ACCTSIDC OF CACTVWAO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "f2acb326-93c1-43d0-9598-ed89971db96b",
+                  "label": "MOVEDFHREDTOACC",
+                  "name": "MOVEDFHREDTOACC",
+                  "originalText": "MOVE DFHRED              TO ACCTSIDC OF CACTVWAO",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "0a96bba5-a060-4e16-8493-8eaaa5ad8d19",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE DFHRED              TO ACCTSIDC OF CACTVWAO",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "c0b32fb4-9a06-4347-bb23-3747e669aa08",
+          "label": "IS \nFLG-ACCTFILTER-NOT-OK?\n",
+          "name": "IS \nFLG-ACCTFILTER-NOT-OK?\n",
+          "originalText": "IF FLG-ACCTFILTER-NOT-OK\n              MOVE DFHRED              TO ACCTSIDC OF CACTVWAO\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "ba24f079-195a-43ec-9b5a-9f0d0ba2f6fb",
+                  "label": "MOVE\u0027*\u0027TOACCTSI",
+                  "name": "MOVE\u0027*\u0027TOACCTSI",
+                  "originalText": "MOVE \u0027*\u0027                TO ACCTSIDO OF CACTVWAO",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "6fcb777b-a05e-49ed-9497-e62e58369966",
+                  "label": "MOVEDFHREDTOACC",
+                  "name": "MOVEDFHREDTOACC",
+                  "originalText": "MOVE DFHRED             TO ACCTSIDC OF CACTVWAO",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "a1ebe19e-47ab-4c2f-9e85-2d4173a155f4",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE \u0027*\u0027                TO ACCTSIDO OF CACTVWAO\n               MOVE DFHRED             TO ACCTSIDC OF CACTVWAO",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "ddf80219-4101-46c0-8c7d-a4363e4b7e67",
+          "label": "IS \nFLG-ACCTFILTER-BLANK\n           AND CDEM?\n",
+          "name": "IS \nFLG-ACCTFILTER-BLANK\n           AND CDEM?\n",
+          "originalText": "IF  FLG-ACCTFILTER-BLANK\n           AND CDEMO-PGM-REENTER\n               MOVE \u0027*\u0027                TO ACCTSIDO OF CACTVWAO\n               MOVE DFHRED             TO ACCTSIDC OF CACTVWAO\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "0aabeb90-8031-451b-92d1-05935f69022b",
+                  "label": "MOVEDFHBMDARTOI",
+                  "name": "MOVEDFHBMDARTOI",
+                  "originalText": "MOVE DFHBMDAR           TO INFOMSGC OF CACTVWAO",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "7ee04fbf-1334-476a-93cc-7c74322eb4a7",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE DFHBMDAR           TO INFOMSGC OF CACTVWAO",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "44421b25-d153-43ec-861a-95f72b79a12c",
+                  "label": "ELSE",
+                  "name": "ELSE",
+                  "originalText": "ELSE",
+                  "type": "SYMBOL",
+                  "categories": [
+                    "SYMBOL"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "af98eb6c-eaa8-4b1b-b17f-e1ef65c65cb1",
+                  "label": "MOVEDFHNEUTRTOI",
+                  "name": "MOVEDFHNEUTRTOI",
+                  "originalText": "MOVE DFHNEUTR           TO INFOMSGC OF CACTVWAO",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "452fc562-04f8-4666-b20d-70602dc757dd",
+              "label": "No",
+              "name": "No",
+              "originalText": "ELSE\n               MOVE DFHNEUTR           TO INFOMSGC OF CACTVWAO",
+              "type": "IF_NO",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "c1dd8816-6595-4bc7-80c7-219e6023a0f0",
+          "label": "IS \nWS-NO-INFO-MESSAGE?\n",
+          "name": "IS \nWS-NO-INFO-MESSAGE?\n",
+          "originalText": "IF  WS-NO-INFO-MESSAGE\n               MOVE DFHBMDAR           TO INFOMSGC OF CACTVWAO\n           ELSE\n               MOVE DFHNEUTR           TO INFOMSGC OF CACTVWAO\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "e5ecb55f-c7ad-4216-9f48-5b5c854d7ae0",
+      "label": "MOVEDFHBMFSETOA",
+      "name": "MOVEDFHBMFSETOA",
+      "originalText": "MOVE DFHBMFSE               TO ACCTSIDA OF CACTVWAI\n       \n       \n           EVALUATE TRUE\n              WHEN FLG-ACCTFILTER-NOT-OK\n              WHEN FLG-ACCTFILTER-BLANK\n                   MOVE -1             TO ACCTSIDL OF CACTVWAI\n              WHEN OTHER\n                   MOVE -1             TO ACCTSIDL OF CACTVWAI\n           END-EVALUATE\n       \n       \n           MOVE DFHDFCOL               TO ACCTSIDC OF CACTVWAO\n       \n           IF FLG-ACCTFILTER-NOT-OK\n              MOVE DFHRED              TO ACCTSIDC OF CACTVWAO\n           END-IF\n       \n           IF  FLG-ACCTFILTER-BLANK\n           AND CDEMO-PGM-REENTER\n               MOVE \u0027*\u0027                TO ACCTSIDO OF CACTVWAO\n               MOVE DFHRED             TO ACCTSIDC OF CACTVWAO\n           END-IF\n       \n           IF  WS-NO-INFO-MESSAGE\n               MOVE DFHBMDAR           TO INFOMSGC OF CACTVWAO\n           ELSE\n               MOVE DFHNEUTR           TO INFOMSGC OF CACTVWAO\n           END-IF\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "eaccc2d5-939c-41fa-9c4b-ce7f218a018e",
+      "label": "1300-SETUP-SCREEN-ATTRS-EXIT",
+      "name": "1300-SETUP-SCREEN-ATTRS-EXIT",
+      "originalText": "1300-SETUP-SCREEN-ATTRS-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "f31a44d7-f9ec-4632-bb00-2d309626b06c",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "0d2e4a3b-353a-44f8-997e-f2cdd1e643f2",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "89063a16-12fa-4b6f-af52-4396e15c5ece",
+      "label": "1400-SEND-SCREEN",
+      "name": "1400-SEND-SCREEN",
+      "originalText": "1400-SEND-SCREEN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "6307b2dc-fa6a-44c2-a8e7-65342ec52bb1",
+          "label": "MOVELIT-THISMAP",
+          "name": "MOVELIT-THISMAP",
+          "originalText": "MOVE LIT-THISMAPSET         TO CCARD-NEXT-MAPSET",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "d8cc4689-efdd-483c-87e6-70ab91705799",
+          "label": "MOVELIT-THISMAP",
+          "name": "MOVELIT-THISMAP",
+          "originalText": "MOVE LIT-THISMAP            TO CCARD-NEXT-MAP",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "8dba5b1e-3e03-44b8-9e12-14c63cfdae4f",
+          "label": "SETCDEMO-PGM-RE",
+          "name": "SETCDEMO-PGM-RE",
+          "originalText": "SET  CDEMO-PGM-REENTER TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "5522bec3-1a60-4284-9178-a125e84da964",
+          "label": "_DIALECT_4​​​​ ",
+          "name": "_DIALECT_4​​​​ ",
+          "originalText": "_DIALECT_ 4 ​​​​ ​​​​ ​​​​ ​​​​​​​​​​​​​​​​​​​\n                          ​​​​​​​​​​​​​​​​​​​​​​​​​\n                          ​​​​​​​​​​​​​​\n                          ​​​​​​\n                          ​​​​​\n                          ​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "29b4d9bf-2226-491f-923b-96cb0ba9be23",
+      "label": "MOVELIT-THISMAP",
+      "name": "MOVELIT-THISMAP",
+      "originalText": "MOVE LIT-THISMAPSET         TO CCARD-NEXT-MAPSET\n           MOVE LIT-THISMAP            TO CCARD-NEXT-MAP\n           SET  CDEMO-PGM-REENTER TO TRUE\n       \n           _DIALECT_ 4 ​​​​ ​​​​ ​​​​ ​​​​​​​​​​​​​​​​​​​\n                          ​​​​​​​​​​​​​​​​​​​​​​​​​\n                          ​​​​​​​​​​​​​​\n                          ​​​​​​\n                          ​​​​​\n                          ​​​​​​\n           ​​​​​​​​\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "0a04d9af-7c67-4a3b-8a70-0adea3ecbbd0",
+      "label": "1400-SEND-SCREEN-EXIT",
+      "name": "1400-SEND-SCREEN-EXIT",
+      "originalText": "1400-SEND-SCREEN-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "eb59cf75-032b-4a7c-9aee-340ac9972bae",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "8d39390b-a153-46da-981e-cb92d649bfda",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "69b82a66-ad20-409d-a837-01bd05ddfe8c",
+      "label": "2000-PROCESS-INPUTS",
+      "name": "2000-PROCESS-INPUTS",
+      "originalText": "2000-PROCESS-INPUTS.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "3fe777f6-a3ef-4ff1-9f19-a458ca5b273f",
+          "label": "PERFORM 2100-RECEIVE-MAP\n     ",
+          "name": "PERFORM2100-REC",
+          "originalText": "PERFORM 2100-RECEIVE-MAP\n              THRU 2100-RECEIVE-MAP-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "981a2a48-0904-4c05-be6c-34f57dc115f0",
+          "label": "PERFORM 2200-EDIT-MAP-INPUTS\n ",
+          "name": "PERFORM2200-EDI",
+          "originalText": "PERFORM 2200-EDIT-MAP-INPUTS\n              THRU 2200-EDIT-MAP-INPUTS-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "323fe5db-56f3-43bd-b199-4fe80e0534e8",
+          "label": "MOVEWS-RETURN-M",
+          "name": "MOVEWS-RETURN-M",
+          "originalText": "MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "9966d14d-c85b-4bce-bf1e-a92dd5d3159a",
+          "label": "MOVELIT-THISPGM",
+          "name": "MOVELIT-THISPGM",
+          "originalText": "MOVE LIT-THISPGM    TO CCARD-NEXT-PROG",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "c5905517-b7c6-4e4e-ba0f-716d47650281",
+          "label": "MOVELIT-THISMAP",
+          "name": "MOVELIT-THISMAP",
+          "originalText": "MOVE LIT-THISMAPSET TO CCARD-NEXT-MAPSET",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "bdf72ad9-7941-4d63-ad37-9e6f7009fbd7",
+          "label": "MOVELIT-THISMAP",
+          "name": "MOVELIT-THISMAP",
+          "originalText": "MOVE LIT-THISMAP    TO CCARD-NEXT-MAP",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "67202bee-a9f6-4574-a23c-be1f45e5966a",
+      "label": "PERFORM2100-REC",
+      "name": "PERFORM2100-REC",
+      "originalText": "PERFORM 2100-RECEIVE-MAP\n              THRU 2100-RECEIVE-MAP-EXIT\n           PERFORM 2200-EDIT-MAP-INPUTS\n              THRU 2200-EDIT-MAP-INPUTS-EXIT\n           MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG\n           MOVE LIT-THISPGM    TO CCARD-NEXT-PROG\n           MOVE LIT-THISMAPSET TO CCARD-NEXT-MAPSET\n           MOVE LIT-THISMAP    TO CCARD-NEXT-MAP\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "0dcc04f7-4fb6-4199-becc-c16f2fafdbad",
+      "label": "2000-PROCESS-INPUTS-EXIT",
+      "name": "2000-PROCESS-INPUTS-EXIT",
+      "originalText": "2000-PROCESS-INPUTS-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "c5d2e395-fe81-4b72-aedc-ea3ae598b0a4",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "74cfc498-6513-4ddd-8d76-6fe52a063c9f",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "f19c8588-92c3-41ea-a713-d788ed8043cd",
+      "label": "2100-RECEIVE-MAP",
+      "name": "2100-RECEIVE-MAP",
+      "originalText": "2100-RECEIVE-MAP.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "7d2e727a-aac2-4b33-b41c-a7415d66c179",
+          "label": "_DIALECT_5​​​​ ",
+          "name": "_DIALECT_5​​​​ ",
+          "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​​​​ ​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "215b8268-8a68-4eca-9b6b-9e1d2a61e828",
+      "label": "_DIALECT_5​​​​ ",
+      "name": "_DIALECT_5​​​​ ",
+      "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​​​​ ​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "f1a97412-3652-4c15-97f3-41fb591e4a90",
+      "label": "2100-RECEIVE-MAP-EXIT",
+      "name": "2100-RECEIVE-MAP-EXIT",
+      "originalText": "2100-RECEIVE-MAP-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "374a9b33-1542-4271-925d-ac367803d54f",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "e8ab78ed-9488-493f-a58f-5a6c4af02fec",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "85023644-97eb-48cb-b26e-d638a44c0c90",
+      "label": "2200-EDIT-MAP-INPUTS",
+      "name": "2200-EDIT-MAP-INPUTS",
+      "originalText": "2200-EDIT-MAP-INPUTS.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "dda23a43-c2ed-49d6-9a5c-a2712e9f066e",
+          "label": "SETINPUT-OKTOTR",
+          "name": "SETINPUT-OKTOTR",
+          "originalText": "SET INPUT-OK                  TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "978dad4f-2d1d-4668-b7f3-fb7c207193d7",
+          "label": "SETFLG-ACCTFILT",
+          "name": "SETFLG-ACCTFILT",
+          "originalText": "SET FLG-ACCTFILTER-ISVALID    TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "0c2303c4-1313-42f8-b290-7cee8bd5b78b",
+                  "label": "MOVELOW-VALUEST",
+                  "name": "MOVELOW-VALUEST",
+                  "originalText": "MOVE LOW-VALUES           TO  CC-ACCT-ID",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "59cad16f-4cd9-485d-af59-e0fb1d506dd5",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE LOW-VALUES           TO  CC-ACCT-ID",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "b2a8468a-f280-4b21-9efd-e2c6ce0116e1",
+                  "label": "ELSE",
+                  "name": "ELSE",
+                  "originalText": "ELSE",
+                  "type": "SYMBOL",
+                  "categories": [
+                    "SYMBOL"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "070b91d7-0d81-42d0-97f2-e97fb763f195",
+                  "label": "MOVEACCTSIDIOFC",
+                  "name": "MOVEACCTSIDIOFC",
+                  "originalText": "MOVE ACCTSIDI OF CACTVWAI TO  CC-ACCT-ID",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "3e766844-7b87-4d55-af79-1fdb7ade72d5",
+              "label": "No",
+              "name": "No",
+              "originalText": "ELSE\n               MOVE ACCTSIDI OF CACTVWAI TO  CC-ACCT-ID",
+              "type": "IF_NO",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "6cdc02f2-a980-45a7-9a04-2aaa7681344d",
+          "label": "IS \nACCTSIDI OF CACTVWAI \u003d \u0027*\u0027\n           OR?\n",
+          "name": "IS \nACCTSIDI OF CACTVWAI \u003d \u0027*\u0027\n           OR?\n",
+          "originalText": "IF  ACCTSIDI OF CACTVWAI \u003d \u0027*\u0027\n           OR  ACCTSIDI OF CACTVWAI \u003d SPACES\n               MOVE LOW-VALUES           TO  CC-ACCT-ID\n           ELSE\n               MOVE ACCTSIDI OF CACTVWAI TO  CC-ACCT-ID\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "27bbcaaa-ea77-4a8f-a93d-86521076cc54",
+          "label": "PERFORM 2210-EDIT-ACCOUNT\n    ",
+          "name": "PERFORM2210-EDI",
+          "originalText": "PERFORM 2210-EDIT-ACCOUNT\n              THRU 2210-EDIT-ACCOUNT-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "6770b92c-5178-472d-877b-4f8bbac881cd",
+                  "label": "SETNO-SEARCH-CR",
+                  "name": "SETNO-SEARCH-CR",
+                  "originalText": "SET NO-SEARCH-CRITERIA-RECEIVED TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "fb1ba813-08c9-49a1-8ead-4083ff495c6d",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET NO-SEARCH-CRITERIA-RECEIVED TO TRUE",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "fe48a564-b8a0-471f-a816-90b60312f823",
+          "label": "IS \nFLG-ACCTFILTER-BLANK?\n",
+          "name": "IS \nFLG-ACCTFILTER-BLANK?\n",
+          "originalText": "IF  FLG-ACCTFILTER-BLANK\n               SET NO-SEARCH-CRITERIA-RECEIVED TO TRUE\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "11facef8-7477-4e3d-beba-07f0335d6657",
+      "label": "SETINPUT-OKTOTR",
+      "name": "SETINPUT-OKTOTR",
+      "originalText": "SET INPUT-OK                  TO TRUE\n           SET FLG-ACCTFILTER-ISVALID    TO TRUE\n       \n       \n           IF  ACCTSIDI OF CACTVWAI \u003d \u0027*\u0027\n           OR  ACCTSIDI OF CACTVWAI \u003d SPACES\n               MOVE LOW-VALUES           TO  CC-ACCT-ID\n           ELSE\n               MOVE ACCTSIDI OF CACTVWAI TO  CC-ACCT-ID\n           END-IF\n       \n       \n           PERFORM 2210-EDIT-ACCOUNT\n              THRU 2210-EDIT-ACCOUNT-EXIT\n       \n       \n           IF  FLG-ACCTFILTER-BLANK\n               SET NO-SEARCH-CRITERIA-RECEIVED TO TRUE\n           END-IF\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "38dc8254-933a-44a8-b3da-9587e6549476",
+      "label": "2200-EDIT-MAP-INPUTS-EXIT",
+      "name": "2200-EDIT-MAP-INPUTS-EXIT",
+      "originalText": "2200-EDIT-MAP-INPUTS-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "72b8a3f7-33d0-47d5-822c-81039ffc0a5c",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "1f55e630-0654-44c5-9bd0-cdbbfb2a8612",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "acf47ebe-d202-4094-84d3-0c1658104d61",
+      "label": "2210-EDIT-ACCOUNT",
+      "name": "2210-EDIT-ACCOUNT",
+      "originalText": "2210-EDIT-ACCOUNT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "5c29f834-6a7e-42d1-88fe-cad3598f655c",
+          "label": "SETFLG-ACCTFILT",
+          "name": "SETFLG-ACCTFILT",
+          "originalText": "SET FLG-ACCTFILTER-NOT-OK TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "57fbcd85-3dfa-44c5-b951-c1f5f1916bdb",
+                  "label": "SETINPUT-ERRORT",
+                  "name": "SETINPUT-ERRORT",
+                  "originalText": "SET INPUT-ERROR           TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "8ab842b8-d500-4642-96a2-70ab87da0bcf",
+                  "label": "SETFLG-ACCTFILT",
+                  "name": "SETFLG-ACCTFILT",
+                  "originalText": "SET FLG-ACCTFILTER-BLANK  TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "81cff868-b1d6-4e91-b689-00eb569681dd",
+                          "label": "SETWS-PROMPT-FO",
+                          "name": "SETWS-PROMPT-FO",
+                          "originalText": "SET WS-PROMPT-FOR-ACCT TO TRUE",
+                          "type": "GENERIC_STATEMENT",
+                          "categories": [
+                            "GENERIC_CODE"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "38efa3e9-5ccb-4e2e-a512-e140484637e2",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "SET WS-PROMPT-FOR-ACCT TO TRUE",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "15981024-adc1-4bfd-8059-b281abf07b79",
+                  "label": "IS \nWS-RETURN-MSG-OFF?\n",
+                  "name": "IS \nWS-RETURN-MSG-OFF?\n",
+                  "originalText": "IF WS-RETURN-MSG-OFF\n                 SET WS-PROMPT-FOR-ACCT TO TRUE\n              END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "cf2b558d-2e4f-4c63-a645-8e2428c3e74d",
+                  "label": "MOVEZEROESTOCDE",
+                  "name": "MOVEZEROESTOCDE",
+                  "originalText": "MOVE ZEROES       TO CDEMO-ACCT-ID",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "40b5ca5d-a217-4f8f-a359-e6482831723d",
+                  "label": "GO TO  2210-EDIT-ACCOUNT-EXIT",
+                  "name": "GOTO2210-EDIT-A",
+                  "originalText": "GO TO  2210-EDIT-ACCOUNT-EXIT",
+                  "type": "GOTO",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "50c3469f-481b-4ea5-b4c6-1f91a668e466",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET INPUT-ERROR           TO TRUE\n              SET FLG-ACCTFILTER-BLANK  TO TRUE\n              IF WS-RETURN-MSG-OFF\n                 SET WS-PROMPT-FOR-ACCT TO TRUE\n              END-IF\n              MOVE ZEROES       TO CDEMO-ACCT-ID\n              GO TO  2210-EDIT-ACCOUNT-EXIT",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "94172dd6-e0bc-4d62-ae20-2ce8995130e8",
+          "label": "IS \nCC-ACCT-ID   EQUAL LOW-VALUES\n          ?\n",
+          "name": "IS \nCC-ACCT-ID   EQUAL LOW-VALUES\n          ?\n",
+          "originalText": "IF CC-ACCT-ID   EQUAL LOW-VALUES\n           OR CC-ACCT-ID   EQUAL SPACES\n              SET INPUT-ERROR           TO TRUE\n              SET FLG-ACCTFILTER-BLANK  TO TRUE\n              IF WS-RETURN-MSG-OFF\n                 SET WS-PROMPT-FOR-ACCT TO TRUE\n              END-IF\n              MOVE ZEROES       TO CDEMO-ACCT-ID\n              GO TO  2210-EDIT-ACCOUNT-EXIT\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "388b1c8b-90f5-4688-a593-44d368ec32a1",
+                  "label": "SETINPUT-ERRORT",
+                  "name": "SETINPUT-ERRORT",
+                  "originalText": "SET INPUT-ERROR TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "645338d9-cfd2-4de0-912d-e41948e9d083",
+                  "label": "SETFLG-ACCTFILT",
+                  "name": "SETFLG-ACCTFILT",
+                  "originalText": "SET FLG-ACCTFILTER-NOT-OK TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "fd74ab2f-56db-4589-90dd-345a35ee4073",
+                          "label": "MOVE\u0027Account Fi",
+                          "name": "MOVE\u0027Account Fi",
+                          "originalText": "MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "af6aa085-17c2-413e-a70f-3bc1ec514651",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "f567f086-4462-40ac-9f2c-eab036e3f475",
+                  "label": "IS \nWS-RETURN-MSG-OFF?\n",
+                  "name": "IS \nWS-RETURN-MSG-OFF?\n",
+                  "originalText": "IF WS-RETURN-MSG-OFF\n                MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG\n              END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "d3e71dac-7a6d-43ba-a57a-323002e78e14",
+                  "label": "MOVEZEROTOCDEMO",
+                  "name": "MOVEZEROTOCDEMO",
+                  "originalText": "MOVE ZERO       TO CDEMO-ACCT-ID",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "4d371c42-342c-4cc0-bd78-0f3b6a05360e",
+                  "label": "GO TO 2210-EDIT-ACCOUNT-EXIT",
+                  "name": "GOTO2210-EDIT-A",
+                  "originalText": "GO TO 2210-EDIT-ACCOUNT-EXIT",
+                  "type": "GOTO",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "5928fe94-42fc-4fd2-8f22-7247b7d5cfac",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "SET INPUT-ERROR TO TRUE\n              SET FLG-ACCTFILTER-NOT-OK TO TRUE\n              IF WS-RETURN-MSG-OFF\n                MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG\n              END-IF\n              MOVE ZERO       TO CDEMO-ACCT-ID\n              GO TO 2210-EDIT-ACCOUNT-EXIT",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "6bd40296-4370-4e8c-9fc5-358bcfc1db5b",
+                  "label": "ELSE",
+                  "name": "ELSE",
+                  "originalText": "ELSE",
+                  "type": "SYMBOL",
+                  "categories": [
+                    "SYMBOL"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "4eabd748-6a7a-4dac-bcab-cd581704e327",
+                  "label": "MOVECC-ACCT-IDT",
+                  "name": "MOVECC-ACCT-IDT",
+                  "originalText": "MOVE CC-ACCT-ID TO CDEMO-ACCT-ID",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "4ad0c92a-bfe5-450d-b164-6482591dd3af",
+                  "label": "SETFLG-ACCTFILT",
+                  "name": "SETFLG-ACCTFILT",
+                  "originalText": "SET FLG-ACCTFILTER-ISVALID TO TRUE",
+                  "type": "GENERIC_STATEMENT",
+                  "categories": [
+                    "GENERIC_CODE"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "b5357c99-a36e-4434-9738-5003f7f54d48",
+              "label": "No",
+              "name": "No",
+              "originalText": "ELSE\n              MOVE CC-ACCT-ID TO CDEMO-ACCT-ID\n              SET FLG-ACCTFILTER-ISVALID TO TRUE",
+              "type": "IF_NO",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "70d30dc0-b2ff-420d-b039-ff254ed35d3f",
+          "label": "IS \nCC-ACCT-ID  IS NOT NUMERIC\n           OR?\n",
+          "name": "IS \nCC-ACCT-ID  IS NOT NUMERIC\n           OR?\n",
+          "originalText": "IF CC-ACCT-ID  IS NOT NUMERIC\n           OR CC-ACCT-ID  EQUAL ZEROES\n              SET INPUT-ERROR TO TRUE\n              SET FLG-ACCTFILTER-NOT-OK TO TRUE\n              IF WS-RETURN-MSG-OFF\n                MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG\n              END-IF\n              MOVE ZERO       TO CDEMO-ACCT-ID\n              GO TO 2210-EDIT-ACCOUNT-EXIT\n           ELSE\n              MOVE CC-ACCT-ID TO CDEMO-ACCT-ID\n              SET FLG-ACCTFILTER-ISVALID TO TRUE\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "8609063e-455b-4c4f-884e-fb7a4d76e281",
+      "label": "SETFLG-ACCTFILT",
+      "name": "SETFLG-ACCTFILT",
+      "originalText": "SET FLG-ACCTFILTER-NOT-OK TO TRUE\n       \n       \n           IF CC-ACCT-ID   EQUAL LOW-VALUES\n           OR CC-ACCT-ID   EQUAL SPACES\n              SET INPUT-ERROR           TO TRUE\n              SET FLG-ACCTFILTER-BLANK  TO TRUE\n              IF WS-RETURN-MSG-OFF\n                 SET WS-PROMPT-FOR-ACCT TO TRUE\n              END-IF\n              MOVE ZEROES       TO CDEMO-ACCT-ID\n              GO TO  2210-EDIT-ACCOUNT-EXIT\n           END-IF\n       \n       \n       \n           IF CC-ACCT-ID  IS NOT NUMERIC\n           OR CC-ACCT-ID  EQUAL ZEROES\n              SET INPUT-ERROR TO TRUE\n              SET FLG-ACCTFILTER-NOT-OK TO TRUE\n              IF WS-RETURN-MSG-OFF\n                MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG\n              END-IF\n              MOVE ZERO       TO CDEMO-ACCT-ID\n              GO TO 2210-EDIT-ACCOUNT-EXIT\n           ELSE\n              MOVE CC-ACCT-ID TO CDEMO-ACCT-ID\n              SET FLG-ACCTFILTER-ISVALID TO TRUE\n           END-IF\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "2484d9a1-fd88-4b9d-86cc-61c8a57747b3",
+      "label": "2210-EDIT-ACCOUNT-EXIT",
+      "name": "2210-EDIT-ACCOUNT-EXIT",
+      "originalText": "2210-EDIT-ACCOUNT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "b17247a3-6a8d-4067-8e08-1f5506929243",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "4cce9d37-7e13-4642-8641-7f48baf0da4b",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "a7ba639b-1760-43af-8a64-bdac5d7543f7",
+      "label": "9000-READ-ACCT",
+      "name": "9000-READ-ACCT",
+      "originalText": "9000-READ-ACCT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "ec8fa6cd-4032-4a4b-a361-7f9b8a0ee9f2",
+          "label": "SETWS-NO-INFO-M",
+          "name": "SETWS-NO-INFO-M",
+          "originalText": "SET  WS-NO-INFO-MESSAGE  TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "84ba8e42-f5d7-4568-84a6-84503b71b8e5",
+          "label": "MOVECDEMO-ACCT-",
+          "name": "MOVECDEMO-ACCT-",
+          "originalText": "MOVE CDEMO-ACCT-ID TO WS-CARD-RID-ACCT-ID",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "78fda015-0624-44d6-bc34-0aa392d25dff",
+          "label": "PERFORM 9200-GETCARDXREF-BYACC",
+          "name": "PERFORM9200-GET",
+          "originalText": "PERFORM 9200-GETCARDXREF-BYACCT\n              THRU 9200-GETCARDXREF-BYACCT-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "5fbba7cc-d551-4b5e-86de-7de616f8f3fc",
+                  "label": "GO TO 9000-READ-ACCT-EXIT",
+                  "name": "GOTO9000-READ-A",
+                  "originalText": "GO TO 9000-READ-ACCT-EXIT",
+                  "type": "GOTO",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "9fb75933-f440-4e92-a088-cd668ea70d4d",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "GO TO 9000-READ-ACCT-EXIT",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "1f20b1ca-4c41-44e5-8661-dce0ba32c10e",
+          "label": "IS \nFLG-ACCTFILTER-NOT-OK?\n",
+          "name": "IS \nFLG-ACCTFILTER-NOT-OK?\n",
+          "originalText": "IF FLG-ACCTFILTER-NOT-OK\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "f2caf2d9-e9b2-4199-8374-7679074e497d",
+          "label": "PERFORM 9300-GETACCTDATA-BYACC",
+          "name": "PERFORM9300-GET",
+          "originalText": "PERFORM 9300-GETACCTDATA-BYACCT\n              THRU 9300-GETACCTDATA-BYACCT-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "f037f66c-afda-4b83-bad4-0481310fc943",
+                  "label": "GO TO 9000-READ-ACCT-EXIT",
+                  "name": "GOTO9000-READ-A",
+                  "originalText": "GO TO 9000-READ-ACCT-EXIT",
+                  "type": "GOTO",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "3a92d5fa-7b49-43ad-8e7e-dbd5d5089239",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "GO TO 9000-READ-ACCT-EXIT",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "f7018bff-cbc0-4ba7-8b49-e85244cbf057",
+          "label": "IS \nDID-NOT-FIND-ACCT-IN-ACCTDAT?\n",
+          "name": "IS \nDID-NOT-FIND-ACCT-IN-ACCTDAT?\n",
+          "originalText": "IF DID-NOT-FIND-ACCT-IN-ACCTDAT\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "98c6e89e-e9e8-4db0-b61a-adf5de767c69",
+          "label": "MOVECDEMO-CUST-",
+          "name": "MOVECDEMO-CUST-",
+          "originalText": "MOVE CDEMO-CUST-ID TO WS-CARD-RID-CUST-ID",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "b1600f2b-82de-4284-9497-c8c29f25e524",
+          "label": "PERFORM 9400-GETCUSTDATA-BYCUS",
+          "name": "PERFORM9400-GET",
+          "originalText": "PERFORM 9400-GETCUSTDATA-BYCUST\n              THRU 9400-GETCUSTDATA-BYCUST-EXIT",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "ed51c987-5823-4bcb-add6-c1562f4cf356",
+                  "label": "GO TO 9000-READ-ACCT-EXIT",
+                  "name": "GOTO9000-READ-A",
+                  "originalText": "GO TO 9000-READ-ACCT-EXIT",
+                  "type": "GOTO",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "016f91f2-9edf-4d34-a67d-47ff02ef6200",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "GO TO 9000-READ-ACCT-EXIT",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "277c9e85-2bca-4cab-996f-271f69c508d8",
+          "label": "IS \nDID-NOT-FIND-CUST-IN-CUSTDAT?\n",
+          "name": "IS \nDID-NOT-FIND-CUST-IN-CUSTDAT?\n",
+          "originalText": "IF DID-NOT-FIND-CUST-IN-CUSTDAT\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "ac8197b3-0d7f-43c2-b66c-06bc7cebbdff",
+      "label": "SETWS-NO-INFO-M",
+      "name": "SETWS-NO-INFO-M",
+      "originalText": "SET  WS-NO-INFO-MESSAGE  TO TRUE\n       \n           MOVE CDEMO-ACCT-ID TO WS-CARD-RID-ACCT-ID\n       \n           PERFORM 9200-GETCARDXREF-BYACCT\n              THRU 9200-GETCARDXREF-BYACCT-EXIT\n       \n       \n           IF FLG-ACCTFILTER-NOT-OK\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF\n       \n           PERFORM 9300-GETACCTDATA-BYACCT\n              THRU 9300-GETACCTDATA-BYACCT-EXIT\n       \n           IF DID-NOT-FIND-ACCT-IN-ACCTDAT\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF\n       \n           MOVE CDEMO-CUST-ID TO WS-CARD-RID-CUST-ID\n       \n           PERFORM 9400-GETCUSTDATA-BYCUST\n              THRU 9400-GETCUSTDATA-BYCUST-EXIT\n       \n           IF DID-NOT-FIND-CUST-IN-CUSTDAT\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF\n       \n       \n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "f5fc8e3e-b9e6-47e8-b389-cf0d9fd2c6e0",
+      "label": "9000-READ-ACCT-EXIT",
+      "name": "9000-READ-ACCT-EXIT",
+      "originalText": "9000-READ-ACCT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "47582d6d-c02b-4904-acca-b8cbf66737de",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "0d46b1d3-f16e-4a5c-ba24-88941f04dbff",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "f2cdd8c5-3a09-4291-a577-dd29acf0a67a",
+      "label": "9200-GETCARDXREF-BYACCT",
+      "name": "9200-GETCARDXREF-BYACCT",
+      "originalText": "9200-GETCARDXREF-BYACCT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "29921671-2b2a-4d7a-ab87-d741cd61611b",
+          "label": "_DIALECT_6​​​​ ",
+          "name": "_DIALECT_6​​​​ ",
+          "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "6aca3233-b690-4d4e-bd68-116934be1808",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 7 ​​​​​​​​​​​​​​​\n                  MOVE XREF-CUST-ID               TO CDEMO-CUST-ID\n                  MOVE XREF-CARD-NUM              TO CDEMO-CARD-NUM\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK       TO TRUE\n                  IF WS-RETURN-MSG-OFF\n                    MOVE WS-RESP-CD               TO ERROR-RESP\n                    MOVE WS-REAS-CD               TO ERROR-RESP2\n                    STRING\n                    \u0027Account:\u0027\n                     WS-CARD-RID-ACCT-ID-X\n                    \u0027 not found in\u0027\n                    \u0027 Cross ref file.  Resp:\u0027\n                    ERROR-RESP\n                    \u0027 Reas:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-CARDXREFNAME-ACCT-PATH TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "c6db90f5-434c-4b9c-a1c3-7d46cdcd4e6e",
+      "label": "_DIALECT_6​​​​ ",
+      "name": "_DIALECT_6​​​​ ",
+      "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 7 ​​​​​​​​​​​​​​​\n                  MOVE XREF-CUST-ID               TO CDEMO-CUST-ID\n                  MOVE XREF-CARD-NUM              TO CDEMO-CARD-NUM\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK       TO TRUE\n                  IF WS-RETURN-MSG-OFF\n                    MOVE WS-RESP-CD               TO ERROR-RESP\n                    MOVE WS-REAS-CD               TO ERROR-RESP2\n                    STRING\n                    \u0027Account:\u0027\n                     WS-CARD-RID-ACCT-ID-X\n                    \u0027 not found in\u0027\n                    \u0027 Cross ref file.  Resp:\u0027\n                    ERROR-RESP\n                    \u0027 Reas:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-CARDXREFNAME-ACCT-PATH TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "35e99e4c-1286-4d34-822c-74ddc17c9935",
+      "label": "9200-GETCARDXREF-BYACCT-EXIT",
+      "name": "9200-GETCARDXREF-BYACCT-EXIT",
+      "originalText": "9200-GETCARDXREF-BYACCT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "1d6aa8bd-e281-41ed-a054-2d33e1eaf1bb",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "5f59c889-c9c3-4ac6-b0a7-a2fd536250f0",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "fb410286-d518-4be9-bf6a-46ed9ef558cb",
+      "label": "9300-GETACCTDATA-BYACCT",
+      "name": "9300-GETACCTDATA-BYACCT",
+      "originalText": "9300-GETACCTDATA-BYACCT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "9f7fac0c-e190-459f-943b-01cf1484bfa1",
+          "label": "_DIALECT_9​​​​ ",
+          "name": "_DIALECT_9​​​​ ",
+          "originalText": "_DIALECT_ 9 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "c15bc9c1-a0d6-407d-b516-b44f39d87ecb",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                  SET FOUND-ACCT-IN-MASTER        TO TRUE\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK       TO TRUE\n       \n                  IF WS-RETURN-MSG-OFF\n                    MOVE WS-RESP-CD               TO ERROR-RESP\n                    MOVE WS-REAS-CD               TO ERROR-RESP2\n                    STRING\n                    \u0027Account:\u0027\n                     WS-CARD-RID-ACCT-ID-X\n                    \u0027 not found in\u0027\n                    \u0027 Acct Master file.Resp:\u0027\n                    ERROR-RESP\n                    \u0027 Reas:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n       \n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-ACCTFILENAME           TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "b1f3591f-a0b1-44dd-89f9-e2892c7a81fa",
+      "label": "_DIALECT_9​​​​ ",
+      "name": "_DIALECT_9​​​​ ",
+      "originalText": "_DIALECT_ 9 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                  SET FOUND-ACCT-IN-MASTER        TO TRUE\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK       TO TRUE\n       \n                  IF WS-RETURN-MSG-OFF\n                    MOVE WS-RESP-CD               TO ERROR-RESP\n                    MOVE WS-REAS-CD               TO ERROR-RESP2\n                    STRING\n                    \u0027Account:\u0027\n                     WS-CARD-RID-ACCT-ID-X\n                    \u0027 not found in\u0027\n                    \u0027 Acct Master file.Resp:\u0027\n                    ERROR-RESP\n                    \u0027 Reas:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n       \n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-ACCTFILENAME           TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "0d5b09cc-3055-4eee-8a67-2c3fd38fa902",
+      "label": "9300-GETACCTDATA-BYACCT-EXIT",
+      "name": "9300-GETACCTDATA-BYACCT-EXIT",
+      "originalText": "9300-GETACCTDATA-BYACCT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "5452b3df-57fa-4241-afc1-300b9e4bab4a",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "19fec74c-652a-446a-b006-a9c420dce920",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "b8d79604-7e7d-4dee-b478-4ddc5e584db8",
+      "label": "9400-GETCUSTDATA-BYCUST",
+      "name": "9400-GETCUSTDATA-BYCUST",
+      "originalText": "9400-GETCUSTDATA-BYCUST.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "b4af94d8-aef3-4e75-bdc5-62cdcd657540",
+          "label": "_DIALECT_12​​​​",
+          "name": "_DIALECT_12​​​​",
+          "originalText": "_DIALECT_ 12 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "c39eba7c-0d69-455c-933d-dcb1e9e7c0ff",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​\n                  SET FOUND-CUST-IN-MASTER        TO TRUE\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-CUSTFILTER-NOT-OK       TO TRUE\n       \n                  MOVE WS-RESP-CD               TO ERROR-RESP\n                  MOVE WS-REAS-CD               TO ERROR-RESP2\n                  IF WS-RETURN-MSG-OFF\n                    STRING\n                    \u0027CustId:\u0027\n                     WS-CARD-RID-CUST-ID-X\n                    \u0027 not found\u0027\n                    \u0027 in customer master.Resp: \u0027\n                    ERROR-RESP\n                    \u0027 REAS:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-CUSTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-CUSTFILENAME           TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "ba922844-0c2e-4b8c-85f0-6dcd8323d0a2",
+      "label": "_DIALECT_12​​​​",
+      "name": "_DIALECT_12​​​​",
+      "originalText": "_DIALECT_ 12 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​\n                  SET FOUND-CUST-IN-MASTER        TO TRUE\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-CUSTFILTER-NOT-OK       TO TRUE\n       \n                  MOVE WS-RESP-CD               TO ERROR-RESP\n                  MOVE WS-REAS-CD               TO ERROR-RESP2\n                  IF WS-RETURN-MSG-OFF\n                    STRING\n                    \u0027CustId:\u0027\n                     WS-CARD-RID-CUST-ID-X\n                    \u0027 not found\u0027\n                    \u0027 in customer master.Resp: \u0027\n                    ERROR-RESP\n                    \u0027 REAS:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-CUSTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-CUSTFILENAME           TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "5ac139df-e26d-44e9-bb72-e2440fe766b4",
+      "label": "9400-GETCUSTDATA-BYCUST-EXIT",
+      "name": "9400-GETCUSTDATA-BYCUST-EXIT",
+      "originalText": "9400-GETCUSTDATA-BYCUST-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "e5c88b20-5e8f-4566-8b53-b7e8bce582a3",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "99358ec6-0dd9-44e9-8503-79eefc8e965e",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "62713cb9-95b9-452d-b35e-b56147e07ddc",
+      "label": "SEND-PLAIN-TEXT",
+      "name": "SEND-PLAIN-TEXT",
+      "originalText": "SEND-PLAIN-TEXT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "6bd28bc5-0b06-4a0f-8337-d9c1ffe93169",
+          "label": "_DIALECT_15​​​​",
+          "name": "_DIALECT_15​​​​",
+          "originalText": "_DIALECT_ 15 ​​​​ ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "a7df26a3-bb5a-4fce-b950-c9ce7d382978",
+          "label": "_DIALECT_16​​​​",
+          "name": "_DIALECT_16​​​​",
+          "originalText": "_DIALECT_ 16 ​​​​ ​​​​ ​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "49ce90fa-483f-4919-badf-96e79295e7b9",
+      "label": "_DIALECT_15​​​​",
+      "name": "_DIALECT_15​​​​",
+      "originalText": "_DIALECT_ 15 ​​​​ ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 16 ​​​​ ​​​​ ​​​​​​\n           ​​​​​​​​\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "1602b0bb-9057-4023-994d-93ffda39d57b",
+      "label": "SEND-PLAIN-TEXT-EXIT",
+      "name": "SEND-PLAIN-TEXT-EXIT",
+      "originalText": "SEND-PLAIN-TEXT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "dcb4c18f-23cb-4652-bf5c-382c482bd569",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "5c574d6e-1b74-49a7-aaac-46d6fa2f38dc",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "ea2d9602-940e-4a9f-8b4e-0a1495583537",
+      "label": "SEND-LONG-TEXT",
+      "name": "SEND-LONG-TEXT",
+      "originalText": "SEND-LONG-TEXT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "d577197b-55c5-46df-83d7-9eb37bae0583",
+          "label": "_DIALECT_17​​​​",
+          "name": "_DIALECT_17​​​​",
+          "originalText": "_DIALECT_ 17 ​​​​ ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "9c135924-6e94-4de8-a72b-3697212d5ba2",
+          "label": "_DIALECT_18​​​​",
+          "name": "_DIALECT_18​​​​",
+          "originalText": "_DIALECT_ 18 ​​​​ ​​​​ ​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "3c8bdfb2-4a55-49c5-8377-53b29e484198",
+      "label": "_DIALECT_17​​​​",
+      "name": "_DIALECT_17​​​​",
+      "originalText": "_DIALECT_ 17 ​​​​ ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 18 ​​​​ ​​​​ ​​​​​​\n           ​​​​​​​​\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "cb0a2d49-b77c-4021-926d-2baaa72ff26b",
+      "label": "SEND-LONG-TEXT-EXIT",
+      "name": "SEND-LONG-TEXT-EXIT",
+      "originalText": "SEND-LONG-TEXT-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "861462ab-e997-4741-8983-53ac22cab88d",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "ffc18e84-b4c0-4f6a-83ab-5c11276bb7d4",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "3ace2371-ee7b-4c06-ab20-542d982d1180",
+      "label": "YYYY-STORE-PFKEY",
+      "name": "YYYY-STORE-PFKEY",
+      "originalText": "YYYY-STORE-PFKEY.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "e3cc8262-26d8-4e58-b690-0f23e6cc0f4c",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE TRUE\n             WHEN EIBAID IS EQUAL TO DFHENTER\n               SET CCARD-AID-ENTER TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHCLEAR\n               SET CCARD-AID-CLEAR TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPA1\n               SET CCARD-AID-PA1  TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPA2\n               SET CCARD-AID-PA2  TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF1\n               SET CCARD-AID-PFK01 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF2\n               SET CCARD-AID-PFK02 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF3\n               SET CCARD-AID-PFK03 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF4\n               SET CCARD-AID-PFK04 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF5\n               SET CCARD-AID-PFK05 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF6\n               SET CCARD-AID-PFK06 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF7\n               SET CCARD-AID-PFK07 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF8\n               SET CCARD-AID-PFK08 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF9\n               SET CCARD-AID-PFK09 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF10\n               SET CCARD-AID-PFK10 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF11\n               SET CCARD-AID-PFK11 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF12\n               SET CCARD-AID-PFK12 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF13\n               SET CCARD-AID-PFK01 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF14\n               SET CCARD-AID-PFK02 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF15\n               SET CCARD-AID-PFK03 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF16\n               SET CCARD-AID-PFK04 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF17\n               SET CCARD-AID-PFK05 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF18\n               SET CCARD-AID-PFK06 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF19\n               SET CCARD-AID-PFK07 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF20\n               SET CCARD-AID-PFK08 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF21\n               SET CCARD-AID-PFK09 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF22\n               SET CCARD-AID-PFK10 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF23\n               SET CCARD-AID-PFK11 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF24\n               SET CCARD-AID-PFK12 TO TRUE\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "26971dd3-8dc0-4d33-a77f-d18b4f85e8ef",
+      "label": "EVALUATETRUEWHE",
+      "name": "EVALUATETRUEWHE",
+      "originalText": "EVALUATE TRUE\n             WHEN EIBAID IS EQUAL TO DFHENTER\n               SET CCARD-AID-ENTER TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHCLEAR\n               SET CCARD-AID-CLEAR TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPA1\n               SET CCARD-AID-PA1  TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPA2\n               SET CCARD-AID-PA2  TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF1\n               SET CCARD-AID-PFK01 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF2\n               SET CCARD-AID-PFK02 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF3\n               SET CCARD-AID-PFK03 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF4\n               SET CCARD-AID-PFK04 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF5\n               SET CCARD-AID-PFK05 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF6\n               SET CCARD-AID-PFK06 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF7\n               SET CCARD-AID-PFK07 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF8\n               SET CCARD-AID-PFK08 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF9\n               SET CCARD-AID-PFK09 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF10\n               SET CCARD-AID-PFK10 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF11\n               SET CCARD-AID-PFK11 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF12\n               SET CCARD-AID-PFK12 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF13\n               SET CCARD-AID-PFK01 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF14\n               SET CCARD-AID-PFK02 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF15\n               SET CCARD-AID-PFK03 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF16\n               SET CCARD-AID-PFK04 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF17\n               SET CCARD-AID-PFK05 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF18\n               SET CCARD-AID-PFK06 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF19\n               SET CCARD-AID-PFK07 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF20\n               SET CCARD-AID-PFK08 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF21\n               SET CCARD-AID-PFK09 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF22\n               SET CCARD-AID-PFK10 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF23\n               SET CCARD-AID-PFK11 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF24\n               SET CCARD-AID-PFK12 TO TRUE\n           END-EVALUATE\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "61c0a79c-2204-4cfe-8d30-e8f8852ea4a3",
+      "label": "YYYY-STORE-PFKEY-EXIT",
+      "name": "YYYY-STORE-PFKEY-EXIT",
+      "originalText": "YYYY-STORE-PFKEY-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "f5158000-e432-4423-9103-6bc9a37e3b61",
+          "label": "EXIT",
+          "name": "EXIT",
+          "originalText": "EXIT",
+          "type": "EXIT",
+          "categories": [
+            "TERMINAL"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "ee53ccbf-160c-4ab4-b67b-eea8cb399eea",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "9ee3a752-42d0-4bbc-9103-19c9fd47ee77",
+      "label": "ABEND-ROUTINE",
+      "name": "ABEND-ROUTINE",
+      "originalText": "ABEND-ROUTINE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "b7023c40-30a9-48ca-885e-24248f12cb88",
+                  "label": "MOVE\u0027UNEXPECTED",
+                  "name": "MOVE\u0027UNEXPECTED",
+                  "originalText": "MOVE \u0027UNEXPECTED ABEND OCCURRED.\u0027 TO ABEND-MSG",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "863224b0-0062-4179-9301-4d4c4f797048",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE \u0027UNEXPECTED ABEND OCCURRED.\u0027 TO ABEND-MSG",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "a26dcd26-f418-4212-a801-662ac04ac8b6",
+          "label": "IS \nABEND-MSG EQUAL LOW-VALUES?\n",
+          "name": "IS \nABEND-MSG EQUAL LOW-VALUES?\n",
+          "originalText": "IF ABEND-MSG EQUAL LOW-VALUES\n              MOVE \u0027UNEXPECTED ABEND OCCURRED.\u0027 TO ABEND-MSG\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "e6fa29d2-87f3-4583-8096-5f8d9e38fcd9",
+          "label": "MOVELIT-THISPGM",
+          "name": "MOVELIT-THISPGM",
+          "originalText": "MOVE LIT-THISPGM       TO ABEND-CULPRIT",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "e4eb4d71-b05b-46ff-81a6-84442d25cac0",
+          "label": "_DIALECT_19​​​​",
+          "name": "_DIALECT_19​​​​",
+          "originalText": "_DIALECT_ 19 ​​​​ ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​\n                            ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "bd4012ca-1d68-4601-9731-4597061d5338",
+          "label": "_DIALECT_20​​​​",
+          "name": "_DIALECT_20​​​​",
+          "originalText": "_DIALECT_ 20 ​​​​ ​​​​ ​​​​​​ ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "a2f4e0bd-d50d-4ce9-908b-8ee40717a483",
+          "label": "_DIALECT_21​​​​",
+          "name": "_DIALECT_21​​​​",
+          "originalText": "_DIALECT_ 21 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "41306e1d-6de0-4452-9a22-ad4ffb390234",
+      "label": "IFABEND-MSGEQUA",
+      "name": "IFABEND-MSGEQUA",
+      "originalText": "IF ABEND-MSG EQUAL LOW-VALUES\n              MOVE \u0027UNEXPECTED ABEND OCCURRED.\u0027 TO ABEND-MSG\n           END-IF\n       \n           MOVE LIT-THISPGM       TO ABEND-CULPRIT\n       \n           _DIALECT_ 19 ​​​​ ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​\n                            ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 20 ​​​​ ​​​​ ​​​​​​ ​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 21 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    }
+  ],
+  "id": "e8e0e81e-daf4-41be-bc14-bdc24ffdd3f1",
+  "label": "ProcedureDivisionBodyContext/e8e0e81e-daf4-41be-bc14-bdc24ffdd3f1",
+  "name": "ProcedureDivisionBodyContext/e8e0e81e-daf4-41be-bc14-bdc24ffdd3f1",
+  "originalText": "0000-MAIN.\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​ ​​​​​\n           ​​​​​​​​\n       \n           INITIALIZE CC-WORK-AREA\n                      WS-MISC-STORAGE\n                      WS-COMMAREA\n       \n       \n       \n           MOVE LIT-THISTRANID       TO WS-TRANID\n       \n       \n       \n           SET WS-RETURN-MSG-OFF  TO TRUE\n       \n       \n       \n           IF EIBCALEN IS EQUAL TO 0\n               OR (CDEMO-FROM-PROGRAM \u003d LIT-MENUPGM\n               AND NOT CDEMO-PGM-REENTER)\n              INITIALIZE CARDDEMO-COMMAREA\n                         WS-THIS-PROGCOMMAREA\n           ELSE\n              MOVE DFHCOMMAREA (1:LENGTH OF CARDDEMO-COMMAREA)  TO\n                                CARDDEMO-COMMAREA\n              MOVE DFHCOMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA ) TO\n                                WS-THIS-PROGCOMMAREA\n           END-IF\n       \n       \n       \n       \n       \n           PERFORM YYYY-STORE-PFKEY\n              THRU YYYY-STORE-PFKEY-EXIT\n       \n       \n       \n       \n       \n           SET PFK-INVALID TO TRUE\n           IF CCARD-AID-ENTER OR\n              CCARD-AID-PFK03\n              SET PFK-VALID TO TRUE\n           END-IF\n       \n           IF PFK-INVALID\n              SET CCARD-AID-ENTER TO TRUE\n           END-IF\n       \n       \n       \n       \n       \n       \n       \n       \n           EVALUATE TRUE\n              WHEN CCARD-AID-PFK03\n       \n       \n       \n                   IF CDEMO-FROM-TRANID    EQUAL LOW-VALUES\n                   OR CDEMO-FROM-TRANID    EQUAL SPACES\n                      MOVE LIT-MENUTRANID  TO CDEMO-TO-TRANID\n                   ELSE\n                      MOVE CDEMO-FROM-TRANID  TO CDEMO-TO-TRANID\n                   END-IF\n                   IF CDEMO-FROM-PROGRAM   EQUAL LOW-VALUES\n                   OR CDEMO-FROM-PROGRAM   EQUAL SPACES\n                      MOVE LIT-MENUPGM     TO CDEMO-TO-PROGRAM\n                   ELSE\n                      MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM\n                   END-IF\n       \n                   MOVE LIT-THISTRANID     TO CDEMO-FROM-TRANID\n                   MOVE LIT-THISPGM        TO CDEMO-FROM-PROGRAM\n       \n                   SET  CDEMO-USRTYP-USER  TO TRUE\n                   SET  CDEMO-PGM-ENTER    TO TRUE\n                   MOVE LIT-THISMAPSET     TO CDEMO-LAST-MAPSET\n                   MOVE LIT-THISMAP        TO CDEMO-LAST-MAP\n       \n                   _DIALECT_ 2 ​​​​ ​​​​ ​​​​\n                             ​​​​​​​ ​​​​​​​​​​​​​​​​​​\n                   ​​​​​​​​\n              WHEN CDEMO-PGM-ENTER\n       \n       \n       \n       \n                   PERFORM 1000-SEND-MAP THRU\n                           1000-SEND-MAP-EXIT\n                   GO TO COMMON-RETURN\n              WHEN CDEMO-PGM-REENTER\n                   PERFORM 2000-PROCESS-INPUTS\n                      THRU 2000-PROCESS-INPUTS-EXIT\n                   IF INPUT-ERROR\n                      PERFORM 1000-SEND-MAP\n                         THRU 1000-SEND-MAP-EXIT\n                      GO TO COMMON-RETURN\n                   ELSE\n                      PERFORM 9000-READ-ACCT\n                         THRU 9000-READ-ACCT-EXIT\n                      PERFORM 1000-SEND-MAP\n                         THRU 1000-SEND-MAP-EXIT\n                      GO TO COMMON-RETURN\n                   END-IF\n             WHEN OTHER\n                   MOVE LIT-THISPGM    TO ABEND-CULPRIT\n                   MOVE \u00270001\u0027         TO ABEND-CODE\n                   MOVE SPACES         TO ABEND-REASON\n                   MOVE \u0027UNEXPECTED DATA SCENARIO\u0027\n                                       TO WS-RETURN-MSG\n                   PERFORM SEND-PLAIN-TEXT\n                      THRU SEND-PLAIN-TEXT-EXIT\n           END-EVALUATE\n       \n       \n       \n           IF INPUT-ERROR\n              MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG\n              PERFORM 1000-SEND-MAP\n                 THRU 1000-SEND-MAP-EXIT\n              GO TO COMMON-RETURN\n           END-IF\n           .\n       COMMON-RETURN.\n           MOVE WS-RETURN-MSG     TO CCARD-ERROR-MSG\n       \n           MOVE  CARDDEMO-COMMAREA    TO WS-COMMAREA\n           MOVE  WS-THIS-PROGCOMMAREA TO\n                  WS-COMMAREA(LENGTH OF CARDDEMO-COMMAREA + 1:\n                               LENGTH OF WS-THIS-PROGCOMMAREA )\n       \n           _DIALECT_ 3 ​​​​ ​​​​ ​​​​​​\n                ​​​​​​​ ​​​​​​​​​​​​​​​​\n                ​​​​​​​​ ​​​​​​​​​​​​​\n           ​​​​​​​​\n           .\n       0000-MAIN-EXIT.\n           EXIT\n           .\n       0000-MAIN-EXIT.\n           EXIT\n           .\n       \n       \n       1000-SEND-MAP.\n           PERFORM 1100-SCREEN-INIT\n              THRU 1100-SCREEN-INIT-EXIT\n           PERFORM 1200-SETUP-SCREEN-VARS\n              THRU 1200-SETUP-SCREEN-VARS-EXIT\n           PERFORM 1300-SETUP-SCREEN-ATTRS\n              THRU 1300-SETUP-SCREEN-ATTRS-EXIT\n           PERFORM 1400-SEND-SCREEN\n              THRU 1400-SEND-SCREEN-EXIT\n           .\n       \n       1000-SEND-MAP-EXIT.\n           EXIT\n           .\n       \n       1100-SCREEN-INIT.\n           MOVE LOW-VALUES             TO CACTVWAO\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF CACTVWAO\n           MOVE CCDA-TITLE02           TO TITLE02O OF CACTVWAO\n           MOVE LIT-THISTRANID         TO TRNNAMEO OF CACTVWAO\n           MOVE LIT-THISPGM            TO PGMNAMEO OF CACTVWAO\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF CACTVWAO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF CACTVWAO\n       \n           .\n       \n       1100-SCREEN-INIT-EXIT.\n           EXIT\n           .\n       1200-SETUP-SCREEN-VARS.\n       \n           IF EIBCALEN \u003d 0\n              SET  WS-PROMPT-FOR-INPUT TO TRUE\n           ELSE\n              IF FLG-ACCTFILTER-BLANK\n                 MOVE LOW-VALUES   TO ACCTSIDO OF CACTVWAO\n              ELSE\n                 MOVE CC-ACCT-ID   TO ACCTSIDO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-ACCT-IN-MASTER\n              OR FOUND-CUST-IN-MASTER\n                 MOVE ACCT-ACTIVE-STATUS  TO ACSTTUSO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-BAL       TO ACURBALO OF CACTVWAO\n       \n                 MOVE ACCT-CREDIT-LIMIT   TO ACRDLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CASH-CREDIT-LIMIT\n                                          TO ACSHLIMO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-CREDIT\n                                          TO ACRCYCRO OF CACTVWAO\n       \n                 MOVE ACCT-CURR-CYC-DEBIT TO ACRCYDBO OF CACTVWAO\n       \n                 MOVE ACCT-OPEN-DATE      TO ADTOPENO OF CACTVWAO\n                 MOVE ACCT-EXPIRAION-DATE TO AEXPDTO  OF CACTVWAO\n                 MOVE ACCT-REISSUE-DATE   TO AREISDTO OF CACTVWAO\n                 MOVE ACCT-GROUP-ID       TO AADDGRPO OF CACTVWAO\n              END-IF\n       \n              IF FOUND-CUST-IN-MASTER\n                MOVE CUST-ID              TO ACSTNUMO OF CACTVWAO\n       \n                STRING\n                    CUST-SSN(1:3)\n                    \u0027-\u0027\n                    CUST-SSN(4:2)\n                    \u0027-\u0027\n                    CUST-SSN(6:4)\n                    DELIMITED BY SIZE\n                    INTO ACSTSSNO OF CACTVWAO\n                END-STRING\n                MOVE CUST-FICO-CREDIT-SCORE\n                                          TO ACSTFCOO OF CACTVWAO\n                MOVE CUST-DOB-YYYY-MM-DD  TO ACSTDOBO OF CACTVWAO\n                MOVE CUST-FIRST-NAME      TO ACSFNAMO OF CACTVWAO\n                MOVE CUST-MIDDLE-NAME     TO ACSMNAMO OF CACTVWAO\n                MOVE CUST-LAST-NAME       TO ACSLNAMO OF CACTVWAO\n                MOVE CUST-ADDR-LINE-1     TO ACSADL1O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-2     TO ACSADL2O OF CACTVWAO\n                MOVE CUST-ADDR-LINE-3     TO ACSCITYO OF CACTVWAO\n                MOVE CUST-ADDR-STATE-CD   TO ACSSTTEO OF CACTVWAO\n                MOVE CUST-ADDR-ZIP        TO ACSZIPCO OF CACTVWAO\n                MOVE CUST-ADDR-COUNTRY-CD TO ACSCTRYO OF CACTVWAO\n                MOVE CUST-PHONE-NUM-1     TO ACSPHN1O OF CACTVWAO\n                MOVE CUST-PHONE-NUM-2     TO ACSPHN2O OF CACTVWAO\n                MOVE CUST-GOVT-ISSUED-ID  TO ACSGOVTO OF CACTVWAO\n                MOVE CUST-EFT-ACCOUNT-ID  TO ACSEFTCO OF CACTVWAO\n                MOVE CUST-PRI-CARD-HOLDER-IND\n                                          TO ACSPFLGO OF CACTVWAO\n              END-IF\n       \n            END-IF\n       \n       \n           IF WS-NO-INFO-MESSAGE\n             SET WS-PROMPT-FOR-INPUT TO TRUE\n           END-IF\n       \n           MOVE WS-RETURN-MSG          TO ERRMSGO OF CACTVWAO\n       \n           MOVE WS-INFO-MSG            TO INFOMSGO OF CACTVWAO\n           .\n       \n       1200-SETUP-SCREEN-VARS-EXIT.\n           EXIT\n           .\n       \n       1300-SETUP-SCREEN-ATTRS.\n       \n           MOVE DFHBMFSE               TO ACCTSIDA OF CACTVWAI\n       \n       \n           EVALUATE TRUE\n              WHEN FLG-ACCTFILTER-NOT-OK\n              WHEN FLG-ACCTFILTER-BLANK\n                   MOVE -1             TO ACCTSIDL OF CACTVWAI\n              WHEN OTHER\n                   MOVE -1             TO ACCTSIDL OF CACTVWAI\n           END-EVALUATE\n       \n       \n           MOVE DFHDFCOL               TO ACCTSIDC OF CACTVWAO\n       \n           IF FLG-ACCTFILTER-NOT-OK\n              MOVE DFHRED              TO ACCTSIDC OF CACTVWAO\n           END-IF\n       \n           IF  FLG-ACCTFILTER-BLANK\n           AND CDEMO-PGM-REENTER\n               MOVE \u0027*\u0027                TO ACCTSIDO OF CACTVWAO\n               MOVE DFHRED             TO ACCTSIDC OF CACTVWAO\n           END-IF\n       \n           IF  WS-NO-INFO-MESSAGE\n               MOVE DFHBMDAR           TO INFOMSGC OF CACTVWAO\n           ELSE\n               MOVE DFHNEUTR           TO INFOMSGC OF CACTVWAO\n           END-IF\n           .\n       \n       1300-SETUP-SCREEN-ATTRS-EXIT.\n           EXIT\n           .\n       1400-SEND-SCREEN.\n       \n           MOVE LIT-THISMAPSET         TO CCARD-NEXT-MAPSET\n           MOVE LIT-THISMAP            TO CCARD-NEXT-MAP\n           SET  CDEMO-PGM-REENTER TO TRUE\n       \n           _DIALECT_ 4 ​​​​ ​​​​ ​​​​ ​​​​​​​​​​​​​​​​​​​\n                          ​​​​​​​​​​​​​​​​​​​​​​​​​\n                          ​​​​​​​​​​​​​​\n                          ​​​​​​\n                          ​​​​​\n                          ​​​​​​\n           ​​​​​​​​\n           .\n       1400-SEND-SCREEN-EXIT.\n           EXIT\n           .\n       \n       2000-PROCESS-INPUTS.\n           PERFORM 2100-RECEIVE-MAP\n              THRU 2100-RECEIVE-MAP-EXIT\n           PERFORM 2200-EDIT-MAP-INPUTS\n              THRU 2200-EDIT-MAP-INPUTS-EXIT\n           MOVE WS-RETURN-MSG  TO CCARD-ERROR-MSG\n           MOVE LIT-THISPGM    TO CCARD-NEXT-PROG\n           MOVE LIT-THISMAPSET TO CCARD-NEXT-MAPSET\n           MOVE LIT-THISMAP    TO CCARD-NEXT-MAP\n           .\n       \n       2000-PROCESS-INPUTS-EXIT.\n           EXIT\n           .\n       2100-RECEIVE-MAP.\n           _DIALECT_ 5 ​​​​ ​​​​ ​​​​​​​ ​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​\n           .\n       \n       2100-RECEIVE-MAP-EXIT.\n           EXIT\n           .\n       2200-EDIT-MAP-INPUTS.\n       \n           SET INPUT-OK                  TO TRUE\n           SET FLG-ACCTFILTER-ISVALID    TO TRUE\n       \n       \n           IF  ACCTSIDI OF CACTVWAI \u003d \u0027*\u0027\n           OR  ACCTSIDI OF CACTVWAI \u003d SPACES\n               MOVE LOW-VALUES           TO  CC-ACCT-ID\n           ELSE\n               MOVE ACCTSIDI OF CACTVWAI TO  CC-ACCT-ID\n           END-IF\n       \n       \n           PERFORM 2210-EDIT-ACCOUNT\n              THRU 2210-EDIT-ACCOUNT-EXIT\n       \n       \n           IF  FLG-ACCTFILTER-BLANK\n               SET NO-SEARCH-CRITERIA-RECEIVED TO TRUE\n           END-IF\n           .\n       \n       2200-EDIT-MAP-INPUTS-EXIT.\n           EXIT\n           .\n       \n       2210-EDIT-ACCOUNT.\n           SET FLG-ACCTFILTER-NOT-OK TO TRUE\n       \n       \n           IF CC-ACCT-ID   EQUAL LOW-VALUES\n           OR CC-ACCT-ID   EQUAL SPACES\n              SET INPUT-ERROR           TO TRUE\n              SET FLG-ACCTFILTER-BLANK  TO TRUE\n              IF WS-RETURN-MSG-OFF\n                 SET WS-PROMPT-FOR-ACCT TO TRUE\n              END-IF\n              MOVE ZEROES       TO CDEMO-ACCT-ID\n              GO TO  2210-EDIT-ACCOUNT-EXIT\n           END-IF\n       \n       \n       \n           IF CC-ACCT-ID  IS NOT NUMERIC\n           OR CC-ACCT-ID  EQUAL ZEROES\n              SET INPUT-ERROR TO TRUE\n              SET FLG-ACCTFILTER-NOT-OK TO TRUE\n              IF WS-RETURN-MSG-OFF\n                MOVE\n              \u0027Account Filter must  be a non-zero 11 digit number\u0027\n                              TO WS-RETURN-MSG\n              END-IF\n              MOVE ZERO       TO CDEMO-ACCT-ID\n              GO TO 2210-EDIT-ACCOUNT-EXIT\n           ELSE\n              MOVE CC-ACCT-ID TO CDEMO-ACCT-ID\n              SET FLG-ACCTFILTER-ISVALID TO TRUE\n           END-IF\n           .\n       \n       2210-EDIT-ACCOUNT-EXIT.\n           EXIT\n           .\n       \n       9000-READ-ACCT.\n       \n           SET  WS-NO-INFO-MESSAGE  TO TRUE\n       \n           MOVE CDEMO-ACCT-ID TO WS-CARD-RID-ACCT-ID\n       \n           PERFORM 9200-GETCARDXREF-BYACCT\n              THRU 9200-GETCARDXREF-BYACCT-EXIT\n       \n       \n           IF FLG-ACCTFILTER-NOT-OK\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF\n       \n           PERFORM 9300-GETACCTDATA-BYACCT\n              THRU 9300-GETACCTDATA-BYACCT-EXIT\n       \n           IF DID-NOT-FIND-ACCT-IN-ACCTDAT\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF\n       \n           MOVE CDEMO-CUST-ID TO WS-CARD-RID-CUST-ID\n       \n           PERFORM 9400-GETCUSTDATA-BYCUST\n              THRU 9400-GETCUSTDATA-BYCUST-EXIT\n       \n           IF DID-NOT-FIND-CUST-IN-CUSTDAT\n              GO TO 9000-READ-ACCT-EXIT\n           END-IF\n       \n       \n           .\n       \n       9000-READ-ACCT-EXIT.\n           EXIT\n           .\n       9200-GETCARDXREF-BYACCT.\n       \n       \n       \n           _DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 7 ​​​​​​​​​​​​​​​\n                  MOVE XREF-CUST-ID               TO CDEMO-CUST-ID\n                  MOVE XREF-CARD-NUM              TO CDEMO-CARD-NUM\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK       TO TRUE\n                  IF WS-RETURN-MSG-OFF\n                    MOVE WS-RESP-CD               TO ERROR-RESP\n                    MOVE WS-REAS-CD               TO ERROR-RESP2\n                    STRING\n                    \u0027Account:\u0027\n                     WS-CARD-RID-ACCT-ID-X\n                    \u0027 not found in\u0027\n                    \u0027 Cross ref file.  Resp:\u0027\n                    ERROR-RESP\n                    \u0027 Reas:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-CARDXREFNAME-ACCT-PATH TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE\n           .\n       9200-GETCARDXREF-BYACCT-EXIT.\n           EXIT\n           .\n       9300-GETACCTDATA-BYACCT.\n       \n           _DIALECT_ 9 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                  SET FOUND-ACCT-IN-MASTER        TO TRUE\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK       TO TRUE\n       \n                  IF WS-RETURN-MSG-OFF\n                    MOVE WS-RESP-CD               TO ERROR-RESP\n                    MOVE WS-REAS-CD               TO ERROR-RESP2\n                    STRING\n                    \u0027Account:\u0027\n                     WS-CARD-RID-ACCT-ID-X\n                    \u0027 not found in\u0027\n                    \u0027 Acct Master file.Resp:\u0027\n                    ERROR-RESP\n                    \u0027 Reas:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n       \n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-ACCTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-ACCTFILENAME           TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE\n           .\n       9300-GETACCTDATA-BYACCT-EXIT.\n           EXIT\n           .\n       \n       9400-GETCUSTDATA-BYCUST.\n           _DIALECT_ 12 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​\n                  SET FOUND-CUST-IN-MASTER        TO TRUE\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-CUSTFILTER-NOT-OK       TO TRUE\n       \n                  MOVE WS-RESP-CD               TO ERROR-RESP\n                  MOVE WS-REAS-CD               TO ERROR-RESP2\n                  IF WS-RETURN-MSG-OFF\n                    STRING\n                    \u0027CustId:\u0027\n                     WS-CARD-RID-CUST-ID-X\n                    \u0027 not found\u0027\n                    \u0027 in customer master.Resp: \u0027\n                    ERROR-RESP\n                    \u0027 REAS:\u0027\n                    ERROR-RESP2\n                    DELIMITED BY SIZE\n                    INTO WS-RETURN-MSG\n                    END-STRING\n                  END-IF\n               WHEN OTHER\n                  SET INPUT-ERROR                 TO TRUE\n                  SET FLG-CUSTFILTER-NOT-OK                TO TRUE\n                  MOVE \u0027READ\u0027                     TO ERROR-OPNAME\n                  MOVE LIT-CUSTFILENAME           TO ERROR-FILE\n                  MOVE WS-RESP-CD                 TO ERROR-RESP\n                  MOVE WS-REAS-CD                 TO ERROR-RESP2\n                  MOVE WS-FILE-ERROR-MESSAGE      TO WS-RETURN-MSG\n       \n       \n           END-EVALUATE\n           .\n       9400-GETCUSTDATA-BYCUST-EXIT.\n           EXIT\n           .\n       \n       \n       \n       \n       SEND-PLAIN-TEXT.\n           _DIALECT_ 15 ​​​​ ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 16 ​​​​ ​​​​ ​​​​​​\n           ​​​​​​​​\n           .\n       SEND-PLAIN-TEXT-EXIT.\n           EXIT\n           .\n       \n       \n       \n       \n       \n       SEND-LONG-TEXT.\n           _DIALECT_ 17 ​​​​ ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 18 ​​​​ ​​​​ ​​​​​​\n           ​​​​​​​​\n           .\n       SEND-LONG-TEXT-EXIT.\n           EXIT\n           .\n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       \n       YYYY-STORE-PFKEY.\n       \n       \n       \n           EVALUATE TRUE\n             WHEN EIBAID IS EQUAL TO DFHENTER\n               SET CCARD-AID-ENTER TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHCLEAR\n               SET CCARD-AID-CLEAR TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPA1\n               SET CCARD-AID-PA1  TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPA2\n               SET CCARD-AID-PA2  TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF1\n               SET CCARD-AID-PFK01 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF2\n               SET CCARD-AID-PFK02 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF3\n               SET CCARD-AID-PFK03 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF4\n               SET CCARD-AID-PFK04 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF5\n               SET CCARD-AID-PFK05 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF6\n               SET CCARD-AID-PFK06 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF7\n               SET CCARD-AID-PFK07 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF8\n               SET CCARD-AID-PFK08 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF9\n               SET CCARD-AID-PFK09 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF10\n               SET CCARD-AID-PFK10 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF11\n               SET CCARD-AID-PFK11 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF12\n               SET CCARD-AID-PFK12 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF13\n               SET CCARD-AID-PFK01 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF14\n               SET CCARD-AID-PFK02 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF15\n               SET CCARD-AID-PFK03 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF16\n               SET CCARD-AID-PFK04 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF17\n               SET CCARD-AID-PFK05 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF18\n               SET CCARD-AID-PFK06 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF19\n               SET CCARD-AID-PFK07 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF20\n               SET CCARD-AID-PFK08 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF21\n               SET CCARD-AID-PFK09 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF22\n               SET CCARD-AID-PFK10 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF23\n               SET CCARD-AID-PFK11 TO TRUE\n             WHEN EIBAID IS EQUAL TO DFHPF24\n               SET CCARD-AID-PFK12 TO TRUE\n           END-EVALUATE\n           .\n       YYYY-STORE-PFKEY-EXIT.\n           EXIT\n           .\n               \n            \n       \n       ABEND-ROUTINE.\n       \n           IF ABEND-MSG EQUAL LOW-VALUES\n              MOVE \u0027UNEXPECTED ABEND OCCURRED.\u0027 TO ABEND-MSG\n           END-IF\n       \n           MOVE LIT-THISPGM       TO ABEND-CULPRIT\n       \n           _DIALECT_ 19 ​​​​ ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​\n                            ​​​​​​​​​​​​​ ​​ ​​​​​​​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 20 ​​​​ ​​​​ ​​​​​​ ​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 21 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​\n           .",
+  "type": "PROCEDURE_DIVISION_BODY",
+  "categories": [
+    "CODE_BLOCK"
+  ],
+  "nodeType": "CODE_VERTEX"
+}

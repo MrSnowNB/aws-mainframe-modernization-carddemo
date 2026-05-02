@@ -1,0 +1,1887 @@
+{
+  "children": [
+    {
+      "children": [],
+      "id": "a018c39c-bb23-42a4-80d9-44667c9a5d3e",
+      "label": "MAIN-PARA",
+      "name": "MAIN-PARA",
+      "originalText": "MAIN-PARA.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "580404d9-dcc8-4445-96de-6f6b85094b30",
+          "label": "SETERR-FLG-OFFT",
+          "name": "SETERR-FLG-OFFT",
+          "originalText": "SET ERR-FLG-OFF     TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "7de6d5b1-bdae-46f5-9613-9a6d1b04085a",
+          "label": "SETUSR-MODIFIED",
+          "name": "SETUSR-MODIFIED",
+          "originalText": "SET USR-MODIFIED-NO TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "796106ab-1355-4ce0-bc60-0094411bea90",
+          "label": "MOVESPACESTOWS-",
+          "name": "MOVESPACESTOWS-",
+          "originalText": "MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "8b40c374-feae-4993-93d7-727f473f91d1",
+                  "label": "MOVE\u0027COSGN00C\u0027T",
+                  "name": "MOVE\u0027COSGN00C\u0027T",
+                  "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "add6b849-816a-454d-9de5-348d3b7e7a49",
+                  "label": "PERFORM RETURN-TO-PREV-SCREEN",
+                  "name": "PERFORMRETURN-T",
+                  "originalText": "PERFORM RETURN-TO-PREV-SCREEN",
+                  "type": "PERFORM",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "ed77f3c8-5abb-4aa5-b5be-df168701ab6d",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "18f359c9-fda9-42a0-a1b7-b76652477672",
+                  "label": "ELSE",
+                  "name": "ELSE",
+                  "originalText": "ELSE",
+                  "type": "SYMBOL",
+                  "categories": [
+                    "SYMBOL"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "d2f356b7-16a9-4009-a79a-d96f40f0999c",
+                  "label": "MOVEDFHCOMMAREA",
+                  "name": "MOVEDFHCOMMAREA",
+                  "originalText": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "2e1fb7f4-022a-4b20-9e61-5210d3213fc1",
+                          "label": "SETCDEMO-PGM-RE",
+                          "name": "SETCDEMO-PGM-RE",
+                          "originalText": "SET CDEMO-PGM-REENTER    TO TRUE",
+                          "type": "GENERIC_STATEMENT",
+                          "categories": [
+                            "GENERIC_CODE"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "b9553f64-8399-44ec-9089-130f24bdeebb",
+                          "label": "MOVELOW-VALUEST",
+                          "name": "MOVELOW-VALUEST",
+                          "originalText": "MOVE LOW-VALUES          TO COBIL0AO",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "01d178cd-4621-4208-a92b-c8b41620e7f2",
+                          "label": "MOVE-1TOACTIDIN",
+                          "name": "MOVE-1TOACTIDIN",
+                          "originalText": "MOVE -1       TO ACTIDINL OF COBIL0AI",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "id": "3a4e1d91-ba7c-40ba-8211-4e79545c25bc",
+                                  "label": "MOVECDEMO-CB00-",
+                                  "name": "MOVECDEMO-CB00-",
+                                  "originalText": "MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI",
+                                  "type": "MOVE",
+                                  "categories": [
+                                    "DATA_FLOW"
+                                  ],
+                                  "nodeType": "CODE_VERTEX"
+                                },
+                                {
+                                  "children": [],
+                                  "id": "19053907-2ef3-4df7-bc30-bd2026e5ef80",
+                                  "label": "PERFORM PROCESS-ENTER-KEY",
+                                  "name": "PERFORMPROCESS-",
+                                  "originalText": "PERFORM PROCESS-ENTER-KEY",
+                                  "type": "PERFORM",
+                                  "categories": [
+                                    "CONTROL_FLOW"
+                                  ],
+                                  "nodeType": "CODE_VERTEX"
+                                }
+                              ],
+                              "id": "60079c24-5209-4f8d-9b13-2b87a238cc3b",
+                              "label": "Yes",
+                              "name": "Yes",
+                              "originalText": "MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY",
+                              "type": "IF_YES",
+                              "categories": [
+                                "DECISION_BRANCH"
+                              ],
+                              "nodeType": "CODE_VERTEX"
+                            }
+                          ],
+                          "id": "5f85637b-ee05-45b7-9c41-c30e049c2081",
+                          "label": "IS \nCDEMO-CB00-TRN-SELECTED NOT \u003d\n          ?\n",
+                          "name": "IS \nCDEMO-CB00-TRN-SELECTED NOT \u003d\n          ?\n",
+                          "originalText": "IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF",
+                          "type": "IF_BRANCH",
+                          "categories": [
+                            "DECISION"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "f4aa0e32-dddd-4265-a782-b6839d3c5ee6",
+                          "label": "PERFORM SEND-BILLPAY-SCREEN",
+                          "name": "PERFORMSEND-BIL",
+                          "originalText": "PERFORM SEND-BILLPAY-SCREEN",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "e2dd9c29-0898-4786-a408-f31d02199e08",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COBIL0AO\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-BILLPAY-SCREEN",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "f0cf7a28-9cb9-4265-a0ba-00760fc6f08b",
+                          "label": "ELSE",
+                          "name": "ELSE",
+                          "originalText": "ELSE",
+                          "type": "SYMBOL",
+                          "categories": [
+                            "SYMBOL"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "315697fb-2616-451e-bbca-16e7f84dd340",
+                          "label": "PERFORM RECEIVE-BILLPAY-SCREEN",
+                          "name": "PERFORMRECEIVE-",
+                          "originalText": "PERFORM RECEIVE-BILLPAY-SCREEN",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "51d72e91-c10f-4269-9efd-c7f33885f253",
+                          "label": "EVALUATE",
+                          "name": "EVALUATE",
+                          "originalText": "EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE",
+                          "type": "EVALUATE",
+                          "categories": [
+                            "DECISION"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "7ea04b3e-c28b-44fe-8242-20253866c32b",
+                      "label": "No",
+                      "name": "No",
+                      "originalText": "ELSE\n                   PERFORM RECEIVE-BILLPAY-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE",
+                      "type": "IF_NO",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "0990ff6e-35d9-485a-bd65-761d60229e7b",
+                  "label": "IS \nNOT CDEMO-PGM-REENTER?\n",
+                  "name": "IS \nNOT CDEMO-PGM-REENTER?\n",
+                  "originalText": "IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COBIL0AO\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-BILLPAY-SCREEN\n               ELSE\n                   PERFORM RECEIVE-BILLPAY-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE\n               END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "c8b2ffa4-dcbd-4f45-8b8b-f4e309cff5d1",
+              "label": "No",
+              "name": "No",
+              "originalText": "ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COBIL0AO\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-BILLPAY-SCREEN\n               ELSE\n                   PERFORM RECEIVE-BILLPAY-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE\n               END-IF",
+              "type": "IF_NO",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "8b359471-fe1a-4cf0-a1ab-9e49ad11d6a0",
+          "label": "IS \nEIBCALEN \u003d 0?\n",
+          "name": "IS \nEIBCALEN \u003d 0?\n",
+          "originalText": "IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COBIL0AO\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-BILLPAY-SCREEN\n               ELSE\n                   PERFORM RECEIVE-BILLPAY-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "d626c2b2-2135-4115-896a-29a64b979f43",
+          "label": "_DIALECT_1​​​​ ",
+          "name": "_DIALECT_1​​​​ ",
+          "originalText": "_DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "f78a3745-2bba-40e8-9127-3454117f482e",
+      "label": "SETERR-FLG-OFFT",
+      "name": "SETERR-FLG-OFFT",
+      "originalText": "SET ERR-FLG-OFF     TO TRUE\n           SET USR-MODIFIED-NO TO TRUE\n       \n           MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COBIL0AO\n       \n           IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COBIL0AO\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-BILLPAY-SCREEN\n               ELSE\n                   PERFORM RECEIVE-BILLPAY-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "7ce05681-99c9-451c-9a50-b1f4773718b9",
+      "label": "PROCESS-ENTER-KEY",
+      "name": "PROCESS-ENTER-KEY",
+      "originalText": "PROCESS-ENTER-KEY.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "168742f2-27b4-4782-8242-4e339ae790e1",
+          "label": "SETCONF-PAY-NOT",
+          "name": "SETCONF-PAY-NOT",
+          "originalText": "SET CONF-PAY-NO TO TRUE",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "fd3597dc-d4bc-4fef-aa32-47204d8347bb",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE TRUE\n               WHEN ACTIDINI OF COBIL0AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Acct ID can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "70423458-8b66-4339-b3c5-8e913ae71321",
+                  "label": "MOVEACTIDINIOFC",
+                  "name": "MOVEACTIDINIOFC",
+                  "originalText": "MOVE ACTIDINI  OF COBIL0AI TO ACCT-ID\n                                             XREF-ACCT-ID",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "a1f018ed-167f-48cb-86c3-b082ff745bab",
+                  "label": "EVALUATE",
+                  "name": "EVALUATE",
+                  "originalText": "EVALUATE CONFIRMI OF COBIL0AI\n                   WHEN \u0027Y\u0027\n                   WHEN \u0027y\u0027\n                       SET CONF-PAY-YES TO TRUE\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN \u0027N\u0027\n                   WHEN \u0027n\u0027\n                       PERFORM CLEAR-CURRENT-SCREEN\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   WHEN SPACES\n                   WHEN LOW-VALUES\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN OTHER\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                    TO WS-MESSAGE\n                       MOVE -1      TO CONFIRML OF COBIL0AI\n                       PERFORM SEND-BILLPAY-SCREEN\n               END-EVALUATE",
+                  "type": "EVALUATE",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "b1187d74-2c61-4658-852b-ff3e1b918a67",
+                  "label": "MOVEACCT-CURR-B",
+                  "name": "MOVEACCT-CURR-B",
+                  "originalText": "MOVE ACCT-CURR-BAL TO WS-CURR-BAL",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "e5e0eaa0-98f2-423b-9214-9391ec7cecca",
+                  "label": "MOVEWS-CURR-BAL",
+                  "name": "MOVEWS-CURR-BAL",
+                  "originalText": "MOVE WS-CURR-BAL   TO CURBALI    OF COBIL0AI",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "27fbb042-9c8b-46d4-9f91-7b0dbf5b07ea",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE ACTIDINI  OF COBIL0AI TO ACCT-ID\n                                             XREF-ACCT-ID\n       \n               EVALUATE CONFIRMI OF COBIL0AI\n                   WHEN \u0027Y\u0027\n                   WHEN \u0027y\u0027\n                       SET CONF-PAY-YES TO TRUE\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN \u0027N\u0027\n                   WHEN \u0027n\u0027\n                       PERFORM CLEAR-CURRENT-SCREEN\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   WHEN SPACES\n                   WHEN LOW-VALUES\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN OTHER\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                    TO WS-MESSAGE\n                       MOVE -1      TO CONFIRML OF COBIL0AI\n                       PERFORM SEND-BILLPAY-SCREEN\n               END-EVALUATE\n       \n               MOVE ACCT-CURR-BAL TO WS-CURR-BAL\n               MOVE WS-CURR-BAL   TO CURBALI    OF COBIL0AI",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "98d1c8f8-aaae-46dd-9f71-65b04de5d4cf",
+          "label": "IS \nNOT ERR-FLG-ON?\n",
+          "name": "IS \nNOT ERR-FLG-ON?\n",
+          "originalText": "IF NOT ERR-FLG-ON\n               MOVE ACTIDINI  OF COBIL0AI TO ACCT-ID\n                                             XREF-ACCT-ID\n       \n               EVALUATE CONFIRMI OF COBIL0AI\n                   WHEN \u0027Y\u0027\n                   WHEN \u0027y\u0027\n                       SET CONF-PAY-YES TO TRUE\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN \u0027N\u0027\n                   WHEN \u0027n\u0027\n                       PERFORM CLEAR-CURRENT-SCREEN\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   WHEN SPACES\n                   WHEN LOW-VALUES\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN OTHER\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                    TO WS-MESSAGE\n                       MOVE -1      TO CONFIRML OF COBIL0AI\n                       PERFORM SEND-BILLPAY-SCREEN\n               END-EVALUATE\n       \n               MOVE ACCT-CURR-BAL TO WS-CURR-BAL\n               MOVE WS-CURR-BAL   TO CURBALI    OF COBIL0AI\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "63294523-0ea1-45b9-835f-39a284df8b31",
+                          "label": "MOVE\u0027Y\u0027TOWS-ERR",
+                          "name": "MOVE\u0027Y\u0027TOWS-ERR",
+                          "originalText": "MOVE \u0027Y\u0027     TO WS-ERR-FLG",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "06775e40-4f78-4841-ac14-dd710c0c60d0",
+                          "label": "MOVE\u0027You have n",
+                          "name": "MOVE\u0027You have n",
+                          "originalText": "MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "52ac6497-7ba4-45cc-947a-6462efd3809c",
+                          "label": "MOVE-1TOACTIDIN",
+                          "name": "MOVE-1TOACTIDIN",
+                          "originalText": "MOVE -1       TO ACTIDINL OF COBIL0AI",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "d69b8be9-ad5c-4305-9dca-251d020243c2",
+                          "label": "PERFORM SEND-BILLPAY-SCREEN",
+                          "name": "PERFORMSEND-BIL",
+                          "originalText": "PERFORM SEND-BILLPAY-SCREEN",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "1db001b7-df8d-4e6f-a7e0-f36ce220b546",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "cc1c8d49-3d83-47c2-a975-b20293cfccbc",
+                  "label": "IS \nACCT-CURR-BAL \u003c\u003d ZEROS AND\n             ?\n",
+                  "name": "IS \nACCT-CURR-BAL \u003c\u003d ZEROS AND\n             ?\n",
+                  "originalText": "IF ACCT-CURR-BAL \u003c\u003d ZEROS AND\n                  ACTIDINI OF COBIL0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "5a070674-53fa-4567-9a2a-f6a97e48e4e1",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "IF ACCT-CURR-BAL \u003c\u003d ZEROS AND\n                  ACTIDINI OF COBIL0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               END-IF",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "80d04f6c-4c77-4243-a12b-7cbfbeb7458e",
+          "label": "IS \nNOT ERR-FLG-ON?\n",
+          "name": "IS \nNOT ERR-FLG-ON?\n",
+          "originalText": "IF NOT ERR-FLG-ON\n               IF ACCT-CURR-BAL \u003c\u003d ZEROS AND\n                  ACTIDINI OF COBIL0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               END-IF\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "546ab592-5954-4736-abc4-4bafc6d0d81e",
+                          "label": "PERFORM READ-CXACAIX-FILE",
+                          "name": "PERFORMREAD-CXA",
+                          "originalText": "PERFORM READ-CXACAIX-FILE",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "8c91d2fe-62ff-42fc-9b42-039ab5c544b8",
+                          "label": "MOVEHIGH-VALUES",
+                          "name": "MOVEHIGH-VALUES",
+                          "originalText": "MOVE HIGH-VALUES TO TRAN-ID",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "ac4066d1-e4cc-4c29-b523-9cdacace50cc",
+                          "label": "PERFORM STARTBR-TRANSACT-FILE",
+                          "name": "PERFORMSTARTBR-",
+                          "originalText": "PERFORM STARTBR-TRANSACT-FILE",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "10235241-c7b1-4a71-9b58-ef8b7eac95ea",
+                          "label": "PERFORM READPREV-TRANSACT-FILE",
+                          "name": "PERFORMREADPREV",
+                          "originalText": "PERFORM READPREV-TRANSACT-FILE",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "6b413299-c488-4b7a-9b87-0931bca6d91f",
+                          "label": "PERFORM ENDBR-TRANSACT-FILE",
+                          "name": "PERFORMENDBR-TR",
+                          "originalText": "PERFORM ENDBR-TRANSACT-FILE",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "8289399a-fc91-44fa-bfa2-9927d749ec18",
+                          "label": "MOVETRAN-IDTOWS",
+                          "name": "MOVETRAN-IDTOWS",
+                          "originalText": "MOVE TRAN-ID     TO WS-TRAN-ID-NUM",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "7aa23c6c-3b0a-4e72-a347-df9a4a2f495f",
+                          "label": "ADD1TOWS-TRAN-I",
+                          "name": "ADD1TOWS-TRAN-I",
+                          "originalText": "ADD 1 TO WS-TRAN-ID-NUM",
+                          "type": "ADD",
+                          "categories": [
+                            "COMPUTATIONAL"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "e2df885d-1771-4f17-96d1-e52928253d21",
+                          "label": "INITIALIZETRAN-",
+                          "name": "INITIALIZETRAN-",
+                          "originalText": "INITIALIZE TRAN-RECORD",
+                          "type": "GENERIC_STATEMENT",
+                          "categories": [
+                            "GENERIC_CODE"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "65677205-4e23-45ed-b3cb-d16c85fc47c2",
+                          "label": "MOVEWS-TRAN-ID-",
+                          "name": "MOVEWS-TRAN-ID-",
+                          "originalText": "MOVE WS-TRAN-ID-NUM       TO TRAN-ID",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "e090a58d-e6f7-4683-9cbc-d6b6d6225054",
+                          "label": "MOVE\u002702\u0027TOTRAN-",
+                          "name": "MOVE\u002702\u0027TOTRAN-",
+                          "originalText": "MOVE \u002702\u0027                 TO TRAN-TYPE-CD",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "50097cda-0be8-490f-a671-17c1e8b6eacd",
+                          "label": "MOVE2TOTRAN-CAT",
+                          "name": "MOVE2TOTRAN-CAT",
+                          "originalText": "MOVE 2                    TO TRAN-CAT-CD",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "c143da37-cba0-4826-833b-cf581ae22f03",
+                          "label": "MOVE\u0027POS TERM\u0027T",
+                          "name": "MOVE\u0027POS TERM\u0027T",
+                          "originalText": "MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "66c189cc-91ba-4964-af84-5944367a9ac1",
+                          "label": "MOVE\u0027BILL PAYME",
+                          "name": "MOVE\u0027BILL PAYME",
+                          "originalText": "MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "5b8327f6-1da7-481d-87a7-63029a9eaee1",
+                          "label": "MOVEACCT-CURR-B",
+                          "name": "MOVEACCT-CURR-B",
+                          "originalText": "MOVE ACCT-CURR-BAL        TO TRAN-AMT",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "cec088ea-c248-4b7d-abee-461035134c06",
+                          "label": "MOVEXREF-CARD-N",
+                          "name": "MOVEXREF-CARD-N",
+                          "originalText": "MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "953c2cf8-067d-4fbe-a566-0ec85fbee5af",
+                          "label": "MOVE999999999TO",
+                          "name": "MOVE999999999TO",
+                          "originalText": "MOVE 999999999            TO TRAN-MERCHANT-ID",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "b24ef532-0f39-4f73-8ce5-ec689dfabd9e",
+                          "label": "MOVE\u0027BILL PAYME",
+                          "name": "MOVE\u0027BILL PAYME",
+                          "originalText": "MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "61b69113-63d4-4cfc-add0-301f561f40f9",
+                          "label": "MOVE\u0027N/A\u0027TOTRAN",
+                          "name": "MOVE\u0027N/A\u0027TOTRAN",
+                          "originalText": "MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "6dfda0bc-f033-48e0-a623-6f2b342340c9",
+                          "label": "MOVE\u0027N/A\u0027TOTRAN",
+                          "name": "MOVE\u0027N/A\u0027TOTRAN",
+                          "originalText": "MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "452c72bc-a7fb-4678-80d0-c230753e03d0",
+                          "label": "PERFORM GET-CURRENT-TIMESTAMP",
+                          "name": "PERFORMGET-CURR",
+                          "originalText": "PERFORM GET-CURRENT-TIMESTAMP",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "af6810b0-1d8a-49c3-bb7d-b5b41324ef72",
+                          "label": "MOVEWS-TIMESTAM",
+                          "name": "MOVEWS-TIMESTAM",
+                          "originalText": "MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "fd88a202-87c6-41cf-9303-19689a2c72aa",
+                          "label": "PERFORM WRITE-TRANSACT-FILE",
+                          "name": "PERFORMWRITE-TR",
+                          "originalText": "PERFORM WRITE-TRANSACT-FILE",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "f4992bfb-0890-4662-8676-23a288c24c26",
+                          "label": "COMPUTEACCT-CUR",
+                          "name": "COMPUTEACCT-CUR",
+                          "originalText": "COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT",
+                          "type": "COMPUTE",
+                          "categories": [
+                            "COMPUTATIONAL",
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "57be428e-f110-4f4e-8131-e399554c63ed",
+                          "label": "PERFORM UPDATE-ACCTDAT-FILE",
+                          "name": "PERFORMUPDATE-A",
+                          "originalText": "PERFORM UPDATE-ACCTDAT-FILE",
+                          "type": "PERFORM",
+                          "categories": [
+                            "CONTROL_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "a91689d8-ae71-45c4-9dda-e94d5c3685aa",
+                      "label": "Yes",
+                      "name": "Yes",
+                      "originalText": "PERFORM READ-CXACAIX-FILE\n                   MOVE HIGH-VALUES TO TRAN-ID\n                   PERFORM STARTBR-TRANSACT-FILE\n                   PERFORM READPREV-TRANSACT-FILE\n                   PERFORM ENDBR-TRANSACT-FILE\n                   MOVE TRAN-ID     TO WS-TRAN-ID-NUM\n                   ADD 1 TO WS-TRAN-ID-NUM\n                   INITIALIZE TRAN-RECORD\n                   MOVE WS-TRAN-ID-NUM       TO TRAN-ID\n                   MOVE \u002702\u0027                 TO TRAN-TYPE-CD\n                   MOVE 2                    TO TRAN-CAT-CD\n                   MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE\n                   MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC\n                   MOVE ACCT-CURR-BAL        TO TRAN-AMT\n                   MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM\n                   MOVE 999999999            TO TRAN-MERCHANT-ID\n                   MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP\n                   PERFORM GET-CURRENT-TIMESTAMP\n                   MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS\n                   PERFORM WRITE-TRANSACT-FILE\n                   COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT\n                   PERFORM UPDATE-ACCTDAT-FILE",
+                      "type": "IF_YES",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "id": "aee81032-ba62-45ff-aaf2-caaa335c3a99",
+                          "label": "ELSE",
+                          "name": "ELSE",
+                          "originalText": "ELSE",
+                          "type": "SYMBOL",
+                          "categories": [
+                            "SYMBOL"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "bad732c2-9745-4405-b669-f06cba536941",
+                          "label": "MOVE\u0027Confirm to",
+                          "name": "MOVE\u0027Confirm to",
+                          "originalText": "MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        },
+                        {
+                          "children": [],
+                          "id": "ada976cf-9eb6-4ace-8355-26e212bf0fad",
+                          "label": "MOVE-1TOCONFIRM",
+                          "name": "MOVE-1TOCONFIRM",
+                          "originalText": "MOVE -1       TO CONFIRML OF COBIL0AI",
+                          "type": "MOVE",
+                          "categories": [
+                            "DATA_FLOW"
+                          ],
+                          "nodeType": "CODE_VERTEX"
+                        }
+                      ],
+                      "id": "21d8ca41-b052-4df9-859b-ada35ea17afe",
+                      "label": "No",
+                      "name": "No",
+                      "originalText": "ELSE\n                   MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CONFIRML OF COBIL0AI",
+                      "type": "IF_NO",
+                      "categories": [
+                        "DECISION_BRANCH"
+                      ],
+                      "nodeType": "CODE_VERTEX"
+                    }
+                  ],
+                  "id": "512700de-8a1e-48e6-a6ad-fa8d2d0b3c28",
+                  "label": "IS \nCONF-PAY-YES?\n",
+                  "name": "IS \nCONF-PAY-YES?\n",
+                  "originalText": "IF CONF-PAY-YES\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE HIGH-VALUES TO TRAN-ID\n                   PERFORM STARTBR-TRANSACT-FILE\n                   PERFORM READPREV-TRANSACT-FILE\n                   PERFORM ENDBR-TRANSACT-FILE\n                   MOVE TRAN-ID     TO WS-TRAN-ID-NUM\n                   ADD 1 TO WS-TRAN-ID-NUM\n                   INITIALIZE TRAN-RECORD\n                   MOVE WS-TRAN-ID-NUM       TO TRAN-ID\n                   MOVE \u002702\u0027                 TO TRAN-TYPE-CD\n                   MOVE 2                    TO TRAN-CAT-CD\n                   MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE\n                   MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC\n                   MOVE ACCT-CURR-BAL        TO TRAN-AMT\n                   MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM\n                   MOVE 999999999            TO TRAN-MERCHANT-ID\n                   MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP\n                   PERFORM GET-CURRENT-TIMESTAMP\n                   MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS\n                   PERFORM WRITE-TRANSACT-FILE\n                   COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT\n                   PERFORM UPDATE-ACCTDAT-FILE\n               ELSE\n                   MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CONFIRML OF COBIL0AI\n               END-IF",
+                  "type": "IF_BRANCH",
+                  "categories": [
+                    "DECISION"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                },
+                {
+                  "children": [],
+                  "id": "70379f98-1fbe-440d-93c1-2b4ab7f9b912",
+                  "label": "PERFORM SEND-BILLPAY-SCREEN",
+                  "name": "PERFORMSEND-BIL",
+                  "originalText": "PERFORM SEND-BILLPAY-SCREEN",
+                  "type": "PERFORM",
+                  "categories": [
+                    "CONTROL_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "80e8607b-b88d-4b6d-9f92-6b8035bae2ca",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "IF CONF-PAY-YES\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE HIGH-VALUES TO TRAN-ID\n                   PERFORM STARTBR-TRANSACT-FILE\n                   PERFORM READPREV-TRANSACT-FILE\n                   PERFORM ENDBR-TRANSACT-FILE\n                   MOVE TRAN-ID     TO WS-TRAN-ID-NUM\n                   ADD 1 TO WS-TRAN-ID-NUM\n                   INITIALIZE TRAN-RECORD\n                   MOVE WS-TRAN-ID-NUM       TO TRAN-ID\n                   MOVE \u002702\u0027                 TO TRAN-TYPE-CD\n                   MOVE 2                    TO TRAN-CAT-CD\n                   MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE\n                   MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC\n                   MOVE ACCT-CURR-BAL        TO TRAN-AMT\n                   MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM\n                   MOVE 999999999            TO TRAN-MERCHANT-ID\n                   MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP\n                   PERFORM GET-CURRENT-TIMESTAMP\n                   MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS\n                   PERFORM WRITE-TRANSACT-FILE\n                   COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT\n                   PERFORM UPDATE-ACCTDAT-FILE\n               ELSE\n                   MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CONFIRML OF COBIL0AI\n               END-IF\n       \n               PERFORM SEND-BILLPAY-SCREEN",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "f1ee4641-772b-49df-ab6a-beb044e9245f",
+          "label": "IS \nNOT ERR-FLG-ON?\n",
+          "name": "IS \nNOT ERR-FLG-ON?\n",
+          "originalText": "IF NOT ERR-FLG-ON\n       \n               IF CONF-PAY-YES\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE HIGH-VALUES TO TRAN-ID\n                   PERFORM STARTBR-TRANSACT-FILE\n                   PERFORM READPREV-TRANSACT-FILE\n                   PERFORM ENDBR-TRANSACT-FILE\n                   MOVE TRAN-ID     TO WS-TRAN-ID-NUM\n                   ADD 1 TO WS-TRAN-ID-NUM\n                   INITIALIZE TRAN-RECORD\n                   MOVE WS-TRAN-ID-NUM       TO TRAN-ID\n                   MOVE \u002702\u0027                 TO TRAN-TYPE-CD\n                   MOVE 2                    TO TRAN-CAT-CD\n                   MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE\n                   MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC\n                   MOVE ACCT-CURR-BAL        TO TRAN-AMT\n                   MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM\n                   MOVE 999999999            TO TRAN-MERCHANT-ID\n                   MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP\n                   PERFORM GET-CURRENT-TIMESTAMP\n                   MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS\n                   PERFORM WRITE-TRANSACT-FILE\n                   COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT\n                   PERFORM UPDATE-ACCTDAT-FILE\n               ELSE\n                   MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CONFIRML OF COBIL0AI\n               END-IF\n       \n               PERFORM SEND-BILLPAY-SCREEN\n       \n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "33b71953-3bae-442a-a46a-a97dbc5f90c1",
+      "label": "SETCONF-PAY-NOT",
+      "name": "SETCONF-PAY-NOT",
+      "originalText": "SET CONF-PAY-NO TO TRUE\n       \n           EVALUATE TRUE\n               WHEN ACTIDINI OF COBIL0AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Acct ID can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           IF NOT ERR-FLG-ON\n               MOVE ACTIDINI  OF COBIL0AI TO ACCT-ID\n                                             XREF-ACCT-ID\n       \n               EVALUATE CONFIRMI OF COBIL0AI\n                   WHEN \u0027Y\u0027\n                   WHEN \u0027y\u0027\n                       SET CONF-PAY-YES TO TRUE\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN \u0027N\u0027\n                   WHEN \u0027n\u0027\n                       PERFORM CLEAR-CURRENT-SCREEN\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   WHEN SPACES\n                   WHEN LOW-VALUES\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN OTHER\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                    TO WS-MESSAGE\n                       MOVE -1      TO CONFIRML OF COBIL0AI\n                       PERFORM SEND-BILLPAY-SCREEN\n               END-EVALUATE\n       \n               MOVE ACCT-CURR-BAL TO WS-CURR-BAL\n               MOVE WS-CURR-BAL   TO CURBALI    OF COBIL0AI\n           END-IF\n       \n           IF NOT ERR-FLG-ON\n               IF ACCT-CURR-BAL \u003c\u003d ZEROS AND\n                  ACTIDINI OF COBIL0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               END-IF\n           END-IF\n       \n           IF NOT ERR-FLG-ON\n       \n               IF CONF-PAY-YES\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE HIGH-VALUES TO TRAN-ID\n                   PERFORM STARTBR-TRANSACT-FILE\n                   PERFORM READPREV-TRANSACT-FILE\n                   PERFORM ENDBR-TRANSACT-FILE\n                   MOVE TRAN-ID     TO WS-TRAN-ID-NUM\n                   ADD 1 TO WS-TRAN-ID-NUM\n                   INITIALIZE TRAN-RECORD\n                   MOVE WS-TRAN-ID-NUM       TO TRAN-ID\n                   MOVE \u002702\u0027                 TO TRAN-TYPE-CD\n                   MOVE 2                    TO TRAN-CAT-CD\n                   MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE\n                   MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC\n                   MOVE ACCT-CURR-BAL        TO TRAN-AMT\n                   MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM\n                   MOVE 999999999            TO TRAN-MERCHANT-ID\n                   MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP\n                   PERFORM GET-CURRENT-TIMESTAMP\n                   MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS\n                   PERFORM WRITE-TRANSACT-FILE\n                   COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT\n                   PERFORM UPDATE-ACCTDAT-FILE\n               ELSE\n                   MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CONFIRML OF COBIL0AI\n               END-IF\n       \n               PERFORM SEND-BILLPAY-SCREEN\n       \n           END-IF.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "05d6e8c7-6ce8-4410-bdb4-a5abc6e0ec2b",
+      "label": "GET-CURRENT-TIMESTAMP",
+      "name": "GET-CURRENT-TIMESTAMP",
+      "originalText": "GET-CURRENT-TIMESTAMP.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "44f2e374-fa2c-48bd-8581-071bc7ed0341",
+          "label": "_DIALECT_2​​​​ ",
+          "name": "_DIALECT_2​​​​ ",
+          "originalText": "_DIALECT_ 2 ​​​​ ​​​​ ​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "56d62994-897f-4072-b9bd-904c98126ba0",
+          "label": "_DIALECT_3​​​​ ",
+          "name": "_DIALECT_3​​​​ ",
+          "originalText": "_DIALECT_ 3 ​​​​ ​​​​ ​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​​​​​​\n             ​​​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "8da40f48-e395-4a98-aa8d-57907f407241",
+          "label": "INITIALIZEWS-TI",
+          "name": "INITIALIZEWS-TI",
+          "originalText": "INITIALIZE WS-TIMESTAMP",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "39c1b36d-faa9-4906-b2d2-0a61db4c6539",
+          "label": "MOVEWS-CUR-DATE",
+          "name": "MOVEWS-CUR-DATE",
+          "originalText": "MOVE WS-CUR-DATE-X10 TO WS-TIMESTAMP(01:10)",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "fcd0f84d-60cf-46f1-907e-2c3418457e59",
+          "label": "MOVEWS-CUR-TIME",
+          "name": "MOVEWS-CUR-TIME",
+          "originalText": "MOVE WS-CUR-TIME-X08 TO WS-TIMESTAMP(12:08)",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "238eba45-b01e-4970-8b63-fb19f51fd03e",
+          "label": "MOVEZEROSTOWS-T",
+          "name": "MOVEZEROSTOWS-T",
+          "originalText": "MOVE ZEROS           TO WS-TIMESTAMP-TM-MS6",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "2cd723ae-75e4-4464-80fb-9fba5c65e13d",
+      "label": "_DIALECT_2​​​​ ",
+      "name": "_DIALECT_2​​​​ ",
+      "originalText": "_DIALECT_ 2 ​​​​ ​​​​ ​​​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 3 ​​​​ ​​​​ ​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​​​​​​\n             ​​​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           INITIALIZE WS-TIMESTAMP\n           MOVE WS-CUR-DATE-X10 TO WS-TIMESTAMP(01:10)\n           MOVE WS-CUR-TIME-X08 TO WS-TIMESTAMP(12:08)\n           MOVE ZEROS           TO WS-TIMESTAMP-TM-MS6\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "5a2b630b-5d5f-497f-a607-6624d3925190",
+      "label": "RETURN-TO-PREV-SCREEN",
+      "name": "RETURN-TO-PREV-SCREEN",
+      "originalText": "RETURN-TO-PREV-SCREEN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "id": "e3e492c1-d4c6-418f-b5b6-a77d09012cad",
+                  "label": "MOVE\u0027COSGN00C\u0027T",
+                  "name": "MOVE\u0027COSGN00C\u0027T",
+                  "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
+                  "type": "MOVE",
+                  "categories": [
+                    "DATA_FLOW"
+                  ],
+                  "nodeType": "CODE_VERTEX"
+                }
+              ],
+              "id": "489c3fb4-babc-4515-9d49-a9dcff2db880",
+              "label": "Yes",
+              "name": "Yes",
+              "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
+              "type": "IF_YES",
+              "categories": [
+                "DECISION_BRANCH"
+              ],
+              "nodeType": "CODE_VERTEX"
+            }
+          ],
+          "id": "a8f3c4e4-c0b8-4207-900c-670e35bebbf5",
+          "label": "IS \nCDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES?\n",
+          "name": "IS \nCDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES?\n",
+          "originalText": "IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF",
+          "type": "IF_BRANCH",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "15f53dd0-20f4-4d27-b8f0-750e8dd5c63f",
+          "label": "MOVEWS-TRANIDTO",
+          "name": "MOVEWS-TRANIDTO",
+          "originalText": "MOVE WS-TRANID    TO CDEMO-FROM-TRANID",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "563d4077-6c5d-4edb-b914-67e420ff134f",
+          "label": "MOVEWS-PGMNAMET",
+          "name": "MOVEWS-PGMNAMET",
+          "originalText": "MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "14a53358-fcad-492a-8885-85e1151d7ddc",
+          "label": "MOVEZEROSTOCDEM",
+          "name": "MOVEZEROSTOCDEM",
+          "originalText": "MOVE ZEROS        TO CDEMO-PGM-CONTEXT",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "2dcd92bf-65e2-4341-8896-10eec6ecfe3b",
+          "label": "_DIALECT_4​​​​ ",
+          "name": "_DIALECT_4​​​​ ",
+          "originalText": "_DIALECT_ 4 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "1fe8074c-9ba2-4849-88cf-e51ebabece21",
+      "label": "IFCDEMO-TO-PROG",
+      "name": "IFCDEMO-TO-PROG",
+      "originalText": "IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF\n           MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n           MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n           MOVE ZEROS        TO CDEMO-PGM-CONTEXT\n           _DIALECT_ 4 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "ae39acd9-be80-494d-9e5b-94fff343298c",
+      "label": "SEND-BILLPAY-SCREEN",
+      "name": "SEND-BILLPAY-SCREEN",
+      "originalText": "SEND-BILLPAY-SCREEN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "5859d3dc-f6b0-45fe-b5f3-6c78a634c140",
+          "label": "PERFORM POPULATE-HEADER-INFO",
+          "name": "PERFORMPOPULATE",
+          "originalText": "PERFORM POPULATE-HEADER-INFO",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "2ed80bd2-d941-492a-aa26-90f9f0f3c9bd",
+          "label": "MOVEWS-MESSAGET",
+          "name": "MOVEWS-MESSAGET",
+          "originalText": "MOVE WS-MESSAGE TO ERRMSGO OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "158e7836-89bc-45c1-80f2-af58392b1314",
+          "label": "_DIALECT_5​​​​ ",
+          "name": "_DIALECT_5​​​​ ",
+          "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "6097b6d7-fe89-4d17-90ef-41c71771765d",
+      "label": "PERFORMPOPULATE",
+      "name": "PERFORMPOPULATE",
+      "originalText": "PERFORM POPULATE-HEADER-INFO\n       \n           MOVE WS-MESSAGE TO ERRMSGO OF COBIL0AO\n       \n           _DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "7da1fdd3-c65d-41e4-9d99-18d466bbcc3c",
+      "label": "RECEIVE-BILLPAY-SCREEN",
+      "name": "RECEIVE-BILLPAY-SCREEN",
+      "originalText": "RECEIVE-BILLPAY-SCREEN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "89391934-ec0e-4448-bdaf-57e00b15ff28",
+          "label": "_DIALECT_6​​​​ ",
+          "name": "_DIALECT_6​​​​ ",
+          "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "c12db85a-14f6-4b64-a767-00adc77eadb0",
+      "label": "_DIALECT_6​​​​ ",
+      "name": "_DIALECT_6​​​​ ",
+      "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "98105ca0-4977-4338-a72f-6ca5f9983d34",
+      "label": "POPULATE-HEADER-INFO",
+      "name": "POPULATE-HEADER-INFO",
+      "originalText": "POPULATE-HEADER-INFO.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "5699fb23-f2f8-4998-a476-6ac348ac79e9",
+          "label": "MOVEFUNCTIONCUR",
+          "name": "MOVEFUNCTIONCUR",
+          "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "d9f37bd0-136b-4907-8328-9c777387adfc",
+          "label": "MOVECCDA-TITLE0",
+          "name": "MOVECCDA-TITLE0",
+          "originalText": "MOVE CCDA-TITLE01           TO TITLE01O OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "467e2af7-a78a-465b-9297-b7a082edcc66",
+          "label": "MOVECCDA-TITLE0",
+          "name": "MOVECCDA-TITLE0",
+          "originalText": "MOVE CCDA-TITLE02           TO TITLE02O OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "34d1fa21-6493-4fe8-a4ea-1d61e6c71a29",
+          "label": "MOVEWS-TRANIDTO",
+          "name": "MOVEWS-TRANIDTO",
+          "originalText": "MOVE WS-TRANID              TO TRNNAMEO OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "9ee18c69-d2f5-4535-a3fe-00cf1d085b1b",
+          "label": "MOVEWS-PGMNAMET",
+          "name": "MOVEWS-PGMNAMET",
+          "originalText": "MOVE WS-PGMNAME             TO PGMNAMEO OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "a70f8942-1634-45f6-b8dd-63524bb6f18e",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "7702bff3-9898-4f51-aa9b-8b7751884c81",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "73b54984-5264-40c4-acb8-8507c4c4ae1e",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "fc69d058-6e4b-4b5e-989d-16dff28f7200",
+          "label": "MOVEWS-CURDATE-",
+          "name": "MOVEWS-CURDATE-",
+          "originalText": "MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "1e0a3012-4fbc-4f28-b143-fc77aa736fb7",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "ef4e0344-e3a0-46b7-acd4-5a2d5bdc21ba",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "0319974f-ecd9-48ec-bde2-6af3c2a27d86",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "1b2d2d9c-c6aa-4f45-8850-30c0d6fbba6e",
+          "label": "MOVEWS-CURTIME-",
+          "name": "MOVEWS-CURTIME-",
+          "originalText": "MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COBIL0AO",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "3169b6be-0b11-4e72-8695-85be0c76c9bb",
+      "label": "MOVEFUNCTIONCUR",
+      "name": "MOVEFUNCTIONCUR",
+      "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF COBIL0AO\n           MOVE CCDA-TITLE02           TO TITLE02O OF COBIL0AO\n           MOVE WS-TRANID              TO TRNNAMEO OF COBIL0AO\n           MOVE WS-PGMNAME             TO PGMNAMEO OF COBIL0AO\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COBIL0AO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COBIL0AO.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "3d13e74c-1819-40a0-8837-8a39c701f16d",
+      "label": "READ-ACCTDAT-FILE",
+      "name": "READ-ACCTDAT-FILE",
+      "originalText": "READ-ACCTDAT-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "542d1e27-fbfa-450f-bc5a-ebff52a5f0f0",
+          "label": "_DIALECT_7​​​​ ",
+          "name": "_DIALECT_7​​​​ ",
+          "originalText": "_DIALECT_ 7 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "83ee2551-2ee1-4e70-8ee1-c73bd596f4ab",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 9 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Account...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "743f928c-9fc4-4ea8-af11-8aafd75272c0",
+      "label": "_DIALECT_7​​​​ ",
+      "name": "_DIALECT_7​​​​ ",
+      "originalText": "_DIALECT_ 7 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 9 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Account...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "4775602e-6d96-49c1-b0b1-4cbe6b8d94c2",
+      "label": "UPDATE-ACCTDAT-FILE",
+      "name": "UPDATE-ACCTDAT-FILE",
+      "originalText": "UPDATE-ACCTDAT-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "0b007d55-95c1-42dd-8e2b-4b917e5a9f02",
+          "label": "_DIALECT_10​​​​",
+          "name": "_DIALECT_10​​​​",
+          "originalText": "_DIALECT_ 10 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "edd9f4c6-f024-4be4-afcc-0299c3aa46c1",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 12 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Update Account...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "ee07153a-66d8-4152-9ddb-836dc3330b0d",
+      "label": "_DIALECT_10​​​​",
+      "name": "_DIALECT_10​​​​",
+      "originalText": "_DIALECT_ 10 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 12 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Update Account...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "d28309ea-b02b-4a0c-b2a9-91e62afbddce",
+      "label": "READ-CXACAIX-FILE",
+      "name": "READ-CXACAIX-FILE",
+      "originalText": "READ-CXACAIX-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "e733a881-7118-4a18-ae1a-6d1658b56ba1",
+          "label": "_DIALECT_13​​​​",
+          "name": "_DIALECT_13​​​​",
+          "originalText": "_DIALECT_ 13 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "7079e0fd-43b3-4e65-af21-df8f2444afbe",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 15 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup XREF AIX file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "d86c1fe1-e838-4bc1-a17e-2c0fe4d6997f",
+      "label": "_DIALECT_13​​​​",
+      "name": "_DIALECT_13​​​​",
+      "originalText": "_DIALECT_ 13 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 15 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup XREF AIX file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "7caa9d5d-b73e-42d9-b7c4-4ced5727bd7c",
+      "label": "STARTBR-TRANSACT-FILE",
+      "name": "STARTBR-TRANSACT-FILE",
+      "originalText": "STARTBR-TRANSACT-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "3a39b54a-ee4b-48ee-90a2-75ffe729ebee",
+          "label": "_DIALECT_16​​​​",
+          "name": "_DIALECT_16​​​​",
+          "originalText": "_DIALECT_ 16 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "d1c03a19-b8cc-45d7-bea9-adaaf912e047",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 17 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 18 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Transaction ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "cb5424f9-ccb5-47ae-9be1-aa8ebb909482",
+      "label": "_DIALECT_16​​​​",
+      "name": "_DIALECT_16​​​​",
+      "originalText": "_DIALECT_ 16 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 17 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 18 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Transaction ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "f2848e04-8547-4e1e-b20d-2e2f04e0115a",
+      "label": "READPREV-TRANSACT-FILE",
+      "name": "READPREV-TRANSACT-FILE",
+      "originalText": "READPREV-TRANSACT-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "0ca4cba5-a9d5-494d-be61-f141b8c8cb1d",
+          "label": "_DIALECT_19​​​​",
+          "name": "_DIALECT_19​​​​",
+          "originalText": "_DIALECT_ 19 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "b7886ac4-2acd-4b51-81ef-26ea32eb630d",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 20 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 21 ​​​​​​​​​​​​​​​​\n                   MOVE ZEROS TO TRAN-ID\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "e57a8ec8-88c0-49e9-80eb-649f9c3c76f7",
+      "label": "_DIALECT_19​​​​",
+      "name": "_DIALECT_19​​​​",
+      "originalText": "_DIALECT_ 19 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 20 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 21 ​​​​​​​​​​​​​​​​\n                   MOVE ZEROS TO TRAN-ID\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "5c38069e-f48c-4116-b815-95101df1f201",
+      "label": "ENDBR-TRANSACT-FILE",
+      "name": "ENDBR-TRANSACT-FILE",
+      "originalText": "ENDBR-TRANSACT-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "5edd31d3-a7f9-4767-9b59-d7db6ce429f5",
+          "label": "_DIALECT_22​​​​",
+          "name": "_DIALECT_22​​​​",
+          "originalText": "_DIALECT_ 22 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "187631dc-97cd-4690-b58f-b717d2341b91",
+      "label": "_DIALECT_22​​​​",
+      "name": "_DIALECT_22​​​​",
+      "originalText": "_DIALECT_ 22 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "47139454-057d-45d0-8135-2d6aa54f8666",
+      "label": "WRITE-TRANSACT-FILE",
+      "name": "WRITE-TRANSACT-FILE",
+      "originalText": "WRITE-TRANSACT-FILE.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "05963162-80b6-4f06-a8e3-dd80c321cc81",
+          "label": "_DIALECT_23​​​​",
+          "name": "_DIALECT_23​​​​",
+          "originalText": "_DIALECT_ 23 ​​​​ ​​​​ ​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
+          "type": "GENERIC_STATEMENT",
+          "categories": [
+            "GENERIC_CODE"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "c2c1c018-173a-44f8-bc3b-8338aa692a6b",
+          "label": "EVALUATE",
+          "name": "EVALUATE",
+          "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 24 ​​​​​​​​​​​​​​​\n                   PERFORM INITIALIZE-ALL-FIELDS\n                   MOVE SPACES             TO WS-MESSAGE\n                   MOVE DFHGREEN           TO ERRMSGC  OF COBIL0AO\n                   STRING \u0027Payment successful. \u0027     DELIMITED BY SIZE\n                     \u0027 Your Transaction ID is \u0027 DELIMITED BY SIZE\n                          TRAN-ID  DELIMITED BY SPACE\n                          \u0027.\u0027 DELIMITED BY SIZE\n                     INTO WS-MESSAGE\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN _DIALECT_ 25 ​​​​​​​​​​​​​​​\n               WHEN _DIALECT_ 26 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Tran ID already exist...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Add Bill pay Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE",
+          "type": "EVALUATE",
+          "categories": [
+            "DECISION"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "8c0c2d13-24c9-4d62-84f7-3bc6b22dd252",
+      "label": "_DIALECT_23​​​​",
+      "name": "_DIALECT_23​​​​",
+      "originalText": "_DIALECT_ 23 ​​​​ ​​​​ ​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 24 ​​​​​​​​​​​​​​​\n                   PERFORM INITIALIZE-ALL-FIELDS\n                   MOVE SPACES             TO WS-MESSAGE\n                   MOVE DFHGREEN           TO ERRMSGC  OF COBIL0AO\n                   STRING \u0027Payment successful. \u0027     DELIMITED BY SIZE\n                     \u0027 Your Transaction ID is \u0027 DELIMITED BY SIZE\n                          TRAN-ID  DELIMITED BY SPACE\n                          \u0027.\u0027 DELIMITED BY SIZE\n                     INTO WS-MESSAGE\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN _DIALECT_ 25 ​​​​​​​​​​​​​​​\n               WHEN _DIALECT_ 26 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Tran ID already exist...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Add Bill pay Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "b614e653-e66b-415a-9f11-cbcc0ffa4870",
+      "label": "CLEAR-CURRENT-SCREEN",
+      "name": "CLEAR-CURRENT-SCREEN",
+      "originalText": "CLEAR-CURRENT-SCREEN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "07e9c2f7-ecbf-4669-9043-7ac0e3fc8692",
+          "label": "PERFORM INITIALIZE-ALL-FIELDS",
+          "name": "PERFORMINITIALI",
+          "originalText": "PERFORM INITIALIZE-ALL-FIELDS",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "0ab7d48e-a330-4d7b-940c-91470828adbd",
+          "label": "PERFORM SEND-BILLPAY-SCREEN",
+          "name": "PERFORMSEND-BIL",
+          "originalText": "PERFORM SEND-BILLPAY-SCREEN",
+          "type": "PERFORM",
+          "categories": [
+            "CONTROL_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "b59b392c-e321-48cf-a9b6-78f076554e1d",
+      "label": "PERFORMINITIALI",
+      "name": "PERFORMINITIALI",
+      "originalText": "PERFORM INITIALIZE-ALL-FIELDS\n           PERFORM SEND-BILLPAY-SCREEN.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [],
+      "id": "2d9af1ad-bd3d-477f-be3a-b3c3b1ec1bb6",
+      "label": "INITIALIZE-ALL-FIELDS",
+      "name": "INITIALIZE-ALL-FIELDS",
+      "originalText": "INITIALIZE-ALL-FIELDS.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "id": "86597b4d-fa76-43cb-9472-cbca670a5712",
+          "label": "MOVE-1TOACTIDIN",
+          "name": "MOVE-1TOACTIDIN",
+          "originalText": "MOVE -1              TO ACTIDINL OF COBIL0AI",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        },
+        {
+          "children": [],
+          "id": "4b1a2aa7-5668-4417-b153-289ef190d565",
+          "label": "MOVESPACESTOACT",
+          "name": "MOVESPACESTOACT",
+          "originalText": "MOVE SPACES          TO ACTIDINI OF COBIL0AI\n                                   CURBALI  OF COBIL0AI\n                                   CONFIRMI OF COBIL0AI\n                                   WS-MESSAGE",
+          "type": "MOVE",
+          "categories": [
+            "DATA_FLOW"
+          ],
+          "nodeType": "CODE_VERTEX"
+        }
+      ],
+      "id": "e32c65b6-4fc6-459e-8622-6d21948d4d8f",
+      "label": "MOVE-1TOACTIDIN",
+      "name": "MOVE-1TOACTIDIN",
+      "originalText": "MOVE -1              TO ACTIDINL OF COBIL0AI\n           MOVE SPACES          TO ACTIDINI OF COBIL0AI\n                                   CURBALI  OF COBIL0AI\n                                   CONFIRMI OF COBIL0AI\n                                   WS-MESSAGE.",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    }
+  ],
+  "id": "ee48a591-3b7f-424f-a3ca-8668879f1eed",
+  "label": "ProcedureDivisionBodyContext/ee48a591-3b7f-424f-a3ca-8668879f1eed",
+  "name": "ProcedureDivisionBodyContext/ee48a591-3b7f-424f-a3ca-8668879f1eed",
+  "originalText": "MAIN-PARA.\n       \n           SET ERR-FLG-OFF     TO TRUE\n           SET USR-MODIFIED-NO TO TRUE\n       \n           MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COBIL0AO\n       \n           IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COBIL0AO\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   IF CDEMO-CB00-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CB00-TRN-SELECTED TO\n                            ACTIDINI OF COBIL0AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-BILLPAY-SCREEN\n               ELSE\n                   PERFORM RECEIVE-BILLPAY-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-BILLPAY-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       PROCESS-ENTER-KEY.\n       \n           SET CONF-PAY-NO TO TRUE\n       \n           EVALUATE TRUE\n               WHEN ACTIDINI OF COBIL0AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Acct ID can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           IF NOT ERR-FLG-ON\n               MOVE ACTIDINI  OF COBIL0AI TO ACCT-ID\n                                             XREF-ACCT-ID\n       \n               EVALUATE CONFIRMI OF COBIL0AI\n                   WHEN \u0027Y\u0027\n                   WHEN \u0027y\u0027\n                       SET CONF-PAY-YES TO TRUE\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN \u0027N\u0027\n                   WHEN \u0027n\u0027\n                       PERFORM CLEAR-CURRENT-SCREEN\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   WHEN SPACES\n                   WHEN LOW-VALUES\n                       PERFORM READ-ACCTDAT-FILE\n                   WHEN OTHER\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                    TO WS-MESSAGE\n                       MOVE -1      TO CONFIRML OF COBIL0AI\n                       PERFORM SEND-BILLPAY-SCREEN\n               END-EVALUATE\n       \n               MOVE ACCT-CURR-BAL TO WS-CURR-BAL\n               MOVE WS-CURR-BAL   TO CURBALI    OF COBIL0AI\n           END-IF\n       \n           IF NOT ERR-FLG-ON\n               IF ACCT-CURR-BAL \u003c\u003d ZEROS AND\n                  ACTIDINI OF COBIL0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027You have nothing to pay...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               END-IF\n           END-IF\n       \n           IF NOT ERR-FLG-ON\n       \n               IF CONF-PAY-YES\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE HIGH-VALUES TO TRAN-ID\n                   PERFORM STARTBR-TRANSACT-FILE\n                   PERFORM READPREV-TRANSACT-FILE\n                   PERFORM ENDBR-TRANSACT-FILE\n                   MOVE TRAN-ID     TO WS-TRAN-ID-NUM\n                   ADD 1 TO WS-TRAN-ID-NUM\n                   INITIALIZE TRAN-RECORD\n                   MOVE WS-TRAN-ID-NUM       TO TRAN-ID\n                   MOVE \u002702\u0027                 TO TRAN-TYPE-CD\n                   MOVE 2                    TO TRAN-CAT-CD\n                   MOVE \u0027POS TERM\u0027           TO TRAN-SOURCE\n                   MOVE \u0027BILL PAYMENT - ONLINE\u0027 TO TRAN-DESC\n                   MOVE ACCT-CURR-BAL        TO TRAN-AMT\n                   MOVE XREF-CARD-NUM        TO TRAN-CARD-NUM\n                   MOVE 999999999            TO TRAN-MERCHANT-ID\n                   MOVE \u0027BILL PAYMENT\u0027       TO TRAN-MERCHANT-NAME\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-CITY\n                   MOVE \u0027N/A\u0027                TO TRAN-MERCHANT-ZIP\n                   PERFORM GET-CURRENT-TIMESTAMP\n                   MOVE WS-TIMESTAMP         TO TRAN-ORIG-TS\n                                                TRAN-PROC-TS\n                   PERFORM WRITE-TRANSACT-FILE\n                   COMPUTE ACCT-CURR-BAL \u003d ACCT-CURR-BAL - TRAN-AMT\n                   PERFORM UPDATE-ACCTDAT-FILE\n               ELSE\n                   MOVE \u0027Confirm to make a bill payment...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CONFIRML OF COBIL0AI\n               END-IF\n       \n               PERFORM SEND-BILLPAY-SCREEN\n       \n           END-IF.\n       \n       \n       \n       \n       GET-CURRENT-TIMESTAMP.\n       \n           _DIALECT_ 2 ​​​​ ​​​​ ​​​​​​​\n           ​​​​​​​​\n       \n           _DIALECT_ 3 ​​​​ ​​​​ ​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​​​​​​\n             ​​​​​​​​​​​​\n             ​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           INITIALIZE WS-TIMESTAMP\n           MOVE WS-CUR-DATE-X10 TO WS-TIMESTAMP(01:10)\n           MOVE WS-CUR-TIME-X08 TO WS-TIMESTAMP(12:08)\n           MOVE ZEROS           TO WS-TIMESTAMP-TM-MS6\n           .\n       \n       \n       \n       \n       \n       RETURN-TO-PREV-SCREEN.\n       \n           IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF\n           MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n           MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n           MOVE ZEROS        TO CDEMO-PGM-CONTEXT\n           _DIALECT_ 4 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       SEND-BILLPAY-SCREEN.\n       \n           PERFORM POPULATE-HEADER-INFO\n       \n           MOVE WS-MESSAGE TO ERRMSGO OF COBIL0AO\n       \n           _DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       RECEIVE-BILLPAY-SCREEN.\n       \n           _DIALECT_ 6 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       POPULATE-HEADER-INFO.\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF COBIL0AO\n           MOVE CCDA-TITLE02           TO TITLE02O OF COBIL0AO\n           MOVE WS-TRANID              TO TRNNAMEO OF COBIL0AO\n           MOVE WS-PGMNAME             TO PGMNAMEO OF COBIL0AO\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COBIL0AO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COBIL0AO.\n       \n       \n       \n       \n       READ-ACCTDAT-FILE.\n       \n           _DIALECT_ 7 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 9 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Account...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       UPDATE-ACCTDAT-FILE.\n       \n           _DIALECT_ 10 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 12 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Update Account...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       READ-CXACAIX-FILE.\n       \n           _DIALECT_ 13 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 15 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup XREF AIX file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       STARTBR-TRANSACT-FILE.\n       \n           _DIALECT_ 16 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 17 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 18 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Transaction ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       READPREV-TRANSACT-FILE.\n       \n           _DIALECT_ 19 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 20 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 21 ​​​​​​​​​​​​​​​​\n                   MOVE ZEROS TO TRAN-ID\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       ENDBR-TRANSACT-FILE.\n       \n           _DIALECT_ 22 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       WRITE-TRANSACT-FILE.\n       \n           _DIALECT_ 23 ​​​​ ​​​​ ​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 24 ​​​​​​​​​​​​​​​\n                   PERFORM INITIALIZE-ALL-FIELDS\n                   MOVE SPACES             TO WS-MESSAGE\n                   MOVE DFHGREEN           TO ERRMSGC  OF COBIL0AO\n                   STRING \u0027Payment successful. \u0027     DELIMITED BY SIZE\n                     \u0027 Your Transaction ID is \u0027 DELIMITED BY SIZE\n                          TRAN-ID  DELIMITED BY SPACE\n                          \u0027.\u0027 DELIMITED BY SIZE\n                     INTO WS-MESSAGE\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN _DIALECT_ 25 ​​​​​​​​​​​​​​​\n               WHEN _DIALECT_ 26 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Tran ID already exist...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Add Bill pay Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COBIL0AI\n                   PERFORM SEND-BILLPAY-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       CLEAR-CURRENT-SCREEN.\n       \n           PERFORM INITIALIZE-ALL-FIELDS\n           PERFORM SEND-BILLPAY-SCREEN.\n       \n       \n       \n       \n       INITIALIZE-ALL-FIELDS.\n       \n           MOVE -1              TO ACTIDINL OF COBIL0AI\n           MOVE SPACES          TO ACTIDINI OF COBIL0AI\n                                   CURBALI  OF COBIL0AI\n                                   CONFIRMI OF COBIL0AI\n                                   WS-MESSAGE.",
+  "type": "PROCEDURE_DIVISION_BODY",
+  "categories": [
+    "CODE_BLOCK"
+  ],
+  "nodeType": "CODE_VERTEX"
+}
