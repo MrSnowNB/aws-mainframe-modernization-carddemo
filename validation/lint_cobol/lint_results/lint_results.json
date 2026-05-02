@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-02T20:16:45.655743+00:00",
+  "generated_at": "2026-05-02T21:19:21.469960+00:00",
   "layer": 2,
   "summary": {
     "total_files": 62,
-    "total_errors": 6,
+    "total_errors": 0,
     "total_warnings": 2,
-    "total_info": 30
+    "total_info": 22
   },
   "files": {
     "CBACT01C": {
@@ -117,16 +117,16 @@
       "info": 1
     },
     "COCRDSLC": {
-      "status": "FAIL",
-      "errors": 1,
+      "status": "PASS",
+      "errors": 0,
       "warnings": 0,
-      "info": 2
+      "info": 0
     },
     "COCRDUPC": {
-      "status": "FAIL",
-      "errors": 2,
+      "status": "PASS",
+      "errors": 0,
       "warnings": 0,
-      "info": 2
+      "info": 0
     },
     "COMEN01C": {
       "status": "PASS",
@@ -274,55 +274,6 @@
       "message": "PERFORM YYYY-STORE-PFKEY THRU YYYY-STORE-PFKEY-EXIT at line 349. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
     },
     {
-      "rule": "L002",
-      "severity": "ERROR",
-      "file": "COCRDSLC",
-      "line": 339,
-      "message": "Compound WHEN..AND at line 339: 'WHEN CDEMO-PGM-ENTER' followed by 'AND CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM'. Restructure using nested IF inside WHEN (Type A rewrite)."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDSLC",
-      "line": 284,
-      "message": "PERFORM YYYY-STORE-PFKEY THRU YYYY-STORE-PFKEY-EXIT at line 284. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDSLC",
-      "line": 379,
-      "message": "PERFORM SEND-PLAIN-TEXT THRU SEND-PLAIN-TEXT-EXIT at line 379. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L002",
-      "severity": "ERROR",
-      "file": "COCRDUPC",
-      "line": 482,
-      "message": "Compound WHEN..AND at line 482: 'WHEN CDEMO-PGM-ENTER' followed by 'AND CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM'. Restructure using nested IF inside WHEN (Type A rewrite)."
-    },
-    {
-      "rule": "L002",
-      "severity": "ERROR",
-      "file": "COCRDUPC",
-      "line": 484,
-      "message": "Compound WHEN..AND at line 484: 'WHEN CCARD-AID-PFK12' followed by 'AND CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM'. Restructure using nested IF inside WHEN (Type A rewrite)."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDUPC",
-      "line": 406,
-      "message": "PERFORM YYYY-STORE-PFKEY THRU YYYY-STORE-PFKEY-EXIT at line 406. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDUPC",
-      "line": 1025,
-      "message": "PERFORM ABEND-ROUTINE THRU ABEND-ROUTINE-EXIT at line 1025. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
       "rule": "L004",
       "severity": "INFO",
       "file": "CSUTLDTC",
@@ -405,55 +356,6 @@
       "file": "COCRDLIC",
       "line": 349,
       "message": "PERFORM YYYY-STORE-PFKEY THRU YYYY-STORE-PFKEY-EXIT at line 349. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L002",
-      "severity": "ERROR",
-      "file": "COCRDSLC",
-      "line": 339,
-      "message": "Compound WHEN..AND at line 339: 'WHEN CDEMO-PGM-ENTER' followed by 'AND CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM'. Restructure using nested IF inside WHEN (Type A rewrite)."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDSLC",
-      "line": 284,
-      "message": "PERFORM YYYY-STORE-PFKEY THRU YYYY-STORE-PFKEY-EXIT at line 284. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDSLC",
-      "line": 379,
-      "message": "PERFORM SEND-PLAIN-TEXT THRU SEND-PLAIN-TEXT-EXIT at line 379. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L002",
-      "severity": "ERROR",
-      "file": "COCRDUPC",
-      "line": 482,
-      "message": "Compound WHEN..AND at line 482: 'WHEN CDEMO-PGM-ENTER' followed by 'AND CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM'. Restructure using nested IF inside WHEN (Type A rewrite)."
-    },
-    {
-      "rule": "L002",
-      "severity": "ERROR",
-      "file": "COCRDUPC",
-      "line": 484,
-      "message": "Compound WHEN..AND at line 484: 'WHEN CCARD-AID-PFK12' followed by 'AND CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM'. Restructure using nested IF inside WHEN (Type A rewrite)."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDUPC",
-      "line": 406,
-      "message": "PERFORM YYYY-STORE-PFKEY THRU YYYY-STORE-PFKEY-EXIT at line 406. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
-    },
-    {
-      "rule": "L004",
-      "severity": "INFO",
-      "file": "COCRDUPC",
-      "line": 1025,
-      "message": "PERFORM ABEND-ROUTINE THRU ABEND-ROUTINE-EXIT at line 1025. Verify paragraph adjacency \u2014 all paragraphs between these two are included in the execution path."
     },
     {
       "rule": "L004",
