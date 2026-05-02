@@ -1,0 +1,446 @@
+{
+  "nodes": [
+    {
+      "id": "ee7f02d7-1228-4933-b2ce-c7258b34dab3",
+      "label": "ProcedureDivisionBodyContext/ee7f02d7-1228-4933-b2ce-c7258b34dab3",
+      "name": "ProcedureDivisionBodyContext/ee7f02d7-1228-4933-b2ce-c7258b34dab3",
+      "originalText": "INITIALIZE WS-MESSAGE\n           MOVE SPACES TO WS-DATE\n       \n           PERFORM A000-MAIN\n              THRU A000-MAIN-EXIT\n       \n       \n           MOVE WS-MESSAGE                 TO LS-RESULT\n           MOVE WS-SEVERITY-N              TO RETURN-CODE\n       \n           EXIT PROGRAM\n       \n           .\n       A000-MAIN.\n       \n           MOVE LENGTH OF LS-DATE\n                        TO VSTRING-LENGTH  OF WS-DATE-TO-TEST\n           MOVE LS-DATE TO VSTRING-TEXT    OF WS-DATE-TO-TEST\n                           WS-DATE\n           MOVE LENGTH OF LS-DATE-FORMAT\n                         TO VSTRING-LENGTH OF WS-DATE-FORMAT\n           MOVE LS-DATE-FORMAT\n                         TO VSTRING-TEXT   OF WS-DATE-FORMAT\n                            WS-DATE-FMT\n           MOVE 0        TO OUTPUT-LILLIAN\n       \n           CALL \"CEEDAYS\" USING\n                  WS-DATE-TO-TEST, \n                  WS-DATE-FORMAT, \n                  OUTPUT-LILLIAN, \n                  FEEDBACK-CODE\n       \n           MOVE WS-DATE-TO-TEST            TO WS-DATE\n           MOVE SEVERITY OF FEEDBACK-CODE  TO WS-SEVERITY-N\n           MOVE MSG-NO OF FEEDBACK-CODE    TO WS-MSG-NO-N\n       \n       \n       \n           EVALUATE TRUE\n              WHEN FC-INVALID-DATE\n                 MOVE \u0027Date is valid\u0027      TO WS-RESULT\n              WHEN FC-INSUFFICIENT-DATA\n                 MOVE \u0027Insufficient\u0027       TO WS-RESULT\n              WHEN FC-BAD-DATE-VALUE\n                 MOVE \u0027Datevalue error\u0027    TO WS-RESULT\n              WHEN FC-INVALID-ERA\n                 MOVE \u0027Invalid Era    \u0027    TO WS-RESULT\n              WHEN FC-UNSUPP-RANGE\n                 MOVE \u0027Unsupp. Range  \u0027    TO WS-RESULT\n              WHEN FC-INVALID-MONTH\n                 MOVE \u0027Invalid month  \u0027    TO WS-RESULT\n              WHEN FC-BAD-PIC-STRING\n                 MOVE \u0027Bad Pic String \u0027    TO WS-RESULT\n              WHEN FC-NON-NUMERIC-DATA\n                 MOVE \u0027Nonnumeric data\u0027    TO WS-RESULT\n              WHEN FC-YEAR-IN-ERA-ZERO\n                 MOVE \u0027YearInEra is 0 \u0027    TO WS-RESULT\n              WHEN OTHER\n                 MOVE \u0027Date is invalid\u0027    TO WS-RESULT\n           END-EVALUATE\n       \n           .\n       A000-MAIN-EXIT.\n           EXIT\n           .",
+      "type": "PROCEDURE_DIVISION_BODY",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "29c4e3e2-ee6a-45e5-8d55-4429d6f1e576",
+      "label": "INITIALIZEWS-ME",
+      "name": "INITIALIZEWS-ME",
+      "originalText": "INITIALIZE WS-MESSAGE\n           MOVE SPACES TO WS-DATE\n       \n           PERFORM A000-MAIN\n              THRU A000-MAIN-EXIT\n       \n       \n           MOVE WS-MESSAGE                 TO LS-RESULT\n           MOVE WS-SEVERITY-N              TO RETURN-CODE\n       \n           EXIT PROGRAM\n       \n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "e4b67010-0d9e-4665-a04f-e343abe38ac2",
+      "label": "A000-MAIN",
+      "name": "A000-MAIN",
+      "originalText": "A000-MAIN.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "label": "MOVELENGTHOFLS-",
+      "name": "MOVELENGTHOFLS-",
+      "originalText": "MOVE LENGTH OF LS-DATE\n                        TO VSTRING-LENGTH  OF WS-DATE-TO-TEST\n           MOVE LS-DATE TO VSTRING-TEXT    OF WS-DATE-TO-TEST\n                           WS-DATE\n           MOVE LENGTH OF LS-DATE-FORMAT\n                         TO VSTRING-LENGTH OF WS-DATE-FORMAT\n           MOVE LS-DATE-FORMAT\n                         TO VSTRING-TEXT   OF WS-DATE-FORMAT\n                            WS-DATE-FMT\n           MOVE 0        TO OUTPUT-LILLIAN\n       \n           CALL \"CEEDAYS\" USING\n                  WS-DATE-TO-TEST, \n                  WS-DATE-FORMAT, \n                  OUTPUT-LILLIAN, \n                  FEEDBACK-CODE\n       \n           MOVE WS-DATE-TO-TEST            TO WS-DATE\n           MOVE SEVERITY OF FEEDBACK-CODE  TO WS-SEVERITY-N\n           MOVE MSG-NO OF FEEDBACK-CODE    TO WS-MSG-NO-N\n       \n       \n       \n           EVALUATE TRUE\n              WHEN FC-INVALID-DATE\n                 MOVE \u0027Date is valid\u0027      TO WS-RESULT\n              WHEN FC-INSUFFICIENT-DATA\n                 MOVE \u0027Insufficient\u0027       TO WS-RESULT\n              WHEN FC-BAD-DATE-VALUE\n                 MOVE \u0027Datevalue error\u0027    TO WS-RESULT\n              WHEN FC-INVALID-ERA\n                 MOVE \u0027Invalid Era    \u0027    TO WS-RESULT\n              WHEN FC-UNSUPP-RANGE\n                 MOVE \u0027Unsupp. Range  \u0027    TO WS-RESULT\n              WHEN FC-INVALID-MONTH\n                 MOVE \u0027Invalid month  \u0027    TO WS-RESULT\n              WHEN FC-BAD-PIC-STRING\n                 MOVE \u0027Bad Pic String \u0027    TO WS-RESULT\n              WHEN FC-NON-NUMERIC-DATA\n                 MOVE \u0027Nonnumeric data\u0027    TO WS-RESULT\n              WHEN FC-YEAR-IN-ERA-ZERO\n                 MOVE \u0027YearInEra is 0 \u0027    TO WS-RESULT\n              WHEN OTHER\n                 MOVE \u0027Date is invalid\u0027    TO WS-RESULT\n           END-EVALUATE\n       \n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "5960757f-2530-454a-89f6-243220ffaa00",
+      "label": "A000-MAIN-EXIT",
+      "name": "A000-MAIN-EXIT",
+      "originalText": "A000-MAIN-EXIT.",
+      "type": "ATOMIC",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "8ffb28b5-9632-4466-8b0e-e3651de57fe3",
+      "label": "EXIT.",
+      "name": "EXIT.",
+      "originalText": "EXIT\n           .",
+      "type": "SENTENCE",
+      "categories": [
+        "CODE_BLOCK"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "8d9afcdc-3fd9-45dc-a72c-b6d39f5e2a50",
+      "label": "EXIT",
+      "name": "EXIT",
+      "originalText": "EXIT",
+      "type": "EXIT",
+      "categories": [
+        "TERMINAL"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "dad50d20-6a6b-4edc-99d1-76d2b1818a2e",
+      "label": "MOVELENGTHOFLS-",
+      "name": "MOVELENGTHOFLS-",
+      "originalText": "MOVE LENGTH OF LS-DATE\n                        TO VSTRING-LENGTH  OF WS-DATE-TO-TEST",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "45b686c1-dd76-45af-ac20-366459fe3fff",
+      "label": "MOVELS-DATETOVS",
+      "name": "MOVELS-DATETOVS",
+      "originalText": "MOVE LS-DATE TO VSTRING-TEXT    OF WS-DATE-TO-TEST\n                           WS-DATE",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "955d34ee-e504-4ceb-9bda-08d13a5b1561",
+      "label": "MOVELENGTHOFLS-",
+      "name": "MOVELENGTHOFLS-",
+      "originalText": "MOVE LENGTH OF LS-DATE-FORMAT\n                         TO VSTRING-LENGTH OF WS-DATE-FORMAT",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "f5b9d4ac-5015-436f-be81-f9280b6358f3",
+      "label": "MOVELS-DATE-FOR",
+      "name": "MOVELS-DATE-FOR",
+      "originalText": "MOVE LS-DATE-FORMAT\n                         TO VSTRING-TEXT   OF WS-DATE-FORMAT\n                            WS-DATE-FMT",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "f80bcac4-7681-4194-8943-bb3d2aa03a22",
+      "label": "MOVE0TOOUTPUT-L",
+      "name": "MOVE0TOOUTPUT-L",
+      "originalText": "MOVE 0        TO OUTPUT-LILLIAN",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "ae04797c-8d1b-4ea6-9dd2-6cbb6b580d48",
+      "label": "CALL \"CEEDAYS\" USING\n                  WS-DATE-TO-TEST, \n                  WS-DATE-FORMAT, \n                  OUTPUT-LILLIAN, \n                  FEEDBACK-CODE",
+      "name": "CALL\"CEEDAYS\"US",
+      "originalText": "CALL \"CEEDAYS\" USING\n                  WS-DATE-TO-TEST, \n                  WS-DATE-FORMAT, \n                  OUTPUT-LILLIAN, \n                  FEEDBACK-CODE",
+      "type": "CALL",
+      "categories": [
+        "CONTROL_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "73fb77e4-a5b7-464b-945f-9fdf2e7575d0",
+      "label": "MOVEWS-DATE-TO-",
+      "name": "MOVEWS-DATE-TO-",
+      "originalText": "MOVE WS-DATE-TO-TEST            TO WS-DATE",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "9240f2d1-c1e9-4c1c-9c18-8959d92e588f",
+      "label": "MOVESEVERITYOFF",
+      "name": "MOVESEVERITYOFF",
+      "originalText": "MOVE SEVERITY OF FEEDBACK-CODE  TO WS-SEVERITY-N",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "6c9343e0-482e-4aad-a538-315e726d1a54",
+      "label": "MOVEMSG-NOOFFEE",
+      "name": "MOVEMSG-NOOFFEE",
+      "originalText": "MOVE MSG-NO OF FEEDBACK-CODE    TO WS-MSG-NO-N",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "9d407489-3d98-4d5b-9b46-17ba0257015d",
+      "label": "EVALUATE",
+      "name": "EVALUATE",
+      "originalText": "EVALUATE TRUE\n              WHEN FC-INVALID-DATE\n                 MOVE \u0027Date is valid\u0027      TO WS-RESULT\n              WHEN FC-INSUFFICIENT-DATA\n                 MOVE \u0027Insufficient\u0027       TO WS-RESULT\n              WHEN FC-BAD-DATE-VALUE\n                 MOVE \u0027Datevalue error\u0027    TO WS-RESULT\n              WHEN FC-INVALID-ERA\n                 MOVE \u0027Invalid Era    \u0027    TO WS-RESULT\n              WHEN FC-UNSUPP-RANGE\n                 MOVE \u0027Unsupp. Range  \u0027    TO WS-RESULT\n              WHEN FC-INVALID-MONTH\n                 MOVE \u0027Invalid month  \u0027    TO WS-RESULT\n              WHEN FC-BAD-PIC-STRING\n                 MOVE \u0027Bad Pic String \u0027    TO WS-RESULT\n              WHEN FC-NON-NUMERIC-DATA\n                 MOVE \u0027Nonnumeric data\u0027    TO WS-RESULT\n              WHEN FC-YEAR-IN-ERA-ZERO\n                 MOVE \u0027YearInEra is 0 \u0027    TO WS-RESULT\n              WHEN OTHER\n                 MOVE \u0027Date is invalid\u0027    TO WS-RESULT\n           END-EVALUATE",
+      "type": "EVALUATE",
+      "categories": [
+        "DECISION"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "88212ec2-278a-4c56-9ae7-6e9b4a692b6f",
+      "label": "INITIALIZEWS-ME",
+      "name": "INITIALIZEWS-ME",
+      "originalText": "INITIALIZE WS-MESSAGE",
+      "type": "GENERIC_STATEMENT",
+      "categories": [
+        "GENERIC_CODE"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "49fcc86f-e565-4f72-857b-a922bf8868b8",
+      "label": "MOVESPACESTOWS-",
+      "name": "MOVESPACESTOWS-",
+      "originalText": "MOVE SPACES TO WS-DATE",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "label": "PERFORM A000-MAIN\n            ",
+      "name": "PERFORMA000-MAI",
+      "originalText": "PERFORM A000-MAIN\n              THRU A000-MAIN-EXIT",
+      "type": "PERFORM",
+      "categories": [
+        "CONTROL_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "e088ba03-ed7c-4a91-9ff4-81cd7b11429e",
+      "label": "MOVEWS-MESSAGET",
+      "name": "MOVEWS-MESSAGET",
+      "originalText": "MOVE WS-MESSAGE                 TO LS-RESULT",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "7171dfb1-c124-4404-9d5a-8f1a9737df68",
+      "label": "MOVEWS-SEVERITY",
+      "name": "MOVEWS-SEVERITY",
+      "originalText": "MOVE WS-SEVERITY-N              TO RETURN-CODE",
+      "type": "MOVE",
+      "categories": [
+        "DATA_FLOW"
+      ],
+      "nodeType": "CODE_VERTEX"
+    },
+    {
+      "id": "8d6f4c1d-50a7-48a5-b927-3d9cd0f7a41c",
+      "label": "EXITPROGRAM",
+      "name": "EXITPROGRAM",
+      "originalText": "EXIT PROGRAM",
+      "type": "EXIT",
+      "categories": [
+        "TERMINAL"
+      ],
+      "nodeType": "CODE_VERTEX"
+    }
+  ],
+  "edges": [
+    {
+      "id": "10d5dbd2-5090-47c3-b5d6-250d508ae516",
+      "fromNodeID": "ee7f02d7-1228-4933-b2ce-c7258b34dab3",
+      "toNodeID": "29c4e3e2-ee6a-45e5-8d55-4429d6f1e576",
+      "edgeType": "STARTS_WITH"
+    },
+    {
+      "id": "e2c4a990-6ff1-4723-90f4-79dbd7dcc470",
+      "fromNodeID": "29c4e3e2-ee6a-45e5-8d55-4429d6f1e576",
+      "toNodeID": "e4b67010-0d9e-4665-a04f-e343abe38ac2",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "280c6146-1406-4d85-98df-9ba05189f6ed",
+      "fromNodeID": "e4b67010-0d9e-4665-a04f-e343abe38ac2",
+      "toNodeID": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "d4069f74-b9bf-4764-be70-5f65a4ba4af8",
+      "fromNodeID": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "toNodeID": "5960757f-2530-454a-89f6-243220ffaa00",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "25c506d6-8771-44fd-9923-bac450afc977",
+      "fromNodeID": "5960757f-2530-454a-89f6-243220ffaa00",
+      "toNodeID": "8ffb28b5-9632-4466-8b0e-e3651de57fe3",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "8569faea-a9f1-4b3f-acc6-53afecafda66",
+      "fromNodeID": "8ffb28b5-9632-4466-8b0e-e3651de57fe3",
+      "toNodeID": "8d9afcdc-3fd9-45dc-a72c-b6d39f5e2a50",
+      "edgeType": "STARTS_WITH"
+    },
+    {
+      "id": "cf57dbcd-d760-4c0f-b560-54d1ecf659d7",
+      "fromNodeID": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "toNodeID": "dad50d20-6a6b-4edc-99d1-76d2b1818a2e",
+      "edgeType": "STARTS_WITH"
+    },
+    {
+      "id": "0281968f-b0da-4a09-b7a2-0203be1d0bbc",
+      "fromNodeID": "dad50d20-6a6b-4edc-99d1-76d2b1818a2e",
+      "toNodeID": "45b686c1-dd76-45af-ac20-366459fe3fff",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "ca324a2a-2838-4ce2-b3c8-74a1ab1df32a",
+      "fromNodeID": "45b686c1-dd76-45af-ac20-366459fe3fff",
+      "toNodeID": "955d34ee-e504-4ceb-9bda-08d13a5b1561",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "5e163b9b-e9a6-4d15-95db-75c254d845ec",
+      "fromNodeID": "955d34ee-e504-4ceb-9bda-08d13a5b1561",
+      "toNodeID": "f5b9d4ac-5015-436f-be81-f9280b6358f3",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "827bd433-5584-41f1-aa9f-bcd8b900c7e7",
+      "fromNodeID": "f5b9d4ac-5015-436f-be81-f9280b6358f3",
+      "toNodeID": "f80bcac4-7681-4194-8943-bb3d2aa03a22",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "a7d586a8-27e7-47aa-8b48-042b5df0ad28",
+      "fromNodeID": "f80bcac4-7681-4194-8943-bb3d2aa03a22",
+      "toNodeID": "ae04797c-8d1b-4ea6-9dd2-6cbb6b580d48",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "3e1c6b19-948d-4054-ab3c-e8db0083232b",
+      "fromNodeID": "ae04797c-8d1b-4ea6-9dd2-6cbb6b580d48",
+      "toNodeID": "73fb77e4-a5b7-464b-945f-9fdf2e7575d0",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "9b4212cd-25cb-4653-ac44-04e2d0733ed3",
+      "fromNodeID": "73fb77e4-a5b7-464b-945f-9fdf2e7575d0",
+      "toNodeID": "9240f2d1-c1e9-4c1c-9c18-8959d92e588f",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "1b26c490-1b70-4675-90ac-153eebea369b",
+      "fromNodeID": "9240f2d1-c1e9-4c1c-9c18-8959d92e588f",
+      "toNodeID": "6c9343e0-482e-4aad-a538-315e726d1a54",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "ad1565df-0052-4c14-a926-b40db4fa6614",
+      "fromNodeID": "6c9343e0-482e-4aad-a538-315e726d1a54",
+      "toNodeID": "9d407489-3d98-4d5b-9b46-17ba0257015d",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "f6ec13f7-71c6-4048-b3c1-793731f6c6d9",
+      "fromNodeID": "29c4e3e2-ee6a-45e5-8d55-4429d6f1e576",
+      "toNodeID": "88212ec2-278a-4c56-9ae7-6e9b4a692b6f",
+      "edgeType": "STARTS_WITH"
+    },
+    {
+      "id": "ced70a5e-fd05-41ed-ad78-177856425009",
+      "fromNodeID": "88212ec2-278a-4c56-9ae7-6e9b4a692b6f",
+      "toNodeID": "49fcc86f-e565-4f72-857b-a922bf8868b8",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "a7070e84-595f-494d-b290-7e4846acf97b",
+      "fromNodeID": "49fcc86f-e565-4f72-857b-a922bf8868b8",
+      "toNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "1dc28643-6a75-469d-88d9-d2abe99827af",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "e088ba03-ed7c-4a91-9ff4-81cd7b11429e",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "2a96ab4b-9c75-48da-8afe-8b47191ead13",
+      "fromNodeID": "e088ba03-ed7c-4a91-9ff4-81cd7b11429e",
+      "toNodeID": "7171dfb1-c124-4404-9d5a-8f1a9737df68",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "8435ec51-6a94-487a-a8e7-40fdfe30c5e1",
+      "fromNodeID": "7171dfb1-c124-4404-9d5a-8f1a9737df68",
+      "toNodeID": "8d6f4c1d-50a7-48a5-b927-3d9cd0f7a41c",
+      "edgeType": "FOLLOWED_BY"
+    },
+    {
+      "id": "9ec90d8f-43dc-4c2b-88c6-e5a344b24fc7",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "e4b67010-0d9e-4665-a04f-e343abe38ac2",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "fc51a7c6-5bb5-4aa2-bd7c-a257b95db524",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "b3187470-c658-4948-b1d8-f2a74fcd8c85",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "5960757f-2530-454a-89f6-243220ffaa00",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "e359f7b1-9277-4abf-9a10-c1252da651fa",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "e4b67010-0d9e-4665-a04f-e343abe38ac2",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "8372623e-e627-433c-b2c2-a99610dcd11f",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "86550a00-d885-4847-a948-f75d93832131",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "5960757f-2530-454a-89f6-243220ffaa00",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "5731b903-43b1-48df-a7a4-bb6e0f66bd4c",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "e4b67010-0d9e-4665-a04f-e343abe38ac2",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "cdad5250-e04e-4072-8505-8611e21edb2d",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "beccd6c5-eca9-4498-b07b-1abbe5d96e17",
+      "edgeType": "JUMPS_TO"
+    },
+    {
+      "id": "54bf93f4-d2db-4fcd-90eb-3d1449cedff7",
+      "fromNodeID": "bbd34941-2faa-476d-bea4-485962fdd12d",
+      "toNodeID": "5960757f-2530-454a-89f6-243220ffaa00",
+      "edgeType": "JUMPS_TO"
+    }
+  ],
+  "idProvider": {}
+}
