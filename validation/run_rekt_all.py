@@ -5,7 +5,7 @@ run_rekt_all.py
 Batch Cobol-REKT runner for every COBOL source file under app/cbl/.
 
 For each program that does not yet have a REKT report directory the script:
-  1. Invokes the smojol-cli JAR with the ``analyse`` command.
+  1. Invokes the smojol-cli JAR with the ``run`` command.
   2. On success immediately runs extract_cfg_summary.py to build the
      validation/structure/<PROG>_cfg.json artefact.
 
@@ -19,7 +19,11 @@ Usage
 
 Environment
 -----------
-  SMOJOL_JAR   Path to the smojol-cli JAR (overrides --jar and auto-detect).
+  SMOJOL_JAR    Path to the smojol-cli JAR (overrides --jar and auto-detect).
+  DIALECT_JAR   Path to the dialect-idms JAR (optional; enables IDMS dialect
+                support).  Typically:
+                  C:\\work\\cobol-rekt\\che-che4z-lsp-for-cobol-integration\\
+                    server\\dialect-idms\\target\\dialect-idms.jar
 
 Auto-detect order for the JAR
 ------------------------------
@@ -60,6 +64,12 @@ CANDIDATE_JARS = [
     Path.home() / "tools" / "smojol-cli.jar",
     Path.home() / "cobol-rekt" / "smojol-cli.jar",
 ]
+
+# smojol-cli 'run' commands required for CFG + data-structure extraction.
+# WRITE_CFG             -> paragraph-level CFG JSON (used by extract_cfg_summary.py)
+# WRITE_DATA_STRUCTURES -> Working Storage inventory (used by gate data-items checks)
+# WRITE_FLOW_AST        -> AST needed by the CFG builder; must precede WRITE_CFG
+REKT_COMMANDS = "WRITE_FLOW_AST,WRITE_CFG,WRITE_DATA_STRUCTURES"
 
 # Default per-program timeout in seconds (5 minutes).
 DEFAULT_TIMEOUT = 300
@@ -125,24 +135,50 @@ def locate_jar(jar_arg: str | None) -> Path | None:
     return None
 
 
+def locate_dialect_jar() -> Path | None:
+    """Return the dialect-idms JAR path from DIALECT_JAR env var, or None."""
+    env = os.environ.get("DIALECT_JAR")
+    if env:
+        p = Path(env)
+        if p.exists():
+            return p
+        print(FAIL(f"[JAR] DIALECT_JAR env var set but file not found: {p}"))
+    return None
+
+
 def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
     """
     Build the smojol-cli invocation for a single program.
 
-    Command shape (matches existing validated invocations):
-      java -jar smojol-cli.jar analyse \
-           --source     <src.cbl> \
-           --copybooks  <app/cpy> \
-           --output     validation/rekt/<PROG>.cbl.report
+    Command shape (matches cobol-rekt/scripts/aws-carddemo.sh):
+      java -jar smojol-cli.jar run <src.cbl>
+           --commands=WRITE_FLOW_AST,WRITE_CFG,WRITE_DATA_STRUCTURES
+           --srcDir     <app/cbl>
+           --copyBooksDir <app/cpy>
+           --dialectJarPath <dialect-idms.jar>   # omitted when not found
+           --dialect    COBOL
+           --reportDir  validation/rekt/<PROG>.cbl.report
+           --generation=PARAGRAPH
     """
     out = report_dir(prog)
-    return [
+    cmd = [
         "java", "-jar", str(jar),
-        "analyse",
-        "--source",    str(src),
-        "--copybooks", str(COPY_DIR),
-        "--output",    str(out),
+        "run", str(src),
+        f"--commands={REKT_COMMANDS}",
+        "--srcDir",        str(SRC_DIR),
+        "--copyBooksDir",  str(COPY_DIR),
     ]
+
+    dialect_jar = locate_dialect_jar()
+    if dialect_jar:
+        cmd += ["--dialectJarPath", str(dialect_jar)]
+
+    cmd += [
+        "--dialect",    "COBOL",
+        "--reportDir",  str(out),
+        "--generation=PARAGRAPH",
+    ]
+    return cmd
 
 
 def run_extract(prog: str, dry_run: bool) -> bool:
@@ -271,6 +307,13 @@ def main() -> int:
             print(FAIL(f"        Searched: {[str(p) for p in CANDIDATE_JARS]}"))
             return 2
         print(INFO(f"[JAR]  Using: {jar}"))
+
+        dialect_jar = locate_dialect_jar()
+        if dialect_jar:
+            print(INFO(f"[JAR]  Dialect: {dialect_jar}"))
+        else:
+            print(INFO("[JAR]  Dialect JAR not set (DIALECT_JAR env var); "
+                       "--dialectJarPath will be omitted"))
     else:
         jar = Path("smojol-cli.jar")   # placeholder for dry-run display
 
