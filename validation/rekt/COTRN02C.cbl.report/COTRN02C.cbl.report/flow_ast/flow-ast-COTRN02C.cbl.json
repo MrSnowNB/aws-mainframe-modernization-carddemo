@@ -2,7 +2,7 @@
   "children": [
     {
       "children": [],
-      "id": "5b37c1c1-1cf5-4650-9c68-3fc815dfc161",
+      "id": "da1a039f-659c-4c8c-bded-4cd7bf639f1b",
       "label": "MAIN-PARA",
       "name": "MAIN-PARA",
       "originalText": "MAIN-PARA.",
@@ -16,7 +16,7 @@
       "children": [
         {
           "children": [],
-          "id": "1f6d0220-6a18-4ef4-ba30-f9e9dff796bf",
+          "id": "d999730e-46ab-4b53-8278-5a4c43a4fd80",
           "label": "SETERR-FLG-OFFT",
           "name": "SETERR-FLG-OFFT",
           "originalText": "SET ERR-FLG-OFF     TO TRUE",
@@ -28,7 +28,7 @@
         },
         {
           "children": [],
-          "id": "93c25b9f-6f6e-48aa-b5e4-2a572e8033f0",
+          "id": "9d0a2d9a-dbcd-47f9-ab56-dbb5ac3b64a3",
           "label": "SETUSR-MODIFIED",
           "name": "SETUSR-MODIFIED",
           "originalText": "SET USR-MODIFIED-NO TO TRUE",
@@ -40,7 +40,7 @@
         },
         {
           "children": [],
-          "id": "d759bf45-5dac-4a94-b84c-f039e7757d27",
+          "id": "85c3ba64-192e-40c2-8bb8-080d34b90e10",
           "label": "MOVESPACESTOWS-",
           "name": "MOVESPACESTOWS-",
           "originalText": "MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COTRN2AO",
@@ -56,7 +56,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "591dd16a-0625-48f3-a495-f95bf874ee07",
+                  "id": "1871a262-fafa-4a3a-93b3-2bebc7bea83a",
                   "label": "MOVE\u0027COSGN00C\u0027T",
                   "name": "MOVE\u0027COSGN00C\u0027T",
                   "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
@@ -68,7 +68,7 @@
                 },
                 {
                   "children": [],
-                  "id": "906bd0ac-ae8f-4c1a-aa29-0a688cbb59aa",
+                  "id": "d09aa6b4-86c8-4924-94c2-73f7c7b91716",
                   "label": "PERFORM RETURN-TO-PREV-SCREEN",
                   "name": "PERFORMRETURN-T",
                   "originalText": "PERFORM RETURN-TO-PREV-SCREEN",
@@ -79,7 +79,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "4c95e58c-386c-44c5-95f6-86528e58fa92",
+              "id": "ff53c8ed-2864-4e86-91ae-8ef1bfc40999",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN",
@@ -93,7 +93,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "ab0b00a7-599f-4b6e-8c72-58e3e0d3c7f1",
+                  "id": "ef316831-3aed-493d-b3dc-2d3acfbf5895",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -105,7 +105,7 @@
                 },
                 {
                   "children": [],
-                  "id": "9191d819-29cb-4068-aacb-8d756bc3fe31",
+                  "id": "eb5078d9-5229-468e-b9c6-a140dca5c7ac",
                   "label": "MOVEDFHCOMMAREA",
                   "name": "MOVEDFHCOMMAREA",
                   "originalText": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA",
@@ -121,7 +121,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "d3439d0d-8d96-4bf3-8ff8-02d0dcb5d54e",
+                          "id": "52a9926b-b341-46e1-9e85-79be327eded6",
                           "label": "SETCDEMO-PGM-RE",
                           "name": "SETCDEMO-PGM-RE",
                           "originalText": "SET CDEMO-PGM-REENTER    TO TRUE",
@@ -133,7 +133,7 @@
                         },
                         {
                           "children": [],
-                          "id": "5b47b0cf-f867-4d88-a7d4-5fc360e95b32",
+                          "id": "d92eecbf-0a08-4ed8-8b64-5a6a3005cecc",
                           "label": "MOVELOW-VALUEST",
                           "name": "MOVELOW-VALUEST",
                           "originalText": "MOVE LOW-VALUES          TO COTRN2AO",
@@ -145,7 +145,7 @@
                         },
                         {
                           "children": [],
-                          "id": "0ceeb0e2-3f80-4174-aa51-6c8e721d604b",
+                          "id": "1aab7816-18ba-47d0-b26b-f9b7d77a0ba4",
                           "label": "MOVE-1TOACTIDIN",
                           "name": "MOVE-1TOACTIDIN",
                           "originalText": "MOVE -1       TO ACTIDINL OF COTRN2AI",
@@ -161,7 +161,7 @@
                               "children": [
                                 {
                                   "children": [],
-                                  "id": "bc82d2d7-ae9a-423f-80b2-eb67e4d430a3",
+                                  "id": "ac7bd8be-cce4-4ad4-bbef-b4f7edd86af9",
                                   "label": "MOVECDEMO-CT02-",
                                   "name": "MOVECDEMO-CT02-",
                                   "originalText": "MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI",
@@ -173,7 +173,7 @@
                                 },
                                 {
                                   "children": [],
-                                  "id": "796fda35-4b6b-4e4f-9d5f-6260bbd2a7f1",
+                                  "id": "56572fc4-db7b-4042-869f-11a2965b1167",
                                   "label": "PERFORM PROCESS-ENTER-KEY",
                                   "name": "PERFORMPROCESS-",
                                   "originalText": "PERFORM PROCESS-ENTER-KEY",
@@ -184,7 +184,7 @@
                                   "nodeType": "CODE_VERTEX"
                                 }
                               ],
-                              "id": "4c28d2ab-a75f-4d9c-b1b7-e83e59817228",
+                              "id": "ca59c7b1-d1d4-42e9-8d57-6be9b4d6fa1e",
                               "label": "Yes",
                               "name": "Yes",
                               "originalText": "MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY",
@@ -195,7 +195,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "f4505b1f-fa7b-4b0c-ace5-751a219f5ff0",
+                          "id": "643a37f5-3447-4dda-90f0-8a260cce56da",
                           "label": "IS \nCDEMO-CT02-TRN-SELECTED NOT \u003d\n          ?\n",
                           "name": "IS \nCDEMO-CT02-TRN-SELECTED NOT \u003d\n          ?\n",
                           "originalText": "IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF",
@@ -207,7 +207,7 @@
                         },
                         {
                           "children": [],
-                          "id": "744e6a41-a6f8-4adc-ad0e-d1e0bfe7aca6",
+                          "id": "29ed3170-6a75-4ccb-82cb-77cff870e9cf",
                           "label": "PERFORM SEND-TRNADD-SCREEN",
                           "name": "PERFORMSEND-TRN",
                           "originalText": "PERFORM SEND-TRNADD-SCREEN",
@@ -218,7 +218,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "afbd7e98-17f4-4b0b-9799-d6b920604acb",
+                      "id": "606e786c-0d26-48a4-8d1d-cb3cf642b614",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COTRN2AO\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-TRNADD-SCREEN",
@@ -232,7 +232,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "a28e213e-5852-41b7-97c9-70b83e949519",
+                          "id": "2e5b0c62-1fd2-4355-a478-56fda1ebffeb",
                           "label": "ELSE",
                           "name": "ELSE",
                           "originalText": "ELSE",
@@ -244,7 +244,7 @@
                         },
                         {
                           "children": [],
-                          "id": "87a64d3e-550d-4a3a-8e40-dfb8771c45fc",
+                          "id": "86aacd44-0fa8-46af-907b-5b9e8cb5df1e",
                           "label": "PERFORM RECEIVE-TRNADD-SCREEN",
                           "name": "PERFORMRECEIVE-",
                           "originalText": "PERFORM RECEIVE-TRNADD-SCREEN",
@@ -256,7 +256,7 @@
                         },
                         {
                           "children": [],
-                          "id": "ba4ab8d2-9a5b-4290-97ff-9ddbe7fe0d95",
+                          "id": "ed803ad9-7988-458d-be71-f3f57e6a7e14",
                           "label": "EVALUATE",
                           "name": "EVALUATE",
                           "originalText": "EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE",
@@ -267,7 +267,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "707336a0-a1eb-4730-b7aa-2c26ca059b28",
+                      "id": "c5f47b11-4388-47b3-aadb-6cef3943a6bc",
                       "label": "No",
                       "name": "No",
                       "originalText": "ELSE\n                   PERFORM RECEIVE-TRNADD-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE",
@@ -278,7 +278,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "3d5f032c-84d7-45c1-bb12-17b67de6bc42",
+                  "id": "2d1a8e19-c22b-42f0-90f6-276b393233bb",
                   "label": "IS \nNOT CDEMO-PGM-REENTER?\n",
                   "name": "IS \nNOT CDEMO-PGM-REENTER?\n",
                   "originalText": "IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COTRN2AO\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-TRNADD-SCREEN\n               ELSE\n                   PERFORM RECEIVE-TRNADD-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE\n               END-IF",
@@ -289,7 +289,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "58b9b7c1-4355-4eec-8af4-5ac355114848",
+              "id": "0757b253-f233-40e6-b553-ccaa895b0bbb",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COTRN2AO\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-TRNADD-SCREEN\n               ELSE\n                   PERFORM RECEIVE-TRNADD-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE\n               END-IF",
@@ -300,7 +300,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "84d61d38-daa7-45e1-94a1-1b9b2427143b",
+          "id": "ea134e58-3503-4ba9-8ef0-7ba60073de43",
           "label": "IS \nEIBCALEN \u003d 0?\n",
           "name": "IS \nEIBCALEN \u003d 0?\n",
           "originalText": "IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COTRN2AO\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-TRNADD-SCREEN\n               ELSE\n                   PERFORM RECEIVE-TRNADD-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF",
@@ -312,7 +312,7 @@
         },
         {
           "children": [],
-          "id": "9d9b0bdc-8898-4054-a12c-4961a8e09587",
+          "id": "8b77cacc-e7a7-426b-8234-71f4aad15f9f",
           "label": "_DIALECT_1​​​​ ",
           "name": "_DIALECT_1​​​​ ",
           "originalText": "_DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​",
@@ -323,7 +323,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "afa89ae4-0d99-450d-8539-249823975b8d",
+      "id": "bed443a0-cfe3-4d97-87a2-c7ab1ecee658",
       "label": "SETERR-FLG-OFFT",
       "name": "SETERR-FLG-OFFT",
       "originalText": "SET ERR-FLG-OFF     TO TRUE\n           SET USR-MODIFIED-NO TO TRUE\n       \n           MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COTRN2AO\n       \n           IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COTRN2AO\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-TRNADD-SCREEN\n               ELSE\n                   PERFORM RECEIVE-TRNADD-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -335,7 +335,7 @@
     },
     {
       "children": [],
-      "id": "c5a20d3f-9683-431f-bd69-f70e94a96944",
+      "id": "02c11cd9-ef1b-4a53-a94c-5fbdd7e9373d",
       "label": "PROCESS-ENTER-KEY",
       "name": "PROCESS-ENTER-KEY",
       "originalText": "PROCESS-ENTER-KEY.",
@@ -349,7 +349,7 @@
       "children": [
         {
           "children": [],
-          "id": "bd393e84-7fe9-4bce-a71b-464fc7f50f7e",
+          "id": "22bf73f8-93c7-41f1-9a63-589d19d7da52",
           "label": "PERFORM VALIDATE-INPUT-KEY-FIE",
           "name": "PERFORMVALIDATE",
           "originalText": "PERFORM VALIDATE-INPUT-KEY-FIELDS",
@@ -361,7 +361,7 @@
         },
         {
           "children": [],
-          "id": "647c6c68-c40b-4a1f-aa82-07939db02435",
+          "id": "c253a78a-48f9-4986-91de-83fa75293bd6",
           "label": "PERFORM VALIDATE-INPUT-DATA-FI",
           "name": "PERFORMVALIDATE",
           "originalText": "PERFORM VALIDATE-INPUT-DATA-FIELDS",
@@ -372,7 +372,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "91427a99-ba87-4a63-8209-9e7b4619fdd8",
+      "id": "a386aa97-e35f-4c75-8a54-2dc2d16bff43",
       "label": "PERFORMVALIDATE",
       "name": "PERFORMVALIDATE",
       "originalText": "PERFORM VALIDATE-INPUT-KEY-FIELDS\n           PERFORM VALIDATE-INPUT-DATA-FIELDS.",
@@ -386,7 +386,7 @@
       "children": [
         {
           "children": [],
-          "id": "776634f7-f5f1-478d-acc6-000900209eff",
+          "id": "1ef84c64-d805-4543-8330-6e64a91fd4e9",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE CONFIRMI OF COTRN2AI\n               WHEN \u0027Y\u0027\n               WHEN \u0027y\u0027\n                   PERFORM ADD-TRANSACTION\n               WHEN \u0027N\u0027\n               WHEN \u0027n\u0027\n               WHEN SPACES\n               WHEN LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Confirm to add this transaction...\u0027\n                                TO WS-MESSAGE\n                   MOVE -1      TO CONFIRML OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                TO WS-MESSAGE\n                   MOVE -1      TO CONFIRML OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -397,7 +397,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "eebf1d27-fee9-4146-bf78-8272719c98e6",
+      "id": "1a115789-c80f-4c1e-b16b-7558f946cd7b",
       "label": "EVALUATECONFIRM",
       "name": "EVALUATECONFIRM",
       "originalText": "EVALUATE CONFIRMI OF COTRN2AI\n               WHEN \u0027Y\u0027\n               WHEN \u0027y\u0027\n                   PERFORM ADD-TRANSACTION\n               WHEN \u0027N\u0027\n               WHEN \u0027n\u0027\n               WHEN SPACES\n               WHEN LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Confirm to add this transaction...\u0027\n                                TO WS-MESSAGE\n                   MOVE -1      TO CONFIRML OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                TO WS-MESSAGE\n                   MOVE -1      TO CONFIRML OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -409,7 +409,7 @@
     },
     {
       "children": [],
-      "id": "cfaebb37-0e4f-4bee-9f55-905d5d538b2e",
+      "id": "28ba0d73-3dbc-4ca6-acef-bea23fb66219",
       "label": "VALIDATE-INPUT-KEY-FIELDS",
       "name": "VALIDATE-INPUT-KEY-FIELDS",
       "originalText": "VALIDATE-INPUT-KEY-FIELDS.",
@@ -423,7 +423,7 @@
       "children": [
         {
           "children": [],
-          "id": "548c8fde-0cb9-4695-aa27-0c17e806877e",
+          "id": "ec4870a6-2384-452d-840a-032d02ab0184",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN ACTIDINI OF COTRN2AI NOT \u003d SPACES AND LOW-VALUES\n                   IF ACTIDINI OF COTRN2AI IS NOT NUMERIC\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Account ID must be Numeric...\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO ACTIDINL OF COTRN2AI\n                       PERFORM SEND-TRNADD-SCREEN\n                   END-IF\n                   COMPUTE WS-ACCT-ID-N \u003d FUNCTION NUMVAL(ACTIDINI OF\n                   COTRN2AI)\n                   MOVE WS-ACCT-ID-N            TO XREF-ACCT-ID\n                                                ACTIDINI OF COTRN2AI\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE XREF-CARD-NUM         TO CARDNINI OF COTRN2AI\n               WHEN CARDNINI OF COTRN2AI NOT \u003d SPACES AND LOW-VALUES\n                   IF CARDNINI OF COTRN2AI IS NOT NUMERIC\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Card Number must be Numeric...\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO CARDNINL OF COTRN2AI\n                       PERFORM SEND-TRNADD-SCREEN\n                   END-IF\n                   COMPUTE WS-CARD-NUM-N \u003d FUNCTION NUMVAL(CARDNINI OF\n                   COTRN2AI)\n                   MOVE WS-CARD-NUM-N        TO XREF-CARD-NUM\n                                                CARDNINI OF COTRN2AI\n                   PERFORM READ-CCXREF-FILE\n                   MOVE XREF-ACCT-ID         TO ACTIDINI OF COTRN2AI\n               WHEN OTHER\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account or Card Number must be entered...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -434,7 +434,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "530987b0-5c7d-438d-bdbc-26ce247ae8d0",
+      "id": "ee253d16-14d3-49bf-8fdf-b3578d9697c4",
       "label": "EVALUATETRUEWHE",
       "name": "EVALUATETRUEWHE",
       "originalText": "EVALUATE TRUE\n               WHEN ACTIDINI OF COTRN2AI NOT \u003d SPACES AND LOW-VALUES\n                   IF ACTIDINI OF COTRN2AI IS NOT NUMERIC\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Account ID must be Numeric...\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO ACTIDINL OF COTRN2AI\n                       PERFORM SEND-TRNADD-SCREEN\n                   END-IF\n                   COMPUTE WS-ACCT-ID-N \u003d FUNCTION NUMVAL(ACTIDINI OF\n                   COTRN2AI)\n                   MOVE WS-ACCT-ID-N            TO XREF-ACCT-ID\n                                                ACTIDINI OF COTRN2AI\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE XREF-CARD-NUM         TO CARDNINI OF COTRN2AI\n               WHEN CARDNINI OF COTRN2AI NOT \u003d SPACES AND LOW-VALUES\n                   IF CARDNINI OF COTRN2AI IS NOT NUMERIC\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Card Number must be Numeric...\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO CARDNINL OF COTRN2AI\n                       PERFORM SEND-TRNADD-SCREEN\n                   END-IF\n                   COMPUTE WS-CARD-NUM-N \u003d FUNCTION NUMVAL(CARDNINI OF\n                   COTRN2AI)\n                   MOVE WS-CARD-NUM-N        TO XREF-CARD-NUM\n                                                CARDNINI OF COTRN2AI\n                   PERFORM READ-CCXREF-FILE\n                   MOVE XREF-ACCT-ID         TO ACTIDINI OF COTRN2AI\n               WHEN OTHER\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account or Card Number must be entered...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -446,7 +446,7 @@
     },
     {
       "children": [],
-      "id": "dc9cd3f2-7834-446b-8c20-a4764e8bc00a",
+      "id": "51bc588d-0068-4c89-ab61-01baa4c478e8",
       "label": "VALIDATE-INPUT-DATA-FIELDS",
       "name": "VALIDATE-INPUT-DATA-FIELDS",
       "originalText": "VALIDATE-INPUT-DATA-FIELDS.",
@@ -464,7 +464,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "e05e446a-5ae5-4a14-ba3b-3d2a9798b109",
+                  "id": "d0e4082d-76be-42ae-a1a0-ba9357ad50b6",
                   "label": "MOVESPACESTOTTY",
                   "name": "MOVESPACESTOTTY",
                   "originalText": "MOVE SPACES      TO TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI",
@@ -475,7 +475,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "74d838b8-250e-41f0-b8f4-62c30d3b32dd",
+              "id": "af928077-83f7-44c0-8ef8-e260e60c246c",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE SPACES      TO TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI",
@@ -486,7 +486,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "dda3e10f-dfee-4c2d-a774-8db63e7a0c1f",
+          "id": "f6cbd88d-8e75-4884-b0c3-12b29c89fa0a",
           "label": "IS \nERR-FLG-ON?\n",
           "name": "IS \nERR-FLG-ON?\n",
           "originalText": "IF ERR-FLG-ON\n               MOVE SPACES      TO TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI\n           END-IF",
@@ -497,7 +497,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "4edfe315-a8bb-49e8-9402-896aa15a9de0",
+      "id": "9ce7fb4a-3717-472d-b513-c79ff6bce267",
       "label": "IFERR-FLG-ONMOV",
       "name": "IFERR-FLG-ONMOV",
       "originalText": "IF ERR-FLG-ON\n               MOVE SPACES      TO TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI\n           END-IF.",
@@ -511,7 +511,7 @@
       "children": [
         {
           "children": [],
-          "id": "f0ad9bf5-d8df-43e8-b525-e915e07eb805",
+          "id": "c86ebfad-3abf-49a7-b46d-3aa609bbd81f",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN TTYPCDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Type CD can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TTYPCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TCATCDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Category CD can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TCATCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TRNSRCI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Source can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNSRCL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TDESCI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Description can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TDESCL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TRNAMTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Amount can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNAMTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TORIGDTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Orig Date can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TPROCDTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Proc Date can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MIDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant ID can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MIDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MNAMEI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant Name can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MNAMEL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MCITYI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant City can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MCITYL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MZIPI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant Zip can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MZIPL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -522,7 +522,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "432c79f1-3a11-4578-bdc6-621d5af32ce1",
+      "id": "13061518-3795-49b5-85b1-b489c18d8ada",
       "label": "EVALUATETRUEWHE",
       "name": "EVALUATETRUEWHE",
       "originalText": "EVALUATE TRUE\n               WHEN TTYPCDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Type CD can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TTYPCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TCATCDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Category CD can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TCATCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TRNSRCI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Source can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNSRCL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TDESCI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Description can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TDESCL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TRNAMTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Amount can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNAMTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TORIGDTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Orig Date can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TPROCDTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Proc Date can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MIDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant ID can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MIDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MNAMEI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant Name can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MNAMEL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MCITYI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant City can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MCITYL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MZIPI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant Zip can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MZIPL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE.",
@@ -536,7 +536,7 @@
       "children": [
         {
           "children": [],
-          "id": "86f3ed27-4ef7-4286-95be-d120714f495c",
+          "id": "c85ca9ff-dee8-4304-b6a8-dc9ec8673711",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN TTYPCDI OF COTRN2AI NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Type CD must be Numeric...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TTYPCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TCATCDI OF COTRN2AI NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Category CD must be Numeric...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TCATCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -548,7 +548,7 @@
         },
         {
           "children": [],
-          "id": "dc05cbae-397e-4331-a486-e472b6197f07",
+          "id": "295769c7-75b6-4a1f-aa39-43517ab0537f",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN TRNAMTI OF COTRN2AI(1:1) NOT EQUAL \u0027-\u0027 AND \u0027+\u0027\n               WHEN TRNAMTI OF COTRN2AI(2:8) NOT NUMERIC\n               WHEN TRNAMTI OF COTRN2AI(10:1) NOT \u003d \u0027.\u0027\n               WHEN TRNAMTI OF COTRN2AI(11:2) IS NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Amount should be in format -99999999.99\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNAMTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -560,7 +560,7 @@
         },
         {
           "children": [],
-          "id": "12960df2-8496-4ff7-adb4-7ddf5ca77909",
+          "id": "92028f6e-da2a-4d73-9b05-67c27e3e2a54",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN TORIGDTI OF COTRN2AI(1:4) IS NOT NUMERIC\n               WHEN TORIGDTI OF COTRN2AI(5:1) NOT EQUAL \u0027-\u0027\n               WHEN TORIGDTI OF COTRN2AI(6:2) NOT NUMERIC\n               WHEN TORIGDTI OF COTRN2AI(8:1) NOT EQUAL \u0027-\u0027\n               WHEN TORIGDTI OF COTRN2AI(9:2) NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Orig Date should be in format YYYY-MM-DD\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -572,7 +572,7 @@
         },
         {
           "children": [],
-          "id": "013bc709-003e-439c-9011-edf739a69604",
+          "id": "4b3bbc65-c055-47d8-8e72-170f39a06d3d",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN TPROCDTI OF COTRN2AI(1:4) IS NOT NUMERIC\n               WHEN TPROCDTI OF COTRN2AI(5:1) NOT EQUAL \u0027-\u0027\n               WHEN TPROCDTI OF COTRN2AI(6:2) NOT NUMERIC\n               WHEN TPROCDTI OF COTRN2AI(8:1) NOT EQUAL \u0027-\u0027\n               WHEN TPROCDTI OF COTRN2AI(9:2) NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Proc Date should be in format YYYY-MM-DD\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -584,7 +584,7 @@
         },
         {
           "children": [],
-          "id": "e1f15b7b-1e4e-47ef-b18f-d6ee38dc435f",
+          "id": "ae72f567-ab6b-4c3c-a6df-638e204ca7b4",
           "label": "COMPUTEWS-TRAN-",
           "name": "COMPUTEWS-TRAN-",
           "originalText": "COMPUTE WS-TRAN-AMT-N \u003d FUNCTION NUMVAL-C(TRNAMTI OF\n           COTRN2AI)",
@@ -597,7 +597,7 @@
         },
         {
           "children": [],
-          "id": "a6b271e7-0c34-4db9-93fe-c5d423d099f9",
+          "id": "2ed09de3-c0a9-435c-a6bb-e45b24e2080b",
           "label": "MOVEWS-TRAN-AMT",
           "name": "MOVEWS-TRAN-AMT",
           "originalText": "MOVE WS-TRAN-AMT-N TO WS-TRAN-AMT-E",
@@ -609,7 +609,7 @@
         },
         {
           "children": [],
-          "id": "989065f6-a2d3-4469-b2bd-96977e278182",
+          "id": "608f2168-9b8e-4ca9-b4b3-ec4ef549432b",
           "label": "MOVEWS-TRAN-AMT",
           "name": "MOVEWS-TRAN-AMT",
           "originalText": "MOVE WS-TRAN-AMT-E TO TRNAMTI OF COTRN2AI",
@@ -621,7 +621,7 @@
         },
         {
           "children": [],
-          "id": "2892e46a-4114-4f9a-98d6-ff166814f4b5",
+          "id": "6c6d7c19-5392-42af-8e53-cce2911373b1",
           "label": "MOVETORIGDTIOFC",
           "name": "MOVETORIGDTIOFC",
           "originalText": "MOVE TORIGDTI OF COTRN2AI TO CSUTLDTC-DATE",
@@ -633,7 +633,7 @@
         },
         {
           "children": [],
-          "id": "ed914518-a5f2-4eca-8ba1-92bd065a9abc",
+          "id": "815c30a4-5b9c-4a87-b341-71a1b39bbf91",
           "label": "MOVEWS-DATE-FOR",
           "name": "MOVEWS-DATE-FOR",
           "originalText": "MOVE WS-DATE-FORMAT       TO CSUTLDTC-DATE-FORMAT",
@@ -645,7 +645,7 @@
         },
         {
           "children": [],
-          "id": "6750c2a8-f8eb-40a9-a2f6-da5fec47f3a5",
+          "id": "f9f6e168-446e-425b-af08-d2b06cc23822",
           "label": "MOVESPACESTOCSU",
           "name": "MOVESPACESTOCSU",
           "originalText": "MOVE SPACES               TO CSUTLDTC-RESULT",
@@ -657,7 +657,7 @@
         },
         {
           "children": [],
-          "id": "8eb248af-b664-41a6-8b52-629b3ead1838",
+          "id": "87d185c8-1fd1-40c7-adf4-1f7d8c195152",
           "label": "CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT",
           "name": "CALL\u0027CSUTLDTC\u0027U",
           "originalText": "CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT",
@@ -673,7 +673,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "ec5271df-6667-43bc-aa16-2295f03f9561",
+                  "id": "646b66ba-44e0-4c62-b52b-c2ab345901af",
                   "label": "CONTINUE",
                   "name": "CONTINUE",
                   "originalText": "CONTINUE",
@@ -684,7 +684,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "fcc11d7b-8b8d-41d2-a20a-526c627684e5",
+              "id": "c7f5cfc5-d6d9-40ff-bb8b-a2432798d633",
               "label": "Yes",
               "name": "Yes",
               "originalText": "CONTINUE",
@@ -698,7 +698,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "fcb2f307-e349-4832-bad2-d02957573ce7",
+                  "id": "91200545-985e-4b9e-9ac1-21e86e459291",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -714,7 +714,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "1c408a56-4d20-4dee-b812-010d2f8ae97d",
+                          "id": "af49b76a-373e-465e-9821-d2c2a805e9fe",
                           "label": "MOVE\u0027Orig Date ",
                           "name": "MOVE\u0027Orig Date ",
                           "originalText": "MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE",
@@ -726,7 +726,7 @@
                         },
                         {
                           "children": [],
-                          "id": "b07b31b3-f85d-4c0b-8f04-1470470f34af",
+                          "id": "fd795718-d792-41aa-b018-45c8f1cc81dd",
                           "label": "MOVE\u0027Y\u0027TOWS-ERR",
                           "name": "MOVE\u0027Y\u0027TOWS-ERR",
                           "originalText": "MOVE \u0027Y\u0027     TO WS-ERR-FLG",
@@ -738,7 +738,7 @@
                         },
                         {
                           "children": [],
-                          "id": "3f622aac-f478-4cbf-ba43-a315b34a833f",
+                          "id": "182324ee-fe3d-428e-b90c-952d057cd2f3",
                           "label": "MOVE-1TOTORIGDT",
                           "name": "MOVE-1TOTORIGDT",
                           "originalText": "MOVE -1       TO TORIGDTL OF COTRN2AI",
@@ -750,7 +750,7 @@
                         },
                         {
                           "children": [],
-                          "id": "737f6614-1db5-41e1-a77c-e0208ff70406",
+                          "id": "c61a1134-6c62-44b0-a89c-a502e93395bc",
                           "label": "PERFORM SEND-TRNADD-SCREEN",
                           "name": "PERFORMSEND-TRN",
                           "originalText": "PERFORM SEND-TRNADD-SCREEN",
@@ -761,7 +761,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "b1c0f358-7087-4c07-bc66-210061512f0d",
+                      "id": "244a3abc-0181-46ff-b65c-d061c747a48b",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN",
@@ -772,7 +772,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "8dfcf7d4-e225-4a3b-8e44-d8aec13a6896",
+                  "id": "5c415bbb-fb76-42f7-ad4e-9245d7f2655a",
                   "label": "IS \nCSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027?\n",
                   "name": "IS \nCSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027?\n",
                   "originalText": "IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF",
@@ -783,7 +783,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "55eab1cb-48bf-4e6a-b79d-e93c2ab183b9",
+              "id": "df7fb782-e1c0-4f80-9f05-132e3ef9add6",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF",
@@ -794,7 +794,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "7bed2337-7615-4860-80f9-802d97bd70be",
+          "id": "18e94852-9136-4bab-8103-233e66037d31",
           "label": "IS \nCSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027?\n",
           "name": "IS \nCSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027?\n",
           "originalText": "IF CSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027\n               CONTINUE\n           ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF\n           END-IF",
@@ -806,7 +806,7 @@
         },
         {
           "children": [],
-          "id": "0eca2a25-b457-4093-baea-57ea8bd1af55",
+          "id": "0ce1f4d4-f77d-4680-a3af-41e28e08d82e",
           "label": "MOVETPROCDTIOFC",
           "name": "MOVETPROCDTIOFC",
           "originalText": "MOVE TPROCDTI OF COTRN2AI TO CSUTLDTC-DATE",
@@ -818,7 +818,7 @@
         },
         {
           "children": [],
-          "id": "aa958c33-ff36-40a2-a1d2-e10d0a7b671d",
+          "id": "89c599be-0915-455c-9150-bcb1d3c030cb",
           "label": "MOVEWS-DATE-FOR",
           "name": "MOVEWS-DATE-FOR",
           "originalText": "MOVE WS-DATE-FORMAT       TO CSUTLDTC-DATE-FORMAT",
@@ -830,7 +830,7 @@
         },
         {
           "children": [],
-          "id": "c4d790f8-5179-4fa9-af12-d7dae449381f",
+          "id": "58c4aae5-b355-4d7e-8c07-e74410469acf",
           "label": "MOVESPACESTOCSU",
           "name": "MOVESPACESTOCSU",
           "originalText": "MOVE SPACES               TO CSUTLDTC-RESULT",
@@ -842,7 +842,7 @@
         },
         {
           "children": [],
-          "id": "c28938e7-5c8b-4374-970e-29d8ace43e7b",
+          "id": "49c39562-dfc2-409f-8164-7205798ce11d",
           "label": "CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT",
           "name": "CALL\u0027CSUTLDTC\u0027U",
           "originalText": "CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT",
@@ -858,7 +858,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "a54c8828-d2d1-4254-b159-77a447fac1dd",
+                  "id": "77b22f9e-9f5b-454c-93b9-e5058a40eb3b",
                   "label": "CONTINUE",
                   "name": "CONTINUE",
                   "originalText": "CONTINUE",
@@ -869,7 +869,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "766c54bb-4927-4a7b-8f43-5ecef8df9710",
+              "id": "24fcf460-4a0c-49b8-85c7-0e6e50f9a244",
               "label": "Yes",
               "name": "Yes",
               "originalText": "CONTINUE",
@@ -883,7 +883,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "1340f639-d329-48ef-b041-fa4d39213124",
+                  "id": "1ddfa8be-a606-4cdf-b93a-c34264bdda39",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -899,7 +899,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "ec76eef1-7a9f-45e3-a401-e5840702a96e",
+                          "id": "ff4d4013-011d-4dfc-b915-63f1834768ba",
                           "label": "MOVE\u0027Proc Date ",
                           "name": "MOVE\u0027Proc Date ",
                           "originalText": "MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE",
@@ -911,7 +911,7 @@
                         },
                         {
                           "children": [],
-                          "id": "61e410c0-70a3-4e70-a350-6e4d40b8ec2c",
+                          "id": "fabad665-ddc7-4ece-aab6-e39b7273f4ee",
                           "label": "MOVE\u0027Y\u0027TOWS-ERR",
                           "name": "MOVE\u0027Y\u0027TOWS-ERR",
                           "originalText": "MOVE \u0027Y\u0027     TO WS-ERR-FLG",
@@ -923,7 +923,7 @@
                         },
                         {
                           "children": [],
-                          "id": "3d120804-bcc0-4398-8255-58feed3acb6d",
+                          "id": "c9292f10-bbad-4093-9501-9d5f6b31a06c",
                           "label": "MOVE-1TOTPROCDT",
                           "name": "MOVE-1TOTPROCDT",
                           "originalText": "MOVE -1       TO TPROCDTL OF COTRN2AI",
@@ -935,7 +935,7 @@
                         },
                         {
                           "children": [],
-                          "id": "86a598f6-57f5-46e3-ac44-ed94a55a28f8",
+                          "id": "d6e66f1f-c49d-4226-9522-2cc4c8d1b646",
                           "label": "PERFORM SEND-TRNADD-SCREEN",
                           "name": "PERFORMSEND-TRN",
                           "originalText": "PERFORM SEND-TRNADD-SCREEN",
@@ -946,7 +946,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "70054a50-fcfa-4c3e-9de4-cf423d8d2b3b",
+                      "id": "6caee929-856c-4f21-89b7-67df5090e260",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN",
@@ -957,7 +957,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "02830a1b-8183-4f49-929c-fcf7d0e16aae",
+                  "id": "fa60271d-e692-43be-aa4a-5f27012eedee",
                   "label": "IS \nCSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027?\n",
                   "name": "IS \nCSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027?\n",
                   "originalText": "IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF",
@@ -968,7 +968,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "964b7a28-79e0-4b6d-8a10-44cac4e9333c",
+              "id": "b2e11da4-4d43-4f39-9697-cf3d26c23e86",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF",
@@ -979,7 +979,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "20b1ffb3-2dfb-4707-8e30-93ff671da0a6",
+          "id": "8732134b-6843-4856-8414-3f047db8f751",
           "label": "IS \nCSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027?\n",
           "name": "IS \nCSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027?\n",
           "originalText": "IF CSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027\n               CONTINUE\n           ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF\n           END-IF",
@@ -995,7 +995,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "7b0ea18b-8496-4060-9d1a-19006cce9307",
+                  "id": "f2fde4b0-ba07-4551-8473-5cdde6fce3a1",
                   "label": "MOVE\u0027Y\u0027TOWS-ERR",
                   "name": "MOVE\u0027Y\u0027TOWS-ERR",
                   "originalText": "MOVE \u0027Y\u0027     TO WS-ERR-FLG",
@@ -1007,7 +1007,7 @@
                 },
                 {
                   "children": [],
-                  "id": "41db9951-6ef3-48c0-957a-dc46b54b43e4",
+                  "id": "7512f269-1725-43cc-95bc-85dc38606676",
                   "label": "MOVE\u0027Merchant I",
                   "name": "MOVE\u0027Merchant I",
                   "originalText": "MOVE \u0027Merchant ID must be Numeric...\u0027 TO\n                               WS-MESSAGE",
@@ -1019,7 +1019,7 @@
                 },
                 {
                   "children": [],
-                  "id": "6f48b8fc-a67f-49d6-9116-a50407393601",
+                  "id": "9795f4c1-d563-4268-831f-c3cb76acae09",
                   "label": "MOVE-1TOMIDLOFC",
                   "name": "MOVE-1TOMIDLOFC",
                   "originalText": "MOVE -1       TO MIDL OF COTRN2AI",
@@ -1031,7 +1031,7 @@
                 },
                 {
                   "children": [],
-                  "id": "937c7451-fd1e-4653-9b2d-c99d89a5c588",
+                  "id": "1f4ae64f-330e-4912-96f0-8928df2340fa",
                   "label": "PERFORM SEND-TRNADD-SCREEN",
                   "name": "PERFORMSEND-TRN",
                   "originalText": "PERFORM SEND-TRNADD-SCREEN",
@@ -1042,7 +1042,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "327bc67e-e5cc-4d78-8a8b-10684728830f",
+              "id": "9861a97e-4871-43c6-9d5b-95339a57f86c",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE \u0027Y\u0027     TO WS-ERR-FLG\n               MOVE \u0027Merchant ID must be Numeric...\u0027 TO\n                               WS-MESSAGE\n               MOVE -1       TO MIDL OF COTRN2AI\n               PERFORM SEND-TRNADD-SCREEN",
@@ -1053,7 +1053,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "62ce265c-b903-4f16-a521-02a52e44080e",
+          "id": "3501d66d-6ec9-47d7-9406-2b910d36efab",
           "label": "IS \nMIDI OF COTRN2AI IS NOT NUMERIC?\n",
           "name": "IS \nMIDI OF COTRN2AI IS NOT NUMERIC?\n",
           "originalText": "IF MIDI OF COTRN2AI IS NOT NUMERIC\n               MOVE \u0027Y\u0027     TO WS-ERR-FLG\n               MOVE \u0027Merchant ID must be Numeric...\u0027 TO\n                               WS-MESSAGE\n               MOVE -1       TO MIDL OF COTRN2AI\n               PERFORM SEND-TRNADD-SCREEN\n           END-IF",
@@ -1064,7 +1064,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "4071de30-28c3-4b19-bb40-e366b48b6feb",
+      "id": "69150c57-f165-45d6-a24f-e7c1b7906e6b",
       "label": "EVALUATETRUEWHE",
       "name": "EVALUATETRUEWHE",
       "originalText": "EVALUATE TRUE\n               WHEN TTYPCDI OF COTRN2AI NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Type CD must be Numeric...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TTYPCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TCATCDI OF COTRN2AI NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Category CD must be Numeric...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TCATCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           EVALUATE TRUE\n               WHEN TRNAMTI OF COTRN2AI(1:1) NOT EQUAL \u0027-\u0027 AND \u0027+\u0027\n               WHEN TRNAMTI OF COTRN2AI(2:8) NOT NUMERIC\n               WHEN TRNAMTI OF COTRN2AI(10:1) NOT \u003d \u0027.\u0027\n               WHEN TRNAMTI OF COTRN2AI(11:2) IS NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Amount should be in format -99999999.99\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNAMTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           EVALUATE TRUE\n               WHEN TORIGDTI OF COTRN2AI(1:4) IS NOT NUMERIC\n               WHEN TORIGDTI OF COTRN2AI(5:1) NOT EQUAL \u0027-\u0027\n               WHEN TORIGDTI OF COTRN2AI(6:2) NOT NUMERIC\n               WHEN TORIGDTI OF COTRN2AI(8:1) NOT EQUAL \u0027-\u0027\n               WHEN TORIGDTI OF COTRN2AI(9:2) NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Orig Date should be in format YYYY-MM-DD\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           EVALUATE TRUE\n               WHEN TPROCDTI OF COTRN2AI(1:4) IS NOT NUMERIC\n               WHEN TPROCDTI OF COTRN2AI(5:1) NOT EQUAL \u0027-\u0027\n               WHEN TPROCDTI OF COTRN2AI(6:2) NOT NUMERIC\n               WHEN TPROCDTI OF COTRN2AI(8:1) NOT EQUAL \u0027-\u0027\n               WHEN TPROCDTI OF COTRN2AI(9:2) NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Proc Date should be in format YYYY-MM-DD\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           COMPUTE WS-TRAN-AMT-N \u003d FUNCTION NUMVAL-C(TRNAMTI OF\n           COTRN2AI)\n           MOVE WS-TRAN-AMT-N TO WS-TRAN-AMT-E\n           MOVE WS-TRAN-AMT-E TO TRNAMTI OF COTRN2AI\n       \n       \n           MOVE TORIGDTI OF COTRN2AI TO CSUTLDTC-DATE\n           MOVE WS-DATE-FORMAT       TO CSUTLDTC-DATE-FORMAT\n           MOVE SPACES               TO CSUTLDTC-RESULT\n       \n           CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT\n       \n           IF CSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027\n               CONTINUE\n           ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF\n           END-IF\n       \n           MOVE TPROCDTI OF COTRN2AI TO CSUTLDTC-DATE\n           MOVE WS-DATE-FORMAT       TO CSUTLDTC-DATE-FORMAT\n           MOVE SPACES               TO CSUTLDTC-RESULT\n       \n           CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT\n       \n           IF CSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027\n               CONTINUE\n           ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF\n           END-IF\n       \n       \n           IF MIDI OF COTRN2AI IS NOT NUMERIC\n               MOVE \u0027Y\u0027     TO WS-ERR-FLG\n               MOVE \u0027Merchant ID must be Numeric...\u0027 TO\n                               WS-MESSAGE\n               MOVE -1       TO MIDL OF COTRN2AI\n               PERFORM SEND-TRNADD-SCREEN\n           END-IF\n           .",
@@ -1076,7 +1076,7 @@
     },
     {
       "children": [],
-      "id": "6f9f2a2d-a79c-4993-b5ba-823c71396e79",
+      "id": "a503760b-16ac-4f94-b36d-0843eeff49ca",
       "label": "ADD-TRANSACTION",
       "name": "ADD-TRANSACTION",
       "originalText": "ADD-TRANSACTION.",
@@ -1090,7 +1090,7 @@
       "children": [
         {
           "children": [],
-          "id": "2c20d232-2cd9-45e3-9533-a4d10c57b1ce",
+          "id": "c22a87c6-8c7c-48b8-932d-769a80c1c97c",
           "label": "MOVEHIGH-VALUES",
           "name": "MOVEHIGH-VALUES",
           "originalText": "MOVE HIGH-VALUES TO TRAN-ID",
@@ -1102,7 +1102,7 @@
         },
         {
           "children": [],
-          "id": "a8285a36-2f1e-4c6d-ae8b-b009486bcd04",
+          "id": "e622de26-520e-435f-a568-01c51438827a",
           "label": "PERFORM STARTBR-TRANSACT-FILE",
           "name": "PERFORMSTARTBR-",
           "originalText": "PERFORM STARTBR-TRANSACT-FILE",
@@ -1114,7 +1114,7 @@
         },
         {
           "children": [],
-          "id": "20d8da4b-b649-458f-a79c-32c25ef385d2",
+          "id": "71350e4e-447a-4732-8f98-5a5403932bb5",
           "label": "PERFORM READPREV-TRANSACT-FILE",
           "name": "PERFORMREADPREV",
           "originalText": "PERFORM READPREV-TRANSACT-FILE",
@@ -1126,7 +1126,7 @@
         },
         {
           "children": [],
-          "id": "62fc54a4-7451-4128-9e6f-8da47905e4ca",
+          "id": "804803a0-71bd-4cf2-b595-f0f00c685bdc",
           "label": "PERFORM ENDBR-TRANSACT-FILE",
           "name": "PERFORMENDBR-TR",
           "originalText": "PERFORM ENDBR-TRANSACT-FILE",
@@ -1138,7 +1138,7 @@
         },
         {
           "children": [],
-          "id": "cbcab52b-e2c3-4ab0-ab84-ede595a8404f",
+          "id": "821779aa-cb34-4919-904d-235c05b2e312",
           "label": "MOVETRAN-IDTOWS",
           "name": "MOVETRAN-IDTOWS",
           "originalText": "MOVE TRAN-ID     TO WS-TRAN-ID-N",
@@ -1150,7 +1150,7 @@
         },
         {
           "children": [],
-          "id": "828f0662-24f8-45ae-b2fa-e60053593f5f",
+          "id": "af104a9a-2c48-493b-99fb-06fae46b8fea",
           "label": "ADD1TOWS-TRAN-I",
           "name": "ADD1TOWS-TRAN-I",
           "originalText": "ADD 1 TO WS-TRAN-ID-N",
@@ -1162,7 +1162,7 @@
         },
         {
           "children": [],
-          "id": "34dc8c9b-6ef8-41eb-95c4-08830eda2606",
+          "id": "15d63885-7d46-4afa-a88a-b640c1b66eb5",
           "label": "INITIALIZETRAN-",
           "name": "INITIALIZETRAN-",
           "originalText": "INITIALIZE TRAN-RECORD",
@@ -1174,7 +1174,7 @@
         },
         {
           "children": [],
-          "id": "eba59b40-5fdf-4c9a-9a09-d36331174e93",
+          "id": "9d3e143e-7c6c-49dc-8b72-939afdd1ee15",
           "label": "MOVEWS-TRAN-ID-",
           "name": "MOVEWS-TRAN-ID-",
           "originalText": "MOVE WS-TRAN-ID-N         TO TRAN-ID",
@@ -1186,7 +1186,7 @@
         },
         {
           "children": [],
-          "id": "c0f801f8-ec3c-47c4-b8f4-c8ed2dc5eab8",
+          "id": "9398a913-a738-4c55-ade4-16ceff0cd6b1",
           "label": "MOVETTYPCDIOFCO",
           "name": "MOVETTYPCDIOFCO",
           "originalText": "MOVE TTYPCDI  OF COTRN2AI TO TRAN-TYPE-CD",
@@ -1198,7 +1198,7 @@
         },
         {
           "children": [],
-          "id": "07e4057b-92b9-4ac9-9ba0-38ef011edd0e",
+          "id": "959ca03f-ff1a-4941-9799-b2c43bfecb79",
           "label": "MOVETCATCDIOFCO",
           "name": "MOVETCATCDIOFCO",
           "originalText": "MOVE TCATCDI  OF COTRN2AI TO TRAN-CAT-CD",
@@ -1210,7 +1210,7 @@
         },
         {
           "children": [],
-          "id": "08b48de5-80b4-4b20-9aca-c1453e678c2f",
+          "id": "12b11d8c-cbd7-4570-a5dc-99b450044975",
           "label": "MOVETRNSRCIOFCO",
           "name": "MOVETRNSRCIOFCO",
           "originalText": "MOVE TRNSRCI  OF COTRN2AI TO TRAN-SOURCE",
@@ -1222,7 +1222,7 @@
         },
         {
           "children": [],
-          "id": "7ce6f098-2cb5-4a88-bbbe-2e8a09beaa66",
+          "id": "e49c6103-7633-4a32-9e53-6c350afbccfa",
           "label": "MOVETDESCIOFCOT",
           "name": "MOVETDESCIOFCOT",
           "originalText": "MOVE TDESCI   OF COTRN2AI TO TRAN-DESC",
@@ -1234,7 +1234,7 @@
         },
         {
           "children": [],
-          "id": "337d2ce6-d5c8-4a87-b69c-789bcddd509a",
+          "id": "8edc1cd4-b57f-4196-9db0-1a469e55a726",
           "label": "COMPUTEWS-TRAN-",
           "name": "COMPUTEWS-TRAN-",
           "originalText": "COMPUTE WS-TRAN-AMT-N \u003d FUNCTION NUMVAL-C(TRNAMTI OF\n           COTRN2AI)",
@@ -1247,7 +1247,7 @@
         },
         {
           "children": [],
-          "id": "32bd8a81-5ab2-439c-aecd-742db51da8ee",
+          "id": "d3f0557f-7537-4c3c-8992-1bd66a789a8c",
           "label": "MOVEWS-TRAN-AMT",
           "name": "MOVEWS-TRAN-AMT",
           "originalText": "MOVE WS-TRAN-AMT-N TO TRAN-AMT",
@@ -1259,7 +1259,7 @@
         },
         {
           "children": [],
-          "id": "fd07df6f-53b6-4656-b2d0-2112c94a4f91",
+          "id": "b5aadbd0-cf2e-40ba-bee0-444f07743ba4",
           "label": "MOVECARDNINIOFC",
           "name": "MOVECARDNINIOFC",
           "originalText": "MOVE CARDNINI OF COTRN2AI TO TRAN-CARD-NUM",
@@ -1271,7 +1271,7 @@
         },
         {
           "children": [],
-          "id": "850a53da-5662-4f5e-90b6-012db1ebadc3",
+          "id": "4044f715-c047-4aeb-97f8-d6ba2b6b40b7",
           "label": "MOVEMIDIOFCOTRN",
           "name": "MOVEMIDIOFCOTRN",
           "originalText": "MOVE MIDI     OF COTRN2AI TO TRAN-MERCHANT-ID",
@@ -1283,7 +1283,7 @@
         },
         {
           "children": [],
-          "id": "2d4e151f-0a59-4513-9542-d8d8f28371e7",
+          "id": "7adf724c-7a96-40bc-ad4f-023c51e850e5",
           "label": "MOVEMNAMEIOFCOT",
           "name": "MOVEMNAMEIOFCOT",
           "originalText": "MOVE MNAMEI   OF COTRN2AI TO TRAN-MERCHANT-NAME",
@@ -1295,7 +1295,7 @@
         },
         {
           "children": [],
-          "id": "9ddd16ce-45c2-4b2e-adc9-e5c752d75a7f",
+          "id": "b7271d38-9dea-47c1-beae-d86e642e1616",
           "label": "MOVEMCITYIOFCOT",
           "name": "MOVEMCITYIOFCOT",
           "originalText": "MOVE MCITYI   OF COTRN2AI TO TRAN-MERCHANT-CITY",
@@ -1307,7 +1307,7 @@
         },
         {
           "children": [],
-          "id": "27c7bc6e-9b94-43f9-af8a-4f06f2d2e9af",
+          "id": "9a45150e-71bf-42b4-81c3-ac4ae4e67349",
           "label": "MOVEMZIPIOFCOTR",
           "name": "MOVEMZIPIOFCOTR",
           "originalText": "MOVE MZIPI    OF COTRN2AI TO TRAN-MERCHANT-ZIP",
@@ -1319,7 +1319,7 @@
         },
         {
           "children": [],
-          "id": "f21b7d5a-5e29-4186-aa31-543337070b85",
+          "id": "05ae27bd-36b9-41c2-990f-d43e70de502b",
           "label": "MOVETORIGDTIOFC",
           "name": "MOVETORIGDTIOFC",
           "originalText": "MOVE TORIGDTI OF COTRN2AI TO TRAN-ORIG-TS",
@@ -1331,7 +1331,7 @@
         },
         {
           "children": [],
-          "id": "30125f1b-d41a-4da8-9ed2-0b04bda5a37d",
+          "id": "21e7e1b6-bba4-45c7-9121-1cef59650f40",
           "label": "MOVETPROCDTIOFC",
           "name": "MOVETPROCDTIOFC",
           "originalText": "MOVE TPROCDTI OF COTRN2AI TO TRAN-PROC-TS",
@@ -1343,7 +1343,7 @@
         },
         {
           "children": [],
-          "id": "d33ba430-8af7-4726-b612-c72914580d9e",
+          "id": "ccd5a23a-b487-49df-a84e-4e82fda210ac",
           "label": "PERFORM WRITE-TRANSACT-FILE",
           "name": "PERFORMWRITE-TR",
           "originalText": "PERFORM WRITE-TRANSACT-FILE",
@@ -1354,7 +1354,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "27352270-d2b2-47d7-9ca5-404f87125d9c",
+      "id": "e2bbda4c-50f8-430d-ba33-c2f15e0aa63c",
       "label": "MOVEHIGH-VALUES",
       "name": "MOVEHIGH-VALUES",
       "originalText": "MOVE HIGH-VALUES TO TRAN-ID\n           PERFORM STARTBR-TRANSACT-FILE\n           PERFORM READPREV-TRANSACT-FILE\n           PERFORM ENDBR-TRANSACT-FILE\n           MOVE TRAN-ID     TO WS-TRAN-ID-N\n           ADD 1 TO WS-TRAN-ID-N\n           INITIALIZE TRAN-RECORD\n           MOVE WS-TRAN-ID-N         TO TRAN-ID\n           MOVE TTYPCDI  OF COTRN2AI TO TRAN-TYPE-CD\n           MOVE TCATCDI  OF COTRN2AI TO TRAN-CAT-CD\n           MOVE TRNSRCI  OF COTRN2AI TO TRAN-SOURCE\n           MOVE TDESCI   OF COTRN2AI TO TRAN-DESC\n           COMPUTE WS-TRAN-AMT-N \u003d FUNCTION NUMVAL-C(TRNAMTI OF\n           COTRN2AI)\n           MOVE WS-TRAN-AMT-N TO TRAN-AMT\n           MOVE CARDNINI OF COTRN2AI TO TRAN-CARD-NUM\n           MOVE MIDI     OF COTRN2AI TO TRAN-MERCHANT-ID\n           MOVE MNAMEI   OF COTRN2AI TO TRAN-MERCHANT-NAME\n           MOVE MCITYI   OF COTRN2AI TO TRAN-MERCHANT-CITY\n           MOVE MZIPI    OF COTRN2AI TO TRAN-MERCHANT-ZIP\n           MOVE TORIGDTI OF COTRN2AI TO TRAN-ORIG-TS\n           MOVE TPROCDTI OF COTRN2AI TO TRAN-PROC-TS\n           PERFORM WRITE-TRANSACT-FILE.",
@@ -1366,7 +1366,7 @@
     },
     {
       "children": [],
-      "id": "15caff3f-7ebf-4d7f-8c30-0889d978463d",
+      "id": "a551a4fe-0b10-48e5-af7e-87d8c71fc98b",
       "label": "COPY-LAST-TRAN-DATA",
       "name": "COPY-LAST-TRAN-DATA",
       "originalText": "COPY-LAST-TRAN-DATA.",
@@ -1380,7 +1380,7 @@
       "children": [
         {
           "children": [],
-          "id": "8dcecf24-e4e1-43fd-b5c2-fbf0bab26a85",
+          "id": "2edb524b-b265-4a10-ae45-f92d59f4ffa3",
           "label": "PERFORM VALIDATE-INPUT-KEY-FIE",
           "name": "PERFORMVALIDATE",
           "originalText": "PERFORM VALIDATE-INPUT-KEY-FIELDS",
@@ -1392,7 +1392,7 @@
         },
         {
           "children": [],
-          "id": "1cdc2b27-ae05-43d5-88df-63abf6b205d9",
+          "id": "07f9227f-198f-4a41-ae88-98dd617cd181",
           "label": "MOVEHIGH-VALUES",
           "name": "MOVEHIGH-VALUES",
           "originalText": "MOVE HIGH-VALUES TO TRAN-ID",
@@ -1404,7 +1404,7 @@
         },
         {
           "children": [],
-          "id": "b5214341-0eca-4520-946d-276b1157bed1",
+          "id": "d6925bcf-49ba-4471-aa5b-e1f12b9329fd",
           "label": "PERFORM STARTBR-TRANSACT-FILE",
           "name": "PERFORMSTARTBR-",
           "originalText": "PERFORM STARTBR-TRANSACT-FILE",
@@ -1416,7 +1416,7 @@
         },
         {
           "children": [],
-          "id": "c8388320-3667-47eb-89ef-e0ba2bf8bf54",
+          "id": "3d6b6eb1-36ee-4388-ab8e-11df763715db",
           "label": "PERFORM READPREV-TRANSACT-FILE",
           "name": "PERFORMREADPREV",
           "originalText": "PERFORM READPREV-TRANSACT-FILE",
@@ -1428,7 +1428,7 @@
         },
         {
           "children": [],
-          "id": "ad9c9a52-675b-4784-b4d3-57f742bbb1da",
+          "id": "25e9f6b6-0bd5-4497-ab84-d2052c5924ae",
           "label": "PERFORM ENDBR-TRANSACT-FILE",
           "name": "PERFORMENDBR-TR",
           "originalText": "PERFORM ENDBR-TRANSACT-FILE",
@@ -1444,7 +1444,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "a1763423-f508-41e2-84f1-551b8d638d08",
+                  "id": "5c2845c8-37f6-49cf-afd7-76296e0aff19",
                   "label": "MOVETRAN-AMTTOW",
                   "name": "MOVETRAN-AMTTOW",
                   "originalText": "MOVE TRAN-AMT TO WS-TRAN-AMT-E",
@@ -1456,7 +1456,7 @@
                 },
                 {
                   "children": [],
-                  "id": "b3fb3a3d-985a-4722-bd13-d4e32058c552",
+                  "id": "2eb5d1a0-3e45-498a-a51e-797c1c10606e",
                   "label": "MOVETRAN-TYPE-C",
                   "name": "MOVETRAN-TYPE-C",
                   "originalText": "MOVE TRAN-TYPE-CD        TO TTYPCDI  OF COTRN2AI",
@@ -1468,7 +1468,7 @@
                 },
                 {
                   "children": [],
-                  "id": "96a8bbc4-6d07-4a6c-8a8f-43141c4bc2a8",
+                  "id": "7bc39626-72de-411c-a8d0-91124270159c",
                   "label": "MOVETRAN-CAT-CD",
                   "name": "MOVETRAN-CAT-CD",
                   "originalText": "MOVE TRAN-CAT-CD         TO TCATCDI  OF COTRN2AI",
@@ -1480,7 +1480,7 @@
                 },
                 {
                   "children": [],
-                  "id": "f60e3cff-15dd-4ef7-8096-86d4f3cb4a62",
+                  "id": "17db67d1-5084-482c-a74b-f4c7dc798619",
                   "label": "MOVETRAN-SOURCE",
                   "name": "MOVETRAN-SOURCE",
                   "originalText": "MOVE TRAN-SOURCE         TO TRNSRCI  OF COTRN2AI",
@@ -1492,7 +1492,7 @@
                 },
                 {
                   "children": [],
-                  "id": "3062668a-2887-4a1d-bc4d-f34753d8dbc9",
+                  "id": "0b550bab-2c3d-410a-b596-90927b96b9a3",
                   "label": "MOVEWS-TRAN-AMT",
                   "name": "MOVEWS-TRAN-AMT",
                   "originalText": "MOVE WS-TRAN-AMT-E       TO TRNAMTI  OF COTRN2AI",
@@ -1504,7 +1504,7 @@
                 },
                 {
                   "children": [],
-                  "id": "9b8ff9ce-0090-48b8-b021-d67b3e8220bb",
+                  "id": "91a6941f-4e35-49d6-8703-85e3e126ded5",
                   "label": "MOVETRAN-DESCTO",
                   "name": "MOVETRAN-DESCTO",
                   "originalText": "MOVE TRAN-DESC           TO TDESCI   OF COTRN2AI",
@@ -1516,7 +1516,7 @@
                 },
                 {
                   "children": [],
-                  "id": "d639dde7-0d12-4f8c-a8fe-a36e20c5612e",
+                  "id": "319987b4-6989-4ba3-b8be-8923c9c17e28",
                   "label": "MOVETRAN-ORIG-T",
                   "name": "MOVETRAN-ORIG-T",
                   "originalText": "MOVE TRAN-ORIG-TS        TO TORIGDTI OF COTRN2AI",
@@ -1528,7 +1528,7 @@
                 },
                 {
                   "children": [],
-                  "id": "b9fd1cfd-6abc-4685-9717-33f4d84fd025",
+                  "id": "fe4e3399-7844-4a98-b828-3cf8176d866b",
                   "label": "MOVETRAN-PROC-T",
                   "name": "MOVETRAN-PROC-T",
                   "originalText": "MOVE TRAN-PROC-TS        TO TPROCDTI OF COTRN2AI",
@@ -1540,7 +1540,7 @@
                 },
                 {
                   "children": [],
-                  "id": "cb22c079-3bbb-4ac0-a521-5204e15823ad",
+                  "id": "7f153a7d-9724-4339-b2f4-7433de85a880",
                   "label": "MOVETRAN-MERCHA",
                   "name": "MOVETRAN-MERCHA",
                   "originalText": "MOVE TRAN-MERCHANT-ID    TO MIDI     OF COTRN2AI",
@@ -1552,7 +1552,7 @@
                 },
                 {
                   "children": [],
-                  "id": "3c9ccb87-e4aa-4c8c-a4d0-a150ddb9689e",
+                  "id": "2a3066fb-fc5e-4123-8f08-37861816c75f",
                   "label": "MOVETRAN-MERCHA",
                   "name": "MOVETRAN-MERCHA",
                   "originalText": "MOVE TRAN-MERCHANT-NAME  TO MNAMEI   OF COTRN2AI",
@@ -1564,7 +1564,7 @@
                 },
                 {
                   "children": [],
-                  "id": "20db5fdf-71b2-46b7-9fee-de5bd95d455d",
+                  "id": "7fbf895b-eca4-49cf-ab5c-c55d8a63052d",
                   "label": "MOVETRAN-MERCHA",
                   "name": "MOVETRAN-MERCHA",
                   "originalText": "MOVE TRAN-MERCHANT-CITY  TO MCITYI   OF COTRN2AI",
@@ -1576,7 +1576,7 @@
                 },
                 {
                   "children": [],
-                  "id": "5591d9a1-311a-45ca-8030-d75fbea0342f",
+                  "id": "ed623493-f5ac-4485-8aa6-6ac239614795",
                   "label": "MOVETRAN-MERCHA",
                   "name": "MOVETRAN-MERCHA",
                   "originalText": "MOVE TRAN-MERCHANT-ZIP   TO MZIPI    OF COTRN2AI",
@@ -1587,7 +1587,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "3932eee8-a4ef-41ad-8e9f-b45a18f42059",
+              "id": "195fb05f-1876-4c46-acac-9c6875fd009a",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE TRAN-AMT TO WS-TRAN-AMT-E\n               MOVE TRAN-TYPE-CD        TO TTYPCDI  OF COTRN2AI\n               MOVE TRAN-CAT-CD         TO TCATCDI  OF COTRN2AI\n               MOVE TRAN-SOURCE         TO TRNSRCI  OF COTRN2AI\n               MOVE WS-TRAN-AMT-E       TO TRNAMTI  OF COTRN2AI\n               MOVE TRAN-DESC           TO TDESCI   OF COTRN2AI\n               MOVE TRAN-ORIG-TS        TO TORIGDTI OF COTRN2AI\n               MOVE TRAN-PROC-TS        TO TPROCDTI OF COTRN2AI\n               MOVE TRAN-MERCHANT-ID    TO MIDI     OF COTRN2AI\n               MOVE TRAN-MERCHANT-NAME  TO MNAMEI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-CITY  TO MCITYI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-ZIP   TO MZIPI    OF COTRN2AI",
@@ -1598,7 +1598,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "9a1a71df-52d6-42d0-a977-51dfbcfe82ab",
+          "id": "18644b38-5489-4c07-babe-839687ceb10d",
           "label": "IS \nNOT ERR-FLG-ON?\n",
           "name": "IS \nNOT ERR-FLG-ON?\n",
           "originalText": "IF NOT ERR-FLG-ON\n               MOVE TRAN-AMT TO WS-TRAN-AMT-E\n               MOVE TRAN-TYPE-CD        TO TTYPCDI  OF COTRN2AI\n               MOVE TRAN-CAT-CD         TO TCATCDI  OF COTRN2AI\n               MOVE TRAN-SOURCE         TO TRNSRCI  OF COTRN2AI\n               MOVE WS-TRAN-AMT-E       TO TRNAMTI  OF COTRN2AI\n               MOVE TRAN-DESC           TO TDESCI   OF COTRN2AI\n               MOVE TRAN-ORIG-TS        TO TORIGDTI OF COTRN2AI\n               MOVE TRAN-PROC-TS        TO TPROCDTI OF COTRN2AI\n               MOVE TRAN-MERCHANT-ID    TO MIDI     OF COTRN2AI\n               MOVE TRAN-MERCHANT-NAME  TO MNAMEI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-CITY  TO MCITYI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-ZIP   TO MZIPI    OF COTRN2AI\n           END-IF",
@@ -1610,7 +1610,7 @@
         },
         {
           "children": [],
-          "id": "9d093b19-da31-4636-95c6-602f3e04ec63",
+          "id": "52d024bc-7fcd-4cfd-b373-76d8d75a7484",
           "label": "PERFORM PROCESS-ENTER-KEY",
           "name": "PERFORMPROCESS-",
           "originalText": "PERFORM PROCESS-ENTER-KEY",
@@ -1621,7 +1621,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "535b92a8-10a4-4c0d-b05e-a5e5c9398ff5",
+      "id": "1921871e-a1e4-429e-9022-61c06993c73f",
       "label": "PERFORMVALIDATE",
       "name": "PERFORMVALIDATE",
       "originalText": "PERFORM VALIDATE-INPUT-KEY-FIELDS\n       \n           MOVE HIGH-VALUES TO TRAN-ID\n           PERFORM STARTBR-TRANSACT-FILE\n           PERFORM READPREV-TRANSACT-FILE\n           PERFORM ENDBR-TRANSACT-FILE\n       \n           IF NOT ERR-FLG-ON\n               MOVE TRAN-AMT TO WS-TRAN-AMT-E\n               MOVE TRAN-TYPE-CD        TO TTYPCDI  OF COTRN2AI\n               MOVE TRAN-CAT-CD         TO TCATCDI  OF COTRN2AI\n               MOVE TRAN-SOURCE         TO TRNSRCI  OF COTRN2AI\n               MOVE WS-TRAN-AMT-E       TO TRNAMTI  OF COTRN2AI\n               MOVE TRAN-DESC           TO TDESCI   OF COTRN2AI\n               MOVE TRAN-ORIG-TS        TO TORIGDTI OF COTRN2AI\n               MOVE TRAN-PROC-TS        TO TPROCDTI OF COTRN2AI\n               MOVE TRAN-MERCHANT-ID    TO MIDI     OF COTRN2AI\n               MOVE TRAN-MERCHANT-NAME  TO MNAMEI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-CITY  TO MCITYI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-ZIP   TO MZIPI    OF COTRN2AI\n           END-IF\n       \n           PERFORM PROCESS-ENTER-KEY.",
@@ -1633,7 +1633,7 @@
     },
     {
       "children": [],
-      "id": "f5764860-ce35-43aa-ac0f-553d15995b81",
+      "id": "974b8aa8-e24b-49f4-9b62-38d450f8c6d3",
       "label": "RETURN-TO-PREV-SCREEN",
       "name": "RETURN-TO-PREV-SCREEN",
       "originalText": "RETURN-TO-PREV-SCREEN.",
@@ -1651,7 +1651,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "4d40e44f-e2a0-436a-8359-dbbd0118bd08",
+                  "id": "511650de-2c28-46f3-bacf-eca99f0e5cc9",
                   "label": "MOVE\u0027COSGN00C\u0027T",
                   "name": "MOVE\u0027COSGN00C\u0027T",
                   "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
@@ -1662,7 +1662,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "b69984d7-0c89-4f0b-b775-8cd0cb21c196",
+              "id": "473a209b-0dbb-4718-9edb-d7f4413e0285",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
@@ -1673,7 +1673,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "e577e5a7-c270-42d5-9cf5-90c19547b885",
+          "id": "9d9e1362-d212-4d21-b03d-814f144fbc79",
           "label": "IS \nCDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES?\n",
           "name": "IS \nCDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES?\n",
           "originalText": "IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF",
@@ -1685,7 +1685,7 @@
         },
         {
           "children": [],
-          "id": "1936eb5c-6f09-4ccb-8106-374f3462f83c",
+          "id": "2ea88607-8773-48aa-8e77-4c9bbe609fde",
           "label": "MOVEWS-TRANIDTO",
           "name": "MOVEWS-TRANIDTO",
           "originalText": "MOVE WS-TRANID    TO CDEMO-FROM-TRANID",
@@ -1697,7 +1697,7 @@
         },
         {
           "children": [],
-          "id": "1ebff4fa-21f8-4c77-99fd-d0253d40e52c",
+          "id": "01b5661d-113a-47ab-9aea-a886e24541c7",
           "label": "MOVEWS-PGMNAMET",
           "name": "MOVEWS-PGMNAMET",
           "originalText": "MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM",
@@ -1709,7 +1709,7 @@
         },
         {
           "children": [],
-          "id": "874d3451-272b-40e5-846a-58c9ed752f6d",
+          "id": "98967ee0-157e-4365-8fc8-0cb231ddec9d",
           "label": "MOVEZEROSTOCDEM",
           "name": "MOVEZEROSTOCDEM",
           "originalText": "MOVE ZEROS        TO CDEMO-PGM-CONTEXT",
@@ -1721,7 +1721,7 @@
         },
         {
           "children": [],
-          "id": "931e45e7-b8b8-4ec1-bff2-43ff24ff094a",
+          "id": "29592b92-d700-4390-8c05-3df5ef156c2c",
           "label": "_DIALECT_2​​​​ ",
           "name": "_DIALECT_2​​​​ ",
           "originalText": "_DIALECT_ 2 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -1732,7 +1732,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "e9ff5769-d622-414e-9147-0745bc3e113f",
+      "id": "c469e5c5-f452-4227-aa1e-e4f8225660b8",
       "label": "IFCDEMO-TO-PROG",
       "name": "IFCDEMO-TO-PROG",
       "originalText": "IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF\n           MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n           MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n           MOVE ZEROS        TO CDEMO-PGM-CONTEXT\n           _DIALECT_ 2 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -1744,7 +1744,7 @@
     },
     {
       "children": [],
-      "id": "cd1a336a-0f0f-483f-8603-29e5278a72ac",
+      "id": "e3be5e46-5bd8-4ea6-99ed-dcd2f7e08f67",
       "label": "SEND-TRNADD-SCREEN",
       "name": "SEND-TRNADD-SCREEN",
       "originalText": "SEND-TRNADD-SCREEN.",
@@ -1758,7 +1758,7 @@
       "children": [
         {
           "children": [],
-          "id": "3d3fa4e8-7a37-4e0f-96ff-1e377a884d9e",
+          "id": "5a9c26f6-690d-4c1c-856c-d7181e3f5327",
           "label": "PERFORM POPULATE-HEADER-INFO",
           "name": "PERFORMPOPULATE",
           "originalText": "PERFORM POPULATE-HEADER-INFO",
@@ -1770,7 +1770,7 @@
         },
         {
           "children": [],
-          "id": "d3648002-7a89-4121-b514-9fc6b05bea4e",
+          "id": "e4812247-9337-4979-8dba-1cbd76ec0425",
           "label": "MOVEWS-MESSAGET",
           "name": "MOVEWS-MESSAGET",
           "originalText": "MOVE WS-MESSAGE TO ERRMSGO OF COTRN2AO",
@@ -1782,7 +1782,7 @@
         },
         {
           "children": [],
-          "id": "e0b17b5d-f6bb-4057-ab81-952b37af201c",
+          "id": "c36d4b53-7c40-4ee4-abeb-b3cffa95d2a7",
           "label": "_DIALECT_3​​​​ ",
           "name": "_DIALECT_3​​​​ ",
           "originalText": "_DIALECT_ 3 ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​.",
@@ -1794,7 +1794,7 @@
         },
         {
           "children": [],
-          "id": "621e41f6-f4fc-44d8-8efd-d743f1416b14",
+          "id": "450ed06e-258d-4b42-aa18-ce2d2288a234",
           "label": "_DIALECT_4​​​​ ",
           "name": "_DIALECT_4​​​​ ",
           "originalText": "_DIALECT_ 4 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n                     ​​​​​​​​ ​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -1805,7 +1805,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "52136d8e-4bee-4804-bd9e-a552e6cae6f5",
+      "id": "b5762b84-8ca4-4471-80ac-5f89f2faea74",
       "label": "PERFORMPOPULATE",
       "name": "PERFORMPOPULATE",
       "originalText": "PERFORM POPULATE-HEADER-INFO\n       \n           MOVE WS-MESSAGE TO ERRMSGO OF COTRN2AO\n       \n           _DIALECT_ 3 ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​.\n       \n           _DIALECT_ 4 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n                     ​​​​​​​​ ​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -1817,7 +1817,7 @@
     },
     {
       "children": [],
-      "id": "d976097c-3fcb-49ef-a9ea-2c192bbedeaa",
+      "id": "6e536687-2545-45fd-bf38-e50535c50921",
       "label": "RECEIVE-TRNADD-SCREEN",
       "name": "RECEIVE-TRNADD-SCREEN",
       "originalText": "RECEIVE-TRNADD-SCREEN.",
@@ -1831,7 +1831,7 @@
       "children": [
         {
           "children": [],
-          "id": "1e000160-7b8c-49f6-85c0-22edf035e915",
+          "id": "6701d342-9467-4284-97f4-9f3c5a115f4b",
           "label": "_DIALECT_5​​​​ ",
           "name": "_DIALECT_5​​​​ ",
           "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -1842,7 +1842,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "a496f98d-b976-46b4-9d74-a1e4a98498af",
+      "id": "8896050b-c828-47fd-aa4e-14b44f07a577",
       "label": "_DIALECT_5​​​​ ",
       "name": "_DIALECT_5​​​​ ",
       "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -1854,7 +1854,7 @@
     },
     {
       "children": [],
-      "id": "c2014cbe-1e80-4a44-a7a0-6c9f39336407",
+      "id": "11a863aa-5d8a-44fb-b88b-bac1bbe2ef10",
       "label": "POPULATE-HEADER-INFO",
       "name": "POPULATE-HEADER-INFO",
       "originalText": "POPULATE-HEADER-INFO.",
@@ -1868,7 +1868,7 @@
       "children": [
         {
           "children": [],
-          "id": "7b660cb3-a718-4dde-b71c-b0e24b8285df",
+          "id": "ef86a94b-50f1-416f-8f0f-9ac5d87863a2",
           "label": "MOVEFUNCTIONCUR",
           "name": "MOVEFUNCTIONCUR",
           "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA",
@@ -1880,7 +1880,7 @@
         },
         {
           "children": [],
-          "id": "cf78fea0-fa7e-4faf-94bc-ec257f257dfe",
+          "id": "d9cbde8e-80a1-41b9-8a66-7323a8ae3a49",
           "label": "MOVECCDA-TITLE0",
           "name": "MOVECCDA-TITLE0",
           "originalText": "MOVE CCDA-TITLE01           TO TITLE01O OF COTRN2AO",
@@ -1892,7 +1892,7 @@
         },
         {
           "children": [],
-          "id": "1bf47c36-4481-4585-a376-dd26a67f71d1",
+          "id": "94601b65-9867-448b-be9e-e455b76a5a57",
           "label": "MOVECCDA-TITLE0",
           "name": "MOVECCDA-TITLE0",
           "originalText": "MOVE CCDA-TITLE02           TO TITLE02O OF COTRN2AO",
@@ -1904,7 +1904,7 @@
         },
         {
           "children": [],
-          "id": "3c541e38-05c5-4933-b131-8804b72f84df",
+          "id": "8d8d4552-f4d6-4859-8db2-ca24cf77e889",
           "label": "MOVEWS-TRANIDTO",
           "name": "MOVEWS-TRANIDTO",
           "originalText": "MOVE WS-TRANID              TO TRNNAMEO OF COTRN2AO",
@@ -1916,7 +1916,7 @@
         },
         {
           "children": [],
-          "id": "34df86f8-5fca-4347-8ee8-4dc5d74412eb",
+          "id": "f596cb0e-26eb-479c-af0f-186e5334111f",
           "label": "MOVEWS-PGMNAMET",
           "name": "MOVEWS-PGMNAMET",
           "originalText": "MOVE WS-PGMNAME             TO PGMNAMEO OF COTRN2AO",
@@ -1928,7 +1928,7 @@
         },
         {
           "children": [],
-          "id": "9ee8b4fd-9380-45c3-a2c4-48bf0ce05983",
+          "id": "823cd615-85de-405d-8b47-a49b76bb1a64",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM",
@@ -1940,7 +1940,7 @@
         },
         {
           "children": [],
-          "id": "da32a8f1-b459-4a1a-a8ca-09887ff84434",
+          "id": "e4ee7a23-84df-4c29-9e22-c6dde044e16e",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD",
@@ -1952,7 +1952,7 @@
         },
         {
           "children": [],
-          "id": "bcce9c92-0c9b-4bea-b995-6503a274ae67",
+          "id": "83d76b92-06f9-4860-8b00-40c973671cab",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY",
@@ -1964,7 +1964,7 @@
         },
         {
           "children": [],
-          "id": "a2ca3796-1848-4434-a940-0f2817309572",
+          "id": "2f58fda5-ab1f-4bd7-9cc6-5a4bff6dea8f",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COTRN2AO",
@@ -1976,7 +1976,7 @@
         },
         {
           "children": [],
-          "id": "48129523-02d0-4c23-93d3-cd531ba8288d",
+          "id": "7eb7b35e-1fe9-4351-8027-142d799cb494",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH",
@@ -1988,7 +1988,7 @@
         },
         {
           "children": [],
-          "id": "557b8c9d-92c0-428d-aa77-fecf24d50b68",
+          "id": "19026f2a-e699-472f-87ac-367f39cd169b",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM",
@@ -2000,7 +2000,7 @@
         },
         {
           "children": [],
-          "id": "4e87e860-c398-49c3-8617-75596547c725",
+          "id": "7fe24f40-58f8-48b9-8ced-20c4af69d54e",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS",
@@ -2012,7 +2012,7 @@
         },
         {
           "children": [],
-          "id": "aeeacf07-f7dd-416f-8738-03235e8f9d75",
+          "id": "74e846fc-74d0-4662-a753-729a6cd7c3d9",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COTRN2AO",
@@ -2023,7 +2023,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "9e4e4bbf-e3e1-4d4a-851c-f4d44c755944",
+      "id": "5a65461d-133f-43f1-b7bb-a8ab60a5f7cf",
       "label": "MOVEFUNCTIONCUR",
       "name": "MOVEFUNCTIONCUR",
       "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF COTRN2AO\n           MOVE CCDA-TITLE02           TO TITLE02O OF COTRN2AO\n           MOVE WS-TRANID              TO TRNNAMEO OF COTRN2AO\n           MOVE WS-PGMNAME             TO PGMNAMEO OF COTRN2AO\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COTRN2AO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COTRN2AO.",
@@ -2035,7 +2035,7 @@
     },
     {
       "children": [],
-      "id": "86135e13-96a3-46b7-af7a-5830ec55c125",
+      "id": "feed0a07-e5ef-4135-9a80-351997bf7d02",
       "label": "READ-CXACAIX-FILE",
       "name": "READ-CXACAIX-FILE",
       "originalText": "READ-CXACAIX-FILE.",
@@ -2049,7 +2049,7 @@
       "children": [
         {
           "children": [],
-          "id": "73c98a00-b77e-4c7d-b4cf-9082037b01d9",
+          "id": "80f6f9d9-c34a-4535-9e13-8686ff0f2ede",
           "label": "_DIALECT_6​​​​ ",
           "name": "_DIALECT_6​​​​ ",
           "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2061,7 +2061,7 @@
         },
         {
           "children": [],
-          "id": "b940cc11-50e0-479f-a98f-5adb20c9f392",
+          "id": "a1b1d128-59e1-412d-9d84-05f8e6368105",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 7 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Acct in XREF AIX file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -2072,7 +2072,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "8ed8f442-78ce-4df9-9110-e15b4d0694d4",
+      "id": "d87fcfec-8251-4ef0-aacd-ba2dc100e4cc",
       "label": "_DIALECT_6​​​​ ",
       "name": "_DIALECT_6​​​​ ",
       "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 7 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Acct in XREF AIX file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -2084,7 +2084,7 @@
     },
     {
       "children": [],
-      "id": "3e734485-c80c-4a35-82e8-cd29d6f6caaa",
+      "id": "2f0361e9-1744-465c-a388-4335cbb7ed66",
       "label": "READ-CCXREF-FILE",
       "name": "READ-CCXREF-FILE",
       "originalText": "READ-CCXREF-FILE.",
@@ -2098,7 +2098,7 @@
       "children": [
         {
           "children": [],
-          "id": "ec179e7e-2dff-4ddc-aa6f-a7df0c43bfb6",
+          "id": "c0e09a96-0ee1-42ac-ae29-541a423952f4",
           "label": "_DIALECT_9​​​​ ",
           "name": "_DIALECT_9​​​​ ",
           "originalText": "_DIALECT_ 9 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2110,7 +2110,7 @@
         },
         {
           "children": [],
-          "id": "ae74c012-8c3f-486e-94f3-bac5d74e7010",
+          "id": "17e70a2e-9aca-4512-a19d-25627ea9c6ea",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Card Number NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CARDNINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Card # in XREF file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CARDNINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -2121,7 +2121,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "dbf19b15-5a19-4142-9f64-24a55114dc62",
+      "id": "110707a3-3863-422f-8757-d1b59296d014",
       "label": "_DIALECT_9​​​​ ",
       "name": "_DIALECT_9​​​​ ",
       "originalText": "_DIALECT_ 9 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Card Number NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CARDNINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Card # in XREF file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CARDNINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -2133,7 +2133,7 @@
     },
     {
       "children": [],
-      "id": "1241b3b0-0cc4-4f53-9751-595bcb8a4aa8",
+      "id": "4a66cf52-dd1a-4739-8d47-9c0cf0b0e753",
       "label": "STARTBR-TRANSACT-FILE",
       "name": "STARTBR-TRANSACT-FILE",
       "originalText": "STARTBR-TRANSACT-FILE.",
@@ -2147,7 +2147,7 @@
       "children": [
         {
           "children": [],
-          "id": "b6faaaaf-a59a-40a3-92f7-79e75fdd5654",
+          "id": "a9f1d36d-b7f9-488d-a691-e79eff0e762e",
           "label": "_DIALECT_12​​​​",
           "name": "_DIALECT_12​​​​",
           "originalText": "_DIALECT_ 12 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2159,7 +2159,7 @@
         },
         {
           "children": [],
-          "id": "fa9ca1d1-e2e1-4b8d-8c68-bf151330ac56",
+          "id": "bb0b9699-25eb-4764-9a36-f83504d1e571",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Transaction ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -2170,7 +2170,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "f63874e9-a804-419f-8b11-27395a22526e",
+      "id": "4ff2925c-a03f-4af7-923b-b649636c98ee",
       "label": "_DIALECT_12​​​​",
       "name": "_DIALECT_12​​​​",
       "originalText": "_DIALECT_ 12 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Transaction ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -2182,7 +2182,7 @@
     },
     {
       "children": [],
-      "id": "eabb5b87-d978-437b-bbef-ee307d2f9824",
+      "id": "c2595d70-43d7-46b7-a3fb-0f93cbf91e74",
       "label": "READPREV-TRANSACT-FILE",
       "name": "READPREV-TRANSACT-FILE",
       "originalText": "READPREV-TRANSACT-FILE.",
@@ -2196,7 +2196,7 @@
       "children": [
         {
           "children": [],
-          "id": "2a412c30-b46b-48cf-9fa8-0d4dc6de80b4",
+          "id": "b3b3b039-8b63-44d7-a5c0-92b8cbb88a0c",
           "label": "_DIALECT_15​​​​",
           "name": "_DIALECT_15​​​​",
           "originalText": "_DIALECT_ 15 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2208,7 +2208,7 @@
         },
         {
           "children": [],
-          "id": "d49476ca-3b2b-4b80-9c0c-6567ce356fa6",
+          "id": "98ba1e0a-da64-4bfc-a9c1-2b24739c31fd",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 16 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 17 ​​​​​​​​​​​​​​​​\n                   MOVE ZEROS TO TRAN-ID\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -2219,7 +2219,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "a8b53d76-6ad4-44ad-a8a3-72553d619d5c",
+      "id": "5df53ae4-d49d-4a73-b17e-9c1993232d71",
       "label": "_DIALECT_15​​​​",
       "name": "_DIALECT_15​​​​",
       "originalText": "_DIALECT_ 15 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 16 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 17 ​​​​​​​​​​​​​​​​\n                   MOVE ZEROS TO TRAN-ID\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -2231,7 +2231,7 @@
     },
     {
       "children": [],
-      "id": "1c1d0c31-062c-4fb5-8495-a1d7746049b4",
+      "id": "b1af47ee-34d0-4805-b837-9991be108796",
       "label": "ENDBR-TRANSACT-FILE",
       "name": "ENDBR-TRANSACT-FILE",
       "originalText": "ENDBR-TRANSACT-FILE.",
@@ -2245,7 +2245,7 @@
       "children": [
         {
           "children": [],
-          "id": "5639b2a3-a11f-4733-852a-22936d5a6ee0",
+          "id": "f540527d-6d62-45f5-a5e4-d82c3e6cfc8b",
           "label": "_DIALECT_18​​​​",
           "name": "_DIALECT_18​​​​",
           "originalText": "_DIALECT_ 18 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​",
@@ -2256,7 +2256,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "3e504f42-3535-4f4c-b8f6-2398a78a956a",
+      "id": "7029a65a-7861-4a9b-99d1-5e81e63046dd",
       "label": "_DIALECT_18​​​​",
       "name": "_DIALECT_18​​​​",
       "originalText": "_DIALECT_ 18 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​.",
@@ -2268,7 +2268,7 @@
     },
     {
       "children": [],
-      "id": "d5fd3f25-d299-4948-9f73-5b4a4e7fe0e8",
+      "id": "ccfa089b-d7e8-4c21-ac1e-4e42135b1905",
       "label": "WRITE-TRANSACT-FILE",
       "name": "WRITE-TRANSACT-FILE",
       "originalText": "WRITE-TRANSACT-FILE.",
@@ -2282,7 +2282,7 @@
       "children": [
         {
           "children": [],
-          "id": "08db8c78-442a-4d48-8b63-f73ee8b8a9ee",
+          "id": "cfe072fc-4b07-4045-ac9c-154482eca433",
           "label": "_DIALECT_19​​​​",
           "name": "_DIALECT_19​​​​",
           "originalText": "_DIALECT_ 19 ​​​​ ​​​​ ​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2294,7 +2294,7 @@
         },
         {
           "children": [],
-          "id": "23496982-483f-40f8-8692-eaa5b9797dbf",
+          "id": "86ffa8d9-d0fd-4693-b13b-fa0f6965e406",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 20 ​​​​​​​​​​​​​​​\n                   PERFORM INITIALIZE-ALL-FIELDS\n                   MOVE SPACES             TO WS-MESSAGE\n                   MOVE DFHGREEN           TO ERRMSGC  OF COTRN2AO\n                   STRING \u0027Transaction added successfully. \u0027\n                                               DELIMITED BY SIZE\n                     \u0027 Your Tran ID is \u0027 DELIMITED BY SIZE\n                          TRAN-ID  DELIMITED BY SPACE\n                          \u0027.\u0027 DELIMITED BY SIZE\n                     INTO WS-MESSAGE\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN _DIALECT_ 21 ​​​​​​​​​​​​​​​\n               WHEN _DIALECT_ 22 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Tran ID already exist...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Add Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE",
@@ -2305,7 +2305,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "9228256f-e449-4695-b194-7729d2f3459b",
+      "id": "6a938986-2721-43c7-8945-2a4056da8cfa",
       "label": "_DIALECT_19​​​​",
       "name": "_DIALECT_19​​​​",
       "originalText": "_DIALECT_ 19 ​​​​ ​​​​ ​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 20 ​​​​​​​​​​​​​​​\n                   PERFORM INITIALIZE-ALL-FIELDS\n                   MOVE SPACES             TO WS-MESSAGE\n                   MOVE DFHGREEN           TO ERRMSGC  OF COTRN2AO\n                   STRING \u0027Transaction added successfully. \u0027\n                                               DELIMITED BY SIZE\n                     \u0027 Your Tran ID is \u0027 DELIMITED BY SIZE\n                          TRAN-ID  DELIMITED BY SPACE\n                          \u0027.\u0027 DELIMITED BY SIZE\n                     INTO WS-MESSAGE\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN _DIALECT_ 21 ​​​​​​​​​​​​​​​\n               WHEN _DIALECT_ 22 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Tran ID already exist...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Add Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.",
@@ -2317,7 +2317,7 @@
     },
     {
       "children": [],
-      "id": "cecfa788-3138-4b05-94dc-050da19569a5",
+      "id": "702d3067-773f-4a4f-8cd3-13644eb6830d",
       "label": "CLEAR-CURRENT-SCREEN",
       "name": "CLEAR-CURRENT-SCREEN",
       "originalText": "CLEAR-CURRENT-SCREEN.",
@@ -2331,7 +2331,7 @@
       "children": [
         {
           "children": [],
-          "id": "96908677-dfcd-44f7-a15d-7b3c88738b29",
+          "id": "7d2848c2-4ae8-4d93-9639-73f984dafe6c",
           "label": "PERFORM INITIALIZE-ALL-FIELDS",
           "name": "PERFORMINITIALI",
           "originalText": "PERFORM INITIALIZE-ALL-FIELDS",
@@ -2342,7 +2342,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "d847fe7e-a041-41eb-978c-3da19b699d2b",
+      "id": "e299b25a-62d4-4780-9d8e-441942677626",
       "label": "PERFORMINITIALI",
       "name": "PERFORMINITIALI",
       "originalText": "PERFORM INITIALIZE-ALL-FIELDS.",
@@ -2356,7 +2356,7 @@
       "children": [
         {
           "children": [],
-          "id": "ebe8ea96-441f-4c26-93e6-32aab17fe720",
+          "id": "172454c4-8647-434a-ad82-cb7667bfd501",
           "label": "PERFORM SEND-TRNADD-SCREEN",
           "name": "PERFORMSEND-TRN",
           "originalText": "PERFORM SEND-TRNADD-SCREEN",
@@ -2367,7 +2367,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "4fdf4012-6230-4136-9830-15256cc7ff00",
+      "id": "593b9761-8658-4819-881e-8de0f302bfc0",
       "label": "PERFORMSEND-TRN",
       "name": "PERFORMSEND-TRN",
       "originalText": "PERFORM SEND-TRNADD-SCREEN.",
@@ -2379,7 +2379,7 @@
     },
     {
       "children": [],
-      "id": "2197744e-1f69-4b04-af22-d9b5df35fdd3",
+      "id": "19d996aa-5e17-487e-8233-106567da7e61",
       "label": "INITIALIZE-ALL-FIELDS",
       "name": "INITIALIZE-ALL-FIELDS",
       "originalText": "INITIALIZE-ALL-FIELDS.",
@@ -2393,7 +2393,7 @@
       "children": [
         {
           "children": [],
-          "id": "fb91f3b4-025f-4d8f-b60d-05d70a161963",
+          "id": "ba76f5d1-c02d-48aa-9a80-9a6fc69f70d7",
           "label": "MOVE-1TOACTIDIN",
           "name": "MOVE-1TOACTIDIN",
           "originalText": "MOVE -1              TO ACTIDINL OF COTRN2AI",
@@ -2405,7 +2405,7 @@
         },
         {
           "children": [],
-          "id": "9a0967b9-5e6f-458c-968f-9b707ee89172",
+          "id": "67ecd528-225e-44e3-b186-298d40acdb39",
           "label": "MOVESPACESTOACT",
           "name": "MOVESPACESTOACT",
           "originalText": "MOVE SPACES          TO ACTIDINI OF COTRN2AI\n                                   CARDNINI OF COTRN2AI\n                                   TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI\n                                   CONFIRMI OF COTRN2AI\n                                   WS-MESSAGE",
@@ -2416,7 +2416,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "0fd55ac0-cb1c-4aa5-978e-161b45105e1c",
+      "id": "f2f12db0-c54a-482e-bb6b-d9da99231675",
       "label": "MOVE-1TOACTIDIN",
       "name": "MOVE-1TOACTIDIN",
       "originalText": "MOVE -1              TO ACTIDINL OF COTRN2AI\n           MOVE SPACES          TO ACTIDINI OF COTRN2AI\n                                   CARDNINI OF COTRN2AI\n                                   TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI\n                                   CONFIRMI OF COTRN2AI\n                                   WS-MESSAGE.",
@@ -2427,9 +2427,9 @@
       "nodeType": "CODE_VERTEX"
     }
   ],
-  "id": "ab763d65-2a96-4f2d-bda0-6f281d2780d4",
-  "label": "ProcedureDivisionBodyContext/ab763d65-2a96-4f2d-bda0-6f281d2780d4",
-  "name": "ProcedureDivisionBodyContext/ab763d65-2a96-4f2d-bda0-6f281d2780d4",
+  "id": "d25f4f7a-af70-4693-aa66-beff9cd65a5b",
+  "label": "ProcedureDivisionBodyContext/d25f4f7a-af70-4693-aa66-beff9cd65a5b",
+  "name": "ProcedureDivisionBodyContext/d25f4f7a-af70-4693-aa66-beff9cd65a5b",
   "originalText": "MAIN-PARA.\n       \n           SET ERR-FLG-OFF     TO TRUE\n           SET USR-MODIFIED-NO TO TRUE\n       \n           MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COTRN2AO\n       \n           IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COTRN2AO\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   IF CDEMO-CT02-TRN-SELECTED NOT \u003d\n                                              SPACES AND LOW-VALUES\n                       MOVE CDEMO-CT02-TRN-SELECTED TO\n                            CARDNINI OF COTRN2AI\n                       PERFORM PROCESS-ENTER-KEY\n                   END-IF\n                   PERFORM SEND-TRNADD-SCREEN\n               ELSE\n                   PERFORM RECEIVE-TRNADD-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           IF CDEMO-FROM-PROGRAM \u003d SPACES OR LOW-VALUES\n                               MOVE \u0027COMEN01C\u0027 TO CDEMO-TO-PROGRAM\n                           ELSE\n                               MOVE CDEMO-FROM-PROGRAM TO\n                               CDEMO-TO-PROGRAM\n                           END-IF\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF4\n                           PERFORM CLEAR-CURRENT-SCREEN\n                       WHEN DFHPF5\n                           PERFORM COPY-LAST-TRAN-DATA\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-TRNADD-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       PROCESS-ENTER-KEY.\n       \n           PERFORM VALIDATE-INPUT-KEY-FIELDS\n           PERFORM VALIDATE-INPUT-DATA-FIELDS.\n       \n           EVALUATE CONFIRMI OF COTRN2AI\n               WHEN \u0027Y\u0027\n               WHEN \u0027y\u0027\n                   PERFORM ADD-TRANSACTION\n               WHEN \u0027N\u0027\n               WHEN \u0027n\u0027\n               WHEN SPACES\n               WHEN LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Confirm to add this transaction...\u0027\n                                TO WS-MESSAGE\n                   MOVE -1      TO CONFIRML OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Invalid value. Valid values are (Y/N)...\u0027\n                                TO WS-MESSAGE\n                   MOVE -1      TO CONFIRML OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       VALIDATE-INPUT-KEY-FIELDS.\n       \n           EVALUATE TRUE\n               WHEN ACTIDINI OF COTRN2AI NOT \u003d SPACES AND LOW-VALUES\n                   IF ACTIDINI OF COTRN2AI IS NOT NUMERIC\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Account ID must be Numeric...\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO ACTIDINL OF COTRN2AI\n                       PERFORM SEND-TRNADD-SCREEN\n                   END-IF\n                   COMPUTE WS-ACCT-ID-N \u003d FUNCTION NUMVAL(ACTIDINI OF\n                   COTRN2AI)\n                   MOVE WS-ACCT-ID-N            TO XREF-ACCT-ID\n                                                ACTIDINI OF COTRN2AI\n                   PERFORM READ-CXACAIX-FILE\n                   MOVE XREF-CARD-NUM         TO CARDNINI OF COTRN2AI\n               WHEN CARDNINI OF COTRN2AI NOT \u003d SPACES AND LOW-VALUES\n                   IF CARDNINI OF COTRN2AI IS NOT NUMERIC\n                       MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                       MOVE \u0027Card Number must be Numeric...\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO CARDNINL OF COTRN2AI\n                       PERFORM SEND-TRNADD-SCREEN\n                   END-IF\n                   COMPUTE WS-CARD-NUM-N \u003d FUNCTION NUMVAL(CARDNINI OF\n                   COTRN2AI)\n                   MOVE WS-CARD-NUM-N        TO XREF-CARD-NUM\n                                                CARDNINI OF COTRN2AI\n                   PERFORM READ-CCXREF-FILE\n                   MOVE XREF-ACCT-ID         TO ACTIDINI OF COTRN2AI\n               WHEN OTHER\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account or Card Number must be entered...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       VALIDATE-INPUT-DATA-FIELDS.\n       \n           IF ERR-FLG-ON\n               MOVE SPACES      TO TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI\n           END-IF.\n       \n           EVALUATE TRUE\n               WHEN TTYPCDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Type CD can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TTYPCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TCATCDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Category CD can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TCATCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TRNSRCI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Source can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNSRCL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TDESCI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Description can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TDESCL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TRNAMTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Amount can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNAMTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TORIGDTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Orig Date can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TPROCDTI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Proc Date can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MIDI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant ID can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MIDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MNAMEI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant Name can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MNAMEL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MCITYI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant City can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MCITYL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN MZIPI OF COTRN2AI \u003d SPACES OR LOW-VALUES\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Merchant Zip can NOT be empty...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO MZIPL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE.\n       \n           EVALUATE TRUE\n               WHEN TTYPCDI OF COTRN2AI NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Type CD must be Numeric...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TTYPCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN TCATCDI OF COTRN2AI NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Category CD must be Numeric...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TCATCDL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           EVALUATE TRUE\n               WHEN TRNAMTI OF COTRN2AI(1:1) NOT EQUAL \u0027-\u0027 AND \u0027+\u0027\n               WHEN TRNAMTI OF COTRN2AI(2:8) NOT NUMERIC\n               WHEN TRNAMTI OF COTRN2AI(10:1) NOT \u003d \u0027.\u0027\n               WHEN TRNAMTI OF COTRN2AI(11:2) IS NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Amount should be in format -99999999.99\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TRNAMTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           EVALUATE TRUE\n               WHEN TORIGDTI OF COTRN2AI(1:4) IS NOT NUMERIC\n               WHEN TORIGDTI OF COTRN2AI(5:1) NOT EQUAL \u0027-\u0027\n               WHEN TORIGDTI OF COTRN2AI(6:2) NOT NUMERIC\n               WHEN TORIGDTI OF COTRN2AI(8:1) NOT EQUAL \u0027-\u0027\n               WHEN TORIGDTI OF COTRN2AI(9:2) NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Orig Date should be in format YYYY-MM-DD\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           EVALUATE TRUE\n               WHEN TPROCDTI OF COTRN2AI(1:4) IS NOT NUMERIC\n               WHEN TPROCDTI OF COTRN2AI(5:1) NOT EQUAL \u0027-\u0027\n               WHEN TPROCDTI OF COTRN2AI(6:2) NOT NUMERIC\n               WHEN TPROCDTI OF COTRN2AI(8:1) NOT EQUAL \u0027-\u0027\n               WHEN TPROCDTI OF COTRN2AI(9:2) NOT NUMERIC\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Proc Date should be in format YYYY-MM-DD\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE\n       \n           COMPUTE WS-TRAN-AMT-N \u003d FUNCTION NUMVAL-C(TRNAMTI OF\n           COTRN2AI)\n           MOVE WS-TRAN-AMT-N TO WS-TRAN-AMT-E\n           MOVE WS-TRAN-AMT-E TO TRNAMTI OF COTRN2AI\n       \n       \n           MOVE TORIGDTI OF COTRN2AI TO CSUTLDTC-DATE\n           MOVE WS-DATE-FORMAT       TO CSUTLDTC-DATE-FORMAT\n           MOVE SPACES               TO CSUTLDTC-RESULT\n       \n           CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT\n       \n           IF CSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027\n               CONTINUE\n           ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Orig Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TORIGDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF\n           END-IF\n       \n           MOVE TPROCDTI OF COTRN2AI TO CSUTLDTC-DATE\n           MOVE WS-DATE-FORMAT       TO CSUTLDTC-DATE-FORMAT\n           MOVE SPACES               TO CSUTLDTC-RESULT\n       \n           CALL \u0027CSUTLDTC\u0027 USING   CSUTLDTC-DATE\n                                   CSUTLDTC-DATE-FORMAT\n                                   CSUTLDTC-RESULT\n       \n           IF CSUTLDTC-RESULT-SEV-CD \u003d \u00270000\u0027\n               CONTINUE\n           ELSE\n               IF CSUTLDTC-RESULT-MSG-NUM NOT \u003d \u00272513\u0027\n                   MOVE \u0027Proc Date - Not a valid date...\u0027\n                     TO WS-MESSAGE\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE -1       TO TPROCDTL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               END-IF\n           END-IF\n       \n       \n           IF MIDI OF COTRN2AI IS NOT NUMERIC\n               MOVE \u0027Y\u0027     TO WS-ERR-FLG\n               MOVE \u0027Merchant ID must be Numeric...\u0027 TO\n                               WS-MESSAGE\n               MOVE -1       TO MIDL OF COTRN2AI\n               PERFORM SEND-TRNADD-SCREEN\n           END-IF\n           .\n       \n       \n       \n       \n       ADD-TRANSACTION.\n       \n           MOVE HIGH-VALUES TO TRAN-ID\n           PERFORM STARTBR-TRANSACT-FILE\n           PERFORM READPREV-TRANSACT-FILE\n           PERFORM ENDBR-TRANSACT-FILE\n           MOVE TRAN-ID     TO WS-TRAN-ID-N\n           ADD 1 TO WS-TRAN-ID-N\n           INITIALIZE TRAN-RECORD\n           MOVE WS-TRAN-ID-N         TO TRAN-ID\n           MOVE TTYPCDI  OF COTRN2AI TO TRAN-TYPE-CD\n           MOVE TCATCDI  OF COTRN2AI TO TRAN-CAT-CD\n           MOVE TRNSRCI  OF COTRN2AI TO TRAN-SOURCE\n           MOVE TDESCI   OF COTRN2AI TO TRAN-DESC\n           COMPUTE WS-TRAN-AMT-N \u003d FUNCTION NUMVAL-C(TRNAMTI OF\n           COTRN2AI)\n           MOVE WS-TRAN-AMT-N TO TRAN-AMT\n           MOVE CARDNINI OF COTRN2AI TO TRAN-CARD-NUM\n           MOVE MIDI     OF COTRN2AI TO TRAN-MERCHANT-ID\n           MOVE MNAMEI   OF COTRN2AI TO TRAN-MERCHANT-NAME\n           MOVE MCITYI   OF COTRN2AI TO TRAN-MERCHANT-CITY\n           MOVE MZIPI    OF COTRN2AI TO TRAN-MERCHANT-ZIP\n           MOVE TORIGDTI OF COTRN2AI TO TRAN-ORIG-TS\n           MOVE TPROCDTI OF COTRN2AI TO TRAN-PROC-TS\n           PERFORM WRITE-TRANSACT-FILE.\n       \n       \n       \n       \n       COPY-LAST-TRAN-DATA.\n       \n           PERFORM VALIDATE-INPUT-KEY-FIELDS\n       \n           MOVE HIGH-VALUES TO TRAN-ID\n           PERFORM STARTBR-TRANSACT-FILE\n           PERFORM READPREV-TRANSACT-FILE\n           PERFORM ENDBR-TRANSACT-FILE\n       \n           IF NOT ERR-FLG-ON\n               MOVE TRAN-AMT TO WS-TRAN-AMT-E\n               MOVE TRAN-TYPE-CD        TO TTYPCDI  OF COTRN2AI\n               MOVE TRAN-CAT-CD         TO TCATCDI  OF COTRN2AI\n               MOVE TRAN-SOURCE         TO TRNSRCI  OF COTRN2AI\n               MOVE WS-TRAN-AMT-E       TO TRNAMTI  OF COTRN2AI\n               MOVE TRAN-DESC           TO TDESCI   OF COTRN2AI\n               MOVE TRAN-ORIG-TS        TO TORIGDTI OF COTRN2AI\n               MOVE TRAN-PROC-TS        TO TPROCDTI OF COTRN2AI\n               MOVE TRAN-MERCHANT-ID    TO MIDI     OF COTRN2AI\n               MOVE TRAN-MERCHANT-NAME  TO MNAMEI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-CITY  TO MCITYI   OF COTRN2AI\n               MOVE TRAN-MERCHANT-ZIP   TO MZIPI    OF COTRN2AI\n           END-IF\n       \n           PERFORM PROCESS-ENTER-KEY.\n       \n       \n       \n       \n       RETURN-TO-PREV-SCREEN.\n       \n           IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF\n           MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n           MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n           MOVE ZEROS        TO CDEMO-PGM-CONTEXT\n           _DIALECT_ 2 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       SEND-TRNADD-SCREEN.\n       \n           PERFORM POPULATE-HEADER-INFO\n       \n           MOVE WS-MESSAGE TO ERRMSGO OF COTRN2AO\n       \n           _DIALECT_ 3 ​​​​ ​​​​ ​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​\n           ​​​​​​​​.\n       \n           _DIALECT_ 4 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n                     ​​​​​​​​ ​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       RECEIVE-TRNADD-SCREEN.\n       \n           _DIALECT_ 5 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       POPULATE-HEADER-INFO.\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF COTRN2AO\n           MOVE CCDA-TITLE02           TO TITLE02O OF COTRN2AO\n           MOVE WS-TRANID              TO TRNNAMEO OF COTRN2AO\n           MOVE WS-PGMNAME             TO PGMNAMEO OF COTRN2AO\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COTRN2AO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COTRN2AO.\n       \n       \n       \n       \n       READ-CXACAIX-FILE.\n       \n           _DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 7 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 8 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Account ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Acct in XREF AIX file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       READ-CCXREF-FILE.\n       \n           _DIALECT_ 9 ​​​​ ​​​​ ​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 11 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Card Number NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CARDNINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Card # in XREF file...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO CARDNINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       STARTBR-TRANSACT-FILE.\n       \n           _DIALECT_ 12 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 14 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Transaction ID NOT found...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       READPREV-TRANSACT-FILE.\n       \n           _DIALECT_ 15 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 16 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 17 ​​​​​​​​​​​​​​​​\n                   MOVE ZEROS TO TRAN-ID\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       ENDBR-TRANSACT-FILE.\n       \n           _DIALECT_ 18 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       WRITE-TRANSACT-FILE.\n       \n           _DIALECT_ 19 ​​​​ ​​​​ ​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 20 ​​​​​​​​​​​​​​​\n                   PERFORM INITIALIZE-ALL-FIELDS\n                   MOVE SPACES             TO WS-MESSAGE\n                   MOVE DFHGREEN           TO ERRMSGC  OF COTRN2AO\n                   STRING \u0027Transaction added successfully. \u0027\n                                               DELIMITED BY SIZE\n                     \u0027 Your Tran ID is \u0027 DELIMITED BY SIZE\n                          TRAN-ID  DELIMITED BY SPACE\n                          \u0027.\u0027 DELIMITED BY SIZE\n                     INTO WS-MESSAGE\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN _DIALECT_ 21 ​​​​​​​​​​​​​​​\n               WHEN _DIALECT_ 22 ​​​​​​​​​​​​​​​\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Tran ID already exist...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to Add Transaction...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO ACTIDINL OF COTRN2AI\n                   PERFORM SEND-TRNADD-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       CLEAR-CURRENT-SCREEN.\n       \n           PERFORM INITIALIZE-ALL-FIELDS.\n           PERFORM SEND-TRNADD-SCREEN.\n       \n       \n       \n       \n       INITIALIZE-ALL-FIELDS.\n       \n           MOVE -1              TO ACTIDINL OF COTRN2AI\n           MOVE SPACES          TO ACTIDINI OF COTRN2AI\n                                   CARDNINI OF COTRN2AI\n                                   TTYPCDI  OF COTRN2AI\n                                   TCATCDI  OF COTRN2AI\n                                   TRNSRCI  OF COTRN2AI\n                                   TRNAMTI  OF COTRN2AI\n                                   TDESCI   OF COTRN2AI\n                                   TORIGDTI OF COTRN2AI\n                                   TPROCDTI OF COTRN2AI\n                                   MIDI     OF COTRN2AI\n                                   MNAMEI   OF COTRN2AI\n                                   MCITYI   OF COTRN2AI\n                                   MZIPI    OF COTRN2AI\n                                   CONFIRMI OF COTRN2AI\n                                   WS-MESSAGE.",
   "type": "PROCEDURE_DIVISION_BODY",
   "categories": [

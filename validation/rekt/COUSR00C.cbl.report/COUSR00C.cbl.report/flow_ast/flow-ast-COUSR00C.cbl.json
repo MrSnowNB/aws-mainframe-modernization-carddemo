@@ -2,7 +2,7 @@
   "children": [
     {
       "children": [],
-      "id": "3a92238f-8eed-4b1c-be50-b8aa5ec383cf",
+      "id": "323cd35c-d182-466f-a568-32fdbd6a1bb1",
       "label": "MAIN-PARA",
       "name": "MAIN-PARA",
       "originalText": "MAIN-PARA.",
@@ -16,7 +16,7 @@
       "children": [
         {
           "children": [],
-          "id": "6bae4667-4748-45fc-ad1a-cf2827092357",
+          "id": "8475fe90-e1e2-4cd8-9f2f-8bbdb51a05aa",
           "label": "SETERR-FLG-OFFT",
           "name": "SETERR-FLG-OFFT",
           "originalText": "SET ERR-FLG-OFF TO TRUE",
@@ -28,7 +28,7 @@
         },
         {
           "children": [],
-          "id": "08a456ef-602c-4519-97a6-c4d74b190da2",
+          "id": "7dc68b48-72e5-4af5-af2e-f7a026e63884",
           "label": "SETUSER-SEC-NOT",
           "name": "SETUSER-SEC-NOT",
           "originalText": "SET USER-SEC-NOT-EOF TO TRUE",
@@ -40,7 +40,7 @@
         },
         {
           "children": [],
-          "id": "e8a02d12-caec-4221-a562-1b0714302bd1",
+          "id": "e42b443f-f102-4134-b002-f91e4750df0b",
           "label": "SETNEXT-PAGE-NO",
           "name": "SETNEXT-PAGE-NO",
           "originalText": "SET NEXT-PAGE-NO TO TRUE",
@@ -52,7 +52,7 @@
         },
         {
           "children": [],
-          "id": "25271a0e-e0c0-4212-8e11-096ac6a6000a",
+          "id": "ca4b023f-3cd2-49fd-8f2d-2da650a843bc",
           "label": "SETSEND-ERASE-Y",
           "name": "SETSEND-ERASE-Y",
           "originalText": "SET SEND-ERASE-YES TO TRUE",
@@ -64,7 +64,7 @@
         },
         {
           "children": [],
-          "id": "02ba5e4d-bfe1-4fa9-9322-ea0131b9e1a6",
+          "id": "340b5862-d95f-4a30-aa48-e1fb4a1455e6",
           "label": "MOVESPACESTOWS-",
           "name": "MOVESPACESTOWS-",
           "originalText": "MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COUSR0AO",
@@ -76,7 +76,7 @@
         },
         {
           "children": [],
-          "id": "3ac3a48b-2af7-40fb-80ab-d6a51856c8c4",
+          "id": "dd633f06-4db1-45d8-b816-6492b1e9c24a",
           "label": "MOVE-1TOUSRIDIN",
           "name": "MOVE-1TOUSRIDIN",
           "originalText": "MOVE -1       TO USRIDINL OF COUSR0AI",
@@ -92,7 +92,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "27bd8e6e-0854-4db8-bdf6-877384a2d5dc",
+                  "id": "a415f44e-d74a-430a-ba98-7cd006b0b3ef",
                   "label": "MOVE\u0027COSGN00C\u0027T",
                   "name": "MOVE\u0027COSGN00C\u0027T",
                   "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
@@ -104,7 +104,7 @@
                 },
                 {
                   "children": [],
-                  "id": "3de923ae-2478-4934-8710-1c594ad1b87f",
+                  "id": "65dba177-d107-4a81-aae6-56dd4db1adba",
                   "label": "PERFORM RETURN-TO-PREV-SCREEN",
                   "name": "PERFORMRETURN-T",
                   "originalText": "PERFORM RETURN-TO-PREV-SCREEN",
@@ -115,7 +115,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "f4201385-b4d3-4bf1-b119-25d7becb0de4",
+              "id": "cb9d5d2b-920c-4e27-9f7a-b19e83a2ee60",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN",
@@ -129,7 +129,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "1eed94f0-59b7-4960-a1ea-6d3fdb0f4085",
+                  "id": "f3349942-b0b2-4dca-9285-6ffe226f2ec4",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -141,7 +141,7 @@
                 },
                 {
                   "children": [],
-                  "id": "83224a6c-b442-4630-b067-24b707eb3613",
+                  "id": "12bcbf72-8497-469b-98f5-7841437b4f9d",
                   "label": "MOVEDFHCOMMAREA",
                   "name": "MOVEDFHCOMMAREA",
                   "originalText": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA",
@@ -157,7 +157,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "0f7c3e11-b087-46f0-86ae-231126916525",
+                          "id": "5187e1fb-ae7c-45a0-a4df-a93da4e09d77",
                           "label": "SETCDEMO-PGM-RE",
                           "name": "SETCDEMO-PGM-RE",
                           "originalText": "SET CDEMO-PGM-REENTER    TO TRUE",
@@ -169,7 +169,7 @@
                         },
                         {
                           "children": [],
-                          "id": "f4852337-1385-49e2-a191-a56c06170c13",
+                          "id": "efbaf797-ea9a-4668-a008-e6fc6c89e12c",
                           "label": "MOVELOW-VALUEST",
                           "name": "MOVELOW-VALUEST",
                           "originalText": "MOVE LOW-VALUES          TO COUSR0AO",
@@ -181,7 +181,7 @@
                         },
                         {
                           "children": [],
-                          "id": "6d9dc5ee-87de-44fb-868a-3dbf9dc942de",
+                          "id": "2c15c68c-80b3-4b1e-a69b-f3bbd15ebcad",
                           "label": "PERFORM PROCESS-ENTER-KEY",
                           "name": "PERFORMPROCESS-",
                           "originalText": "PERFORM PROCESS-ENTER-KEY",
@@ -193,7 +193,7 @@
                         },
                         {
                           "children": [],
-                          "id": "598a1180-de0e-4b5a-9b9a-7fac3bafb9a6",
+                          "id": "b27b6bdf-69d7-4ac5-a504-583c76520d95",
                           "label": "PERFORM SEND-USRLST-SCREEN",
                           "name": "PERFORMSEND-USR",
                           "originalText": "PERFORM SEND-USRLST-SCREEN",
@@ -204,7 +204,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "984759ac-7c00-444a-ad04-7f8d1bf03542",
+                      "id": "e09be5eb-c07f-40d3-a6cd-f6d7761a5601",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COUSR0AO\n                   PERFORM PROCESS-ENTER-KEY\n                   PERFORM SEND-USRLST-SCREEN",
@@ -218,7 +218,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "2c7740ca-6d65-4421-af3f-6a3e35fa2ab9",
+                          "id": "1571fde1-7920-4704-8f9e-d6f57f34c56b",
                           "label": "ELSE",
                           "name": "ELSE",
                           "originalText": "ELSE",
@@ -230,7 +230,7 @@
                         },
                         {
                           "children": [],
-                          "id": "d1360faf-1f09-442f-b163-367e4399c7a4",
+                          "id": "50695a10-8f16-4044-84a2-4ce9b39db527",
                           "label": "PERFORM RECEIVE-USRLST-SCREEN",
                           "name": "PERFORMRECEIVE-",
                           "originalText": "PERFORM RECEIVE-USRLST-SCREEN",
@@ -242,7 +242,7 @@
                         },
                         {
                           "children": [],
-                          "id": "40305db4-2c89-43dc-8376-acd8564908e2",
+                          "id": "5d62239c-2de5-4a85-9ce5-22f762c39046",
                           "label": "EVALUATE",
                           "name": "EVALUATE",
                           "originalText": "EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE",
@@ -253,7 +253,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "5d64851d-e29a-49de-baf7-96176d32b277",
+                      "id": "a80ea4d4-fbca-4203-be88-d939e1cb4bba",
                       "label": "No",
                       "name": "No",
                       "originalText": "ELSE\n                   PERFORM RECEIVE-USRLST-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE",
@@ -264,7 +264,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "6c3b3300-f26a-4e5f-ba17-5a51d83ccbaa",
+                  "id": "8c018ac5-a147-44fb-be88-e35e9f4854a7",
                   "label": "IS \nNOT CDEMO-PGM-REENTER?\n",
                   "name": "IS \nNOT CDEMO-PGM-REENTER?\n",
                   "originalText": "IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COUSR0AO\n                   PERFORM PROCESS-ENTER-KEY\n                   PERFORM SEND-USRLST-SCREEN\n               ELSE\n                   PERFORM RECEIVE-USRLST-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE\n               END-IF",
@@ -275,7 +275,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "ef901b03-794d-4226-b729-805a550a8f90",
+              "id": "792f7028-f776-454f-888d-662181d910d8",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COUSR0AO\n                   PERFORM PROCESS-ENTER-KEY\n                   PERFORM SEND-USRLST-SCREEN\n               ELSE\n                   PERFORM RECEIVE-USRLST-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE\n               END-IF",
@@ -286,7 +286,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "8c4226d6-0348-42bf-b769-a7dcfdea9b8e",
+          "id": "5bd4869e-952c-4a05-a42c-13523754c988",
           "label": "IS \nEIBCALEN \u003d 0?\n",
           "name": "IS \nEIBCALEN \u003d 0?\n",
           "originalText": "IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COUSR0AO\n                   PERFORM PROCESS-ENTER-KEY\n                   PERFORM SEND-USRLST-SCREEN\n               ELSE\n                   PERFORM RECEIVE-USRLST-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF",
@@ -298,7 +298,7 @@
         },
         {
           "children": [],
-          "id": "1f2a338e-9a2d-4a6e-8227-497f34a11c30",
+          "id": "05dea2a5-8fcd-4cce-a558-7f101bbca882",
           "label": "_DIALECT_1​​​​ ",
           "name": "_DIALECT_1​​​​ ",
           "originalText": "_DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​",
@@ -309,7 +309,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "bd328cc6-8e55-4ba7-8702-f251ecb7c908",
+      "id": "008e13ec-ea4b-4f88-a9df-9306c1ae0b4b",
       "label": "SETERR-FLG-OFFT",
       "name": "SETERR-FLG-OFFT",
       "originalText": "SET ERR-FLG-OFF TO TRUE\n           SET USER-SEC-NOT-EOF TO TRUE\n           SET NEXT-PAGE-NO TO TRUE\n           SET SEND-ERASE-YES TO TRUE\n       \n           MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COUSR0AO\n       \n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n           IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COUSR0AO\n                   PERFORM PROCESS-ENTER-KEY\n                   PERFORM SEND-USRLST-SCREEN\n               ELSE\n                   PERFORM RECEIVE-USRLST-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -321,7 +321,7 @@
     },
     {
       "children": [],
-      "id": "be2d338c-c3e0-4210-bcbd-8b867ffca982",
+      "id": "12b12b1c-5819-4cca-8def-f5a72be45e8f",
       "label": "PROCESS-ENTER-KEY",
       "name": "PROCESS-ENTER-KEY",
       "originalText": "PROCESS-ENTER-KEY.",
@@ -335,7 +335,7 @@
       "children": [
         {
           "children": [],
-          "id": "91cdfdee-c5b8-4d27-a596-433839aa92ea",
+          "id": "eccfa9d8-f148-48fe-b532-88f5f04ed057",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE TRUE\n               WHEN SEL0001I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0001I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID01I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0002I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0002I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID02I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0003I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0003I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID03I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0004I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0004I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID04I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0005I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0005I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID05I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0006I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0006I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID06I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0007I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0007I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID07I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0008I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0008I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID08I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0009I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0009I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID09I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0010I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0010I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID10I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN OTHER\n                   MOVE SPACES   TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE SPACES   TO CDEMO-CU00-USR-SELECTED\n           END-EVALUATE",
@@ -351,7 +351,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "16c11d33-eb17-47e9-b07b-ffe3dc002c85",
+                  "id": "b44c655a-af44-4347-88a4-e42e25533187",
                   "label": "EVALUATE",
                   "name": "EVALUATE",
                   "originalText": "EVALUATE CDEMO-CU00-USR-SEL-FLG\n                   WHEN \u0027U\u0027\n                   WHEN \u0027u\u0027\n                        MOVE \u0027COUSR02C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 2 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN \u0027D\u0027\n                   WHEN \u0027d\u0027\n                        MOVE \u0027COUSR03C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 3 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN OTHER\n                       MOVE\n                       \u0027Invalid selection. Valid values are U and D\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO USRIDINL OF COUSR0AI\n               END-EVALUATE",
@@ -362,7 +362,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "5c780b92-3f43-40ed-ad00-5f950b425850",
+              "id": "cc67bc50-ad22-4279-8563-e01329d594bb",
               "label": "Yes",
               "name": "Yes",
               "originalText": "EVALUATE CDEMO-CU00-USR-SEL-FLG\n                   WHEN \u0027U\u0027\n                   WHEN \u0027u\u0027\n                        MOVE \u0027COUSR02C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 2 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN \u0027D\u0027\n                   WHEN \u0027d\u0027\n                        MOVE \u0027COUSR03C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 3 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN OTHER\n                       MOVE\n                       \u0027Invalid selection. Valid values are U and D\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO USRIDINL OF COUSR0AI\n               END-EVALUATE",
@@ -373,7 +373,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "3538146d-008e-4f5c-9f40-f08ba244663f",
+          "id": "7823ae8b-b9b6-4888-bdb2-82a5bf539c79",
           "label": "IS \n(CDEMO-CU00-USR-SEL-FLG NOT \u003d SPACES AND?\n",
           "name": "IS \n(CDEMO-CU00-USR-SEL-FLG NOT \u003d SPACES AND?\n",
           "originalText": "IF (CDEMO-CU00-USR-SEL-FLG NOT \u003d SPACES AND LOW-VALUES) AND\n              (CDEMO-CU00-USR-SELECTED NOT \u003d SPACES AND LOW-VALUES)\n               EVALUATE CDEMO-CU00-USR-SEL-FLG\n                   WHEN \u0027U\u0027\n                   WHEN \u0027u\u0027\n                        MOVE \u0027COUSR02C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 2 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN \u0027D\u0027\n                   WHEN \u0027d\u0027\n                        MOVE \u0027COUSR03C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 3 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN OTHER\n                       MOVE\n                       \u0027Invalid selection. Valid values are U and D\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO USRIDINL OF COUSR0AI\n               END-EVALUATE\n           END-IF",
@@ -389,7 +389,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "7b1cd49c-4c0a-4167-95d6-40a9c4607456",
+                  "id": "634490b8-a497-4fe4-b073-059221e4b2ec",
                   "label": "MOVELOW-VALUEST",
                   "name": "MOVELOW-VALUEST",
                   "originalText": "MOVE LOW-VALUES TO SEC-USR-ID",
@@ -400,7 +400,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "b0f780da-09ff-4f56-857c-2e3beef0595e",
+              "id": "62e5fb9a-9ee1-4770-924c-47446dcc4037",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE LOW-VALUES TO SEC-USR-ID",
@@ -414,7 +414,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "fced31b2-1f32-4678-8084-13979ceac47d",
+                  "id": "0fb7ec13-1231-48cd-849f-cf1fdb0f2f4d",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -426,7 +426,7 @@
                 },
                 {
                   "children": [],
-                  "id": "152a6b3d-221b-4588-80aa-d8f72a7948f6",
+                  "id": "b4932ba9-ec24-4eaa-b3ad-e47f4295c0b6",
                   "label": "MOVEUSRIDINIOFC",
                   "name": "MOVEUSRIDINIOFC",
                   "originalText": "MOVE USRIDINI  OF COUSR0AI TO SEC-USR-ID",
@@ -437,7 +437,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "b069de4e-e019-40b0-b519-8a328be6ae96",
+              "id": "475f5c12-c3b4-432e-96e9-b400b203eb1b",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE USRIDINI  OF COUSR0AI TO SEC-USR-ID",
@@ -448,7 +448,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "986c497d-9dc1-4195-a7f6-65c4e5023a71",
+          "id": "57d9e2d1-0d33-4003-885c-1765c1d3be44",
           "label": "IS \nUSRIDINI OF COUSR0AI \u003d SPACES OR LOW-VAL?\n",
           "name": "IS \nUSRIDINI OF COUSR0AI \u003d SPACES OR LOW-VAL?\n",
           "originalText": "IF USRIDINI OF COUSR0AI \u003d SPACES OR LOW-VALUES\n               MOVE LOW-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE USRIDINI  OF COUSR0AI TO SEC-USR-ID\n           END-IF",
@@ -460,7 +460,7 @@
         },
         {
           "children": [],
-          "id": "b499cacd-e4cc-420e-9b90-cc23d6848bec",
+          "id": "31381ed4-61ea-43dd-84a5-f3df58948aeb",
           "label": "MOVE-1TOUSRIDIN",
           "name": "MOVE-1TOUSRIDIN",
           "originalText": "MOVE -1       TO USRIDINL OF COUSR0AI",
@@ -472,7 +472,7 @@
         },
         {
           "children": [],
-          "id": "33f832e4-d767-4c47-a50b-3f6b22ec9f62",
+          "id": "3362ee04-e66f-453e-9752-df6a1a468388",
           "label": "MOVE0TOCDEMO-CU",
           "name": "MOVE0TOCDEMO-CU",
           "originalText": "MOVE 0       TO CDEMO-CU00-PAGE-NUM",
@@ -484,7 +484,7 @@
         },
         {
           "children": [],
-          "id": "1b5772ad-4f41-49e8-8d63-26ab79bb64f2",
+          "id": "c578c4d4-8755-4595-ac83-c1afb2876aa4",
           "label": "PERFORM PROCESS-PAGE-FORWARD",
           "name": "PERFORMPROCESS-",
           "originalText": "PERFORM PROCESS-PAGE-FORWARD",
@@ -500,7 +500,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "e2313d68-c40e-48ee-8ca3-57d72313e6f0",
+                  "id": "0ba48a7f-70cf-40fe-a07b-682f647f6caf",
                   "label": "MOVESPACETOUSRI",
                   "name": "MOVESPACETOUSRI",
                   "originalText": "MOVE SPACE   TO USRIDINO  OF COUSR0AO",
@@ -511,7 +511,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "ffcf17f5-80e5-4810-99f3-3fc4c3897e95",
+              "id": "39f7351a-abf4-4775-ae4b-d35adfdf58da",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE SPACE   TO USRIDINO  OF COUSR0AO",
@@ -522,7 +522,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "41c3c427-e1e6-4b31-a859-0d6e20805f1c",
+          "id": "7ef6fc9f-25e0-48fd-8a05-c4b5aa9fcc5b",
           "label": "IS \nNOT ERR-FLG-ON?\n",
           "name": "IS \nNOT ERR-FLG-ON?\n",
           "originalText": "IF NOT ERR-FLG-ON\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n           END-IF",
@@ -533,7 +533,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "5ea3707c-fa81-4911-bd6f-bbc994ada7e5",
+      "id": "5c883afc-85f5-46cd-821e-38bb1e46ac27",
       "label": "EVALUATETRUEWHE",
       "name": "EVALUATETRUEWHE",
       "originalText": "EVALUATE TRUE\n               WHEN SEL0001I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0001I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID01I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0002I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0002I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID02I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0003I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0003I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID03I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0004I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0004I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID04I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0005I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0005I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID05I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0006I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0006I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID06I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0007I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0007I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID07I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0008I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0008I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID08I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0009I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0009I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID09I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0010I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0010I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID10I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN OTHER\n                   MOVE SPACES   TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE SPACES   TO CDEMO-CU00-USR-SELECTED\n           END-EVALUATE\n       \n           IF (CDEMO-CU00-USR-SEL-FLG NOT \u003d SPACES AND LOW-VALUES) AND\n              (CDEMO-CU00-USR-SELECTED NOT \u003d SPACES AND LOW-VALUES)\n               EVALUATE CDEMO-CU00-USR-SEL-FLG\n                   WHEN \u0027U\u0027\n                   WHEN \u0027u\u0027\n                        MOVE \u0027COUSR02C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 2 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN \u0027D\u0027\n                   WHEN \u0027d\u0027\n                        MOVE \u0027COUSR03C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 3 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN OTHER\n                       MOVE\n                       \u0027Invalid selection. Valid values are U and D\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO USRIDINL OF COUSR0AI\n               END-EVALUATE\n           END-IF\n       \n           IF USRIDINI OF COUSR0AI \u003d SPACES OR LOW-VALUES\n               MOVE LOW-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE USRIDINI  OF COUSR0AI TO SEC-USR-ID\n           END-IF\n       \n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n       \n           MOVE 0       TO CDEMO-CU00-PAGE-NUM\n           PERFORM PROCESS-PAGE-FORWARD\n       \n           IF NOT ERR-FLG-ON\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n           END-IF.",
@@ -545,7 +545,7 @@
     },
     {
       "children": [],
-      "id": "e0884ea8-d71a-4cee-8079-ef039f5d5caf",
+      "id": "4afdf5d8-f9bc-442e-9753-f4e3787f6242",
       "label": "PROCESS-PF7-KEY",
       "name": "PROCESS-PF7-KEY",
       "originalText": "PROCESS-PF7-KEY.",
@@ -563,7 +563,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "8ea4978f-8c5e-4b17-83bc-ee16b2951cb6",
+                  "id": "2a309270-50ae-4cf0-8d0e-b4b48e0ac29d",
                   "label": "MOVELOW-VALUEST",
                   "name": "MOVELOW-VALUEST",
                   "originalText": "MOVE LOW-VALUES TO SEC-USR-ID",
@@ -574,7 +574,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "5916e91a-77d1-489f-9462-82625616a0de",
+              "id": "e2c00fe2-00e9-485e-a79a-166dcbd87bb6",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE LOW-VALUES TO SEC-USR-ID",
@@ -588,7 +588,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "4989e357-a767-4e0a-be5c-0b48cec0e415",
+                  "id": "d152e8c4-3718-465b-8e5e-6e3c7bb65f7f",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -600,7 +600,7 @@
                 },
                 {
                   "children": [],
-                  "id": "8aa9560c-c7fa-48fd-b7af-e796daa6e08a",
+                  "id": "7a160f8c-07da-4520-bc3f-2d61eba9daf1",
                   "label": "MOVECDEMO-CU00-",
                   "name": "MOVECDEMO-CU00-",
                   "originalText": "MOVE CDEMO-CU00-USRID-FIRST TO SEC-USR-ID",
@@ -611,7 +611,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "f171f911-9a76-4b5b-82a8-acae794c0ffa",
+              "id": "a2c63a78-7810-4773-bd01-743e2dc54211",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE CDEMO-CU00-USRID-FIRST TO SEC-USR-ID",
@@ -622,7 +622,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "0342a5ff-f3eb-459a-8dab-bb69fa3824c1",
+          "id": "333b174d-ca2c-4138-9e2c-06f2cd1b232f",
           "label": "IS \nCDEMO-CU00-USRID-FIRST \u003d SPACES OR LOW-V?\n",
           "name": "IS \nCDEMO-CU00-USRID-FIRST \u003d SPACES OR LOW-V?\n",
           "originalText": "IF CDEMO-CU00-USRID-FIRST \u003d SPACES OR LOW-VALUES\n               MOVE LOW-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE CDEMO-CU00-USRID-FIRST TO SEC-USR-ID\n           END-IF",
@@ -634,7 +634,7 @@
         },
         {
           "children": [],
-          "id": "e9a0879a-28a2-4439-b145-6fb17253c23a",
+          "id": "e6fb64c7-e2ef-4d9f-8a06-d21e4185389a",
           "label": "SETNEXT-PAGE-YE",
           "name": "SETNEXT-PAGE-YE",
           "originalText": "SET NEXT-PAGE-YES TO TRUE",
@@ -646,7 +646,7 @@
         },
         {
           "children": [],
-          "id": "342c14d5-700d-43ec-b11f-80107ea83b94",
+          "id": "4e9a1e92-942b-4a66-b9db-357376e6395a",
           "label": "MOVE-1TOUSRIDIN",
           "name": "MOVE-1TOUSRIDIN",
           "originalText": "MOVE -1       TO USRIDINL OF COUSR0AI",
@@ -662,7 +662,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "44f735e1-4093-4a2d-b768-17d498864fba",
+                  "id": "6f73c102-cd70-4ddb-90a5-7514ad5aaa8b",
                   "label": "PERFORM PROCESS-PAGE-BACKWARD",
                   "name": "PERFORMPROCESS-",
                   "originalText": "PERFORM PROCESS-PAGE-BACKWARD",
@@ -673,7 +673,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "0fdc7bc0-9819-4728-96d7-faecc1d3f0e9",
+              "id": "a9ad9042-99d3-4233-abc3-366e8bcd6ebd",
               "label": "Yes",
               "name": "Yes",
               "originalText": "PERFORM PROCESS-PAGE-BACKWARD",
@@ -687,7 +687,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "2cc4bb82-ba89-46f6-ae63-417da62319bd",
+                  "id": "7c5d1d8d-abf3-4e0b-b135-5ccbf8f5a6e0",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -699,7 +699,7 @@
                 },
                 {
                   "children": [],
-                  "id": "d93d44d7-8b90-4e4b-ad79-e1e6983f8e1f",
+                  "id": "4440b937-360e-4fd2-b5e5-73f2fe8615b2",
                   "label": "MOVE\u0027You are al",
                   "name": "MOVE\u0027You are al",
                   "originalText": "MOVE \u0027You are already at the top of the page...\u0027 TO\n                               WS-MESSAGE",
@@ -711,7 +711,7 @@
                 },
                 {
                   "children": [],
-                  "id": "e8674d7b-b6af-47e4-aa86-12ec167ca464",
+                  "id": "143e4aca-4b60-4403-8c0b-457400e414eb",
                   "label": "SETSEND-ERASE-N",
                   "name": "SETSEND-ERASE-N",
                   "originalText": "SET SEND-ERASE-NO TO TRUE",
@@ -723,7 +723,7 @@
                 },
                 {
                   "children": [],
-                  "id": "7f11bf45-a71c-4dc0-96d3-e40113c834d7",
+                  "id": "62cfb03e-bdc0-474f-812b-80f6f31aa192",
                   "label": "PERFORM SEND-USRLST-SCREEN",
                   "name": "PERFORMSEND-USR",
                   "originalText": "PERFORM SEND-USRLST-SCREEN",
@@ -734,7 +734,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "99a471c0-8f51-4622-b746-a5058bac315d",
+              "id": "9856b323-26cc-45ff-98f0-bf90dc11d995",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE \u0027You are already at the top of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN",
@@ -745,7 +745,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "2cbe0e9a-d2dd-4189-8998-1b14b3db66eb",
+          "id": "52c3aaee-1e84-41c3-98d1-d5c6c78e949e",
           "label": "IS \nCDEMO-CU00-PAGE-NUM \u003e 1?\n",
           "name": "IS \nCDEMO-CU00-PAGE-NUM \u003e 1?\n",
           "originalText": "IF CDEMO-CU00-PAGE-NUM \u003e 1\n               PERFORM PROCESS-PAGE-BACKWARD\n           ELSE\n               MOVE \u0027You are already at the top of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN\n           END-IF",
@@ -756,7 +756,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "1c59bb24-8eae-43b1-934b-3231e43988e1",
+      "id": "99a5559f-40df-4f13-8d58-e0ae7b335260",
       "label": "IFCDEMO-CU00-US",
       "name": "IFCDEMO-CU00-US",
       "originalText": "IF CDEMO-CU00-USRID-FIRST \u003d SPACES OR LOW-VALUES\n               MOVE LOW-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE CDEMO-CU00-USRID-FIRST TO SEC-USR-ID\n           END-IF\n       \n           SET NEXT-PAGE-YES TO TRUE\n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n           IF CDEMO-CU00-PAGE-NUM \u003e 1\n               PERFORM PROCESS-PAGE-BACKWARD\n           ELSE\n               MOVE \u0027You are already at the top of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN\n           END-IF.",
@@ -768,7 +768,7 @@
     },
     {
       "children": [],
-      "id": "55686f61-37bc-4257-bd39-d6333e97c0c0",
+      "id": "fdf514ac-6880-47e2-8f8d-047d53821ea5",
       "label": "PROCESS-PF8-KEY",
       "name": "PROCESS-PF8-KEY",
       "originalText": "PROCESS-PF8-KEY.",
@@ -786,7 +786,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "76f5592e-0f8a-4834-b375-068583d5b939",
+                  "id": "8d899e86-2731-4a3c-96f1-a4c8b7638133",
                   "label": "MOVEHIGH-VALUES",
                   "name": "MOVEHIGH-VALUES",
                   "originalText": "MOVE HIGH-VALUES TO SEC-USR-ID",
@@ -797,7 +797,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "39cafeaa-7d99-451c-902c-ddb750a9759e",
+              "id": "b4840390-a5c2-47b0-9bd9-2eaf37ff0650",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE HIGH-VALUES TO SEC-USR-ID",
@@ -811,7 +811,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "a0de4d23-ec45-4681-8e84-44673c035e62",
+                  "id": "ee6556e5-9449-42a4-8734-2d679ff27ad6",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -823,7 +823,7 @@
                 },
                 {
                   "children": [],
-                  "id": "413fa0bb-9cef-4d5e-bff7-86dc03aca2c7",
+                  "id": "20313683-99c9-4711-b20a-3fbb2d57973c",
                   "label": "MOVECDEMO-CU00-",
                   "name": "MOVECDEMO-CU00-",
                   "originalText": "MOVE CDEMO-CU00-USRID-LAST TO SEC-USR-ID",
@@ -834,7 +834,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "fd67f286-df57-4a30-b6bd-86bd353bd375",
+              "id": "0d9c45ac-a690-449d-9708-36fb836c6c25",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE CDEMO-CU00-USRID-LAST TO SEC-USR-ID",
@@ -845,7 +845,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "a2091d02-318e-4cdf-af6e-8e28c3201c7e",
+          "id": "3e365fc6-1e53-45fe-8246-8aa715ae8534",
           "label": "IS \nCDEMO-CU00-USRID-LAST \u003d SPACES OR LOW-VA?\n",
           "name": "IS \nCDEMO-CU00-USRID-LAST \u003d SPACES OR LOW-VA?\n",
           "originalText": "IF CDEMO-CU00-USRID-LAST \u003d SPACES OR LOW-VALUES\n               MOVE HIGH-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE CDEMO-CU00-USRID-LAST TO SEC-USR-ID\n           END-IF",
@@ -857,7 +857,7 @@
         },
         {
           "children": [],
-          "id": "88720739-92cc-413d-ad13-a433f45d29e8",
+          "id": "29a861eb-7ce2-4aac-a231-a8e135cd8265",
           "label": "MOVE-1TOUSRIDIN",
           "name": "MOVE-1TOUSRIDIN",
           "originalText": "MOVE -1       TO USRIDINL OF COUSR0AI",
@@ -873,7 +873,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "8ca454b9-69c0-47ad-9d23-acd1a5ae7dfc",
+                  "id": "a14eb665-b2a0-42ec-bf6f-5516a64b6de6",
                   "label": "PERFORM PROCESS-PAGE-FORWARD",
                   "name": "PERFORMPROCESS-",
                   "originalText": "PERFORM PROCESS-PAGE-FORWARD",
@@ -884,7 +884,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "b2c64ed7-4133-4d94-9b56-4a44d70d1d88",
+              "id": "bdf53159-81db-4385-95fa-cc944257c906",
               "label": "Yes",
               "name": "Yes",
               "originalText": "PERFORM PROCESS-PAGE-FORWARD",
@@ -898,7 +898,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "503aeb31-dad9-4f05-b392-9325d5ac4747",
+                  "id": "85619a4e-0a4b-47a3-a654-aa44caf402b8",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -910,7 +910,7 @@
                 },
                 {
                   "children": [],
-                  "id": "18a61020-e9c7-4a0c-bdaa-d6a50f24fd0b",
+                  "id": "0c576e5d-3d61-44a4-b0cf-541fd9cf21e7",
                   "label": "MOVE\u0027You are al",
                   "name": "MOVE\u0027You are al",
                   "originalText": "MOVE \u0027You are already at the bottom of the page...\u0027 TO\n                               WS-MESSAGE",
@@ -922,7 +922,7 @@
                 },
                 {
                   "children": [],
-                  "id": "f30b33be-39ad-42b5-bdad-d4653a6a6586",
+                  "id": "f3bb798a-f2b2-4df6-b2a4-538c4764211e",
                   "label": "SETSEND-ERASE-N",
                   "name": "SETSEND-ERASE-N",
                   "originalText": "SET SEND-ERASE-NO TO TRUE",
@@ -934,7 +934,7 @@
                 },
                 {
                   "children": [],
-                  "id": "ab740416-99a8-4ae2-b07b-7b4e5d09d12f",
+                  "id": "884a781d-96c0-4810-8b35-a78b2ba965f4",
                   "label": "PERFORM SEND-USRLST-SCREEN",
                   "name": "PERFORMSEND-USR",
                   "originalText": "PERFORM SEND-USRLST-SCREEN",
@@ -945,7 +945,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "3ecb746a-37f7-42c7-bd2f-2c49a918a535",
+              "id": "b64360b4-0c89-4c84-a18a-02437a2e7212",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               MOVE \u0027You are already at the bottom of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN",
@@ -956,7 +956,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "3a94cd42-6c1c-4064-ab87-52244087ae39",
+          "id": "d56ec322-945e-4d33-bdbc-9cad16714e44",
           "label": "IS \nNEXT-PAGE-YES?\n",
           "name": "IS \nNEXT-PAGE-YES?\n",
           "originalText": "IF NEXT-PAGE-YES\n               PERFORM PROCESS-PAGE-FORWARD\n           ELSE\n               MOVE \u0027You are already at the bottom of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN\n           END-IF",
@@ -967,7 +967,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "7d92b300-e383-4ca5-8370-3d7692a24b1c",
+      "id": "fc9b2a0c-52d1-4457-9e59-464d9d6108ea",
       "label": "IFCDEMO-CU00-US",
       "name": "IFCDEMO-CU00-US",
       "originalText": "IF CDEMO-CU00-USRID-LAST \u003d SPACES OR LOW-VALUES\n               MOVE HIGH-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE CDEMO-CU00-USRID-LAST TO SEC-USR-ID\n           END-IF\n       \n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n           IF NEXT-PAGE-YES\n               PERFORM PROCESS-PAGE-FORWARD\n           ELSE\n               MOVE \u0027You are already at the bottom of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN\n           END-IF.",
@@ -979,7 +979,7 @@
     },
     {
       "children": [],
-      "id": "5f0872a3-4aff-41d9-8539-9b79c93b54ee",
+      "id": "17cdd3f1-a1c1-49cd-9f39-713c00240a33",
       "label": "PROCESS-PAGE-FORWARD",
       "name": "PROCESS-PAGE-FORWARD",
       "originalText": "PROCESS-PAGE-FORWARD.",
@@ -993,7 +993,7 @@
       "children": [
         {
           "children": [],
-          "id": "59fefd8b-abff-4843-9291-b08248134e0a",
+          "id": "7700e410-4aad-4221-a4a8-d846f9c613e7",
           "label": "PERFORM STARTBR-USER-SEC-FILE",
           "name": "PERFORMSTARTBR-",
           "originalText": "PERFORM STARTBR-USER-SEC-FILE",
@@ -1013,7 +1013,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "2a2f69d3-c656-4dc8-bb4c-47fe4a95840f",
+                          "id": "959612f2-f0f6-43e9-85dc-9cb5dc8d4902",
                           "label": "PERFORM READNEXT-USER-SEC-FILE",
                           "name": "PERFORMREADNEXT",
                           "originalText": "PERFORM READNEXT-USER-SEC-FILE",
@@ -1024,7 +1024,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "abcd704e-72b0-40aa-a5e4-5c9c03b2b796",
+                      "id": "4569e31a-ac26-4a02-afbb-2cd7dec13398",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "PERFORM READNEXT-USER-SEC-FILE",
@@ -1035,7 +1035,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "9423e89f-c2ba-47d2-bf0e-02c14beb3d52",
+                  "id": "15c528c5-06c0-416c-b6d9-ce334ca012dd",
                   "label": "IS \nEIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFH?\n",
                   "name": "IS \nEIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFH?\n",
                   "originalText": "IF EIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFHPF3\n                   PERFORM READNEXT-USER-SEC-FILE\n               END-IF",
@@ -1053,7 +1053,7 @@
                           "children": [
                             {
                               "children": [],
-                              "id": "ea1ced77-d947-41aa-acb2-0761eaaa4644",
+                              "id": "dcd4704a-2a2d-413d-801f-c5f820d2ba84",
                               "label": "PERFORM INITIALIZE-USER-DATA",
                               "name": "PERFORMINITIALI",
                               "originalText": "PERFORM INITIALIZE-USER-DATA",
@@ -1064,7 +1064,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "2f1f9e72-ba20-4ed7-915c-8b985648c64e",
+                          "id": "adf9b7ca-798a-41e4-b7c3-ca53a044deb2",
                           "label": "PERFORM VARYING WS-IDX FROM 1 ",
                           "name": "PERFORMVARYINGW",
                           "originalText": "PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM",
@@ -1075,7 +1075,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "72171cf1-a205-42ec-8c79-f78f4e956a81",
+                      "id": "f8c9027d-5fb1-4564-8ff2-7ab53a1e62e6",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM",
@@ -1086,7 +1086,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "cef3cce8-5232-4834-8030-e14e3892f29e",
+                  "id": "8a185c7e-0c79-4939-b13f-5f08c41291cc",
                   "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF",
@@ -1098,7 +1098,7 @@
                 },
                 {
                   "children": [],
-                  "id": "e55dccf9-c0db-4c00-8297-b464dd7379a6",
+                  "id": "36f13bb5-6ba7-4552-b5bc-eae34696517f",
                   "label": "MOVE1TOWS-IDX",
                   "name": "MOVE1TOWS-IDX",
                   "originalText": "MOVE 1             TO  WS-IDX",
@@ -1112,7 +1112,7 @@
                   "children": [
                     {
                       "children": [],
-                      "id": "b6f341f0-2c76-472a-9322-7d6bef681801",
+                      "id": "2f99653c-4e4f-4847-91fe-c4e24b47f606",
                       "label": "PERFORM READNEXT-USER-SEC-FILE",
                       "name": "PERFORMREADNEXT",
                       "originalText": "PERFORM READNEXT-USER-SEC-FILE",
@@ -1128,7 +1128,7 @@
                           "children": [
                             {
                               "children": [],
-                              "id": "aa72078c-4d01-4d03-9b5f-b669ff4389bc",
+                              "id": "64ea97d6-119e-42f0-af98-d2b2347a6945",
                               "label": "PERFORM POPULATE-USER-DATA",
                               "name": "PERFORMPOPULATE",
                               "originalText": "PERFORM POPULATE-USER-DATA",
@@ -1140,7 +1140,7 @@
                             },
                             {
                               "children": [],
-                              "id": "87322721-643f-4207-b855-8ddb09bd2a69",
+                              "id": "a6eec3f7-ec54-49ba-ba17-0af2f539861a",
                               "label": "COMPUTEWS-IDX\u003dW",
                               "name": "COMPUTEWS-IDX\u003dW",
                               "originalText": "COMPUTE WS-IDX \u003d WS-IDX + 1",
@@ -1152,7 +1152,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "27028af2-c645-4344-ade5-5f4967f8ba82",
+                          "id": "60b81e4b-28c6-4d7f-b305-aa8e48be9535",
                           "label": "Yes",
                           "name": "Yes",
                           "originalText": "PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1",
@@ -1163,7 +1163,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "f9d78072-b830-40bd-88b4-4b60f0a4d83f",
+                      "id": "f67e04ec-e157-49bd-aa3e-85c51dc59628",
                       "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                       "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                       "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1\n                   END-IF",
@@ -1174,7 +1174,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "54aa7203-11f1-4393-b3c6-70db094a5004",
+                  "id": "8ff1513c-69a2-48e9-b391-0b116688e8a8",
                   "label": "PERFORM UNTIL WS-IDX \u003e\u003d 11 OR ",
                   "name": "PERFORMUNTILWS-",
                   "originalText": "PERFORM UNTIL WS-IDX \u003e\u003d 11 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1\n                   END-IF\n               END-PERFORM",
@@ -1190,7 +1190,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "d8ae417f-4a9a-4180-8352-c0b0385cfdee",
+                          "id": "e9388590-42f6-4cfd-8915-619dd66c4589",
                           "label": "COMPUTECDEMO-CU",
                           "name": "COMPUTECDEMO-CU",
                           "originalText": "COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1",
@@ -1203,7 +1203,7 @@
                         },
                         {
                           "children": [],
-                          "id": "661890af-a00c-45c4-bab5-a9cdc36cc27a",
+                          "id": "ec69d106-ef9f-4494-a248-d875fc754325",
                           "label": "PERFORM READNEXT-USER-SEC-FILE",
                           "name": "PERFORMREADNEXT",
                           "originalText": "PERFORM READNEXT-USER-SEC-FILE",
@@ -1219,7 +1219,7 @@
                               "children": [
                                 {
                                   "children": [],
-                                  "id": "cd68a873-2672-478a-b9a2-b8d3fda95c4d",
+                                  "id": "8aac3b11-1c61-452b-af65-f17052acbfbf",
                                   "label": "SETNEXT-PAGE-YE",
                                   "name": "SETNEXT-PAGE-YE",
                                   "originalText": "SET NEXT-PAGE-YES TO TRUE",
@@ -1230,7 +1230,7 @@
                                   "nodeType": "CODE_VERTEX"
                                 }
                               ],
-                              "id": "912f084d-e753-44b4-a52b-2aeaa855885f",
+                              "id": "1e915fbc-b9af-40ca-90a8-dd063ecab50f",
                               "label": "Yes",
                               "name": "Yes",
                               "originalText": "SET NEXT-PAGE-YES TO TRUE",
@@ -1244,7 +1244,7 @@
                               "children": [
                                 {
                                   "children": [],
-                                  "id": "9083de7e-c1ef-4879-a8a8-312c95b77013",
+                                  "id": "49dd2ad7-806b-4bb6-8611-e633be38fdb3",
                                   "label": "ELSE",
                                   "name": "ELSE",
                                   "originalText": "ELSE",
@@ -1256,7 +1256,7 @@
                                 },
                                 {
                                   "children": [],
-                                  "id": "9f325cad-de7f-42ca-81ee-f89a64446cac",
+                                  "id": "1ec6a79f-680b-4a0b-801b-4c5979c93f10",
                                   "label": "SETNEXT-PAGE-NO",
                                   "name": "SETNEXT-PAGE-NO",
                                   "originalText": "SET NEXT-PAGE-NO TO TRUE",
@@ -1267,7 +1267,7 @@
                                   "nodeType": "CODE_VERTEX"
                                 }
                               ],
-                              "id": "0c17c3b4-b751-4ba4-bf8b-8e3098578a9f",
+                              "id": "2a954791-06ed-4a5a-8335-ffd76d1ff64c",
                               "label": "No",
                               "name": "No",
                               "originalText": "ELSE\n                       SET NEXT-PAGE-NO TO TRUE",
@@ -1278,7 +1278,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "a1509e63-8e26-4628-a511-7eb0b145fc7b",
+                          "id": "6b848cb0-6233-49c0-b5a3-e3706e5e314d",
                           "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                           "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                           "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF",
@@ -1289,7 +1289,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "a80608b4-d557-4281-9d4d-3cdf2bc15e23",
+                      "id": "427fd313-033d-4532-b8ba-022363ff9130",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF",
@@ -1303,7 +1303,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "b3f20c1c-bdce-49d6-93f1-add88afc2648",
+                          "id": "a030e557-56c4-4e70-97a1-bf1a06bf0059",
                           "label": "ELSE",
                           "name": "ELSE",
                           "originalText": "ELSE",
@@ -1315,7 +1315,7 @@
                         },
                         {
                           "children": [],
-                          "id": "6bd921b2-b581-48ee-98a4-832be9be6040",
+                          "id": "645fbd24-01c5-4590-b189-bae4a5831922",
                           "label": "SETNEXT-PAGE-NO",
                           "name": "SETNEXT-PAGE-NO",
                           "originalText": "SET NEXT-PAGE-NO TO TRUE",
@@ -1331,7 +1331,7 @@
                               "children": [
                                 {
                                   "children": [],
-                                  "id": "3da2d417-5cd1-45b0-9712-1b1d76df8c6c",
+                                  "id": "d2552ea4-bde3-4a6f-9f85-0ffdf2f4815a",
                                   "label": "COMPUTECDEMO-CU",
                                   "name": "COMPUTECDEMO-CU",
                                   "originalText": "COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1",
@@ -1343,7 +1343,7 @@
                                   "nodeType": "CODE_VERTEX"
                                 }
                               ],
-                              "id": "45058ef0-f9d0-4fca-952a-99e2c0018610",
+                              "id": "3b758956-97e4-4c4e-9782-3d538ad13c4d",
                               "label": "Yes",
                               "name": "Yes",
                               "originalText": "COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1",
@@ -1354,7 +1354,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "97a547d8-2588-408b-9153-eaa2b40c5e36",
+                          "id": "332be367-ce92-4f71-b875-48086ba495f7",
                           "label": "IS \nWS-IDX \u003e 1?\n",
                           "name": "IS \nWS-IDX \u003e 1?\n",
                           "originalText": "IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF",
@@ -1365,7 +1365,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "c2dc0bdf-9ac6-4a7e-ab64-8bd43a649dbd",
+                      "id": "2cdc8460-0c4b-4f97-a554-d9088fe1f2cd",
                       "label": "No",
                       "name": "No",
                       "originalText": "ELSE\n                   SET NEXT-PAGE-NO TO TRUE\n                   IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF",
@@ -1376,7 +1376,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "e40e8df2-44ac-47eb-a0df-93efe429b2b7",
+                  "id": "916cbc95-e744-4e53-a4ab-b3c2636a136b",
                   "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                   COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF\n               ELSE\n                   SET NEXT-PAGE-NO TO TRUE\n                   IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF\n               END-IF",
@@ -1388,7 +1388,7 @@
                 },
                 {
                   "children": [],
-                  "id": "7809cc69-ea1d-4574-b228-e5a12affd1cf",
+                  "id": "dc3f0b78-41e0-4e8d-8115-fa9ae489ab41",
                   "label": "PERFORM ENDBR-USER-SEC-FILE",
                   "name": "PERFORMENDBR-US",
                   "originalText": "PERFORM ENDBR-USER-SEC-FILE",
@@ -1400,7 +1400,7 @@
                 },
                 {
                   "children": [],
-                  "id": "8f2a656b-6ae2-49b7-addf-09f72b9c0ee4",
+                  "id": "bde4802b-634b-4529-9fd6-506efc61becc",
                   "label": "MOVECDEMO-CU00-",
                   "name": "MOVECDEMO-CU00-",
                   "originalText": "MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI",
@@ -1412,7 +1412,7 @@
                 },
                 {
                   "children": [],
-                  "id": "c9c18cf4-804b-4dc4-8bee-9b56c3ff18c9",
+                  "id": "be68e732-f37a-4b5e-8d81-814eac5bb07e",
                   "label": "MOVESPACETOUSRI",
                   "name": "MOVESPACETOUSRI",
                   "originalText": "MOVE SPACE   TO USRIDINO  OF COUSR0AO",
@@ -1424,7 +1424,7 @@
                 },
                 {
                   "children": [],
-                  "id": "6f5dc591-81bc-4a5f-8d05-bbad08f70da9",
+                  "id": "6e792977-b7e8-4497-8c02-0aacc541c637",
                   "label": "PERFORM SEND-USRLST-SCREEN",
                   "name": "PERFORMSEND-USR",
                   "originalText": "PERFORM SEND-USRLST-SCREEN",
@@ -1435,7 +1435,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "eb253e22-a1cd-4447-8021-3ba30b89c125",
+              "id": "a98cb14f-71b6-4b84-888f-5ba86afb4221",
               "label": "Yes",
               "name": "Yes",
               "originalText": "IF EIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFHPF3\n                   PERFORM READNEXT-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 1             TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003e\u003d 11 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                   COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF\n               ELSE\n                   SET NEXT-PAGE-NO TO TRUE\n                   IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n               PERFORM SEND-USRLST-SCREEN",
@@ -1446,7 +1446,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "af441a5b-afaa-4705-b6b6-2569e28bb8a9",
+          "id": "55a25d74-7d29-49ec-b5dd-a6b208b72d00",
           "label": "IS \nNOT ERR-FLG-ON?\n",
           "name": "IS \nNOT ERR-FLG-ON?\n",
           "originalText": "IF NOT ERR-FLG-ON\n       \n               IF EIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFHPF3\n                   PERFORM READNEXT-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 1             TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003e\u003d 11 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                   COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF\n               ELSE\n                   SET NEXT-PAGE-NO TO TRUE\n                   IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n               PERFORM SEND-USRLST-SCREEN\n       \n           END-IF",
@@ -1457,7 +1457,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "a1e50d72-b9a1-4d5b-ada5-5941f46f271a",
+      "id": "93cc03b7-14ea-4d66-b2e7-62fd450965a1",
       "label": "PERFORMSTARTBR-",
       "name": "PERFORMSTARTBR-",
       "originalText": "PERFORM STARTBR-USER-SEC-FILE\n       \n           IF NOT ERR-FLG-ON\n       \n               IF EIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFHPF3\n                   PERFORM READNEXT-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 1             TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003e\u003d 11 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                   COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF\n               ELSE\n                   SET NEXT-PAGE-NO TO TRUE\n                   IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n               PERFORM SEND-USRLST-SCREEN\n       \n           END-IF.",
@@ -1469,7 +1469,7 @@
     },
     {
       "children": [],
-      "id": "989ddee4-3355-455a-ba21-5606a5a1ccbc",
+      "id": "1513f7a2-3409-4d2e-a882-4a9345559ce7",
       "label": "PROCESS-PAGE-BACKWARD",
       "name": "PROCESS-PAGE-BACKWARD",
       "originalText": "PROCESS-PAGE-BACKWARD.",
@@ -1483,7 +1483,7 @@
       "children": [
         {
           "children": [],
-          "id": "3a69c2ba-9d2b-4d97-8e99-7c9f624b5d6c",
+          "id": "cbe1d9de-4f6c-4406-b9da-634443fe4bfe",
           "label": "PERFORM STARTBR-USER-SEC-FILE",
           "name": "PERFORMSTARTBR-",
           "originalText": "PERFORM STARTBR-USER-SEC-FILE",
@@ -1503,7 +1503,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "ef04fe2a-f23d-4132-965f-acccdbb56c56",
+                          "id": "291d4fd6-f874-4d37-ad41-d9cfd211e4eb",
                           "label": "PERFORM READPREV-USER-SEC-FILE",
                           "name": "PERFORMREADPREV",
                           "originalText": "PERFORM READPREV-USER-SEC-FILE",
@@ -1514,7 +1514,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "d752bbfc-ce41-42de-a0e6-0c2e348b3a97",
+                      "id": "d3419141-c40c-441d-9bbe-dd4fb166662d",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "PERFORM READPREV-USER-SEC-FILE",
@@ -1525,7 +1525,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "bb51c617-1a15-4fe0-a7c4-03637079683e",
+                  "id": "caf320f6-a282-4f4a-82ea-42cde6bb2c89",
                   "label": "IS \nEIBAID NOT \u003d DFHENTER  AND DFHPF8?\n",
                   "name": "IS \nEIBAID NOT \u003d DFHENTER  AND DFHPF8?\n",
                   "originalText": "IF EIBAID NOT \u003d DFHENTER  AND DFHPF8\n                   PERFORM READPREV-USER-SEC-FILE\n               END-IF",
@@ -1543,7 +1543,7 @@
                           "children": [
                             {
                               "children": [],
-                              "id": "170965a2-7c1b-4758-8805-4f3efcaa39d3",
+                              "id": "ef20ec72-14df-4e66-8bc0-7292d2c5dcd9",
                               "label": "PERFORM INITIALIZE-USER-DATA",
                               "name": "PERFORMINITIALI",
                               "originalText": "PERFORM INITIALIZE-USER-DATA",
@@ -1554,7 +1554,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "66bdb6b5-ea6c-4744-b617-86b5ec3ae0a3",
+                          "id": "f3d26da7-21d2-4c2a-a180-c4338422cf4b",
                           "label": "PERFORM VARYING WS-IDX FROM 1 ",
                           "name": "PERFORMVARYINGW",
                           "originalText": "PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM",
@@ -1565,7 +1565,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "7bc80088-3257-4a85-a142-d9ad7d4b5236",
+                      "id": "53922ee0-3cc7-4ffe-a4cc-1696229b5913",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM",
@@ -1576,7 +1576,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "845b64b2-c68d-40dd-ba3a-6bcc8bfd5a1f",
+                  "id": "984c55cd-96a2-4be5-bd80-37e591b55983",
                   "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF",
@@ -1588,7 +1588,7 @@
                 },
                 {
                   "children": [],
-                  "id": "f199c386-8f5c-4df5-9c9e-10e620c1388b",
+                  "id": "fe39e6b4-829a-45fa-89c2-18043001d5f4",
                   "label": "MOVE10TOWS-IDX",
                   "name": "MOVE10TOWS-IDX",
                   "originalText": "MOVE 10          TO  WS-IDX",
@@ -1602,7 +1602,7 @@
                   "children": [
                     {
                       "children": [],
-                      "id": "d2990a22-6415-44be-a111-a59aeae2f0ce",
+                      "id": "162b3956-968c-4859-b5ca-0527949b4d18",
                       "label": "PERFORM READPREV-USER-SEC-FILE",
                       "name": "PERFORMREADPREV",
                       "originalText": "PERFORM READPREV-USER-SEC-FILE",
@@ -1618,7 +1618,7 @@
                           "children": [
                             {
                               "children": [],
-                              "id": "de0ac018-04ec-417f-876e-a8509d06a963",
+                              "id": "e3731564-6d6a-4f74-9052-8b880b55f2a7",
                               "label": "PERFORM POPULATE-USER-DATA",
                               "name": "PERFORMPOPULATE",
                               "originalText": "PERFORM POPULATE-USER-DATA",
@@ -1630,7 +1630,7 @@
                             },
                             {
                               "children": [],
-                              "id": "ebf39e29-d54a-44eb-9b1b-45e86c7cfe0a",
+                              "id": "37635d05-731e-48d8-9674-40b5e532c883",
                               "label": "COMPUTEWS-IDX\u003dW",
                               "name": "COMPUTEWS-IDX\u003dW",
                               "originalText": "COMPUTE WS-IDX \u003d WS-IDX - 1",
@@ -1642,7 +1642,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "4f778677-6724-4c43-9b0d-f8b62432cae8",
+                          "id": "6602a568-2b7f-4e32-bdfc-43478fc32546",
                           "label": "Yes",
                           "name": "Yes",
                           "originalText": "PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1",
@@ -1653,7 +1653,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "0f384602-59b1-4363-b6ec-f5e21937db04",
+                      "id": "2a2eb162-c464-4a1a-94e9-ac7d2803464d",
                       "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                       "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                       "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1\n                   END-IF",
@@ -1664,7 +1664,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "32dbcb34-0eec-402d-a3b8-8aca540652e3",
+                  "id": "890ad267-8b86-4876-ba3d-5f5c00bb556c",
                   "label": "PERFORM UNTIL WS-IDX \u003c\u003d 0 OR U",
                   "name": "PERFORMUNTILWS-",
                   "originalText": "PERFORM UNTIL WS-IDX \u003c\u003d 0 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READPREV-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1\n                   END-IF\n               END-PERFORM",
@@ -1680,7 +1680,7 @@
                       "children": [
                         {
                           "children": [],
-                          "id": "1917ba26-687d-4e25-ab4c-2984e019f1d6",
+                          "id": "2590a20b-3f62-4f7b-ac99-d71c708a8166",
                           "label": "PERFORM READPREV-USER-SEC-FILE",
                           "name": "PERFORMREADPREV",
                           "originalText": "PERFORM READPREV-USER-SEC-FILE",
@@ -1700,7 +1700,7 @@
                                       "children": [
                                         {
                                           "children": [],
-                                          "id": "dfcbd582-d933-4387-9bbb-86e2dfd18014",
+                                          "id": "ccddc094-4e08-4f09-adaa-0c70cb88f6a5",
                                           "label": "SUBTRACT1FROMCD",
                                           "name": "SUBTRACT1FROMCD",
                                           "originalText": "SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM",
@@ -1712,7 +1712,7 @@
                                           "nodeType": "CODE_VERTEX"
                                         }
                                       ],
-                                      "id": "7f32fe70-6221-46ae-97c4-92276d6ab684",
+                                      "id": "def7ec47-6d9d-4f7d-aaed-6815ce97839d",
                                       "label": "Yes",
                                       "name": "Yes",
                                       "originalText": "SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM",
@@ -1726,7 +1726,7 @@
                                       "children": [
                                         {
                                           "children": [],
-                                          "id": "e5ddea67-8cf2-4507-b7d1-afb834d2ea9e",
+                                          "id": "6d581226-04c6-420d-b407-1304329d54c8",
                                           "label": "ELSE",
                                           "name": "ELSE",
                                           "originalText": "ELSE",
@@ -1738,7 +1738,7 @@
                                         },
                                         {
                                           "children": [],
-                                          "id": "79deb98b-4dd0-4a45-8cdd-e6a828c33953",
+                                          "id": "eaf27145-8364-46e6-bde9-aca8114374ee",
                                           "label": "MOVE1TOCDEMO-CU",
                                           "name": "MOVE1TOCDEMO-CU",
                                           "originalText": "MOVE 1 TO CDEMO-CU00-PAGE-NUM",
@@ -1749,7 +1749,7 @@
                                           "nodeType": "CODE_VERTEX"
                                         }
                                       ],
-                                      "id": "365d773c-23f8-40b2-9868-7823cfd087cb",
+                                      "id": "389bba20-7b96-4692-9efe-a80d50779e87",
                                       "label": "No",
                                       "name": "No",
                                       "originalText": "ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM",
@@ -1760,7 +1760,7 @@
                                       "nodeType": "CODE_VERTEX"
                                     }
                                   ],
-                                  "id": "758b05b4-677e-4751-964c-93a71b7bda1c",
+                                  "id": "b6919dc4-3530-4aed-86c5-b8a6ecb833a9",
                                   "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n   ?\n",
                                   "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n   ?\n",
                                   "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF",
@@ -1771,7 +1771,7 @@
                                   "nodeType": "CODE_VERTEX"
                                 }
                               ],
-                              "id": "fdff76a4-fd46-4d88-bb0f-fd9843c374f5",
+                              "id": "1b01b58c-8543-47e0-bac1-6c848c755d89",
                               "label": "Yes",
                               "name": "Yes",
                               "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF",
@@ -1782,7 +1782,7 @@
                               "nodeType": "CODE_VERTEX"
                             }
                           ],
-                          "id": "c3f18b97-d987-47ac-becd-01dcf47728aa",
+                          "id": "9a24a812-858f-40ca-bd63-37cded0c0153",
                           "label": "IS \nNEXT-PAGE-YES?\n",
                           "name": "IS \nNEXT-PAGE-YES?\n",
                           "originalText": "IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF",
@@ -1793,7 +1793,7 @@
                           "nodeType": "CODE_VERTEX"
                         }
                       ],
-                      "id": "9b7e8c64-fa91-49e2-a60f-4bc13a48a823",
+                      "id": "9574b04b-3ba8-4627-b9b6-e549d7e3c9ff",
                       "label": "Yes",
                       "name": "Yes",
                       "originalText": "PERFORM READPREV-USER-SEC-FILE\n               IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF",
@@ -1804,7 +1804,7 @@
                       "nodeType": "CODE_VERTEX"
                     }
                   ],
-                  "id": "0cb85b25-43be-4dea-a12d-564640f0b904",
+                  "id": "5d22152e-196c-4695-b2a3-73ca0d070ab8",
                   "label": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "name": "IS \nUSER-SEC-NOT-EOF AND ERR-FLG-OFF?\n",
                   "originalText": "IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM READPREV-USER-SEC-FILE\n               IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF\n               END-IF",
@@ -1816,7 +1816,7 @@
                 },
                 {
                   "children": [],
-                  "id": "13125c25-24b2-45e7-a159-4bb296919517",
+                  "id": "f3bfec14-0b50-4dab-a617-c266147c2366",
                   "label": "PERFORM ENDBR-USER-SEC-FILE",
                   "name": "PERFORMENDBR-US",
                   "originalText": "PERFORM ENDBR-USER-SEC-FILE",
@@ -1828,7 +1828,7 @@
                 },
                 {
                   "children": [],
-                  "id": "cf7e9a55-a145-4877-94bf-f13b8b6035f5",
+                  "id": "f39dc845-c365-4f6a-bfdc-00a56ff716ed",
                   "label": "MOVECDEMO-CU00-",
                   "name": "MOVECDEMO-CU00-",
                   "originalText": "MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI",
@@ -1840,7 +1840,7 @@
                 },
                 {
                   "children": [],
-                  "id": "5670bee4-322a-44a2-8b89-b06d74860ffa",
+                  "id": "a5ab26a2-f0cb-4a1c-ad46-5733156aa341",
                   "label": "PERFORM SEND-USRLST-SCREEN",
                   "name": "PERFORMSEND-USR",
                   "originalText": "PERFORM SEND-USRLST-SCREEN",
@@ -1851,7 +1851,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "5c780c2e-ebbe-4911-af08-b7d83af5404c",
+              "id": "6a4c910e-7f27-44ff-895d-1a5bf98c6bf2",
               "label": "Yes",
               "name": "Yes",
               "originalText": "IF EIBAID NOT \u003d DFHENTER  AND DFHPF8\n                   PERFORM READPREV-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 10          TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003c\u003d 0 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READPREV-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM READPREV-USER-SEC-FILE\n               IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               PERFORM SEND-USRLST-SCREEN",
@@ -1862,7 +1862,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "113bf1ae-cc25-4fcd-afa6-37d3c27ab4cf",
+          "id": "2227ac22-19e1-46f8-8533-a4905a343d67",
           "label": "IS \nNOT ERR-FLG-ON?\n",
           "name": "IS \nNOT ERR-FLG-ON?\n",
           "originalText": "IF NOT ERR-FLG-ON\n       \n               IF EIBAID NOT \u003d DFHENTER  AND DFHPF8\n                   PERFORM READPREV-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 10          TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003c\u003d 0 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READPREV-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM READPREV-USER-SEC-FILE\n               IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               PERFORM SEND-USRLST-SCREEN\n       \n           END-IF",
@@ -1873,7 +1873,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "d9a926fd-f08d-4972-82ca-a0be7cde6006",
+      "id": "00f41247-7101-4922-a25e-d4a6fb66096f",
       "label": "PERFORMSTARTBR-",
       "name": "PERFORMSTARTBR-",
       "originalText": "PERFORM STARTBR-USER-SEC-FILE\n       \n           IF NOT ERR-FLG-ON\n       \n               IF EIBAID NOT \u003d DFHENTER  AND DFHPF8\n                   PERFORM READPREV-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 10          TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003c\u003d 0 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READPREV-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM READPREV-USER-SEC-FILE\n               IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               PERFORM SEND-USRLST-SCREEN\n       \n           END-IF.",
@@ -1885,7 +1885,7 @@
     },
     {
       "children": [],
-      "id": "18d93b35-24f0-4257-b38b-dd9d27c6075c",
+      "id": "1fa30f58-61d1-4e3d-9299-bf40e0e1bc8f",
       "label": "POPULATE-USER-DATA",
       "name": "POPULATE-USER-DATA",
       "originalText": "POPULATE-USER-DATA.",
@@ -1899,7 +1899,7 @@
       "children": [
         {
           "children": [],
-          "id": "9476d582-0e75-483f-a730-0eee2f15df25",
+          "id": "08b8c0db-45ea-4321-8c6d-4d89f699e8e0",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-IDX\n               WHEN 1\n                   MOVE SEC-USR-ID    TO USRID01I OF COUSR0AI\n                                         CDEMO-CU00-USRID-FIRST\n                   MOVE SEC-USR-FNAME TO FNAME01I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME01I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE01I OF COUSR0AI\n               WHEN 2\n                   MOVE SEC-USR-ID    TO USRID02I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME02I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME02I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE02I OF COUSR0AI\n               WHEN 3\n                   MOVE SEC-USR-ID    TO USRID03I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME03I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME03I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE03I OF COUSR0AI\n               WHEN 4\n                   MOVE SEC-USR-ID    TO USRID04I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME04I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME04I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE04I OF COUSR0AI\n               WHEN 5\n                   MOVE SEC-USR-ID    TO USRID05I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME05I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME05I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE05I OF COUSR0AI\n               WHEN 6\n                   MOVE SEC-USR-ID    TO USRID06I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME06I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME06I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE06I OF COUSR0AI\n               WHEN 7\n                   MOVE SEC-USR-ID    TO USRID07I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME07I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME07I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE07I OF COUSR0AI\n               WHEN 8\n                   MOVE SEC-USR-ID    TO USRID08I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME08I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME08I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE08I OF COUSR0AI\n               WHEN 9\n                   MOVE SEC-USR-ID    TO USRID09I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME09I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME09I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE09I OF COUSR0AI\n               WHEN 10\n                   MOVE SEC-USR-ID    TO USRID10I OF COUSR0AI\n                                         CDEMO-CU00-USRID-LAST\n                   MOVE SEC-USR-FNAME TO FNAME10I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME10I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE10I OF COUSR0AI\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -1910,7 +1910,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "fbff6e00-4bb4-4852-86b6-b75ecf03b032",
+      "id": "a73320f6-c6ae-4f68-9c79-36bdcb303df8",
       "label": "EVALUATEWS-IDXW",
       "name": "EVALUATEWS-IDXW",
       "originalText": "EVALUATE WS-IDX\n               WHEN 1\n                   MOVE SEC-USR-ID    TO USRID01I OF COUSR0AI\n                                         CDEMO-CU00-USRID-FIRST\n                   MOVE SEC-USR-FNAME TO FNAME01I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME01I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE01I OF COUSR0AI\n               WHEN 2\n                   MOVE SEC-USR-ID    TO USRID02I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME02I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME02I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE02I OF COUSR0AI\n               WHEN 3\n                   MOVE SEC-USR-ID    TO USRID03I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME03I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME03I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE03I OF COUSR0AI\n               WHEN 4\n                   MOVE SEC-USR-ID    TO USRID04I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME04I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME04I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE04I OF COUSR0AI\n               WHEN 5\n                   MOVE SEC-USR-ID    TO USRID05I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME05I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME05I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE05I OF COUSR0AI\n               WHEN 6\n                   MOVE SEC-USR-ID    TO USRID06I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME06I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME06I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE06I OF COUSR0AI\n               WHEN 7\n                   MOVE SEC-USR-ID    TO USRID07I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME07I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME07I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE07I OF COUSR0AI\n               WHEN 8\n                   MOVE SEC-USR-ID    TO USRID08I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME08I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME08I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE08I OF COUSR0AI\n               WHEN 9\n                   MOVE SEC-USR-ID    TO USRID09I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME09I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME09I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE09I OF COUSR0AI\n               WHEN 10\n                   MOVE SEC-USR-ID    TO USRID10I OF COUSR0AI\n                                         CDEMO-CU00-USRID-LAST\n                   MOVE SEC-USR-FNAME TO FNAME10I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME10I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE10I OF COUSR0AI\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE.",
@@ -1922,7 +1922,7 @@
     },
     {
       "children": [],
-      "id": "4ff3fb45-b9e9-4092-ae15-3cf3bea2a953",
+      "id": "d08a7056-0944-4094-bb9b-3d91f4a539ba",
       "label": "INITIALIZE-USER-DATA",
       "name": "INITIALIZE-USER-DATA",
       "originalText": "INITIALIZE-USER-DATA.",
@@ -1936,7 +1936,7 @@
       "children": [
         {
           "children": [],
-          "id": "99454de9-3ff7-4716-b64e-c4aeaec81098",
+          "id": "dc64ea83-9ae0-4c11-a277-d930140dbf47",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-IDX\n               WHEN 1\n                   MOVE SPACES TO USRID01I OF COUSR0AI\n                   MOVE SPACES TO FNAME01I OF COUSR0AI\n                   MOVE SPACES TO LNAME01I OF COUSR0AI\n                   MOVE SPACES TO UTYPE01I OF COUSR0AI\n               WHEN 2\n                   MOVE SPACES TO USRID02I OF COUSR0AI\n                   MOVE SPACES TO FNAME02I OF COUSR0AI\n                   MOVE SPACES TO LNAME02I OF COUSR0AI\n                   MOVE SPACES TO UTYPE02I OF COUSR0AI\n               WHEN 3\n                   MOVE SPACES TO USRID03I OF COUSR0AI\n                   MOVE SPACES TO FNAME03I OF COUSR0AI\n                   MOVE SPACES TO LNAME03I OF COUSR0AI\n                   MOVE SPACES TO UTYPE03I OF COUSR0AI\n               WHEN 4\n                   MOVE SPACES TO USRID04I OF COUSR0AI\n                   MOVE SPACES TO FNAME04I OF COUSR0AI\n                   MOVE SPACES TO LNAME04I OF COUSR0AI\n                   MOVE SPACES TO UTYPE04I OF COUSR0AI\n               WHEN 5\n                   MOVE SPACES TO USRID05I OF COUSR0AI\n                   MOVE SPACES TO FNAME05I OF COUSR0AI\n                   MOVE SPACES TO LNAME05I OF COUSR0AI\n                   MOVE SPACES TO UTYPE05I OF COUSR0AI\n               WHEN 6\n                   MOVE SPACES TO USRID06I OF COUSR0AI\n                   MOVE SPACES TO FNAME06I OF COUSR0AI\n                   MOVE SPACES TO LNAME06I OF COUSR0AI\n                   MOVE SPACES TO UTYPE06I OF COUSR0AI\n               WHEN 7\n                   MOVE SPACES TO USRID07I OF COUSR0AI\n                   MOVE SPACES TO FNAME07I OF COUSR0AI\n                   MOVE SPACES TO LNAME07I OF COUSR0AI\n                   MOVE SPACES TO UTYPE07I OF COUSR0AI\n               WHEN 8\n                   MOVE SPACES TO USRID08I OF COUSR0AI\n                   MOVE SPACES TO FNAME08I OF COUSR0AI\n                   MOVE SPACES TO LNAME08I OF COUSR0AI\n                   MOVE SPACES TO UTYPE08I OF COUSR0AI\n               WHEN 9\n                   MOVE SPACES TO USRID09I OF COUSR0AI\n                   MOVE SPACES TO FNAME09I OF COUSR0AI\n                   MOVE SPACES TO LNAME09I OF COUSR0AI\n                   MOVE SPACES TO UTYPE09I OF COUSR0AI\n               WHEN 10\n                   MOVE SPACES TO USRID10I OF COUSR0AI\n                   MOVE SPACES TO FNAME10I OF COUSR0AI\n                   MOVE SPACES TO LNAME10I OF COUSR0AI\n                   MOVE SPACES TO UTYPE10I OF COUSR0AI\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE",
@@ -1947,7 +1947,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "b59e2987-680c-48b2-b9fb-c6d8c163a4aa",
+      "id": "96957c6d-f7ca-4267-990d-d05ecef14987",
       "label": "EVALUATEWS-IDXW",
       "name": "EVALUATEWS-IDXW",
       "originalText": "EVALUATE WS-IDX\n               WHEN 1\n                   MOVE SPACES TO USRID01I OF COUSR0AI\n                   MOVE SPACES TO FNAME01I OF COUSR0AI\n                   MOVE SPACES TO LNAME01I OF COUSR0AI\n                   MOVE SPACES TO UTYPE01I OF COUSR0AI\n               WHEN 2\n                   MOVE SPACES TO USRID02I OF COUSR0AI\n                   MOVE SPACES TO FNAME02I OF COUSR0AI\n                   MOVE SPACES TO LNAME02I OF COUSR0AI\n                   MOVE SPACES TO UTYPE02I OF COUSR0AI\n               WHEN 3\n                   MOVE SPACES TO USRID03I OF COUSR0AI\n                   MOVE SPACES TO FNAME03I OF COUSR0AI\n                   MOVE SPACES TO LNAME03I OF COUSR0AI\n                   MOVE SPACES TO UTYPE03I OF COUSR0AI\n               WHEN 4\n                   MOVE SPACES TO USRID04I OF COUSR0AI\n                   MOVE SPACES TO FNAME04I OF COUSR0AI\n                   MOVE SPACES TO LNAME04I OF COUSR0AI\n                   MOVE SPACES TO UTYPE04I OF COUSR0AI\n               WHEN 5\n                   MOVE SPACES TO USRID05I OF COUSR0AI\n                   MOVE SPACES TO FNAME05I OF COUSR0AI\n                   MOVE SPACES TO LNAME05I OF COUSR0AI\n                   MOVE SPACES TO UTYPE05I OF COUSR0AI\n               WHEN 6\n                   MOVE SPACES TO USRID06I OF COUSR0AI\n                   MOVE SPACES TO FNAME06I OF COUSR0AI\n                   MOVE SPACES TO LNAME06I OF COUSR0AI\n                   MOVE SPACES TO UTYPE06I OF COUSR0AI\n               WHEN 7\n                   MOVE SPACES TO USRID07I OF COUSR0AI\n                   MOVE SPACES TO FNAME07I OF COUSR0AI\n                   MOVE SPACES TO LNAME07I OF COUSR0AI\n                   MOVE SPACES TO UTYPE07I OF COUSR0AI\n               WHEN 8\n                   MOVE SPACES TO USRID08I OF COUSR0AI\n                   MOVE SPACES TO FNAME08I OF COUSR0AI\n                   MOVE SPACES TO LNAME08I OF COUSR0AI\n                   MOVE SPACES TO UTYPE08I OF COUSR0AI\n               WHEN 9\n                   MOVE SPACES TO USRID09I OF COUSR0AI\n                   MOVE SPACES TO FNAME09I OF COUSR0AI\n                   MOVE SPACES TO LNAME09I OF COUSR0AI\n                   MOVE SPACES TO UTYPE09I OF COUSR0AI\n               WHEN 10\n                   MOVE SPACES TO USRID10I OF COUSR0AI\n                   MOVE SPACES TO FNAME10I OF COUSR0AI\n                   MOVE SPACES TO LNAME10I OF COUSR0AI\n                   MOVE SPACES TO UTYPE10I OF COUSR0AI\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE.",
@@ -1959,7 +1959,7 @@
     },
     {
       "children": [],
-      "id": "8f3bd27a-9ade-4635-97b1-029d09572f04",
+      "id": "c702a751-83bb-41d2-a383-cd6fe615a791",
       "label": "RETURN-TO-PREV-SCREEN",
       "name": "RETURN-TO-PREV-SCREEN",
       "originalText": "RETURN-TO-PREV-SCREEN.",
@@ -1977,7 +1977,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "461d2449-5823-48f9-b57c-71ec52c3ee1e",
+                  "id": "85d7432f-71ff-4352-a2b6-58c997b3103b",
                   "label": "MOVE\u0027COSGN00C\u0027T",
                   "name": "MOVE\u0027COSGN00C\u0027T",
                   "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
@@ -1988,7 +1988,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "6c362c87-5cc0-43c2-8fe5-b2cb0a221394",
+              "id": "65cd9fba-e3c7-4ca6-9bd3-a76a766e8b65",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM",
@@ -1999,7 +1999,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "362e50f9-11af-4d71-93ee-27ea85e9c1e3",
+          "id": "b228f828-49cf-4c15-81ea-013467b65aaf",
           "label": "IS \nCDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES?\n",
           "name": "IS \nCDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES?\n",
           "originalText": "IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF",
@@ -2011,7 +2011,7 @@
         },
         {
           "children": [],
-          "id": "3356920b-a19f-4857-b1e3-b2fca05ffe50",
+          "id": "c5413a06-9d81-4730-b556-466ed81c5c5f",
           "label": "MOVEWS-TRANIDTO",
           "name": "MOVEWS-TRANIDTO",
           "originalText": "MOVE WS-TRANID    TO CDEMO-FROM-TRANID",
@@ -2023,7 +2023,7 @@
         },
         {
           "children": [],
-          "id": "6e4378ee-46b6-4e79-a7a5-34cba1dcc72d",
+          "id": "df8076ee-a301-4307-bdb5-b7ff93ba0ec1",
           "label": "MOVEWS-PGMNAMET",
           "name": "MOVEWS-PGMNAMET",
           "originalText": "MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM",
@@ -2035,7 +2035,7 @@
         },
         {
           "children": [],
-          "id": "afcf89e2-0081-49c0-8c83-6f1595da4793",
+          "id": "f523d307-5168-45db-bd70-d4b7297de506",
           "label": "MOVEZEROSTOCDEM",
           "name": "MOVEZEROSTOCDEM",
           "originalText": "MOVE ZEROS        TO CDEMO-PGM-CONTEXT",
@@ -2047,7 +2047,7 @@
         },
         {
           "children": [],
-          "id": "12215eed-6cac-4930-8344-6598e1604dfd",
+          "id": "d9b93e6a-9b49-41c2-8819-ad202bda27d6",
           "label": "_DIALECT_4​​​​ ",
           "name": "_DIALECT_4​​​​ ",
           "originalText": "_DIALECT_ 4 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2058,7 +2058,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "6b7d73cd-1f67-44ea-97d2-bc783d3e929e",
+      "id": "5f789fa1-ec6c-426e-86a3-cc4f8cd349f3",
       "label": "IFCDEMO-TO-PROG",
       "name": "IFCDEMO-TO-PROG",
       "originalText": "IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF\n           MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n           MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n           MOVE ZEROS        TO CDEMO-PGM-CONTEXT\n           _DIALECT_ 4 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -2070,7 +2070,7 @@
     },
     {
       "children": [],
-      "id": "4761ced8-3cad-40a8-96b7-55e3d0797fda",
+      "id": "1c1c25f6-51a1-489d-a0f6-bca8c0af3211",
       "label": "SEND-USRLST-SCREEN",
       "name": "SEND-USRLST-SCREEN",
       "originalText": "SEND-USRLST-SCREEN.",
@@ -2084,7 +2084,7 @@
       "children": [
         {
           "children": [],
-          "id": "3231e06f-97f4-4c2b-aaf9-a8bf77769930",
+          "id": "70dbb008-d00f-4cea-9231-9a146215c3c1",
           "label": "PERFORM POPULATE-HEADER-INFO",
           "name": "PERFORMPOPULATE",
           "originalText": "PERFORM POPULATE-HEADER-INFO",
@@ -2096,7 +2096,7 @@
         },
         {
           "children": [],
-          "id": "20790550-c30e-4ae5-be4c-e9b134dd7cad",
+          "id": "3f49ebf5-588a-4a81-9525-5056d9f0d249",
           "label": "MOVEWS-MESSAGET",
           "name": "MOVEWS-MESSAGET",
           "originalText": "MOVE WS-MESSAGE TO ERRMSGO OF COUSR0AO",
@@ -2112,7 +2112,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "acfc68cf-bf5f-4a43-9400-0b5941e3c4a5",
+                  "id": "09c5f947-dcff-4498-9b98-57d67d08b614",
                   "label": "_DIALECT_5​​​​ ",
                   "name": "_DIALECT_5​​​​ ",
                   "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​\n               ​​​​​​​​",
@@ -2123,7 +2123,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "16018505-23d6-4384-a61c-3c4ec0f7488d",
+              "id": "a6f732ab-e85f-4a6d-81e8-5bc12a90e468",
               "label": "Yes",
               "name": "Yes",
               "originalText": "_DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​\n               ​​​​​​​​",
@@ -2137,7 +2137,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "7afe6a4a-f531-41e7-b7f9-5033455a65a0",
+                  "id": "c82e5bb4-b454-410d-a5c5-c2f8c53a63d0",
                   "label": "ELSE",
                   "name": "ELSE",
                   "originalText": "ELSE",
@@ -2149,7 +2149,7 @@
                 },
                 {
                   "children": [],
-                  "id": "b0bbaba3-5387-43df-8fff-18e8b8012c4e",
+                  "id": "b9122b5c-4574-4080-9188-142257bcd43d",
                   "label": "_DIALECT_6​​​​ ",
                   "name": "_DIALECT_6​​​​ ",
                   "originalText": "_DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n       \n               ​​​​​​​​",
@@ -2160,7 +2160,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "4adbbff2-9e90-4041-a4c3-3a18b835c522",
+              "id": "207fbd56-c77d-4b6b-9a6c-4c4ad15a5ee9",
               "label": "No",
               "name": "No",
               "originalText": "ELSE\n               _DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n       \n               ​​​​​​​​",
@@ -2171,7 +2171,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "9913afdf-ed8d-4163-a74a-e8ff1bb7391c",
+          "id": "92d2d40d-ff76-457e-a4b1-1d003651c162",
           "label": "IS \nSEND-ERASE-YES?\n",
           "name": "IS \nSEND-ERASE-YES?\n",
           "originalText": "IF SEND-ERASE-YES\n               _DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​\n               ​​​​​​​​\n           ELSE\n               _DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n       \n               ​​​​​​​​\n           END-IF",
@@ -2182,7 +2182,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "bb0b7271-3308-44c5-92a1-2ce30cb4c299",
+      "id": "9e47c106-3248-4dbd-ad41-ff368d870638",
       "label": "PERFORMPOPULATE",
       "name": "PERFORMPOPULATE",
       "originalText": "PERFORM POPULATE-HEADER-INFO\n       \n           MOVE WS-MESSAGE TO ERRMSGO OF COUSR0AO\n       \n           IF SEND-ERASE-YES\n               _DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​\n               ​​​​​​​​\n           ELSE\n               _DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n       \n               ​​​​​​​​\n           END-IF.",
@@ -2194,7 +2194,7 @@
     },
     {
       "children": [],
-      "id": "54507da6-5c6e-45cd-a868-aee5cc25d56b",
+      "id": "793ca77d-1d00-4463-9e70-93b29c4af717",
       "label": "RECEIVE-USRLST-SCREEN",
       "name": "RECEIVE-USRLST-SCREEN",
       "originalText": "RECEIVE-USRLST-SCREEN.",
@@ -2208,7 +2208,7 @@
       "children": [
         {
           "children": [],
-          "id": "40ea6a09-836c-4b37-b5f6-a81956c9e4c7",
+          "id": "55d0a25f-39c7-420a-9f95-a0bcb0b4414a",
           "label": "_DIALECT_7​​​​ ",
           "name": "_DIALECT_7​​​​ ",
           "originalText": "_DIALECT_ 7 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​",
@@ -2219,7 +2219,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "7e6494ee-df9d-458f-96a1-54f3edd31990",
+      "id": "b9ce4fcc-8317-4222-8b48-5057641b2308",
       "label": "_DIALECT_7​​​​ ",
       "name": "_DIALECT_7​​​​ ",
       "originalText": "_DIALECT_ 7 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -2231,7 +2231,7 @@
     },
     {
       "children": [],
-      "id": "3e70850a-84fb-4c4a-afa1-8d3650e9c307",
+      "id": "03db3450-46fc-47c6-bcb1-192defa76c62",
       "label": "POPULATE-HEADER-INFO",
       "name": "POPULATE-HEADER-INFO",
       "originalText": "POPULATE-HEADER-INFO.",
@@ -2245,7 +2245,7 @@
       "children": [
         {
           "children": [],
-          "id": "87488956-884a-4329-99c1-6babb01410c4",
+          "id": "5237f257-7c35-43cb-b2b7-f987649bcc4d",
           "label": "MOVEFUNCTIONCUR",
           "name": "MOVEFUNCTIONCUR",
           "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA",
@@ -2257,7 +2257,7 @@
         },
         {
           "children": [],
-          "id": "14a18379-8cbd-42c6-9595-e5317894fcb8",
+          "id": "12c7a23c-2918-45b3-8dc1-00d34e0929ea",
           "label": "MOVECCDA-TITLE0",
           "name": "MOVECCDA-TITLE0",
           "originalText": "MOVE CCDA-TITLE01           TO TITLE01O OF COUSR0AO",
@@ -2269,7 +2269,7 @@
         },
         {
           "children": [],
-          "id": "cfb62b53-c94c-44d2-8c19-884e2047a381",
+          "id": "ce40b657-d984-4e4e-b465-4f69637b34f2",
           "label": "MOVECCDA-TITLE0",
           "name": "MOVECCDA-TITLE0",
           "originalText": "MOVE CCDA-TITLE02           TO TITLE02O OF COUSR0AO",
@@ -2281,7 +2281,7 @@
         },
         {
           "children": [],
-          "id": "fb24e5ff-638d-431c-a368-f04634b71797",
+          "id": "f5575a41-8006-4e0b-87ff-182b1fad8d5f",
           "label": "MOVEWS-TRANIDTO",
           "name": "MOVEWS-TRANIDTO",
           "originalText": "MOVE WS-TRANID              TO TRNNAMEO OF COUSR0AO",
@@ -2293,7 +2293,7 @@
         },
         {
           "children": [],
-          "id": "fcdf3aef-32fc-4d3b-8d0a-856d2c5519eb",
+          "id": "56c110e1-fc20-4220-a3c1-21baa3ab1d9e",
           "label": "MOVEWS-PGMNAMET",
           "name": "MOVEWS-PGMNAMET",
           "originalText": "MOVE WS-PGMNAME             TO PGMNAMEO OF COUSR0AO",
@@ -2305,7 +2305,7 @@
         },
         {
           "children": [],
-          "id": "63ccb5f3-cfe6-4c8f-9b60-014f8ffc90de",
+          "id": "e47bd04e-9c53-463f-855f-1fa3e97376f3",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM",
@@ -2317,7 +2317,7 @@
         },
         {
           "children": [],
-          "id": "94544371-82ab-46d3-86c0-96dae4d98012",
+          "id": "6a4c7572-da9a-4196-a685-29dbd1ab6493",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD",
@@ -2329,7 +2329,7 @@
         },
         {
           "children": [],
-          "id": "fea29217-0c6e-4a25-b3b3-199e75feb8a4",
+          "id": "f6f3a599-9a5c-4c42-97c7-a917c15606c9",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY",
@@ -2341,7 +2341,7 @@
         },
         {
           "children": [],
-          "id": "f0c3050f-7e15-4842-bc3a-03ba52ce7910",
+          "id": "c555f08b-b621-4dc3-a7fb-0c97fec0869c",
           "label": "MOVEWS-CURDATE-",
           "name": "MOVEWS-CURDATE-",
           "originalText": "MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COUSR0AO",
@@ -2353,7 +2353,7 @@
         },
         {
           "children": [],
-          "id": "29e73150-bafe-4d67-ad0e-0ebc86ef9bf7",
+          "id": "d27990bb-039a-4b22-bbb5-fe03d453ee1b",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH",
@@ -2365,7 +2365,7 @@
         },
         {
           "children": [],
-          "id": "1d39566c-fbf9-4476-9f0a-f59b9b4c4af3",
+          "id": "2b0a6e31-ecbb-4750-86a4-e12211a9220f",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM",
@@ -2377,7 +2377,7 @@
         },
         {
           "children": [],
-          "id": "f9b4dbe4-6e98-4b4b-9dd0-f6b15552dfe7",
+          "id": "5a03a289-9aaa-4dba-be8d-94f48da0bdb4",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS",
@@ -2389,7 +2389,7 @@
         },
         {
           "children": [],
-          "id": "ae1563c1-391e-47a2-adbf-4c6bb7734ec6",
+          "id": "ce1429ca-5625-4262-b568-07dc9d2f2215",
           "label": "MOVEWS-CURTIME-",
           "name": "MOVEWS-CURTIME-",
           "originalText": "MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COUSR0AO",
@@ -2400,7 +2400,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "46e3df28-2e9d-48df-8ba9-260121b93a76",
+      "id": "9eb053b5-3199-4178-8a1d-b3c3b171b6d3",
       "label": "MOVEFUNCTIONCUR",
       "name": "MOVEFUNCTIONCUR",
       "originalText": "MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF COUSR0AO\n           MOVE CCDA-TITLE02           TO TITLE02O OF COUSR0AO\n           MOVE WS-TRANID              TO TRNNAMEO OF COUSR0AO\n           MOVE WS-PGMNAME             TO PGMNAMEO OF COUSR0AO\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COUSR0AO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COUSR0AO.",
@@ -2412,7 +2412,7 @@
     },
     {
       "children": [],
-      "id": "f500438c-9063-4c66-9fd8-54053fa8efc2",
+      "id": "b62a15db-99c9-4677-bde8-91f223b2f379",
       "label": "STARTBR-USER-SEC-FILE",
       "name": "STARTBR-USER-SEC-FILE",
       "originalText": "STARTBR-USER-SEC-FILE.",
@@ -2426,7 +2426,7 @@
       "children": [
         {
           "children": [],
-          "id": "1940e75b-88ba-488c-8713-7beb76a35bba",
+          "id": "5716d97f-0136-49db-b847-1038db13b31e",
           "label": "_DIALECT_8​​​​ ",
           "name": "_DIALECT_8​​​​ ",
           "originalText": "_DIALECT_ 8 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n       \n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -2438,7 +2438,7 @@
         },
         {
           "children": [],
-          "id": "27a24159-de5d-44e4-8a10-1aaf99b99a49",
+          "id": "e6a601f9-1604-4f2a-80a2-7ed10a6f1fbc",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 9 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You are at the top of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE",
@@ -2449,7 +2449,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "3ed5c766-9b86-466b-bfdf-926344532946",
+      "id": "4de5df92-0097-4a9f-9aa4-294685af0d1f",
       "label": "_DIALECT_8​​​​ ",
       "name": "_DIALECT_8​​​​ ",
       "originalText": "_DIALECT_ 8 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n       \n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 9 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You are at the top of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE.",
@@ -2461,7 +2461,7 @@
     },
     {
       "children": [],
-      "id": "266db741-3933-43ed-b4cc-e093b827ef85",
+      "id": "a51c9d35-011e-4259-9f9f-3c286ca3e724",
       "label": "READNEXT-USER-SEC-FILE",
       "name": "READNEXT-USER-SEC-FILE",
       "originalText": "READNEXT-USER-SEC-FILE.",
@@ -2475,7 +2475,7 @@
       "children": [
         {
           "children": [],
-          "id": "6af3f1f8-9d13-4d21-bc1b-f3a0727c867b",
+          "id": "db6345c0-7a4e-4575-852b-eeafaf86bb94",
           "label": "_DIALECT_11​​​​",
           "name": "_DIALECT_11​​​​",
           "originalText": "_DIALECT_ 11 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -2487,7 +2487,7 @@
         },
         {
           "children": [],
-          "id": "972be6dc-215e-4903-ab2c-60f61834b68a",
+          "id": "2c76a251-10b3-4d57-8465-16d8916c025e",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 12 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You have reached the bottom of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE",
@@ -2498,7 +2498,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "d013216f-d408-48fb-820e-777b87dcbbcb",
+      "id": "efdeef16-e166-44e0-b8d1-69961398e682",
       "label": "_DIALECT_11​​​​",
       "name": "_DIALECT_11​​​​",
       "originalText": "_DIALECT_ 11 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 12 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You have reached the bottom of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE.",
@@ -2510,7 +2510,7 @@
     },
     {
       "children": [],
-      "id": "3aa3b292-5e6c-4563-8081-9970a561c696",
+      "id": "d5dc9acc-d970-44c1-96ed-f91be576b2be",
       "label": "READPREV-USER-SEC-FILE",
       "name": "READPREV-USER-SEC-FILE",
       "originalText": "READPREV-USER-SEC-FILE.",
@@ -2524,7 +2524,7 @@
       "children": [
         {
           "children": [],
-          "id": "db1d1923-ed36-4bc5-904c-0b69ac007cc0",
+          "id": "21eaa517-d32d-4273-8d2e-41da4cd0cb97",
           "label": "_DIALECT_14​​​​",
           "name": "_DIALECT_14​​​​",
           "originalText": "_DIALECT_ 14 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.",
@@ -2536,7 +2536,7 @@
         },
         {
           "children": [],
-          "id": "6ffd7896-2e96-4681-9ea5-0d70f28993ef",
+          "id": "8130fbe3-3c06-4808-a624-cbe59b3a6f62",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 15 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 16 ​​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You have reached the top of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE",
@@ -2547,7 +2547,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "a385eb28-8387-4354-be6a-3dedc15438e3",
+      "id": "47f9e2c0-0450-4df7-8591-1f6dfcd92523",
       "label": "_DIALECT_14​​​​",
       "name": "_DIALECT_14​​​​",
       "originalText": "_DIALECT_ 14 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 15 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 16 ​​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You have reached the top of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE.",
@@ -2559,7 +2559,7 @@
     },
     {
       "children": [],
-      "id": "29d982b0-f049-40a5-8edd-e0734565c54f",
+      "id": "7bc3af98-31d1-4a0b-9209-98a335648fb1",
       "label": "ENDBR-USER-SEC-FILE",
       "name": "ENDBR-USER-SEC-FILE",
       "originalText": "ENDBR-USER-SEC-FILE.",
@@ -2573,7 +2573,7 @@
       "children": [
         {
           "children": [],
-          "id": "31e33e96-48be-462c-8337-7226d1735268",
+          "id": "34c58d3e-a184-4ff0-b0b1-0de1fbf881b2",
           "label": "_DIALECT_17​​​​",
           "name": "_DIALECT_17​​​​",
           "originalText": "_DIALECT_ 17 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​",
@@ -2584,7 +2584,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "375ec7cb-f9e6-4acf-83ae-82b63687d6ba",
+      "id": "e6ba6b87-3a9a-4503-a1f4-b5ba7e464adb",
       "label": "_DIALECT_17​​​​",
       "name": "_DIALECT_17​​​​",
       "originalText": "_DIALECT_ 17 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​.",
@@ -2595,9 +2595,9 @@
       "nodeType": "CODE_VERTEX"
     }
   ],
-  "id": "38961a06-a192-436b-8db0-300bb056b82e",
-  "label": "ProcedureDivisionBodyContext/38961a06-a192-436b-8db0-300bb056b82e",
-  "name": "ProcedureDivisionBodyContext/38961a06-a192-436b-8db0-300bb056b82e",
+  "id": "f16e8218-2321-4561-8def-fc49622d5eca",
+  "label": "ProcedureDivisionBodyContext/f16e8218-2321-4561-8def-fc49622d5eca",
+  "name": "ProcedureDivisionBodyContext/f16e8218-2321-4561-8def-fc49622d5eca",
   "originalText": "MAIN-PARA.\n       \n           SET ERR-FLG-OFF TO TRUE\n           SET USER-SEC-NOT-EOF TO TRUE\n           SET NEXT-PAGE-NO TO TRUE\n           SET SEND-ERASE-YES TO TRUE\n       \n           MOVE SPACES TO WS-MESSAGE\n                          ERRMSGO OF COUSR0AO\n       \n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n           IF EIBCALEN \u003d 0\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n               PERFORM RETURN-TO-PREV-SCREEN\n           ELSE\n               MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA\n               IF NOT CDEMO-PGM-REENTER\n                   SET CDEMO-PGM-REENTER    TO TRUE\n                   MOVE LOW-VALUES          TO COUSR0AO\n                   PERFORM PROCESS-ENTER-KEY\n                   PERFORM SEND-USRLST-SCREEN\n               ELSE\n                   PERFORM RECEIVE-USRLST-SCREEN\n                   EVALUATE EIBAID\n                       WHEN DFHENTER\n                           PERFORM PROCESS-ENTER-KEY\n                       WHEN DFHPF3\n                           MOVE \u0027COADM01C\u0027 TO CDEMO-TO-PROGRAM\n                           PERFORM RETURN-TO-PREV-SCREEN\n                       WHEN DFHPF7\n                           PERFORM PROCESS-PF7-KEY\n                       WHEN DFHPF8\n                           PERFORM PROCESS-PF8-KEY\n                       WHEN OTHER\n                           MOVE \u0027Y\u0027                       TO WS-ERR-FLG\n                           MOVE -1       TO USRIDINL OF COUSR0AI\n                           MOVE CCDA-MSG-INVALID-KEY      TO WS-MESSAGE\n                           PERFORM SEND-USRLST-SCREEN\n                   END-EVALUATE\n               END-IF\n           END-IF\n       \n           _DIALECT_ 1 ​​​​ ​​​​ ​​​​​​\n                     ​​​​​​​ ​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       PROCESS-ENTER-KEY.\n       \n           EVALUATE TRUE\n               WHEN SEL0001I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0001I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID01I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0002I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0002I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID02I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0003I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0003I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID03I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0004I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0004I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID04I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0005I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0005I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID05I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0006I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0006I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID06I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0007I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0007I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID07I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0008I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0008I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID08I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0009I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0009I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID09I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN SEL0010I OF COUSR0AI NOT \u003d SPACES AND LOW-VALUES\n                   MOVE SEL0010I OF COUSR0AI TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE USRID10I OF COUSR0AI TO CDEMO-CU00-USR-SELECTED\n               WHEN OTHER\n                   MOVE SPACES   TO CDEMO-CU00-USR-SEL-FLG\n                   MOVE SPACES   TO CDEMO-CU00-USR-SELECTED\n           END-EVALUATE\n       \n           IF (CDEMO-CU00-USR-SEL-FLG NOT \u003d SPACES AND LOW-VALUES) AND\n              (CDEMO-CU00-USR-SELECTED NOT \u003d SPACES AND LOW-VALUES)\n               EVALUATE CDEMO-CU00-USR-SEL-FLG\n                   WHEN \u0027U\u0027\n                   WHEN \u0027u\u0027\n                        MOVE \u0027COUSR02C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 2 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN \u0027D\u0027\n                   WHEN \u0027d\u0027\n                        MOVE \u0027COUSR03C\u0027   TO CDEMO-TO-PROGRAM\n                        MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n                        MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n                        MOVE 0        TO CDEMO-PGM-CONTEXT\n                        _DIALECT_ 3 ​​​​ ​​​​\n                            ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n                        ​​​​​​​​\n                   WHEN OTHER\n                       MOVE\n                       \u0027Invalid selection. Valid values are U and D\u0027 TO\n                                       WS-MESSAGE\n                       MOVE -1       TO USRIDINL OF COUSR0AI\n               END-EVALUATE\n           END-IF\n       \n           IF USRIDINI OF COUSR0AI \u003d SPACES OR LOW-VALUES\n               MOVE LOW-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE USRIDINI  OF COUSR0AI TO SEC-USR-ID\n           END-IF\n       \n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n       \n           MOVE 0       TO CDEMO-CU00-PAGE-NUM\n           PERFORM PROCESS-PAGE-FORWARD\n       \n           IF NOT ERR-FLG-ON\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n           END-IF.\n       \n       \n       \n       \n       PROCESS-PF7-KEY.\n       \n           IF CDEMO-CU00-USRID-FIRST \u003d SPACES OR LOW-VALUES\n               MOVE LOW-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE CDEMO-CU00-USRID-FIRST TO SEC-USR-ID\n           END-IF\n       \n           SET NEXT-PAGE-YES TO TRUE\n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n           IF CDEMO-CU00-PAGE-NUM \u003e 1\n               PERFORM PROCESS-PAGE-BACKWARD\n           ELSE\n               MOVE \u0027You are already at the top of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN\n           END-IF.\n       \n       \n       \n       \n       PROCESS-PF8-KEY.\n       \n           IF CDEMO-CU00-USRID-LAST \u003d SPACES OR LOW-VALUES\n               MOVE HIGH-VALUES TO SEC-USR-ID\n           ELSE\n               MOVE CDEMO-CU00-USRID-LAST TO SEC-USR-ID\n           END-IF\n       \n           MOVE -1       TO USRIDINL OF COUSR0AI\n       \n           IF NEXT-PAGE-YES\n               PERFORM PROCESS-PAGE-FORWARD\n           ELSE\n               MOVE \u0027You are already at the bottom of the page...\u0027 TO\n                               WS-MESSAGE\n               SET SEND-ERASE-NO TO TRUE\n               PERFORM SEND-USRLST-SCREEN\n           END-IF.\n       \n       \n       \n       \n       PROCESS-PAGE-FORWARD.\n       \n           PERFORM STARTBR-USER-SEC-FILE\n       \n           IF NOT ERR-FLG-ON\n       \n               IF EIBAID NOT \u003d DFHENTER AND DFHPF7 AND DFHPF3\n                   PERFORM READNEXT-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 1             TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003e\u003d 11 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX + 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                   COMPUTE CDEMO-CU00-PAGE-NUM \u003d\n                           CDEMO-CU00-PAGE-NUM + 1\n                   PERFORM READNEXT-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       SET NEXT-PAGE-YES TO TRUE\n                   ELSE\n                       SET NEXT-PAGE-NO TO TRUE\n                   END-IF\n               ELSE\n                   SET NEXT-PAGE-NO TO TRUE\n                   IF WS-IDX \u003e 1\n                       COMPUTE CDEMO-CU00-PAGE-NUM \u003d CDEMO-CU00-PAGE-NUM\n                        + 1\n                   END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               MOVE SPACE   TO USRIDINO  OF COUSR0AO\n               PERFORM SEND-USRLST-SCREEN\n       \n           END-IF.\n       \n       \n       \n       \n       PROCESS-PAGE-BACKWARD.\n       \n           PERFORM STARTBR-USER-SEC-FILE\n       \n           IF NOT ERR-FLG-ON\n       \n               IF EIBAID NOT \u003d DFHENTER  AND DFHPF8\n                   PERFORM READPREV-USER-SEC-FILE\n               END-IF\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX \u003e 10\n                   PERFORM INITIALIZE-USER-DATA\n               END-PERFORM\n               END-IF\n       \n               MOVE 10          TO  WS-IDX\n       \n               PERFORM UNTIL WS-IDX \u003c\u003d 0 OR USER-SEC-EOF OR ERR-FLG-ON\n                   PERFORM READPREV-USER-SEC-FILE\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n                       PERFORM POPULATE-USER-DATA\n                       COMPUTE WS-IDX \u003d WS-IDX - 1\n                   END-IF\n               END-PERFORM\n       \n               IF USER-SEC-NOT-EOF AND ERR-FLG-OFF\n               PERFORM READPREV-USER-SEC-FILE\n               IF NEXT-PAGE-YES\n                   IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND\n                       CDEMO-CU00-PAGE-NUM \u003e 1\n                       SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM\n                   ELSE\n                       MOVE 1 TO CDEMO-CU00-PAGE-NUM\n                   END-IF\n               END-IF\n               END-IF\n       \n               PERFORM ENDBR-USER-SEC-FILE\n       \n               MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI\n               PERFORM SEND-USRLST-SCREEN\n       \n           END-IF.\n       \n       \n       \n       \n       POPULATE-USER-DATA.\n       \n           EVALUATE WS-IDX\n               WHEN 1\n                   MOVE SEC-USR-ID    TO USRID01I OF COUSR0AI\n                                         CDEMO-CU00-USRID-FIRST\n                   MOVE SEC-USR-FNAME TO FNAME01I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME01I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE01I OF COUSR0AI\n               WHEN 2\n                   MOVE SEC-USR-ID    TO USRID02I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME02I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME02I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE02I OF COUSR0AI\n               WHEN 3\n                   MOVE SEC-USR-ID    TO USRID03I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME03I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME03I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE03I OF COUSR0AI\n               WHEN 4\n                   MOVE SEC-USR-ID    TO USRID04I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME04I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME04I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE04I OF COUSR0AI\n               WHEN 5\n                   MOVE SEC-USR-ID    TO USRID05I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME05I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME05I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE05I OF COUSR0AI\n               WHEN 6\n                   MOVE SEC-USR-ID    TO USRID06I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME06I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME06I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE06I OF COUSR0AI\n               WHEN 7\n                   MOVE SEC-USR-ID    TO USRID07I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME07I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME07I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE07I OF COUSR0AI\n               WHEN 8\n                   MOVE SEC-USR-ID    TO USRID08I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME08I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME08I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE08I OF COUSR0AI\n               WHEN 9\n                   MOVE SEC-USR-ID    TO USRID09I OF COUSR0AI\n                   MOVE SEC-USR-FNAME TO FNAME09I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME09I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE09I OF COUSR0AI\n               WHEN 10\n                   MOVE SEC-USR-ID    TO USRID10I OF COUSR0AI\n                                         CDEMO-CU00-USRID-LAST\n                   MOVE SEC-USR-FNAME TO FNAME10I OF COUSR0AI\n                   MOVE SEC-USR-LNAME TO LNAME10I OF COUSR0AI\n                   MOVE SEC-USR-TYPE  TO UTYPE10I OF COUSR0AI\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE.\n       \n       \n       \n       \n       INITIALIZE-USER-DATA.\n       \n           EVALUATE WS-IDX\n               WHEN 1\n                   MOVE SPACES TO USRID01I OF COUSR0AI\n                   MOVE SPACES TO FNAME01I OF COUSR0AI\n                   MOVE SPACES TO LNAME01I OF COUSR0AI\n                   MOVE SPACES TO UTYPE01I OF COUSR0AI\n               WHEN 2\n                   MOVE SPACES TO USRID02I OF COUSR0AI\n                   MOVE SPACES TO FNAME02I OF COUSR0AI\n                   MOVE SPACES TO LNAME02I OF COUSR0AI\n                   MOVE SPACES TO UTYPE02I OF COUSR0AI\n               WHEN 3\n                   MOVE SPACES TO USRID03I OF COUSR0AI\n                   MOVE SPACES TO FNAME03I OF COUSR0AI\n                   MOVE SPACES TO LNAME03I OF COUSR0AI\n                   MOVE SPACES TO UTYPE03I OF COUSR0AI\n               WHEN 4\n                   MOVE SPACES TO USRID04I OF COUSR0AI\n                   MOVE SPACES TO FNAME04I OF COUSR0AI\n                   MOVE SPACES TO LNAME04I OF COUSR0AI\n                   MOVE SPACES TO UTYPE04I OF COUSR0AI\n               WHEN 5\n                   MOVE SPACES TO USRID05I OF COUSR0AI\n                   MOVE SPACES TO FNAME05I OF COUSR0AI\n                   MOVE SPACES TO LNAME05I OF COUSR0AI\n                   MOVE SPACES TO UTYPE05I OF COUSR0AI\n               WHEN 6\n                   MOVE SPACES TO USRID06I OF COUSR0AI\n                   MOVE SPACES TO FNAME06I OF COUSR0AI\n                   MOVE SPACES TO LNAME06I OF COUSR0AI\n                   MOVE SPACES TO UTYPE06I OF COUSR0AI\n               WHEN 7\n                   MOVE SPACES TO USRID07I OF COUSR0AI\n                   MOVE SPACES TO FNAME07I OF COUSR0AI\n                   MOVE SPACES TO LNAME07I OF COUSR0AI\n                   MOVE SPACES TO UTYPE07I OF COUSR0AI\n               WHEN 8\n                   MOVE SPACES TO USRID08I OF COUSR0AI\n                   MOVE SPACES TO FNAME08I OF COUSR0AI\n                   MOVE SPACES TO LNAME08I OF COUSR0AI\n                   MOVE SPACES TO UTYPE08I OF COUSR0AI\n               WHEN 9\n                   MOVE SPACES TO USRID09I OF COUSR0AI\n                   MOVE SPACES TO FNAME09I OF COUSR0AI\n                   MOVE SPACES TO LNAME09I OF COUSR0AI\n                   MOVE SPACES TO UTYPE09I OF COUSR0AI\n               WHEN 10\n                   MOVE SPACES TO USRID10I OF COUSR0AI\n                   MOVE SPACES TO FNAME10I OF COUSR0AI\n                   MOVE SPACES TO LNAME10I OF COUSR0AI\n                   MOVE SPACES TO UTYPE10I OF COUSR0AI\n               WHEN OTHER\n                   CONTINUE\n           END-EVALUATE.\n       \n       \n       \n       \n       RETURN-TO-PREV-SCREEN.\n       \n           IF CDEMO-TO-PROGRAM \u003d LOW-VALUES OR SPACES\n               MOVE \u0027COSGN00C\u0027 TO CDEMO-TO-PROGRAM\n           END-IF\n           MOVE WS-TRANID    TO CDEMO-FROM-TRANID\n           MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM\n           MOVE ZEROS        TO CDEMO-PGM-CONTEXT\n           _DIALECT_ 4 ​​​​ ​​​​\n               ​​​​ ​​​​​​​​​​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       SEND-USRLST-SCREEN.\n       \n           PERFORM POPULATE-HEADER-INFO\n       \n           MOVE WS-MESSAGE TO ERRMSGO OF COUSR0AO\n       \n           IF SEND-ERASE-YES\n               _DIALECT_ 5 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​\n               ​​​​​​​​\n           ELSE\n               _DIALECT_ 6 ​​​​ ​​​​ ​​​​\n                         ​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​​​​\n                         ​​​​​​​​​​​​​​\n       \n               ​​​​​​​​\n           END-IF.\n       \n       \n       \n       \n       RECEIVE-USRLST-SCREEN.\n       \n           _DIALECT_ 7 ​​​​ ​​​​ ​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​\n                     ​​​​​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n       \n       \n       \n       POPULATE-HEADER-INFO.\n       \n           MOVE FUNCTION CURRENT-DATE  TO WS-CURDATE-DATA\n       \n           MOVE CCDA-TITLE01           TO TITLE01O OF COUSR0AO\n           MOVE CCDA-TITLE02           TO TITLE02O OF COUSR0AO\n           MOVE WS-TRANID              TO TRNNAMEO OF COUSR0AO\n           MOVE WS-PGMNAME             TO PGMNAMEO OF COUSR0AO\n       \n           MOVE WS-CURDATE-MONTH       TO WS-CURDATE-MM\n           MOVE WS-CURDATE-DAY         TO WS-CURDATE-DD\n           MOVE WS-CURDATE-YEAR(3:2)   TO WS-CURDATE-YY\n       \n           MOVE WS-CURDATE-MM-DD-YY    TO CURDATEO OF COUSR0AO\n       \n           MOVE WS-CURTIME-HOURS       TO WS-CURTIME-HH\n           MOVE WS-CURTIME-MINUTE      TO WS-CURTIME-MM\n           MOVE WS-CURTIME-SECOND      TO WS-CURTIME-SS\n       \n           MOVE WS-CURTIME-HH-MM-SS    TO CURTIMEO OF COUSR0AO.\n       \n       \n       \n       \n       STARTBR-USER-SEC-FILE.\n       \n           _DIALECT_ 8 ​​​​ ​​​​ ​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n       \n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 9 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 10 ​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You are at the top of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       READNEXT-USER-SEC-FILE.\n       \n           _DIALECT_ 11 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 12 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 13 ​​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You have reached the bottom of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       READPREV-USER-SEC-FILE.\n       \n           _DIALECT_ 14 ​​​​ ​​​​ ​​​​​​​​\n                ​​​​​​​   ​​​​​​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​ ​​ ​​​​​​​​​​​​​​\n                ​​​​​​    ​​​​​​​​​​​​\n                ​​​​​​​​​ ​​​​​​​ ​​ ​​​​​​​​​​​\n                ​​​​      ​​​​​​​​​​​​\n           ​​​​​​​​.\n       \n           EVALUATE WS-RESP-CD\n               WHEN _DIALECT_ 15 ​​​​​​​​​​​​​​​\n                   CONTINUE\n               WHEN _DIALECT_ 16 ​​​​​​​​​​​​​​​​\n                   CONTINUE\n                   SET USER-SEC-EOF TO TRUE\n                   MOVE \u0027You have reached the top of the page...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n               WHEN OTHER\n                   DISPLAY \u0027RESP:\u0027 WS-RESP-CD \u0027REAS:\u0027 WS-REAS-CD\n                   MOVE \u0027Y\u0027     TO WS-ERR-FLG\n                   MOVE \u0027Unable to lookup User...\u0027 TO\n                                   WS-MESSAGE\n                   MOVE -1       TO USRIDINL OF COUSR0AI\n                   PERFORM SEND-USRLST-SCREEN\n           END-EVALUATE.\n       \n       \n       \n       \n       ENDBR-USER-SEC-FILE.\n       \n           _DIALECT_ 17 ​​​​ ​​​​ ​​​​​\n           ​​​​​​​​.",
   "type": "PROCEDURE_DIVISION_BODY",
   "categories": [

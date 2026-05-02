@@ -2,7 +2,7 @@
   "children": [
     {
       "children": [],
-      "id": "0a56b923-b3d1-4140-8352-f98594ba3c02",
+      "id": "73cb08bb-cef9-4508-87e0-10c60086dae2",
       "label": "0000-START",
       "name": "0000-START",
       "originalText": "0000-START.",
@@ -16,7 +16,7 @@
       "children": [
         {
           "children": [],
-          "id": "54667098-3b8a-40cf-a4cc-30a3afab8224",
+          "id": "ff3b0dd1-8080-48d7-b0a6-3c367d6acc31",
           "label": "EVALUATE",
           "name": "EVALUATE",
           "originalText": "EVALUATE LK-M03B-DD\n             WHEN \u0027TRNXFILE\u0027\n               PERFORM 1000-TRNXFILE-PROC THRU 1999-EXIT\n             WHEN \u0027XREFFILE\u0027\n               PERFORM 2000-XREFFILE-PROC THRU 2999-EXIT\n             WHEN \u0027CUSTFILE\u0027\n               PERFORM 3000-CUSTFILE-PROC THRU 3999-EXIT\n             WHEN \u0027ACCTFILE\u0027\n               PERFORM 4000-ACCTFILE-PROC THRU 4999-EXIT\n             WHEN OTHER\n               GO TO 9999-GOBACK",
@@ -27,7 +27,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "cc7d75ef-7a82-4522-b4b2-57cc0e31cc24",
+      "id": "3772b032-39a2-42c5-a6d4-2cb165cdabf7",
       "label": "EVALUATELK-M03B",
       "name": "EVALUATELK-M03B",
       "originalText": "EVALUATE LK-M03B-DD\n             WHEN \u0027TRNXFILE\u0027\n               PERFORM 1000-TRNXFILE-PROC THRU 1999-EXIT\n             WHEN \u0027XREFFILE\u0027\n               PERFORM 2000-XREFFILE-PROC THRU 2999-EXIT\n             WHEN \u0027CUSTFILE\u0027\n               PERFORM 3000-CUSTFILE-PROC THRU 3999-EXIT\n             WHEN \u0027ACCTFILE\u0027\n               PERFORM 4000-ACCTFILE-PROC THRU 4999-EXIT\n             WHEN OTHER\n               GO TO 9999-GOBACK.",
@@ -39,7 +39,7 @@
     },
     {
       "children": [],
-      "id": "843c074b-e648-4e0f-b33c-ec1bd6950940",
+      "id": "1da80a2a-8217-4af1-8172-642fea1ef39e",
       "label": "9999-GOBACK",
       "name": "9999-GOBACK",
       "originalText": "9999-GOBACK.",
@@ -53,7 +53,7 @@
       "children": [
         {
           "children": [],
-          "id": "8a671030-4072-4d8d-8249-84e658a4055e",
+          "id": "b3e659cc-5509-42da-95d4-3ebcf77533d1",
           "label": "GOBACK",
           "name": "GOBACK",
           "originalText": "GOBACK",
@@ -64,7 +64,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "dfd78806-a430-416d-8847-b2797515b183",
+      "id": "360d15de-6cde-46c1-bb11-08b7f1d6c566",
       "label": "GOBACK.",
       "name": "GOBACK.",
       "originalText": "GOBACK.",
@@ -76,7 +76,7 @@
     },
     {
       "children": [],
-      "id": "93f9702b-0412-4c56-8682-cedfb3ecffd2",
+      "id": "78ef374f-2b0e-4be8-b2b4-be304200859e",
       "label": "1000-TRNXFILE-PROC",
       "name": "1000-TRNXFILE-PROC",
       "originalText": "1000-TRNXFILE-PROC.",
@@ -94,7 +94,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "bbe323ab-3684-4a9f-b7ee-02cdf25904a4",
+                  "id": "cdb9e585-7111-4a28-bbfd-fe9bdff254c2",
                   "label": "OPENINPUTTRNX-F",
                   "name": "OPENINPUTTRNX-F",
                   "originalText": "OPEN INPUT TRNX-FILE",
@@ -106,7 +106,7 @@
                 },
                 {
                   "children": [],
-                  "id": "73e70265-44d9-40c9-98c6-58a0c6a4427d",
+                  "id": "d4411985-42bd-4de9-8fa3-4474c1fef5e3",
                   "label": "GO TO 1900-EXIT",
                   "name": "GOTO1900-EXIT",
                   "originalText": "GO TO 1900-EXIT",
@@ -117,7 +117,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "a81f486c-71a7-4bbc-8555-66ecdd19cb74",
+              "id": "985ff514-00bf-4837-97cd-591c7048b856",
               "label": "Yes",
               "name": "Yes",
               "originalText": "OPEN INPUT TRNX-FILE\n               GO TO 1900-EXIT",
@@ -128,7 +128,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "01cc943f-a0b7-42ec-8ee9-dc01de5a8e4a",
+          "id": "1eeb1a6e-8f56-4fc4-b485-46feb13cb22a",
           "label": "IS \nM03B-OPEN?\n",
           "name": "IS \nM03B-OPEN?\n",
           "originalText": "IF M03B-OPEN\n               OPEN INPUT TRNX-FILE\n               GO TO 1900-EXIT\n           END-IF",
@@ -139,7 +139,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "8154850c-b8b7-42d7-8388-f6de84f40ee3",
+      "id": "1ce295bf-7e48-47da-91a6-0a47f36048a8",
       "label": "IFM03B-OPENOPEN",
       "name": "IFM03B-OPENOPEN",
       "originalText": "IF M03B-OPEN\n               OPEN INPUT TRNX-FILE\n               GO TO 1900-EXIT\n           END-IF.",
@@ -157,7 +157,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "9a048696-4ff1-42e0-9283-b40e52e4b591",
+                  "id": "0f790aa3-69d1-4813-9afb-97b265b29cf6",
                   "label": "READTRNX-FILEIN",
                   "name": "READTRNX-FILEIN",
                   "originalText": "READ TRNX-FILE INTO LK-M03B-FLDT\n               END-READ",
@@ -169,7 +169,7 @@
                 },
                 {
                   "children": [],
-                  "id": "4632c555-7159-45bc-95e8-5aa7c14f4afc",
+                  "id": "40f5abd9-46d8-4119-8e09-a028c26f2955",
                   "label": "GO TO 1900-EXIT",
                   "name": "GOTO1900-EXIT",
                   "originalText": "GO TO 1900-EXIT",
@@ -180,7 +180,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "26151a69-a43c-461a-b8b6-13e372229a98",
+              "id": "aafbc51f-2f6f-4286-94b6-76f8ba73f787",
               "label": "Yes",
               "name": "Yes",
               "originalText": "READ TRNX-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 1900-EXIT",
@@ -191,7 +191,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "b97ff84d-3e62-4dd6-8602-91f60eb5e5c8",
+          "id": "6905843a-d5e9-40a3-8342-6c8186ab73c4",
           "label": "IS \nM03B-READ?\n",
           "name": "IS \nM03B-READ?\n",
           "originalText": "IF M03B-READ\n               READ TRNX-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 1900-EXIT\n           END-IF",
@@ -202,7 +202,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "d9bd8c3a-1f2e-4961-a669-dd84c1fd58c0",
+      "id": "f83e107c-acd9-4fd5-9940-2bd0d0128666",
       "label": "IFM03B-READREAD",
       "name": "IFM03B-READREAD",
       "originalText": "IF M03B-READ\n               READ TRNX-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 1900-EXIT\n           END-IF.",
@@ -220,7 +220,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "e6cc1c31-e1df-41bb-afb2-520bed41029a",
+                  "id": "50d0ca8b-90c7-4d38-a43d-1ae0e47fbd04",
                   "label": "CLOSETRNX-FILE",
                   "name": "CLOSETRNX-FILE",
                   "originalText": "CLOSE TRNX-FILE",
@@ -232,7 +232,7 @@
                 },
                 {
                   "children": [],
-                  "id": "ae1ac407-73c4-4e8e-9a7a-b2d1009d8b1f",
+                  "id": "ddc20ff5-028d-41b1-89fa-57185530822e",
                   "label": "GO TO 1900-EXIT",
                   "name": "GOTO1900-EXIT",
                   "originalText": "GO TO 1900-EXIT",
@@ -243,7 +243,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "b89e0881-0b93-4ca4-ae65-68198ddeb336",
+              "id": "cf7346a6-2198-4526-8a2e-977305440341",
               "label": "Yes",
               "name": "Yes",
               "originalText": "CLOSE TRNX-FILE\n               GO TO 1900-EXIT",
@@ -254,7 +254,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "d2088877-7c56-4266-a3d5-57a59224599a",
+          "id": "05ac68dd-20ae-4ee0-9126-4e05bd044e7c",
           "label": "IS \nM03B-CLOSE?\n",
           "name": "IS \nM03B-CLOSE?\n",
           "originalText": "IF M03B-CLOSE\n               CLOSE TRNX-FILE\n               GO TO 1900-EXIT\n           END-IF",
@@ -265,7 +265,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "8b7cb00e-ef38-4ce4-b9c4-e45a99f3a955",
+      "id": "929cc403-807f-4d07-897c-a3f32d94904f",
       "label": "IFM03B-CLOSECLO",
       "name": "IFM03B-CLOSECLO",
       "originalText": "IF M03B-CLOSE\n               CLOSE TRNX-FILE\n               GO TO 1900-EXIT\n           END-IF.",
@@ -277,7 +277,7 @@
     },
     {
       "children": [],
-      "id": "a1492f93-7fac-4ff1-ab01-6f7b7e1c02e3",
+      "id": "a84a159a-e0af-438a-a3b3-11d2b4d6b761",
       "label": "1900-EXIT",
       "name": "1900-EXIT",
       "originalText": "1900-EXIT.",
@@ -291,7 +291,7 @@
       "children": [
         {
           "children": [],
-          "id": "b6679aa6-7792-4f26-8732-97afb20d2d46",
+          "id": "598484a2-bdf6-456f-beb4-7446252a33f3",
           "label": "MOVETRNXFILE-ST",
           "name": "MOVETRNXFILE-ST",
           "originalText": "MOVE TRNXFILE-STATUS TO LK-M03B-RC",
@@ -302,7 +302,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "2663eaae-8aef-4b60-b1fe-3019b66d7450",
+      "id": "3b4e44da-2f01-4be1-b740-fa585a510de9",
       "label": "MOVETRNXFILE-ST",
       "name": "MOVETRNXFILE-ST",
       "originalText": "MOVE TRNXFILE-STATUS TO LK-M03B-RC.",
@@ -314,7 +314,7 @@
     },
     {
       "children": [],
-      "id": "860135b8-eacf-44ca-b486-0c1110d193fa",
+      "id": "2f772868-8290-4c3f-a44c-59dba2d72636",
       "label": "1999-EXIT",
       "name": "1999-EXIT",
       "originalText": "1999-EXIT.",
@@ -328,7 +328,7 @@
       "children": [
         {
           "children": [],
-          "id": "90b8a256-147b-4da8-a00c-2da2f8c1b16d",
+          "id": "477d2335-c9dd-46d8-8c47-69e05dede9a4",
           "label": "EXIT",
           "name": "EXIT",
           "originalText": "EXIT",
@@ -339,7 +339,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "c74c50d6-4479-48cd-900e-6214f1b850e0",
+      "id": "d0cc932f-e6a5-419e-9fe7-e37a888de60c",
       "label": "EXIT.",
       "name": "EXIT.",
       "originalText": "EXIT.",
@@ -351,7 +351,7 @@
     },
     {
       "children": [],
-      "id": "b2c99aea-b92a-411f-a0e8-f684866598ba",
+      "id": "2f7d01e3-2a7f-4f92-8ee6-35da63ad3907",
       "label": "2000-XREFFILE-PROC",
       "name": "2000-XREFFILE-PROC",
       "originalText": "2000-XREFFILE-PROC.",
@@ -369,7 +369,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "7bdd80fe-5440-41db-80a9-f8db76f6ffc4",
+                  "id": "79992de7-999e-430f-95b2-78048110ce0f",
                   "label": "OPENINPUTXREF-F",
                   "name": "OPENINPUTXREF-F",
                   "originalText": "OPEN INPUT XREF-FILE",
@@ -381,7 +381,7 @@
                 },
                 {
                   "children": [],
-                  "id": "8adba359-b4ab-4f56-907b-0858711695d0",
+                  "id": "edc16bf5-bb6a-4d81-8e2f-d89a208d98ed",
                   "label": "GO TO 2900-EXIT",
                   "name": "GOTO2900-EXIT",
                   "originalText": "GO TO 2900-EXIT",
@@ -392,7 +392,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "6c069b7d-693a-4924-ac92-0599bbfd4276",
+              "id": "e5ae9f64-86e3-4ca4-981b-d7fdb214d47a",
               "label": "Yes",
               "name": "Yes",
               "originalText": "OPEN INPUT XREF-FILE\n               GO TO 2900-EXIT",
@@ -403,7 +403,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "5adc36e4-e35c-4ec2-a34c-55f2e5231844",
+          "id": "134085c6-23ea-4394-a594-743ef5e64aa8",
           "label": "IS \nM03B-OPEN?\n",
           "name": "IS \nM03B-OPEN?\n",
           "originalText": "IF M03B-OPEN\n               OPEN INPUT XREF-FILE\n               GO TO 2900-EXIT\n           END-IF",
@@ -414,7 +414,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "72f1a225-11ee-4391-ac96-7aca595371ed",
+      "id": "1db5f5c9-727e-4f1e-8416-721b511720ee",
       "label": "IFM03B-OPENOPEN",
       "name": "IFM03B-OPENOPEN",
       "originalText": "IF M03B-OPEN\n               OPEN INPUT XREF-FILE\n               GO TO 2900-EXIT\n           END-IF.",
@@ -432,7 +432,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "b2a6ebb3-ffda-4798-9dc0-a133851008cb",
+                  "id": "4336da8b-4cb3-46cd-850a-8e9224fecac2",
                   "label": "READXREF-FILEIN",
                   "name": "READXREF-FILEIN",
                   "originalText": "READ XREF-FILE INTO LK-M03B-FLDT\n               END-READ",
@@ -444,7 +444,7 @@
                 },
                 {
                   "children": [],
-                  "id": "a1ac314e-d031-4069-972b-430c1cac858e",
+                  "id": "63019436-700e-46a6-a913-332e864e6e86",
                   "label": "GO TO 2900-EXIT",
                   "name": "GOTO2900-EXIT",
                   "originalText": "GO TO 2900-EXIT",
@@ -455,7 +455,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "c0bb779a-a804-4a7a-abb9-1044a8745592",
+              "id": "b39c4d5b-18d6-46f1-91ec-30c9f7f3113b",
               "label": "Yes",
               "name": "Yes",
               "originalText": "READ XREF-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 2900-EXIT",
@@ -466,7 +466,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "8996e2b3-e1e6-4052-8175-56d8485b030e",
+          "id": "9c906830-7837-4047-b072-e1499d47ba45",
           "label": "IS \nM03B-READ?\n",
           "name": "IS \nM03B-READ?\n",
           "originalText": "IF M03B-READ\n               READ XREF-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 2900-EXIT\n           END-IF",
@@ -477,7 +477,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "e689cea7-432b-4bfb-911b-2d0044c669b6",
+      "id": "ded80915-72b8-4646-a88a-302c56a5a095",
       "label": "IFM03B-READREAD",
       "name": "IFM03B-READREAD",
       "originalText": "IF M03B-READ\n               READ XREF-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 2900-EXIT\n           END-IF.",
@@ -495,7 +495,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "7aa95a07-ae68-40b1-a125-4f8dbe45b0b2",
+                  "id": "f58263eb-6b42-4ae5-83c5-06fbd859cdaa",
                   "label": "CLOSEXREF-FILE",
                   "name": "CLOSEXREF-FILE",
                   "originalText": "CLOSE XREF-FILE",
@@ -507,7 +507,7 @@
                 },
                 {
                   "children": [],
-                  "id": "1111a241-c4db-44ad-af6c-498b59bf9fe5",
+                  "id": "95c14203-1cfe-4ccf-a051-70e9f672f41c",
                   "label": "GO TO 2900-EXIT",
                   "name": "GOTO2900-EXIT",
                   "originalText": "GO TO 2900-EXIT",
@@ -518,7 +518,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "ce677f96-53ad-4859-9fef-d944ec6b3396",
+              "id": "d93fc6c6-819c-4da5-828b-63d0b3eb82c2",
               "label": "Yes",
               "name": "Yes",
               "originalText": "CLOSE XREF-FILE\n               GO TO 2900-EXIT",
@@ -529,7 +529,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "812f2792-47b5-4198-8f28-5489043cb05d",
+          "id": "8e5c5622-4702-4332-8ad0-5cd1fbf192ea",
           "label": "IS \nM03B-CLOSE?\n",
           "name": "IS \nM03B-CLOSE?\n",
           "originalText": "IF M03B-CLOSE\n               CLOSE XREF-FILE\n               GO TO 2900-EXIT\n           END-IF",
@@ -540,7 +540,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "130102a8-8dc4-476a-92bd-9a26e1f9f6a0",
+      "id": "7f7e46d1-6916-44da-ab15-03358db352f0",
       "label": "IFM03B-CLOSECLO",
       "name": "IFM03B-CLOSECLO",
       "originalText": "IF M03B-CLOSE\n               CLOSE XREF-FILE\n               GO TO 2900-EXIT\n           END-IF.",
@@ -552,7 +552,7 @@
     },
     {
       "children": [],
-      "id": "fc149315-2663-4b9a-830f-a925452e3fcd",
+      "id": "13305c0c-f921-4fce-ac01-7db8e9facbf4",
       "label": "2900-EXIT",
       "name": "2900-EXIT",
       "originalText": "2900-EXIT.",
@@ -566,7 +566,7 @@
       "children": [
         {
           "children": [],
-          "id": "7187fc7c-01e9-4633-a1a7-17e558697711",
+          "id": "6c718db6-be50-488a-9941-0c77231c51f9",
           "label": "MOVEXREFFILE-ST",
           "name": "MOVEXREFFILE-ST",
           "originalText": "MOVE XREFFILE-STATUS TO LK-M03B-RC",
@@ -577,7 +577,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "38fcfbe5-de24-42fb-8e40-0adc03a4edfb",
+      "id": "f81e74ec-0a33-498d-ac12-5fd6f9b9e2c5",
       "label": "MOVEXREFFILE-ST",
       "name": "MOVEXREFFILE-ST",
       "originalText": "MOVE XREFFILE-STATUS TO LK-M03B-RC.",
@@ -589,7 +589,7 @@
     },
     {
       "children": [],
-      "id": "3a54a280-8010-4b71-8244-67f62aeb121f",
+      "id": "9e25399e-da4b-4f08-946b-94edfcdaa099",
       "label": "2999-EXIT",
       "name": "2999-EXIT",
       "originalText": "2999-EXIT.",
@@ -603,7 +603,7 @@
       "children": [
         {
           "children": [],
-          "id": "27a305ed-9204-4a67-9f2c-c0b768939a8a",
+          "id": "e83b34cc-f33d-4c9b-87e0-ac5456c6d421",
           "label": "EXIT",
           "name": "EXIT",
           "originalText": "EXIT",
@@ -614,7 +614,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "31f054ea-8b46-4718-8b70-e4c3f72d6a8a",
+      "id": "9a92a1d6-cd45-40a0-926f-7b99c25cb955",
       "label": "EXIT.",
       "name": "EXIT.",
       "originalText": "EXIT.",
@@ -626,7 +626,7 @@
     },
     {
       "children": [],
-      "id": "7fee45a5-8afd-4801-a9a7-94844d571fe7",
+      "id": "160d8ca3-ddcb-45c1-a9cc-f1141488618e",
       "label": "3000-CUSTFILE-PROC",
       "name": "3000-CUSTFILE-PROC",
       "originalText": "3000-CUSTFILE-PROC.",
@@ -644,7 +644,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "2bb38218-fb93-4b57-a61e-8ffa2e46387a",
+                  "id": "b433a8b0-4f9d-4071-918c-8f059a4db894",
                   "label": "OPENINPUTCUST-F",
                   "name": "OPENINPUTCUST-F",
                   "originalText": "OPEN INPUT CUST-FILE",
@@ -656,7 +656,7 @@
                 },
                 {
                   "children": [],
-                  "id": "48b94e0c-4498-4446-8d0a-f62b99a71e8a",
+                  "id": "687e4fa7-5dcc-4615-8fc4-a8f2020dd09d",
                   "label": "GO TO 3900-EXIT",
                   "name": "GOTO3900-EXIT",
                   "originalText": "GO TO 3900-EXIT",
@@ -667,7 +667,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "53ea3de2-826e-403a-994d-c88068b301e7",
+              "id": "9584bdd3-dcda-4b59-9d9e-0ce30ba794f0",
               "label": "Yes",
               "name": "Yes",
               "originalText": "OPEN INPUT CUST-FILE\n               GO TO 3900-EXIT",
@@ -678,7 +678,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "4aae625d-1a96-459d-a8be-5d3742d4e3eb",
+          "id": "1a3a77be-4ffa-46dc-9471-4e9656899b13",
           "label": "IS \nM03B-OPEN?\n",
           "name": "IS \nM03B-OPEN?\n",
           "originalText": "IF M03B-OPEN\n               OPEN INPUT CUST-FILE\n               GO TO 3900-EXIT\n           END-IF",
@@ -689,7 +689,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "dd6cc0fb-2c40-42e6-a7c3-26da4b74e260",
+      "id": "d1a192bf-9d16-403b-afb5-c8fef97f3d63",
       "label": "IFM03B-OPENOPEN",
       "name": "IFM03B-OPENOPEN",
       "originalText": "IF M03B-OPEN\n               OPEN INPUT CUST-FILE\n               GO TO 3900-EXIT\n           END-IF.",
@@ -707,7 +707,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "80f39bbf-94bc-4d57-820b-808df5e58c30",
+                  "id": "50e38a7c-9fa3-4967-b5ba-67689a15dd7f",
                   "label": "MOVELK-M03B-KEY",
                   "name": "MOVELK-M03B-KEY",
                   "originalText": "MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-CUST-ID",
@@ -719,7 +719,7 @@
                 },
                 {
                   "children": [],
-                  "id": "357ca37f-5d8c-44a4-a31c-b996af24da13",
+                  "id": "32f27977-1694-4cbf-8590-4b0dfb89d3e4",
                   "label": "READCUST-FILEIN",
                   "name": "READCUST-FILEIN",
                   "originalText": "READ CUST-FILE INTO LK-M03B-FLDT\n               END-READ",
@@ -731,7 +731,7 @@
                 },
                 {
                   "children": [],
-                  "id": "64301a2c-7c82-49ff-901b-d597750c48be",
+                  "id": "812ebf92-a2bc-43af-aee1-04654c9a8aae",
                   "label": "GO TO 3900-EXIT",
                   "name": "GOTO3900-EXIT",
                   "originalText": "GO TO 3900-EXIT",
@@ -742,7 +742,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "6950e7d7-3a84-4b7a-b47f-98f2b60123b4",
+              "id": "419c8f5f-aab4-4786-a091-41f2b0f13149",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-CUST-ID\n               READ CUST-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 3900-EXIT",
@@ -753,7 +753,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "5cad0660-f29c-421a-930b-cbab792b9474",
+          "id": "963b0897-e9d3-4d82-8faf-fc7a1aece0fe",
           "label": "IS \nM03B-READ-K?\n",
           "name": "IS \nM03B-READ-K?\n",
           "originalText": "IF M03B-READ-K\n               MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-CUST-ID\n               READ CUST-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 3900-EXIT\n           END-IF",
@@ -764,7 +764,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "9db213f7-4c48-4eab-884f-4e58b34f3fc4",
+      "id": "c06fa086-2ef3-4f91-ae25-e859edb38132",
       "label": "IFM03B-READ-KMO",
       "name": "IFM03B-READ-KMO",
       "originalText": "IF M03B-READ-K\n               MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-CUST-ID\n               READ CUST-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 3900-EXIT\n           END-IF.",
@@ -782,7 +782,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "f590acca-dd84-489a-8dbe-453cadf94c85",
+                  "id": "7c90c3ce-b060-4c7f-ab22-80297f846862",
                   "label": "CLOSECUST-FILE",
                   "name": "CLOSECUST-FILE",
                   "originalText": "CLOSE CUST-FILE",
@@ -794,7 +794,7 @@
                 },
                 {
                   "children": [],
-                  "id": "a4d758ae-792c-4113-a705-e4d857050c8f",
+                  "id": "d57adcc8-a801-4666-9590-fda74febb79a",
                   "label": "GO TO 3900-EXIT",
                   "name": "GOTO3900-EXIT",
                   "originalText": "GO TO 3900-EXIT",
@@ -805,7 +805,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "ee7a3d56-f4e5-4a3d-ad12-6384e4eb66ad",
+              "id": "61247db7-d25b-4fd0-8123-2435d2a93735",
               "label": "Yes",
               "name": "Yes",
               "originalText": "CLOSE CUST-FILE\n               GO TO 3900-EXIT",
@@ -816,7 +816,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "e9824c67-2fe3-4fae-9b85-c7084b7c5f27",
+          "id": "a55e1c6c-372b-49d2-b4c5-95398fe0b322",
           "label": "IS \nM03B-CLOSE?\n",
           "name": "IS \nM03B-CLOSE?\n",
           "originalText": "IF M03B-CLOSE\n               CLOSE CUST-FILE\n               GO TO 3900-EXIT\n           END-IF",
@@ -827,7 +827,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "3c53920e-e21b-4e98-9b21-34be8654dbc7",
+      "id": "9b138ae6-f589-4469-868b-d86eaab4753f",
       "label": "IFM03B-CLOSECLO",
       "name": "IFM03B-CLOSECLO",
       "originalText": "IF M03B-CLOSE\n               CLOSE CUST-FILE\n               GO TO 3900-EXIT\n           END-IF.",
@@ -839,7 +839,7 @@
     },
     {
       "children": [],
-      "id": "8ef31ea6-3317-4cbf-84d2-fd22d5ac8ead",
+      "id": "5ab5c54a-65e7-47e7-bec6-f4c93152a575",
       "label": "3900-EXIT",
       "name": "3900-EXIT",
       "originalText": "3900-EXIT.",
@@ -853,7 +853,7 @@
       "children": [
         {
           "children": [],
-          "id": "ba18f1fe-0b61-4ced-9f32-3ad06aff4baf",
+          "id": "aa055451-0889-49e1-9cc9-245806b1bd1a",
           "label": "MOVECUSTFILE-ST",
           "name": "MOVECUSTFILE-ST",
           "originalText": "MOVE CUSTFILE-STATUS TO LK-M03B-RC",
@@ -864,7 +864,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "05065ce4-1e05-4ed3-a545-dd01b4726bef",
+      "id": "51dee866-f44f-4193-a956-7557fad0693b",
       "label": "MOVECUSTFILE-ST",
       "name": "MOVECUSTFILE-ST",
       "originalText": "MOVE CUSTFILE-STATUS TO LK-M03B-RC.",
@@ -876,7 +876,7 @@
     },
     {
       "children": [],
-      "id": "6915f91e-885e-4cb4-bf15-04e956f346b5",
+      "id": "c8e8a8d2-daef-4423-b6e2-b4bdbf3dbe03",
       "label": "3999-EXIT",
       "name": "3999-EXIT",
       "originalText": "3999-EXIT.",
@@ -890,7 +890,7 @@
       "children": [
         {
           "children": [],
-          "id": "6de20156-7e95-41a2-b955-888b049b31a6",
+          "id": "e827131d-5b71-4e75-92e9-c9efd6d40eb1",
           "label": "EXIT",
           "name": "EXIT",
           "originalText": "EXIT",
@@ -901,7 +901,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "7e20ec67-ab79-482e-91b7-f7b16d459850",
+      "id": "84e01940-7690-4ebe-b4fe-044b1ce797fc",
       "label": "EXIT.",
       "name": "EXIT.",
       "originalText": "EXIT.",
@@ -913,7 +913,7 @@
     },
     {
       "children": [],
-      "id": "95c1f316-9a60-4d04-a862-2575dcf108bc",
+      "id": "f6ede124-f607-4e6e-a250-43dbb76cb03b",
       "label": "4000-ACCTFILE-PROC",
       "name": "4000-ACCTFILE-PROC",
       "originalText": "4000-ACCTFILE-PROC.",
@@ -931,7 +931,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "1a9c7ab2-cc6e-436c-8980-f96e6a555ad8",
+                  "id": "5bbc4e40-670f-4202-87bd-f18cae3b9e2f",
                   "label": "OPENINPUTACCT-F",
                   "name": "OPENINPUTACCT-F",
                   "originalText": "OPEN INPUT ACCT-FILE",
@@ -943,7 +943,7 @@
                 },
                 {
                   "children": [],
-                  "id": "89cd7f77-c088-4014-98b6-982ab0e1b6e1",
+                  "id": "6ebdeb56-2665-49be-b1ee-8f46fe88458c",
                   "label": "GO TO 4900-EXIT",
                   "name": "GOTO4900-EXIT",
                   "originalText": "GO TO 4900-EXIT",
@@ -954,7 +954,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "a4b0c45a-02b9-4ab3-a359-b5b2bd046186",
+              "id": "a074632e-c757-4cc1-aa64-031998adbc9a",
               "label": "Yes",
               "name": "Yes",
               "originalText": "OPEN INPUT ACCT-FILE\n               GO TO 4900-EXIT",
@@ -965,7 +965,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "c55099e1-9218-43e5-abcf-38f8f17182b5",
+          "id": "427bf16c-8eca-4faf-a628-39dbd274d842",
           "label": "IS \nM03B-OPEN?\n",
           "name": "IS \nM03B-OPEN?\n",
           "originalText": "IF M03B-OPEN\n               OPEN INPUT ACCT-FILE\n               GO TO 4900-EXIT\n           END-IF",
@@ -976,7 +976,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "17410fbb-a1d6-46c8-87a7-0012b5579c61",
+      "id": "bc341d56-507d-40e2-a810-89839da407ce",
       "label": "IFM03B-OPENOPEN",
       "name": "IFM03B-OPENOPEN",
       "originalText": "IF M03B-OPEN\n               OPEN INPUT ACCT-FILE\n               GO TO 4900-EXIT\n           END-IF.",
@@ -994,7 +994,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "810e51e2-03d8-42a6-ba6b-83601fbce9a8",
+                  "id": "cbb0a82d-03ed-4ff0-93b6-250ae4bf637c",
                   "label": "MOVELK-M03B-KEY",
                   "name": "MOVELK-M03B-KEY",
                   "originalText": "MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-ACCT-ID",
@@ -1006,7 +1006,7 @@
                 },
                 {
                   "children": [],
-                  "id": "13fd0999-9aac-4759-b4e9-27d5fd326d74",
+                  "id": "ef60395f-98f6-44e0-9549-15384d2c192a",
                   "label": "READACCT-FILEIN",
                   "name": "READACCT-FILEIN",
                   "originalText": "READ ACCT-FILE INTO LK-M03B-FLDT\n               END-READ",
@@ -1018,7 +1018,7 @@
                 },
                 {
                   "children": [],
-                  "id": "996b472f-09b7-442f-adbd-2bc9cf3021f7",
+                  "id": "7ba883d3-1dda-4fcb-a276-09f0ee85012c",
                   "label": "GO TO 4900-EXIT",
                   "name": "GOTO4900-EXIT",
                   "originalText": "GO TO 4900-EXIT",
@@ -1029,7 +1029,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "1dd70941-b9f3-4e50-b63a-bad3312e04f8",
+              "id": "0ffa1cb8-ca67-49b0-a20d-0a9e1d392e4a",
               "label": "Yes",
               "name": "Yes",
               "originalText": "MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-ACCT-ID\n               READ ACCT-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 4900-EXIT",
@@ -1040,7 +1040,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "b923163b-b8f8-441b-9d16-455c78084819",
+          "id": "332bfe72-33fe-48a0-8473-4c1a8ce9ced9",
           "label": "IS \nM03B-READ-K?\n",
           "name": "IS \nM03B-READ-K?\n",
           "originalText": "IF M03B-READ-K\n               MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-ACCT-ID\n               READ ACCT-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 4900-EXIT\n           END-IF",
@@ -1051,7 +1051,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "f276656f-4209-4c06-adf1-f6ccb73a8880",
+      "id": "99bcf9db-aed6-473d-a1f6-7be01f6d6d84",
       "label": "IFM03B-READ-KMO",
       "name": "IFM03B-READ-KMO",
       "originalText": "IF M03B-READ-K\n               MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-ACCT-ID\n               READ ACCT-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 4900-EXIT\n           END-IF.",
@@ -1069,7 +1069,7 @@
               "children": [
                 {
                   "children": [],
-                  "id": "4e15432e-de14-433a-a94a-d6c167644713",
+                  "id": "3129797a-3725-4459-8702-ddb9e9eac963",
                   "label": "CLOSEACCT-FILE",
                   "name": "CLOSEACCT-FILE",
                   "originalText": "CLOSE ACCT-FILE",
@@ -1081,7 +1081,7 @@
                 },
                 {
                   "children": [],
-                  "id": "1798ac92-6ff6-461d-82ba-7a165f98da5a",
+                  "id": "cb9052ad-4d56-4f44-99f9-61bfe424da90",
                   "label": "GO TO 4900-EXIT",
                   "name": "GOTO4900-EXIT",
                   "originalText": "GO TO 4900-EXIT",
@@ -1092,7 +1092,7 @@
                   "nodeType": "CODE_VERTEX"
                 }
               ],
-              "id": "3679aee0-c54b-42e9-9bb7-70a7c78208b5",
+              "id": "2fb1ba8e-a981-4128-b1f5-37c54169f3a3",
               "label": "Yes",
               "name": "Yes",
               "originalText": "CLOSE ACCT-FILE\n               GO TO 4900-EXIT",
@@ -1103,7 +1103,7 @@
               "nodeType": "CODE_VERTEX"
             }
           ],
-          "id": "0a2fb041-3afd-487e-a48d-f4ab237ffb59",
+          "id": "a7df60f4-2b74-4b08-9209-3728e596c0ae",
           "label": "IS \nM03B-CLOSE?\n",
           "name": "IS \nM03B-CLOSE?\n",
           "originalText": "IF M03B-CLOSE\n               CLOSE ACCT-FILE\n               GO TO 4900-EXIT\n           END-IF",
@@ -1114,7 +1114,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "b562c480-4574-4d05-a58c-bd2efb995aa5",
+      "id": "e9c304bd-6d5e-4263-a72d-9271f138e674",
       "label": "IFM03B-CLOSECLO",
       "name": "IFM03B-CLOSECLO",
       "originalText": "IF M03B-CLOSE\n               CLOSE ACCT-FILE\n               GO TO 4900-EXIT\n           END-IF.",
@@ -1126,7 +1126,7 @@
     },
     {
       "children": [],
-      "id": "1f558cd9-2ee0-49f0-b1e0-71cffc0ddc4b",
+      "id": "cee02404-a278-4554-a558-683414830c35",
       "label": "4900-EXIT",
       "name": "4900-EXIT",
       "originalText": "4900-EXIT.",
@@ -1140,7 +1140,7 @@
       "children": [
         {
           "children": [],
-          "id": "765caeb6-be14-472d-bbfb-d38945090f00",
+          "id": "db56ceef-9850-4576-9faa-fd4948ca8af5",
           "label": "MOVEACCTFILE-ST",
           "name": "MOVEACCTFILE-ST",
           "originalText": "MOVE ACCTFILE-STATUS TO LK-M03B-RC",
@@ -1151,7 +1151,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "2cbd6415-cab7-4724-9967-a91c81efb2cf",
+      "id": "d8a4116f-4495-43b0-8e63-77779cc42690",
       "label": "MOVEACCTFILE-ST",
       "name": "MOVEACCTFILE-ST",
       "originalText": "MOVE ACCTFILE-STATUS TO LK-M03B-RC.",
@@ -1163,7 +1163,7 @@
     },
     {
       "children": [],
-      "id": "863030bf-1171-4630-b32c-5f3c6b415971",
+      "id": "39651241-cecd-4218-b346-1ebbf3e65e2b",
       "label": "4999-EXIT",
       "name": "4999-EXIT",
       "originalText": "4999-EXIT.",
@@ -1177,7 +1177,7 @@
       "children": [
         {
           "children": [],
-          "id": "b4eda0c7-6c9d-427c-a1a6-ce7c0acbde89",
+          "id": "28ebef05-72b2-405f-ab6b-30e4462fa712",
           "label": "EXIT",
           "name": "EXIT",
           "originalText": "EXIT",
@@ -1188,7 +1188,7 @@
           "nodeType": "CODE_VERTEX"
         }
       ],
-      "id": "58339fa6-8aa3-45f7-9d8b-dae48aa2f61b",
+      "id": "bf6c0a86-61c4-405f-9588-702c1589643f",
       "label": "EXIT.",
       "name": "EXIT.",
       "originalText": "EXIT.",
@@ -1199,9 +1199,9 @@
       "nodeType": "CODE_VERTEX"
     }
   ],
-  "id": "716ed24d-600c-4789-bb79-46d802e9d4f4",
-  "label": "ProcedureDivisionBodyContext/716ed24d-600c-4789-bb79-46d802e9d4f4",
-  "name": "ProcedureDivisionBodyContext/716ed24d-600c-4789-bb79-46d802e9d4f4",
+  "id": "c94eaa34-9069-4064-bd24-745b51e29b9a",
+  "label": "ProcedureDivisionBodyContext/c94eaa34-9069-4064-bd24-745b51e29b9a",
+  "name": "ProcedureDivisionBodyContext/c94eaa34-9069-4064-bd24-745b51e29b9a",
   "originalText": "0000-START.\n       \n           EVALUATE LK-M03B-DD\n             WHEN \u0027TRNXFILE\u0027\n               PERFORM 1000-TRNXFILE-PROC THRU 1999-EXIT\n             WHEN \u0027XREFFILE\u0027\n               PERFORM 2000-XREFFILE-PROC THRU 2999-EXIT\n             WHEN \u0027CUSTFILE\u0027\n               PERFORM 3000-CUSTFILE-PROC THRU 3999-EXIT\n             WHEN \u0027ACCTFILE\u0027\n               PERFORM 4000-ACCTFILE-PROC THRU 4999-EXIT\n             WHEN OTHER\n               GO TO 9999-GOBACK.\n       \n       9999-GOBACK.\n           GOBACK.\n       \n       1000-TRNXFILE-PROC.\n       \n           IF M03B-OPEN\n               OPEN INPUT TRNX-FILE\n               GO TO 1900-EXIT\n           END-IF.\n       \n           IF M03B-READ\n               READ TRNX-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 1900-EXIT\n           END-IF.\n       \n           IF M03B-CLOSE\n               CLOSE TRNX-FILE\n               GO TO 1900-EXIT\n           END-IF.\n       \n       1900-EXIT.\n           MOVE TRNXFILE-STATUS TO LK-M03B-RC.\n       \n       1999-EXIT.\n           EXIT.\n       \n       2000-XREFFILE-PROC.\n       \n           IF M03B-OPEN\n               OPEN INPUT XREF-FILE\n               GO TO 2900-EXIT\n           END-IF.\n       \n           IF M03B-READ\n               READ XREF-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 2900-EXIT\n           END-IF.\n       \n           IF M03B-CLOSE\n               CLOSE XREF-FILE\n               GO TO 2900-EXIT\n           END-IF.\n       \n       2900-EXIT.\n           MOVE XREFFILE-STATUS TO LK-M03B-RC.\n       \n       2999-EXIT.\n           EXIT.\n       \n       3000-CUSTFILE-PROC.\n       \n           IF M03B-OPEN\n               OPEN INPUT CUST-FILE\n               GO TO 3900-EXIT\n           END-IF.\n       \n           IF M03B-READ-K\n               MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-CUST-ID\n               READ CUST-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 3900-EXIT\n           END-IF.\n       \n           IF M03B-CLOSE\n               CLOSE CUST-FILE\n               GO TO 3900-EXIT\n           END-IF.\n       \n       3900-EXIT.\n           MOVE CUSTFILE-STATUS TO LK-M03B-RC.\n       \n       3999-EXIT.\n           EXIT.\n       \n       4000-ACCTFILE-PROC.\n       \n           IF M03B-OPEN\n               OPEN INPUT ACCT-FILE\n               GO TO 4900-EXIT\n           END-IF.\n       \n           IF M03B-READ-K\n               MOVE LK-M03B-KEY (1:LK-M03B-KEY-LN) TO FD-ACCT-ID\n               READ ACCT-FILE INTO LK-M03B-FLDT\n               END-READ\n               GO TO 4900-EXIT\n           END-IF.\n       \n           IF M03B-CLOSE\n               CLOSE ACCT-FILE\n               GO TO 4900-EXIT\n           END-IF.\n       \n       4900-EXIT.\n           MOVE ACCTFILE-STATUS TO LK-M03B-RC.\n       \n       4999-EXIT.\n           EXIT.",
   "type": "PROCEDURE_DIVISION_BODY",
   "categories": [

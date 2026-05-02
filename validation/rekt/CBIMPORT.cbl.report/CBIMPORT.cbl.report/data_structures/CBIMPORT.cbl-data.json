@@ -1,19 +1,19 @@
 {
-  "id": "bfbed81f-f551-41a6-b8ba-005f80ca3093",
+  "id": "5195c83c-2630-466f-b81c-a5ef3276112a",
   "name": "[ROOT]",
   "content": "[ROOT]",
   "levelNumber": 0,
   "rawText": "[ROOT]",
   "children": [
     {
-      "id": "e66f7774-7452-488e-88bb-a3faf7fc34d5",
+      "id": "b2860a0d-49ec-4927-a69f-2fa0329c9dd5",
       "name": "EXPORT-RECORD",
       "content": "01EXPORT-RECORD.",
       "levelNumber": 1,
       "rawText": "01  EXPORT-RECORD.",
       "children": [
         {
-          "id": "2f83f858-2698-49e9-96a2-ea347b3c083b",
+          "id": "e2fc9414-8533-4350-a2e1-7a2c9fafcf2c",
           "name": "EXPORT-REC-TYPE",
           "content": "05EXPORT-REC-TYPEPICX(1).",
           "levelNumber": 5,
@@ -29,7 +29,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "097727e1-c0b8-4f69-a1ee-48f084e6a1b4",
+          "id": "d114a344-5b60-4e9d-8f92-7d7ef910ff88",
           "name": "EXPORT-TIMESTAMP",
           "content": "05EXPORT-TIMESTAMPPICX(26).",
           "levelNumber": 5,
@@ -45,14 +45,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "3649b494-9a70-49ab-9892-866988f39d37",
+          "id": "b25e6405-4fe2-4aa6-b6cd-7a7eebe44f07",
           "name": "EXPORT-TIMESTAMP-R",
           "content": "05EXPORT-TIMESTAMP-RREDEFINESEXPORT-TIMESTAMP.",
           "levelNumber": 5,
           "rawText": "05  EXPORT-TIMESTAMP-R REDEFINES EXPORT-TIMESTAMP.",
           "children": [
             {
-              "id": "e90f159d-0441-4262-bba2-697b748e91b5",
+              "id": "fef6bbbb-6304-4d1b-9825-a76d5445caec",
               "name": "EXPORT-DATE",
               "content": "10EXPORT-DATEPICX(10).",
               "levelNumber": 10,
@@ -68,7 +68,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "9266f3bb-4f86-44d4-a014-2a8411e2222f",
+              "id": "2979a3d1-57d0-4a4d-ab55-610bbcf09923",
               "name": "EXPORT-DATE-TIME-SEP",
               "content": "10EXPORT-DATE-TIME-SEPPICX(1).",
               "levelNumber": 10,
@@ -84,7 +84,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "17868186-2ee0-4c2d-b804-5f1f9b9e52b1",
+              "id": "5634758f-00b7-4107-9049-2f4d440fea1f",
               "name": "EXPORT-TIME",
               "content": "10EXPORT-TIMEPICX(15).",
               "levelNumber": 10,
@@ -110,7 +110,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "f5dcb8d6-afec-494c-ab1d-d38f08a54ffa",
+          "id": "28fd5990-1521-4de5-9de8-00516e7310dd",
           "name": "EXPORT-SEQUENCE-NUM",
           "content": "05EXPORT-SEQUENCE-NUMPIC9(9)COMP.",
           "levelNumber": 5,
@@ -126,7 +126,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "41486fb6-3e36-4168-95c8-59b5b58da36a",
+          "id": "bdad9c44-1b65-4c17-9172-6d93617a05e0",
           "name": "EXPORT-BRANCH-ID",
           "content": "05EXPORT-BRANCH-IDPICX(4).",
           "levelNumber": 5,
@@ -142,7 +142,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "21221349-e036-4fd7-97c6-30e6a1769fc4",
+          "id": "10d856bf-fa71-4e02-b548-f92bab7d8516",
           "name": "EXPORT-REGION-CODE",
           "content": "05EXPORT-REGION-CODEPICX(5).",
           "levelNumber": 5,
@@ -158,7 +158,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "18f0ff48-d3cd-4706-aed5-007bee95c3c5",
+          "id": "5c369d10-2f2c-42b4-944c-1c57513e3c21",
           "name": "EXPORT-RECORD-DATA",
           "content": "05EXPORT-RECORD-DATAPICX(460).",
           "levelNumber": 5,
@@ -174,14 +174,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "afb4e8ec-b204-44fd-be8a-400c8d24af2c",
+          "id": "9bb2be73-777e-4272-9abc-6b6fe44703f2",
           "name": "EXPORT-CUSTOMER-DATA",
           "content": "05EXPORT-CUSTOMER-DATAREDEFINESEXPORT-RECORD-DATA.",
           "levelNumber": 5,
           "rawText": "05  EXPORT-CUSTOMER-DATA REDEFINES EXPORT-RECORD-DATA.",
           "children": [
             {
-              "id": "83476be1-ff50-46f5-9766-44eed998fefe",
+              "id": "24983037-c46a-47c2-8628-571000953ec9",
               "name": "EXP-CUST-ID",
               "content": "10EXP-CUST-IDPIC9(09)COMP.",
               "levelNumber": 10,
@@ -197,7 +197,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "bf2a11eb-2174-4095-887c-3617b119e210",
+              "id": "60581db2-4ae9-4cec-8a9d-00327b01449b",
               "name": "EXP-CUST-FIRST-NAME",
               "content": "10EXP-CUST-FIRST-NAMEPICX(25).",
               "levelNumber": 10,
@@ -213,7 +213,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "e9ccec48-b589-4229-a5f5-0a0eb1078cfc",
+              "id": "a3595489-c369-426e-8ae2-c44bae9519b9",
               "name": "EXP-CUST-MIDDLE-NAME",
               "content": "10EXP-CUST-MIDDLE-NAMEPICX(25).",
               "levelNumber": 10,
@@ -229,7 +229,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "f19abc8f-d711-4175-beab-398931507982",
+              "id": "9a1755f8-c10c-4618-9028-416068feca79",
               "name": "EXP-CUST-LAST-NAME",
               "content": "10EXP-CUST-LAST-NAMEPICX(25).",
               "levelNumber": 10,
@@ -245,14 +245,14 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "ae420f8f-93c5-46b9-833b-abff7b073b77",
+              "id": "0bf48141-741b-4987-a528-e00722a7b9b4",
               "name": "EXP-CUST-ADDR-LINES",
               "content": "10EXP-CUST-ADDR-LINESOCCURS3TIMES.",
               "levelNumber": 10,
               "rawText": "10  EXP-CUST-ADDR-LINES OCCURS 3 TIMES.",
               "children": [
                 {
-                  "id": "b500865d-f08d-439b-91c7-0be271e293fe",
+                  "id": "2674d52f-3e67-44f4-b124-4f106837ba64",
                   "name": "EXP-CUST-ADDR-LINE",
                   "content": "15EXP-CUST-ADDR-LINEPICX(50).",
                   "levelNumber": 15,
@@ -278,7 +278,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "551a596d-e8de-44ed-abd2-34594828a471",
+              "id": "095e4531-d96a-4520-850e-e0518c0f7f99",
               "name": "EXP-CUST-ADDR-STATE-CD",
               "content": "10EXP-CUST-ADDR-STATE-CDPICX(02).",
               "levelNumber": 10,
@@ -294,7 +294,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "29dc274e-6f8d-474b-be73-0cdea8a60c84",
+              "id": "bfba48ca-04f3-431e-8a66-63ebad5ef8cc",
               "name": "EXP-CUST-ADDR-COUNTRY-CD",
               "content": "10EXP-CUST-ADDR-COUNTRY-CDPICX(03).",
               "levelNumber": 10,
@@ -310,7 +310,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "67b4a0a4-f398-4ddf-85cc-7dc902eb3b0a",
+              "id": "f0c59a97-d8f5-4f50-9ea1-5881afb6e42d",
               "name": "EXP-CUST-ADDR-ZIP",
               "content": "10EXP-CUST-ADDR-ZIPPICX(10).",
               "levelNumber": 10,
@@ -326,14 +326,14 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "702f52e8-adf0-45d1-b5cf-bb923c31fa8b",
+              "id": "6c50fb77-d551-4933-ae88-d607aca9733f",
               "name": "EXP-CUST-PHONE-NUMS",
               "content": "10EXP-CUST-PHONE-NUMSOCCURS2TIMES.",
               "levelNumber": 10,
               "rawText": "10  EXP-CUST-PHONE-NUMS OCCURS 2 TIMES.",
               "children": [
                 {
-                  "id": "1f500b9d-66ff-427d-bd2e-544bba450427",
+                  "id": "d70e6c6a-b686-44f5-bbc9-6f080428a3d4",
                   "name": "EXP-CUST-PHONE-NUM",
                   "content": "15EXP-CUST-PHONE-NUMPICX(15).",
                   "levelNumber": 15,
@@ -359,7 +359,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "36b421d0-0a91-442f-b3cf-264942c81ad3",
+              "id": "ade78bc0-dc4f-41c9-8e10-fd7e7b41d71b",
               "name": "EXP-CUST-SSN",
               "content": "10EXP-CUST-SSNPIC9(09).",
               "levelNumber": 10,
@@ -375,7 +375,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "2715383e-9e1a-48b7-901e-d622809617f8",
+              "id": "c408e017-65d1-4a87-bd3d-38cf008a1d0a",
               "name": "EXP-CUST-GOVT-ISSUED-ID",
               "content": "10EXP-CUST-GOVT-ISSUED-IDPICX(20).",
               "levelNumber": 10,
@@ -391,7 +391,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "ee6e8a23-e4ec-449a-b9db-c227396ba541",
+              "id": "d789f4dd-f6ae-4bde-a517-963a8b28aff1",
               "name": "EXP-CUST-DOB-YYYY-MM-DD",
               "content": "10EXP-CUST-DOB-YYYY-MM-DDPICX(10).",
               "levelNumber": 10,
@@ -407,7 +407,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "70f29479-c77c-4c31-92a2-c0f5af625c24",
+              "id": "354c1c46-22f9-48bc-8363-430a99e64698",
               "name": "EXP-CUST-EFT-ACCOUNT-ID",
               "content": "10EXP-CUST-EFT-ACCOUNT-IDPICX(10).",
               "levelNumber": 10,
@@ -423,7 +423,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "e44c868a-ca67-42b2-8e66-f2a404c123f9",
+              "id": "facf51bc-a71a-43f8-b770-1de995bf67d0",
               "name": "EXP-CUST-PRI-CARD-HOLDER-IND",
               "content": "10EXP-CUST-PRI-CARD-HOLDER-INDPICX(01).",
               "levelNumber": 10,
@@ -439,7 +439,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "c989b120-fed3-4333-a1cb-7f35a9119fb1",
+              "id": "e060fcb5-4f81-4dcd-80ef-d1beaee7c9fa",
               "name": "EXP-CUST-FICO-CREDIT-SCORE",
               "content": "10EXP-CUST-FICO-CREDIT-SCOREPIC9(03)COMP-3.",
               "levelNumber": 10,
@@ -455,7 +455,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "7270a35f-bfb8-4b57-8a7c-244376a12884",
+              "id": "b444fadf-a664-46ca-b8c4-2f2b691cbb96",
               "name": "FILLER",
               "content": "10FILLERPICX(134).",
               "levelNumber": 10,
@@ -481,14 +481,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "f63dce1b-8aec-405e-a097-3943fff30186",
+          "id": "cf9cb2b8-71f3-43e4-99e3-4f504fcc248f",
           "name": "EXPORT-ACCOUNT-DATA",
           "content": "05EXPORT-ACCOUNT-DATAREDEFINESEXPORT-RECORD-DATA.",
           "levelNumber": 5,
           "rawText": "05  EXPORT-ACCOUNT-DATA REDEFINES EXPORT-RECORD-DATA.",
           "children": [
             {
-              "id": "fde19f44-5b73-4a33-8dea-48e019ee5dd5",
+              "id": "119f37f6-8e24-472f-b764-28290e8c3c17",
               "name": "EXP-ACCT-ID",
               "content": "10EXP-ACCT-IDPIC9(11).",
               "levelNumber": 10,
@@ -504,7 +504,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "7f79f621-8fb1-4581-8b24-a60b26f163a0",
+              "id": "48f786d9-b81e-4b79-998b-1cc33b609a9d",
               "name": "EXP-ACCT-ACTIVE-STATUS",
               "content": "10EXP-ACCT-ACTIVE-STATUSPICX(01).",
               "levelNumber": 10,
@@ -520,7 +520,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "e46fa578-3b54-4115-a921-545fe3a013d2",
+              "id": "7855b342-b6a8-4e6b-8064-23eabe03286d",
               "name": "EXP-ACCT-CURR-BAL",
               "content": "10EXP-ACCT-CURR-BALPICS9(10)V99COMP-3.",
               "levelNumber": 10,
@@ -536,7 +536,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "28780bb3-6004-407b-9b1b-c7ff19c83d50",
+              "id": "3e30c230-ff60-492f-9787-2cb6e9893a2f",
               "name": "EXP-ACCT-CREDIT-LIMIT",
               "content": "10EXP-ACCT-CREDIT-LIMITPICS9(10)V99.",
               "levelNumber": 10,
@@ -552,7 +552,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "8660f6a3-d99b-4e06-b1ac-3f195a18ff7c",
+              "id": "eb1b07d1-b5d2-41f9-a786-c908bb3fa6ee",
               "name": "EXP-ACCT-CASH-CREDIT-LIMIT",
               "content": "10EXP-ACCT-CASH-CREDIT-LIMITPICS9(10)V99COMP-3.",
               "levelNumber": 10,
@@ -568,7 +568,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "b303573c-816f-4a76-addc-682a9f6c3aef",
+              "id": "8fe72d8c-4703-424f-8858-459cbd4b3c43",
               "name": "EXP-ACCT-OPEN-DATE",
               "content": "10EXP-ACCT-OPEN-DATEPICX(10).",
               "levelNumber": 10,
@@ -584,7 +584,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "7ffccdf1-fa09-428e-a918-6970c37788b5",
+              "id": "52892edd-1f2b-4c65-9f4b-96191f163f8b",
               "name": "EXP-ACCT-EXPIRAION-DATE",
               "content": "10EXP-ACCT-EXPIRAION-DATEPICX(10).",
               "levelNumber": 10,
@@ -600,7 +600,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "d3cc5b80-ac5f-47c9-b64f-5433e5cff9b4",
+              "id": "a5504550-ebfb-4212-9473-3f406dac1e1c",
               "name": "EXP-ACCT-REISSUE-DATE",
               "content": "10EXP-ACCT-REISSUE-DATEPICX(10).",
               "levelNumber": 10,
@@ -616,7 +616,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "414aba41-baae-43fd-9b65-ec8ac6fc0d69",
+              "id": "3e95fd23-c63b-4043-b5a7-61c2df474493",
               "name": "EXP-ACCT-CURR-CYC-CREDIT",
               "content": "10EXP-ACCT-CURR-CYC-CREDITPICS9(10)V99.",
               "levelNumber": 10,
@@ -632,7 +632,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "b9836429-6922-469c-80f5-2bef5dcb14a5",
+              "id": "64eedc99-cd0a-4c81-9cec-b58aaeedfb78",
               "name": "EXP-ACCT-CURR-CYC-DEBIT",
               "content": "10EXP-ACCT-CURR-CYC-DEBITPICS9(10)V99COMP.",
               "levelNumber": 10,
@@ -648,7 +648,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "e1c0c459-38d3-4a98-b8f3-7b5899a8ba8e",
+              "id": "65637b0e-f7d6-42c4-8fe3-f8fda948ce06",
               "name": "EXP-ACCT-ADDR-ZIP",
               "content": "10EXP-ACCT-ADDR-ZIPPICX(10).",
               "levelNumber": 10,
@@ -664,7 +664,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "fa1e7c5a-7cd9-47cd-a2f1-3ecd87501b75",
+              "id": "615ba56f-395d-4df6-aea3-5aa44d561785",
               "name": "EXP-ACCT-GROUP-ID",
               "content": "10EXP-ACCT-GROUP-IDPICX(10).",
               "levelNumber": 10,
@@ -680,7 +680,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "0ffdfdd0-d388-4538-87f6-72f95a5fc676",
+              "id": "407f8a0b-7b58-425b-a5f9-9c08a56dcecd",
               "name": "FILLER",
               "content": "10FILLERPICX(352).",
               "levelNumber": 10,
@@ -706,14 +706,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "c10dbadf-9297-40a8-a384-49fba915e9f9",
+          "id": "fad53484-23be-45be-a8e9-b89548b17612",
           "name": "EXPORT-TRANSACTION-DATA",
           "content": "05EXPORT-TRANSACTION-DATAREDEFINESEXPORT-RECORD-DATA.",
           "levelNumber": 5,
           "rawText": "05  EXPORT-TRANSACTION-DATA REDEFINES EXPORT-RECORD-DATA.",
           "children": [
             {
-              "id": "ca6f4163-46e4-485f-abfe-65823c97401b",
+              "id": "f6e15694-5a81-455b-a428-cf7b6a556efc",
               "name": "EXP-TRAN-ID",
               "content": "10EXP-TRAN-IDPICX(16).",
               "levelNumber": 10,
@@ -729,7 +729,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "770c2313-76e9-4509-9464-e173dd32ae77",
+              "id": "191a05a0-9aae-441b-ad9e-32dfd3a6268f",
               "name": "EXP-TRAN-TYPE-CD",
               "content": "10EXP-TRAN-TYPE-CDPICX(02).",
               "levelNumber": 10,
@@ -745,7 +745,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "0c588524-782b-4d00-b467-132707db98ce",
+              "id": "a395feaa-ad95-4ff5-a5af-b2ce8a977c90",
               "name": "EXP-TRAN-CAT-CD",
               "content": "10EXP-TRAN-CAT-CDPIC9(04).",
               "levelNumber": 10,
@@ -761,7 +761,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "7afa4ad1-8d32-48ac-ad59-b8b04d9bc10c",
+              "id": "6d330cb8-f82e-4ce3-91c9-7a67f198ff4e",
               "name": "EXP-TRAN-SOURCE",
               "content": "10EXP-TRAN-SOURCEPICX(10).",
               "levelNumber": 10,
@@ -777,7 +777,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "299124d2-926d-4028-8cd3-d56bd921f7b2",
+              "id": "2e7be85f-ee9a-4b9d-8de4-7e0ceadcc8b5",
               "name": "EXP-TRAN-DESC",
               "content": "10EXP-TRAN-DESCPICX(100).",
               "levelNumber": 10,
@@ -793,7 +793,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "3c8c4c9a-0bc6-43b7-91af-9a6508711403",
+              "id": "181b9fd5-44b4-4f69-a4e7-48ba541152b7",
               "name": "EXP-TRAN-AMT",
               "content": "10EXP-TRAN-AMTPICS9(09)V99COMP-3.",
               "levelNumber": 10,
@@ -809,7 +809,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "a0f0adae-49d6-43fc-ab2c-2e3feec79ab8",
+              "id": "d9b8e1db-4402-419f-a6a9-b351bc05b7f4",
               "name": "EXP-TRAN-MERCHANT-ID",
               "content": "10EXP-TRAN-MERCHANT-IDPIC9(09)COMP.",
               "levelNumber": 10,
@@ -825,7 +825,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "d30de20a-d650-4f88-9e1d-0be19c2b2744",
+              "id": "67f924f3-b865-4ce8-835d-7b05ed01d5ae",
               "name": "EXP-TRAN-MERCHANT-NAME",
               "content": "10EXP-TRAN-MERCHANT-NAMEPICX(50).",
               "levelNumber": 10,
@@ -841,7 +841,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "37955c68-9f94-4f21-b6ab-3693c1bee84f",
+              "id": "e7210752-c923-41bf-8aac-5655b2b1e764",
               "name": "EXP-TRAN-MERCHANT-CITY",
               "content": "10EXP-TRAN-MERCHANT-CITYPICX(50).",
               "levelNumber": 10,
@@ -857,7 +857,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "1994c53f-7f26-4533-a651-8c3f09483ff9",
+              "id": "cd9dc99e-e7d7-47b8-8ebf-57e96ac4803a",
               "name": "EXP-TRAN-MERCHANT-ZIP",
               "content": "10EXP-TRAN-MERCHANT-ZIPPICX(10).",
               "levelNumber": 10,
@@ -873,7 +873,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "adbbf2f7-5727-46dd-8345-833dee15bec0",
+              "id": "0ea20b64-69ea-41b0-80c9-205009397182",
               "name": "EXP-TRAN-CARD-NUM",
               "content": "10EXP-TRAN-CARD-NUMPICX(16).",
               "levelNumber": 10,
@@ -889,7 +889,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "59bb6429-4d07-4bbf-a9d7-86506ddda694",
+              "id": "c83cb7f5-e633-4904-ae7a-3e3d6102836e",
               "name": "EXP-TRAN-ORIG-TS",
               "content": "10EXP-TRAN-ORIG-TSPICX(26).",
               "levelNumber": 10,
@@ -905,7 +905,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "797325a6-f7a5-4cce-af70-a856c8edd0cd",
+              "id": "0f1274a3-1dfe-4ae4-9a89-2352999a11dd",
               "name": "EXP-TRAN-PROC-TS",
               "content": "10EXP-TRAN-PROC-TSPICX(26).",
               "levelNumber": 10,
@@ -921,7 +921,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "b0cc2149-4039-428b-a787-82be40808c3c",
+              "id": "b5a626e3-8d52-43a6-ab23-9b45c15e58de",
               "name": "FILLER",
               "content": "10FILLERPICX(140).",
               "levelNumber": 10,
@@ -947,14 +947,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "82712457-4bd2-4388-ba3f-af4a5046fb59",
+          "id": "f7c94eaa-8eb6-4aa8-9fa4-9911b2b71a53",
           "name": "EXPORT-CARD-XREF-DATA",
           "content": "05EXPORT-CARD-XREF-DATAREDEFINESEXPORT-RECORD-DATA.",
           "levelNumber": 5,
           "rawText": "05  EXPORT-CARD-XREF-DATA REDEFINES EXPORT-RECORD-DATA.",
           "children": [
             {
-              "id": "dd5822fd-14bf-421c-8ecf-3134795f00b6",
+              "id": "95eec564-1c32-4d07-a250-b0c7f8ea94d8",
               "name": "EXP-XREF-CARD-NUM",
               "content": "10EXP-XREF-CARD-NUMPICX(16).",
               "levelNumber": 10,
@@ -970,7 +970,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "b8c8f7a0-336c-4417-a1c4-e4039c1e0360",
+              "id": "0a991bb2-3ddf-4952-9a22-502f2233afa1",
               "name": "EXP-XREF-CUST-ID",
               "content": "10EXP-XREF-CUST-IDPIC9(09).",
               "levelNumber": 10,
@@ -986,7 +986,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "6e3b0e7a-91f9-4a41-ac27-e8bdb5e9dc0d",
+              "id": "a36f69d9-bb3d-44e0-bb05-90a606ff6269",
               "name": "EXP-XREF-ACCT-ID",
               "content": "10EXP-XREF-ACCT-IDPIC9(11)COMP.",
               "levelNumber": 10,
@@ -1002,7 +1002,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "8cd1f59b-4ffd-47b3-859a-335afb319542",
+              "id": "14452cf1-73a3-477a-a65d-9d12773fb294",
               "name": "FILLER",
               "content": "10FILLERPICX(427).",
               "levelNumber": 10,
@@ -1028,14 +1028,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "b3571ad9-8587-4f27-8fde-6ebdc24debc9",
+          "id": "33b48bce-7f13-4556-af49-338c057ba475",
           "name": "EXPORT-CARD-DATA",
           "content": "05EXPORT-CARD-DATAREDEFINESEXPORT-RECORD-DATA.",
           "levelNumber": 5,
           "rawText": "05  EXPORT-CARD-DATA REDEFINES EXPORT-RECORD-DATA.",
           "children": [
             {
-              "id": "de6b32b3-32c2-4b5d-95a3-636f99fb25b1",
+              "id": "486884fc-e798-4009-b64a-d289fd9ad9af",
               "name": "EXP-CARD-NUM",
               "content": "10EXP-CARD-NUMPICX(16).",
               "levelNumber": 10,
@@ -1051,7 +1051,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "eeb91b52-cb34-412f-8705-542ffac54ea6",
+              "id": "1b85dbfd-8947-4792-9b0e-c91fbb05f119",
               "name": "EXP-CARD-ACCT-ID",
               "content": "10EXP-CARD-ACCT-IDPIC9(11)COMP.",
               "levelNumber": 10,
@@ -1067,7 +1067,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "4958e880-e1f4-4645-b780-a848012b7d7b",
+              "id": "69beb33f-a89e-4225-adc3-ecbf7dd3ddc7",
               "name": "EXP-CARD-CVV-CD",
               "content": "10EXP-CARD-CVV-CDPIC9(03)COMP.",
               "levelNumber": 10,
@@ -1083,7 +1083,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "3bc21b15-7d33-4d04-8186-4f5014079b83",
+              "id": "14914065-b8b6-4126-a42c-bdbf2939b81b",
               "name": "EXP-CARD-EMBOSSED-NAME",
               "content": "10EXP-CARD-EMBOSSED-NAMEPICX(50).",
               "levelNumber": 10,
@@ -1099,7 +1099,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "bb19fc35-e19a-44d2-98bb-3c9ec899a9a7",
+              "id": "7c6dc36c-db0f-48a7-9c3f-3c0f6d82cb05",
               "name": "EXP-CARD-EXPIRAION-DATE",
               "content": "10EXP-CARD-EXPIRAION-DATEPICX(10).",
               "levelNumber": 10,
@@ -1115,7 +1115,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "2d682605-f485-4c9b-a527-147124b0137e",
+              "id": "9e174bda-a018-460b-afbb-7ccf77c72644",
               "name": "EXP-CARD-ACTIVE-STATUS",
               "content": "10EXP-CARD-ACTIVE-STATUSPICX(01).",
               "levelNumber": 10,
@@ -1131,7 +1131,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "cb524c3a-c5cb-49bf-baeb-9fc224df8828",
+              "id": "b833333e-a831-4efb-bf14-247745eb274d",
               "name": "FILLER",
               "content": "10FILLERPICX(373).",
               "levelNumber": 10,
@@ -1167,14 +1167,14 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "2203264c-71eb-468f-9f5d-81f26fd0ae86",
+      "id": "371c7e4c-8585-4f2e-adbb-37a148ae1f0d",
       "name": "WS-FILE-STATUS-AREA",
       "content": "01WS-FILE-STATUS-AREA.",
       "levelNumber": 1,
       "rawText": "01  WS-FILE-STATUS-AREA.",
       "children": [
         {
-          "id": "0936bfc2-c921-4a09-9d50-32c0893c9416",
+          "id": "0855d8e8-ec4c-4199-94ba-07677982ce44",
           "name": "WS-EXPORT-STATUS",
           "content": "05WS-EXPORT-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1190,7 +1190,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "eafeb2ea-d935-4821-a35a-e9a14fe80340",
+          "id": "9c6db605-3cd5-46d5-821f-f2fcd36f15f9",
           "name": "WS-CUSTOMER-STATUS",
           "content": "05WS-CUSTOMER-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1206,7 +1206,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "e3cf91ad-a3b5-422f-bb95-94f62ccc4f09",
+          "id": "34e0aa33-63a3-4c76-bd47-3df0814f4af8",
           "name": "WS-ACCOUNT-STATUS",
           "content": "05WS-ACCOUNT-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1222,7 +1222,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "7f74b130-f1d3-4caa-9359-081ae015cd3f",
+          "id": "3f3427d3-6731-4c8f-bf93-0cfd6a7b281c",
           "name": "WS-XREF-STATUS",
           "content": "05WS-XREF-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1238,7 +1238,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "c2d3fb06-aa08-4ae3-8f5a-027f22d2cf0b",
+          "id": "8195511f-f9a3-4f93-a2b6-3141ba6e6286",
           "name": "WS-TRANSACTION-STATUS",
           "content": "05WS-TRANSACTION-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1254,7 +1254,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "b0f427c7-300d-431b-9e5f-e4cfd602fbb4",
+          "id": "a090a391-b36c-4ac6-b1d8-57ed050262f4",
           "name": "WS-CARD-STATUS",
           "content": "05WS-CARD-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1270,7 +1270,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "badbecc1-c3cc-48fb-853d-6604dc19f64a",
+          "id": "1333009c-d10e-47aa-abfa-5f6f5ddf042c",
           "name": "WS-ERROR-STATUS",
           "content": "05WS-ERROR-STATUSPICX(02).",
           "levelNumber": 5,
@@ -1296,14 +1296,14 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "cacbbfff-687b-4321-8378-4e396f2dea7d",
+      "id": "a9601298-b8b0-46d3-947b-7cd6d9cdd081",
       "name": "WS-IMPORT-CONTROL",
       "content": "01WS-IMPORT-CONTROL.",
       "levelNumber": 1,
       "rawText": "01  WS-IMPORT-CONTROL.",
       "children": [
         {
-          "id": "bf0deea8-b593-4b30-8c55-6a24d55f2153",
+          "id": "494eb079-d493-4589-a6fd-6f0fa80ccc41",
           "name": "WS-IMPORT-DATE",
           "content": "05WS-IMPORT-DATEPICX(10).",
           "levelNumber": 5,
@@ -1319,7 +1319,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "35b90e09-c281-4137-add7-adf6101ee1b9",
+          "id": "9959daea-4fbb-4df9-9775-dda04148b917",
           "name": "WS-IMPORT-TIME",
           "content": "05WS-IMPORT-TIMEPICX(08).",
           "levelNumber": 5,
@@ -1345,14 +1345,14 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "55726fde-8c41-4fe8-a7eb-481fd459dcba",
+      "id": "f7bd86aa-7873-468d-9dcc-3830337c2cf3",
       "name": "WS-IMPORT-STATISTICS",
       "content": "01WS-IMPORT-STATISTICS.",
       "levelNumber": 1,
       "rawText": "01  WS-IMPORT-STATISTICS.",
       "children": [
         {
-          "id": "51485988-86b9-47c5-9e64-3e61848153d3",
+          "id": "e74685e8-734e-48b7-8a72-4db9b8392861",
           "name": "WS-TOTAL-RECORDS-READ",
           "content": "05WS-TOTAL-RECORDS-READPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1368,7 +1368,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "6621b765-41da-4651-a3ed-4a083711eb54",
+          "id": "4fd61a34-c496-4642-a454-aff803e738e7",
           "name": "WS-CUSTOMER-RECORDS-IMPORTED",
           "content": "05WS-CUSTOMER-RECORDS-IMPORTEDPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1384,7 +1384,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "7e011b1f-211f-447e-92bc-cb535f9afd6b",
+          "id": "5f3e5379-a3b8-4477-8b86-ddbd4cd61c7b",
           "name": "WS-ACCOUNT-RECORDS-IMPORTED",
           "content": "05WS-ACCOUNT-RECORDS-IMPORTEDPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1400,7 +1400,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "ae98e90e-e541-47c3-ac31-e4634ffa25f2",
+          "id": "d30279dd-d6ff-46e7-a955-a3ef1042a351",
           "name": "WS-XREF-RECORDS-IMPORTED",
           "content": "05WS-XREF-RECORDS-IMPORTEDPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1416,7 +1416,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "b87e9b96-a478-463b-88f0-ba9859a9dbdf",
+          "id": "f755505e-f74e-4310-8f27-c79f7e630426",
           "name": "WS-TRAN-RECORDS-IMPORTED",
           "content": "05WS-TRAN-RECORDS-IMPORTEDPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1432,7 +1432,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "935b3c5a-c01d-4fef-acf8-05e7738340d0",
+          "id": "37ca44f0-dff5-4de0-8595-c8683518f35d",
           "name": "WS-CARD-RECORDS-IMPORTED",
           "content": "05WS-CARD-RECORDS-IMPORTEDPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1448,7 +1448,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "51b98a77-5eb5-407d-95e4-e7a302d787e2",
+          "id": "9aac7386-9f90-4d19-bfe7-6f142fb659f5",
           "name": "WS-ERROR-RECORDS-WRITTEN",
           "content": "05WS-ERROR-RECORDS-WRITTENPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1464,7 +1464,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "774bf268-bf90-4c3f-a426-c952f6643216",
+          "id": "f6c5e99e-f6db-4ba4-9f13-4a4ebd2e69c1",
           "name": "WS-UNKNOWN-RECORD-TYPE-COUNT",
           "content": "05WS-UNKNOWN-RECORD-TYPE-COUNTPIC9(09)VALUE0.",
           "levelNumber": 5,
@@ -1490,14 +1490,14 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "769f16e9-746b-43c9-b479-8ca90850023d",
+      "id": "771e3fab-7c0f-4101-938d-0ba5463eb678",
       "name": "WS-ERROR-RECORD",
       "content": "01WS-ERROR-RECORD.",
       "levelNumber": 1,
       "rawText": "01  WS-ERROR-RECORD.",
       "children": [
         {
-          "id": "5854c43f-1230-4053-8d72-2b72ae2f88f1",
+          "id": "e5b8b3ef-a0eb-4a72-987a-4cb1c5f0e1ee",
           "name": "ERR-TIMESTAMP",
           "content": "05ERR-TIMESTAMPPICX(26).",
           "levelNumber": 5,
@@ -1513,7 +1513,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "ed286b6c-ad98-472f-b978-47242a69313c",
+          "id": "8f13a325-54f2-4080-b6f5-5f7a255ea5b0",
           "name": "FILLER",
           "content": "05FILLERPICX(01)VALUE\u0027|\u0027.",
           "levelNumber": 5,
@@ -1529,7 +1529,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "4d624c3f-4c3f-4afa-8e4b-bd97d2fa37b0",
+          "id": "51378011-2c83-4cc2-9586-4553e2ca1998",
           "name": "ERR-RECORD-TYPE",
           "content": "05ERR-RECORD-TYPEPICX(01).",
           "levelNumber": 5,
@@ -1545,7 +1545,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "3072bc54-41b6-441d-beaf-942a15753995",
+          "id": "faeb42ce-d3f9-4aac-be9c-45122d971873",
           "name": "FILLER",
           "content": "05FILLERPICX(01)VALUE\u0027|\u0027.",
           "levelNumber": 5,
@@ -1561,7 +1561,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "f80fd9cc-7e0d-4c92-8aaa-17b224c20bfe",
+          "id": "b7094045-4ec9-479b-92cf-cd7c0e1fc69b",
           "name": "ERR-SEQUENCE",
           "content": "05ERR-SEQUENCEPIC9(07).",
           "levelNumber": 5,
@@ -1577,7 +1577,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "1cf9c186-f035-40b5-a82d-e749194f54f1",
+          "id": "37191b46-5005-45d3-b561-3d81aca4d2e1",
           "name": "FILLER",
           "content": "05FILLERPICX(01)VALUE\u0027|\u0027.",
           "levelNumber": 5,
@@ -1593,7 +1593,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "ee107f40-4115-481a-a357-47225bc70c97",
+          "id": "9ad4cd91-36fe-42de-9bc6-315621b82c4c",
           "name": "ERR-MESSAGE",
           "content": "05ERR-MESSAGEPICX(50).",
           "levelNumber": 5,
@@ -1609,7 +1609,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "01b8e2c9-3128-40f6-b603-31e4bc9fa155",
+          "id": "7941707a-9fb6-4ac4-9509-44b7e79e2bf3",
           "name": "FILLER",
           "content": "05FILLERPICX(43)VALUESPACES.",
           "levelNumber": 5,
@@ -1635,7 +1635,7 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "71fe1b01-d3dc-4dd3-9fc1-3a0c7c639e20",
+      "id": "d5651cfb-cbcc-4080-b0b9-35b055d351f8",
       "name": "EXPORT-INPUT-RECORD",
       "content": "01EXPORT-INPUT-RECORDPICX(500).",
       "levelNumber": 1,
@@ -1651,14 +1651,14 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "e850b8ca-d658-4198-a4db-5465bee773f5",
+      "id": "aab2da36-818b-47cb-849d-94a71074b8f9",
       "name": "CUSTOMER-RECORD",
       "content": "01CUSTOMER-RECORD.",
       "levelNumber": 1,
       "rawText": "01  CUSTOMER-RECORD.",
       "children": [
         {
-          "id": "d7db6ab5-e6cb-4835-be36-efe14e626c12",
+          "id": "63552425-eb19-4d14-84e6-46e7b424328b",
           "name": "CUST-ID",
           "content": "05CUST-IDPIC9(09).",
           "levelNumber": 5,
@@ -1674,7 +1674,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "a265d632-b585-46e0-a7b4-5aaf9556ecd9",
+          "id": "592c6748-b46e-4abe-b7f2-d0babb14895e",
           "name": "CUST-FIRST-NAME",
           "content": "05CUST-FIRST-NAMEPICX(25).",
           "levelNumber": 5,
@@ -1690,7 +1690,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "f0cf6bfd-28ad-4430-ba08-6c7d073594d6",
+          "id": "e63d6299-f295-4c28-9e01-96025dbd07ef",
           "name": "CUST-MIDDLE-NAME",
           "content": "05CUST-MIDDLE-NAMEPICX(25).",
           "levelNumber": 5,
@@ -1706,7 +1706,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "1380b40d-0fc1-4a39-bb63-32fdec9399f0",
+          "id": "233d98cf-a17c-4ade-870a-65e5d4022c6b",
           "name": "CUST-LAST-NAME",
           "content": "05CUST-LAST-NAMEPICX(25).",
           "levelNumber": 5,
@@ -1722,7 +1722,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "9f6910ea-d8fb-4ae7-b657-f8bd4ad0f068",
+          "id": "24f2761f-0c4b-4a2c-8f79-0158d36e7762",
           "name": "CUST-ADDR-LINE-1",
           "content": "05CUST-ADDR-LINE-1PICX(50).",
           "levelNumber": 5,
@@ -1738,7 +1738,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "e19b7839-5a21-43ce-aad4-0fa196572c53",
+          "id": "5a7250f1-19bb-4e78-bde6-bfdfac4e0f4b",
           "name": "CUST-ADDR-LINE-2",
           "content": "05CUST-ADDR-LINE-2PICX(50).",
           "levelNumber": 5,
@@ -1754,7 +1754,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "ab0f9af8-4ec6-43d0-9371-6aeba77665ed",
+          "id": "a0793fa4-8671-4c55-aa4c-e1167afa5998",
           "name": "CUST-ADDR-LINE-3",
           "content": "05CUST-ADDR-LINE-3PICX(50).",
           "levelNumber": 5,
@@ -1770,7 +1770,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "bebbdb05-5d47-45f3-87bc-d1f39460bbee",
+          "id": "5e540b23-c193-48a7-a0be-c29c748640e9",
           "name": "CUST-ADDR-STATE-CD",
           "content": "05CUST-ADDR-STATE-CDPICX(02).",
           "levelNumber": 5,
@@ -1786,7 +1786,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "f0dcb027-cd46-49e1-a86c-241734f47aaf",
+          "id": "7b5b8c84-f94c-4011-a53f-d7787b96ae88",
           "name": "CUST-ADDR-COUNTRY-CD",
           "content": "05CUST-ADDR-COUNTRY-CDPICX(03).",
           "levelNumber": 5,
@@ -1802,7 +1802,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "3a65733a-257b-4ea7-89d1-4ac916a6c0ec",
+          "id": "a6a73a57-adbb-47cf-997d-2b6c573afd0b",
           "name": "CUST-ADDR-ZIP",
           "content": "05CUST-ADDR-ZIPPICX(10).",
           "levelNumber": 5,
@@ -1818,7 +1818,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "5a7f5646-4da9-4d62-8505-a83d3077b28e",
+          "id": "f1e8e321-e669-489e-baaf-d646bce475f9",
           "name": "CUST-PHONE-NUM-1",
           "content": "05CUST-PHONE-NUM-1PICX(15).",
           "levelNumber": 5,
@@ -1834,7 +1834,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "99464e79-614e-4a93-8bce-63deb59579f6",
+          "id": "dc0286fc-be46-4c63-b689-e507a4f0cb2f",
           "name": "CUST-PHONE-NUM-2",
           "content": "05CUST-PHONE-NUM-2PICX(15).",
           "levelNumber": 5,
@@ -1850,7 +1850,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "1c1ace33-09ab-4a12-ad3e-9961728c166f",
+          "id": "6a562824-1c6c-4c30-b282-dc29e3ffcecd",
           "name": "CUST-SSN",
           "content": "05CUST-SSNPIC9(09).",
           "levelNumber": 5,
@@ -1866,7 +1866,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "5bdc8856-f6c5-4ddd-90d3-adc054d8e8fc",
+          "id": "35b07d41-990e-41f2-adf3-845510542c3f",
           "name": "CUST-GOVT-ISSUED-ID",
           "content": "05CUST-GOVT-ISSUED-IDPICX(20).",
           "levelNumber": 5,
@@ -1882,7 +1882,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "c44d9a2a-1f44-47a1-9862-62a3f70301c2",
+          "id": "f357f2bb-b188-4bc2-875a-a8e61c64a5c3",
           "name": "CUST-DOB-YYYY-MM-DD",
           "content": "05CUST-DOB-YYYY-MM-DDPICX(10).",
           "levelNumber": 5,
@@ -1898,7 +1898,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "05e7d820-641b-4ef0-ab88-a165e30fc816",
+          "id": "4f351571-53e5-41a0-b334-e8e66f7eeefb",
           "name": "CUST-EFT-ACCOUNT-ID",
           "content": "05CUST-EFT-ACCOUNT-IDPICX(10).",
           "levelNumber": 5,
@@ -1914,7 +1914,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "97d4ccda-128d-49e8-831a-86f111daddcc",
+          "id": "17b7e3e2-f915-4a50-b24b-b52238fd11c7",
           "name": "CUST-PRI-CARD-HOLDER-IND",
           "content": "05CUST-PRI-CARD-HOLDER-INDPICX(01).",
           "levelNumber": 5,
@@ -1930,7 +1930,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "aa659a60-9797-45e8-8710-8c7128f1dfd7",
+          "id": "3924e373-aa99-4898-9fc6-418efbd2d41f",
           "name": "CUST-FICO-CREDIT-SCORE",
           "content": "05CUST-FICO-CREDIT-SCOREPIC9(03).",
           "levelNumber": 5,
@@ -1946,7 +1946,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "ebe5b1f7-e783-4175-b00f-4e86e3c540c1",
+          "id": "05f824d4-49ac-4af7-a862-d0b74c40877d",
           "name": "FILLER",
           "content": "05FILLERPICX(168).",
           "levelNumber": 5,
@@ -1972,14 +1972,14 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "71ec77bd-348e-4fbc-8daa-d54e9720ca84",
+      "id": "645e7f9c-0d6d-4c2f-90b4-f50f685e9613",
       "name": "ACCOUNT-RECORD",
       "content": "01ACCOUNT-RECORD.",
       "levelNumber": 1,
       "rawText": "01  ACCOUNT-RECORD.",
       "children": [
         {
-          "id": "1693b750-d620-41e5-a5e6-4b47be02042d",
+          "id": "bfdb4726-bd86-4014-9467-a40bcfe269c6",
           "name": "ACCT-ID",
           "content": "05ACCT-IDPIC9(11).",
           "levelNumber": 5,
@@ -1995,7 +1995,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "5cde47fc-456b-462a-ad0c-b72f7ce48f34",
+          "id": "cdc6f640-56de-44fc-b916-89e8e7acef3b",
           "name": "ACCT-ACTIVE-STATUS",
           "content": "05ACCT-ACTIVE-STATUSPICX(01).",
           "levelNumber": 5,
@@ -2011,7 +2011,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "233be333-2b5a-4e74-98b0-04a01a3ee0ad",
+          "id": "f3a0e098-4a0d-486f-bd6f-a133d091ef40",
           "name": "ACCT-CURR-BAL",
           "content": "05ACCT-CURR-BALPICS9(10)V99.",
           "levelNumber": 5,
@@ -2027,7 +2027,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "7f95b4ae-758c-45c5-a8eb-cd8827ac2e0a",
+          "id": "b8255ef6-03fc-4d07-8e04-d2de6a7ffa64",
           "name": "ACCT-CREDIT-LIMIT",
           "content": "05ACCT-CREDIT-LIMITPICS9(10)V99.",
           "levelNumber": 5,
@@ -2043,7 +2043,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "81c2d6a7-2404-4850-8447-6d80f7be9082",
+          "id": "7ea3cfc8-c755-42fd-92f9-f07c3e0d1166",
           "name": "ACCT-CASH-CREDIT-LIMIT",
           "content": "05ACCT-CASH-CREDIT-LIMITPICS9(10)V99.",
           "levelNumber": 5,
@@ -2059,7 +2059,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "9fe51544-93b4-49c0-a59d-417c65278ce4",
+          "id": "2f4abb7d-26e8-45ee-ae39-fc03ede611e9",
           "name": "ACCT-OPEN-DATE",
           "content": "05ACCT-OPEN-DATEPICX(10).",
           "levelNumber": 5,
@@ -2075,7 +2075,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "136c9b1c-37cd-4ac0-95e9-a01126943b92",
+          "id": "ed805625-c6cc-40f8-b828-c0bb5b6bc34c",
           "name": "ACCT-EXPIRAION-DATE",
           "content": "05ACCT-EXPIRAION-DATEPICX(10).",
           "levelNumber": 5,
@@ -2091,7 +2091,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "83f188a6-5cc6-43ca-858b-dd57cff81b0e",
+          "id": "b8263f91-935b-4a5e-b942-d9e4bb4d2d91",
           "name": "ACCT-REISSUE-DATE",
           "content": "05ACCT-REISSUE-DATEPICX(10).",
           "levelNumber": 5,
@@ -2107,7 +2107,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "c8fbc3ff-6562-4860-a695-1647159ea149",
+          "id": "7debe631-b52b-406d-97a8-105899bf3815",
           "name": "ACCT-CURR-CYC-CREDIT",
           "content": "05ACCT-CURR-CYC-CREDITPICS9(10)V99.",
           "levelNumber": 5,
@@ -2123,7 +2123,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "888ba558-5209-47f8-8cd4-e1d7df39bb46",
+          "id": "1beb82de-d3eb-4241-9ac5-b8fcb4976ba1",
           "name": "ACCT-CURR-CYC-DEBIT",
           "content": "05ACCT-CURR-CYC-DEBITPICS9(10)V99.",
           "levelNumber": 5,
@@ -2139,7 +2139,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "c4cbf689-b740-473f-a79d-b2143e57717d",
+          "id": "a534cdf8-cb08-4264-9858-940238968272",
           "name": "ACCT-ADDR-ZIP",
           "content": "05ACCT-ADDR-ZIPPICX(10).",
           "levelNumber": 5,
@@ -2155,7 +2155,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "b8e7ccd6-1d56-4dae-bdd4-070ad55c841c",
+          "id": "2d00b26b-0633-4271-b327-750571579735",
           "name": "ACCT-GROUP-ID",
           "content": "05ACCT-GROUP-IDPICX(10).",
           "levelNumber": 5,
@@ -2171,7 +2171,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "2f12813d-335f-4a0a-b4ae-7ce574c41c7f",
+          "id": "2a00df48-2616-4517-b77a-1d8ebc5b1427",
           "name": "FILLER",
           "content": "05FILLERPICX(178).",
           "levelNumber": 5,
@@ -2197,14 +2197,14 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "4bf1ed40-09f3-4d0c-acda-61fae17c7d79",
+      "id": "08654006-b6da-42c6-924a-18c10d594909",
       "name": "CARD-XREF-RECORD",
       "content": "01CARD-XREF-RECORD.",
       "levelNumber": 1,
       "rawText": "01 CARD-XREF-RECORD.",
       "children": [
         {
-          "id": "3200878e-d0e8-4d3b-be14-da636e4edb53",
+          "id": "3a31d748-74ee-4f25-8d65-c523e6e6729b",
           "name": "XREF-CARD-NUM",
           "content": "05XREF-CARD-NUMPICX(16).",
           "levelNumber": 5,
@@ -2220,7 +2220,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "7f668cd5-2e8e-452b-9581-bdb3d1181bb8",
+          "id": "6de9dbf7-3b94-4610-80a4-e216a7581f79",
           "name": "XREF-CUST-ID",
           "content": "05XREF-CUST-IDPIC9(09).",
           "levelNumber": 5,
@@ -2236,7 +2236,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "e7044805-f741-4360-b996-85d64063ec09",
+          "id": "c4007f7e-ba77-4def-bd0c-109601aeef37",
           "name": "XREF-ACCT-ID",
           "content": "05XREF-ACCT-IDPIC9(11).",
           "levelNumber": 5,
@@ -2252,7 +2252,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "b962c8ea-fb9e-420c-a59e-7ff1be3974f4",
+          "id": "6d7d67e2-21f8-4d1e-b1b3-8d71e3ee01bb",
           "name": "FILLER",
           "content": "05FILLERPICX(14).",
           "levelNumber": 5,
@@ -2278,14 +2278,14 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "ea926194-a827-44f7-b737-c33d79ecd0c4",
+      "id": "af486e40-790a-44ba-8fbd-f0c8aaaf5aff",
       "name": "TRAN-RECORD",
       "content": "01TRAN-RECORD.",
       "levelNumber": 1,
       "rawText": "01  TRAN-RECORD.",
       "children": [
         {
-          "id": "59eb9a46-ebac-4805-84da-3489edb95873",
+          "id": "31590f79-ce02-4d55-b2da-ed0f088f8a3f",
           "name": "TRAN-ID",
           "content": "05TRAN-IDPICX(16).",
           "levelNumber": 5,
@@ -2301,7 +2301,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "77aee6fa-5093-4310-9a13-0238f08c1522",
+          "id": "eb145270-a7b2-42a7-b344-5835d7adc716",
           "name": "TRAN-TYPE-CD",
           "content": "05TRAN-TYPE-CDPICX(02).",
           "levelNumber": 5,
@@ -2317,7 +2317,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "d0a62aad-51ce-46c5-bfd3-3c98c79efff5",
+          "id": "5d36a0eb-31bd-42c9-830d-3b2c9cab8fea",
           "name": "TRAN-CAT-CD",
           "content": "05TRAN-CAT-CDPIC9(04).",
           "levelNumber": 5,
@@ -2333,7 +2333,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "98696e96-d384-4e0d-a59c-dbc77ae9f914",
+          "id": "13240af2-0f8d-421c-bf63-5f02dbf4bcfd",
           "name": "TRAN-SOURCE",
           "content": "05TRAN-SOURCEPICX(10).",
           "levelNumber": 5,
@@ -2349,7 +2349,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "30a18e82-8291-4480-89f3-f3dec70dd100",
+          "id": "f9f04d15-be17-4950-b1f2-bbe4dca48c76",
           "name": "TRAN-DESC",
           "content": "05TRAN-DESCPICX(100).",
           "levelNumber": 5,
@@ -2365,7 +2365,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "ce4638be-9626-4abf-904d-65e94389d5d3",
+          "id": "ba26573d-379d-430c-9cae-722048d43ee8",
           "name": "TRAN-AMT",
           "content": "05TRAN-AMTPICS9(09)V99.",
           "levelNumber": 5,
@@ -2381,7 +2381,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "da9538ad-3d33-48cd-8505-4b83195ff064",
+          "id": "f091b17d-d3a5-47d6-bec9-45bc1ba65cc7",
           "name": "TRAN-MERCHANT-ID",
           "content": "05TRAN-MERCHANT-IDPIC9(09).",
           "levelNumber": 5,
@@ -2397,7 +2397,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "eba90b4e-17fa-444b-a45c-153682d7f1fe",
+          "id": "5826ed04-1585-4b6a-bb61-623cb8adea80",
           "name": "TRAN-MERCHANT-NAME",
           "content": "05TRAN-MERCHANT-NAMEPICX(50).",
           "levelNumber": 5,
@@ -2413,7 +2413,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "bd13b756-a8fc-432c-94f1-988c19912820",
+          "id": "ddbb20f9-c117-4378-94e0-cf2bc3a86a66",
           "name": "TRAN-MERCHANT-CITY",
           "content": "05TRAN-MERCHANT-CITYPICX(50).",
           "levelNumber": 5,
@@ -2429,7 +2429,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "e34243a5-8860-42ca-ba8e-e862a216b2a8",
+          "id": "4bd2b301-2134-4dcf-a8db-25597d957ff2",
           "name": "TRAN-MERCHANT-ZIP",
           "content": "05TRAN-MERCHANT-ZIPPICX(10).",
           "levelNumber": 5,
@@ -2445,7 +2445,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "e8d7d53e-c70a-4e46-ae4c-b19f49b9daf3",
+          "id": "1d62c20e-8064-4258-9dfe-a86251c1562a",
           "name": "TRAN-CARD-NUM",
           "content": "05TRAN-CARD-NUMPICX(16).",
           "levelNumber": 5,
@@ -2461,7 +2461,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "4f959e8f-f0e6-4727-beb6-28cc529bfcbe",
+          "id": "58c11a6a-96c0-4c20-91ef-bbe29834c45e",
           "name": "TRAN-ORIG-TS",
           "content": "05TRAN-ORIG-TSPICX(26).",
           "levelNumber": 5,
@@ -2477,7 +2477,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "42e7741a-3941-458f-9507-4ac637bcbf18",
+          "id": "77532018-a614-4557-9444-091b8a44db77",
           "name": "TRAN-PROC-TS",
           "content": "05TRAN-PROC-TSPICX(26).",
           "levelNumber": 5,
@@ -2493,7 +2493,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "39914866-b2d9-4472-a0a0-ea601d7066f1",
+          "id": "9183482b-0ab7-43d1-bdec-4332766074d8",
           "name": "FILLER",
           "content": "05FILLERPICX(20).",
           "levelNumber": 5,
@@ -2519,14 +2519,14 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "0a42f734-da3c-4166-95b6-2ad22cb36bf6",
+      "id": "f962aecf-1b2e-4dae-8f88-86d7e62cec2d",
       "name": "CARD-RECORD",
       "content": "01CARD-RECORD.",
       "levelNumber": 1,
       "rawText": "01  CARD-RECORD.",
       "children": [
         {
-          "id": "30eefdf3-599f-4e51-a7e7-258cbd3604cf",
+          "id": "2cc27a6b-690e-40ad-bdd4-6e0401bd1ff0",
           "name": "CARD-NUM",
           "content": "05CARD-NUMPICX(16).",
           "levelNumber": 5,
@@ -2542,7 +2542,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "caf81405-8830-4ecd-ace6-76a66bfd2c3c",
+          "id": "65ec7e24-c958-456f-ad9e-257b09106e55",
           "name": "CARD-ACCT-ID",
           "content": "05CARD-ACCT-IDPIC9(11).",
           "levelNumber": 5,
@@ -2558,7 +2558,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "ba509c7e-5512-468c-bcfa-ea1e030cf29f",
+          "id": "7ca8fdc7-f6cc-4858-b3b9-0779fd4bd851",
           "name": "CARD-CVV-CD",
           "content": "05CARD-CVV-CDPIC9(03).",
           "levelNumber": 5,
@@ -2574,7 +2574,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "52624976-ae8d-41df-9ec5-86fede779844",
+          "id": "a83128d1-943a-4cbb-b1cc-7c4894783b13",
           "name": "CARD-EMBOSSED-NAME",
           "content": "05CARD-EMBOSSED-NAMEPICX(50).",
           "levelNumber": 5,
@@ -2590,7 +2590,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "47b8fc12-4d69-41c6-95c2-337255a0c25d",
+          "id": "f869dd82-291a-409d-8d41-baa2e0da774e",
           "name": "CARD-EXPIRAION-DATE",
           "content": "05CARD-EXPIRAION-DATEPICX(10).",
           "levelNumber": 5,
@@ -2606,7 +2606,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "4ed79a9c-ebfd-4209-aaa5-8a362983c0a8",
+          "id": "79268b5e-1da7-425d-8388-4cc55ba9f71b",
           "name": "CARD-ACTIVE-STATUS",
           "content": "05CARD-ACTIVE-STATUSPICX(01).",
           "levelNumber": 5,
@@ -2622,7 +2622,7 @@
           "sourceSection": "FILE_DESCRIPTOR"
         },
         {
-          "id": "f9bf87c0-57db-462a-a3aa-79db532b3c51",
+          "id": "b19a0c98-775b-4959-a6c2-6773ff12e55b",
           "name": "FILLER",
           "content": "05FILLERPICX(59).",
           "levelNumber": 5,
@@ -2648,7 +2648,7 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "842d6db4-8d96-4c91-bb34-75a49c58334d",
+      "id": "c2802927-7358-49ae-be0c-46ae41a472b0",
       "name": "ERROR-OUTPUT-RECORD",
       "content": "01ERROR-OUTPUT-RECORDPICX(132).",
       "levelNumber": 1,
@@ -2664,7 +2664,7 @@
       "sourceSection": "FILE_DESCRIPTOR"
     },
     {
-      "id": "ccb04ad5-1784-43a1-9cdf-e4c85a3ebe28",
+      "id": "3e315d1b-20c7-4b34-83e7-55529b0dec4d",
       "name": "WHEN-COMPILED",
       "content": "WHEN-COMPILED",
       "levelNumber": 1,

@@ -1,19 +1,19 @@
 {
-  "id": "15a040f0-dce5-4f92-8ef6-e84ebd843fc9",
+  "id": "6226c85c-9de6-4f42-bf2e-d60935dc4eff",
   "name": "[ROOT]",
   "content": "[ROOT]",
   "levelNumber": 0,
   "rawText": "[ROOT]",
   "children": [
     {
-      "id": "054ff996-bed6-4740-9b95-d48e59d81d5a",
+      "id": "c1b62c8b-9fae-4273-b79d-a584dfc2623f",
       "name": "WS-DATE-TO-TEST",
       "content": "01WS-DATE-TO-TEST.",
       "levelNumber": 1,
       "rawText": "01 WS-DATE-TO-TEST.",
       "children": [
         {
-          "id": "41e0a7e4-f44a-4f63-afb6-08848cba69f2",
+          "id": "1ec0befc-835b-4348-be55-ce01b23e4812",
           "name": "Vstring-length",
           "content": "02Vstring-lengthPICS9(4)BINARY.",
           "levelNumber": 2,
@@ -29,14 +29,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "a7d9169d-8885-4b12-9e30-648bb4061a42",
+          "id": "f62cae7f-b15a-4acb-b8fe-382fcaa41646",
           "name": "Vstring-text",
           "content": "02Vstring-text.",
           "levelNumber": 2,
           "rawText": "02  Vstring-text.",
           "children": [
             {
-              "id": "70a00a1d-ecdf-4d86-ab25-29fa974b7e4b",
+              "id": "392220c6-cde4-4b91-9904-82be17af5a48",
               "name": "Vstring-char",
               "content": "03Vstring-charPICXOCCURS0TO256TIMESDEPENDINGONVstring-lengthofWS-DATE-TO-TEST.",
               "levelNumber": 3,
@@ -72,14 +72,14 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "04690f35-81a7-4c80-975d-e1b10a5539cc",
+      "id": "a7d35298-2491-4165-b158-cc9e8cfb1a92",
       "name": "WS-DATE-FORMAT",
       "content": "01WS-DATE-FORMAT.",
       "levelNumber": 1,
       "rawText": "01 WS-DATE-FORMAT.",
       "children": [
         {
-          "id": "35829dd6-e70d-4220-89ae-b8c7b3b85c95",
+          "id": "e23c6fbd-ece6-4a0d-a333-dd53f9ace595",
           "name": "Vstring-length",
           "content": "02Vstring-lengthPICS9(4)BINARY.",
           "levelNumber": 2,
@@ -95,14 +95,14 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "6c7499d9-e660-4c74-9ec4-62887d675bd0",
+          "id": "1176d8fc-e7d1-4906-bfbd-65ae67ab478b",
           "name": "Vstring-text",
           "content": "02Vstring-text.",
           "levelNumber": 2,
           "rawText": "02  Vstring-text.",
           "children": [
             {
-              "id": "5667706d-d262-4462-953f-1efd74ed30f4",
+              "id": "0d3bab08-0846-4718-b5c9-84a1a3d52eaf",
               "name": "Vstring-char",
               "content": "03Vstring-charPICXOCCURS0TO256TIMESDEPENDINGONVstring-lengthofWS-DATE-FORMAT.",
               "levelNumber": 3,
@@ -138,7 +138,7 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "f83d4688-4e32-486a-865a-173155e416ef",
+      "id": "b123a1a4-afc2-45e8-8b24-2cd142ccdc69",
       "name": "OUTPUT-LILLIAN",
       "content": "01OUTPUT-LILLIANPICS9(9)USAGEISBINARY.",
       "levelNumber": 1,
@@ -154,14 +154,14 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "96649fb7-242e-49ec-b91b-3df3f2c78cdd",
+      "id": "fa93348f-4d49-4a70-be15-e8ff5dd969bc",
       "name": "WS-MESSAGE",
       "content": "01WS-MESSAGE.",
       "levelNumber": 1,
       "rawText": "01 WS-MESSAGE.",
       "children": [
         {
-          "id": "0679a7b9-7333-47be-bf3e-abdf04a580e2",
+          "id": "a012a176-135d-4fb9-9c3d-436f4cf2c798",
           "name": "WS-SEVERITY",
           "content": "02WS-SEVERITYPICX(04).",
           "levelNumber": 2,
@@ -177,7 +177,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "3044b9b5-fbe0-4f37-8d00-45ffe66ccb68",
+          "id": "efb87350-6616-40a5-9d46-c41abf9a5f5a",
           "name": "WS-SEVERITY-N",
           "content": "02WS-SEVERITY-NREDEFINESWS-SEVERITYPIC9(4).",
           "levelNumber": 2,
@@ -193,7 +193,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "206d5071-6bc0-4408-9f2a-7bf391721724",
+          "id": "441d34fb-c55d-4770-9c16-96363b921800",
           "name": "FILLER",
           "content": "02FILLERPICX(11)VALUE\u0027Mesg Code:\u0027.",
           "levelNumber": 2,
@@ -209,7 +209,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "e1028c08-fe94-4d4f-928c-4916c84c0823",
+          "id": "1ab4b3be-6150-475b-a9e1-c94f445eaf56",
           "name": "WS-MSG-NO",
           "content": "02WS-MSG-NOPICX(04).",
           "levelNumber": 2,
@@ -225,7 +225,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "80db2e03-a9d9-444f-96ad-5624ed9c4a0b",
+          "id": "6294b873-2d85-47a6-b3ec-ea88efa0a740",
           "name": "WS-MSG-NO-N",
           "content": "02WS-MSG-NO-NREDEFINESWS-MSG-NOPIC9(4).",
           "levelNumber": 2,
@@ -241,7 +241,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "f0fbfbec-f3cb-436b-ab13-ead7ec78c9bc",
+          "id": "b8dd5f42-4749-4c82-9905-774c1221cbd7",
           "name": "FILLER",
           "content": "02FILLERPICX(01)VALUESPACE.",
           "levelNumber": 2,
@@ -257,7 +257,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "92daa0f4-b81d-4089-af9f-bc7104b2859a",
+          "id": "5968ea30-4b54-4184-9f3c-53a22d1064e0",
           "name": "WS-RESULT",
           "content": "02WS-RESULTPICX(15).",
           "levelNumber": 2,
@@ -273,7 +273,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "aea2e948-c27a-4f17-9c1d-7e7f49998391",
+          "id": "2c686a4d-7624-453e-9875-e5616815f1cf",
           "name": "FILLER",
           "content": "02FILLERPICX(01)VALUESPACE.",
           "levelNumber": 2,
@@ -289,7 +289,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "77d70354-fb22-4320-bae7-76321e945cc4",
+          "id": "4c71bff6-2158-4f45-bb39-7633972b952b",
           "name": "FILLER",
           "content": "02FILLERPICX(09)VALUE\u0027TstDate:\u0027.",
           "levelNumber": 2,
@@ -305,7 +305,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "18470c7c-9d12-4938-b561-fe95b14ea53c",
+          "id": "1678b5d4-36c8-4c89-8420-d22ca6b8e445",
           "name": "WS-DATE",
           "content": "02WS-DATEPICX(10)VALUESPACES.",
           "levelNumber": 2,
@@ -321,7 +321,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "6a32cfc5-7c0e-4a81-9c1a-5707cba95b66",
+          "id": "090c194c-83cb-4cd3-b884-2699b1e3084c",
           "name": "FILLER",
           "content": "02FILLERPICX(01)VALUESPACE.",
           "levelNumber": 2,
@@ -337,7 +337,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "424a47c7-e176-40a8-9389-70a6415d4c1c",
+          "id": "5835162d-ee0f-498c-9ba3-f5005cc593f3",
           "name": "FILLER",
           "content": "02FILLERPICX(10)VALUE\u0027Mask used:\u0027.",
           "levelNumber": 2,
@@ -353,7 +353,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "70267534-dd70-44c3-a009-c49330330869",
+          "id": "d130b8bf-5c38-4491-a028-1488aa180594",
           "name": "WS-DATE-FMT",
           "content": "02WS-DATE-FMTPICX(10).",
           "levelNumber": 2,
@@ -369,7 +369,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "e1ea0b9f-2c13-48c1-b2da-b7f2d5524320",
+          "id": "3c220e88-acbb-4ff7-a8c7-7a0bad922456",
           "name": "FILLER",
           "content": "02FILLERPICX(01)VALUESPACE.",
           "levelNumber": 2,
@@ -385,7 +385,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "2b4b4c8c-57df-44de-a848-52c0e2c4f770",
+          "id": "dab33b6f-28d5-4d81-99f6-f4f0a0cee56e",
           "name": "FILLER",
           "content": "02FILLERPICX(03)VALUESPACES.",
           "levelNumber": 2,
@@ -411,28 +411,28 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "2a8c677a-7ec5-49bc-806e-8845085585fc",
+      "id": "3d6681bd-7356-4e90-8dc4-b39188a2a28e",
       "name": "FEEDBACK-CODE",
       "content": "01FEEDBACK-CODE.",
       "levelNumber": 1,
       "rawText": "01 FEEDBACK-CODE.",
       "children": [
         {
-          "id": "3c871fcf-3425-43bb-8e35-8bdf3fca323a",
+          "id": "8a35f8da-ff57-4f64-892f-6f3906f0739a",
           "name": "FEEDBACK-TOKEN-VALUE",
           "content": "02FEEDBACK-TOKEN-VALUE.",
           "levelNumber": 2,
           "rawText": "02  FEEDBACK-TOKEN-VALUE.",
           "children": [
             {
-              "id": "bb2bf56d-5aef-4af9-a8f8-238319ab1e1a",
+              "id": "f99b47cf-2824-471b-a400-8c14c6a7a448",
               "name": "CASE-1-CONDITION-ID",
               "content": "03CASE-1-CONDITION-ID.",
               "levelNumber": 3,
               "rawText": "03  CASE-1-CONDITION-ID.",
               "children": [
                 {
-                  "id": "9f74d10c-b8f1-476c-b001-c62900d163a6",
+                  "id": "760d1251-68c0-4aae-8d2b-5cac652a329d",
                   "name": "SEVERITY",
                   "content": "04SEVERITYPICS9(4)BINARY.",
                   "levelNumber": 4,
@@ -448,7 +448,7 @@
                   "sourceSection": "WORKING_STORAGE"
                 },
                 {
-                  "id": "92843de0-1afa-491b-b58a-efe73ea58447",
+                  "id": "35777070-e18b-4025-859c-b5e1c6c4812b",
                   "name": "MSG-NO",
                   "content": "04MSG-NOPICS9(4)BINARY.",
                   "levelNumber": 4,
@@ -474,14 +474,14 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "b2d08dd0-b892-4afe-93ee-e2fcbe4cb80e",
+              "id": "ce1e1fd0-90b3-4bd5-961f-806ba5448901",
               "name": "CASE-2-CONDITION-ID",
               "content": "03CASE-2-CONDITION-IDREDEFINESCASE-1-CONDITION-ID.",
               "levelNumber": 3,
               "rawText": "03  CASE-2-CONDITION-ID\n                         REDEFINES CASE-1-CONDITION-ID.",
               "children": [
                 {
-                  "id": "95c4d4ac-fdc2-492b-a7c2-01c46f052aa8",
+                  "id": "14bde465-37ab-4a36-9805-dec8aa41a13e",
                   "name": "CLASS-CODE",
                   "content": "04CLASS-CODEPICS9(4)BINARY.",
                   "levelNumber": 4,
@@ -497,7 +497,7 @@
                   "sourceSection": "WORKING_STORAGE"
                 },
                 {
-                  "id": "9192248c-2cf9-4ada-8405-68f60e150a58",
+                  "id": "54964e63-92e8-4d77-b375-c5a0aac66fd5",
                   "name": "CAUSE-CODE",
                   "content": "04CAUSE-CODEPICS9(4)BINARY.",
                   "levelNumber": 4,
@@ -523,7 +523,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "366fca2f-3edf-467b-8b86-e36aba37027f",
+              "id": "08b50560-57ed-4f5f-a5ba-89a0cc4b261f",
               "name": "CASE-SEV-CTL",
               "content": "03CASE-SEV-CTLPICX.",
               "levelNumber": 3,
@@ -539,7 +539,7 @@
               "sourceSection": "WORKING_STORAGE"
             },
             {
-              "id": "aa43ae0d-1d3b-4bc3-9b37-8fc3578a35ad",
+              "id": "f346e1b9-3efd-4366-a85d-d52819f696da",
               "name": "FACILITY-ID",
               "content": "03FACILITY-IDPICXXX.",
               "levelNumber": 3,
@@ -565,7 +565,7 @@
           "sourceSection": "WORKING_STORAGE"
         },
         {
-          "id": "c24fca58-9668-4646-a5b6-7fe4621b00d0",
+          "id": "e3ac7702-83c8-4b8c-ab24-05879a37525e",
           "name": "I-S-INFO",
           "content": "02I-S-INFOPICS9(9)BINARY.",
           "levelNumber": 2,
@@ -591,7 +591,7 @@
       "sourceSection": "WORKING_STORAGE"
     },
     {
-      "id": "c86ac8ec-baf1-4e79-a44c-fc9992c11e80",
+      "id": "a4ce8374-dd90-44d0-b004-ca47a8a97153",
       "name": "LS-DATE",
       "content": "01LS-DATEPICX(10).",
       "levelNumber": 1,
@@ -607,7 +607,7 @@
       "sourceSection": "LINKAGE"
     },
     {
-      "id": "de6b4ebb-e095-4114-912b-3dda05e408dd",
+      "id": "568d63f0-856d-4622-a02c-7c41d7b406a9",
       "name": "LS-DATE-FORMAT",
       "content": "01LS-DATE-FORMATPICX(10).",
       "levelNumber": 1,
@@ -623,7 +623,7 @@
       "sourceSection": "LINKAGE"
     },
     {
-      "id": "0b8cf1ef-9d41-4af3-90e8-8211f608bb1f",
+      "id": "68235e95-f44a-41f4-bac2-b857212aee8c",
       "name": "LS-RESULT",
       "content": "01LS-RESULTPICX(80).",
       "levelNumber": 1,
@@ -639,7 +639,7 @@
       "sourceSection": "LINKAGE"
     },
     {
-      "id": "60d94261-1a6d-4145-81dc-d5fcf9ac5549",
+      "id": "0ad4e15c-29fc-4160-98a0-b39fcfae2bff",
       "name": "WHEN-COMPILED",
       "content": "WHEN-COMPILED",
       "levelNumber": 1,
@@ -655,7 +655,7 @@
       "sourceSection": "PROCEDURE_DIVISION"
     },
     {
-      "id": "b498347e-6c26-4454-a285-f20a6fd76c81",
+      "id": "c3f0f95d-2d97-4397-b223-0890de5e8555",
       "name": "TypedRecord[value\u003d1.0, dataType\u003dCobolDataType[usageType\u003dZONED_DECIMAL, defaultValue\u003dTypedRecord[value\u003dNULL, dataType\u003dnull], abstractType\u003dNUMBER]]",
       "content": "",
       "levelNumber": -1,
@@ -671,7 +671,7 @@
       "sourceSection": "PROCEDURE_DIVISION"
     },
     {
-      "id": "39017e89-8885-48c9-9f6c-ea1418bda53c",
+      "id": "98be0ee2-75e4-446d-9605-0498e2a320df",
       "name": "TypedRecord[value\u003d1.0, dataType\u003dCobolDataType[usageType\u003dZONED_DECIMAL, defaultValue\u003dTypedRecord[value\u003dNULL, dataType\u003dnull], abstractType\u003dNUMBER]]",
       "content": "",
       "levelNumber": -1,
@@ -687,7 +687,7 @@
       "sourceSection": "PROCEDURE_DIVISION"
     },
     {
-      "id": "c0913bda-cf7b-4f7d-b1ab-9d3d4a9c93f6",
+      "id": "018edf82-b8de-4ecf-ba29-dcafd09ccedc",
       "name": "TypedRecord[value\u003d1.0, dataType\u003dCobolDataType[usageType\u003dZONED_DECIMAL, defaultValue\u003dTypedRecord[value\u003dNULL, dataType\u003dnull], abstractType\u003dNUMBER]]",
       "content": "",
       "levelNumber": -1,
@@ -703,7 +703,7 @@
       "sourceSection": "PROCEDURE_DIVISION"
     },
     {
-      "id": "f3c4bd73-3b0d-4cc5-96f6-75e75ef66425",
+      "id": "6e73729b-629e-426d-b479-ef4432e6bc8d",
       "name": "TypedRecord[value\u003d1.0, dataType\u003dCobolDataType[usageType\u003dZONED_DECIMAL, defaultValue\u003dTypedRecord[value\u003dNULL, dataType\u003dnull], abstractType\u003dNUMBER]]",
       "content": "",
       "levelNumber": -1,
@@ -719,7 +719,7 @@
       "sourceSection": "PROCEDURE_DIVISION"
     },
     {
-      "id": "69dd8253-ba2d-41e5-9cd9-e44bb65faa53",
+      "id": "60d991f8-49e4-426f-92ab-5b2b1334064f",
       "name": "TypedRecord[value\u003d1.0, dataType\u003dCobolDataType[usageType\u003dZONED_DECIMAL, defaultValue\u003dTypedRecord[value\u003dNULL, dataType\u003dnull], abstractType\u003dNUMBER]]",
       "content": "",
       "levelNumber": -1,
