@@ -50,7 +50,8 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 | CBSTM03B | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started |
 | CBTRN01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 18 paragraphs, 21 L01 items |
 | CBTRN02C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — large file (58 KB) |
-| CBTRN03C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — large file (52 KB) |
+| CBTRN03C | Batch/VSAM | ❌ | ❌ | ❌ | — | 
+❌ | Not started — large file (52 KB) |
 
 ### CICS Online Programs — CO prefix
 
