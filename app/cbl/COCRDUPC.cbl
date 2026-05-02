@@ -191,8 +191,11 @@
                     END-EXEC                                                     
       ******************************************************************        
       *       USER CAME FROM CREDIT CARD LIST SCREEN                            
-      *            SO WE ALREADY HAVE THE FILTER KEYS                           
-      *            FETCH THE ASSSOCIATED CARD DETAILS FOR UPDATE                
+      *            TYPE A CFG FIX: two plain WHENs + single nested IF/END-IF    
+      *            (replaces original compound WHEN..AND fallthrough pattern)    
+      *            WHEN CDEMO-PGM-ENTER                                          
+      *            WHEN CCARD-AID-PFK12                                          
+      *                IF CDEMO-FROM-PROGRAM EQUAL LIT-CCLISTPGM                
       ******************************************************************        
                WHEN CDEMO-PGM-ENTER                                              
                WHEN CCARD-AID-PFK12                                              
