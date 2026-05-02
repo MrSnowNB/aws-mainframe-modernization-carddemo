@@ -1,5 +1,4 @@
 ---
-# ── Identity ──────────────────────────────────────────────────────────────────
 schema_version: "cobol-md/1.0"
 program_id: "CBACT01C"
 source_file: "app/cbl/CBACT01C.cbl"
@@ -9,11 +8,9 @@ translating_agent: "claude-opus-4-5 (subagent)"
 aifirst_task_id: "T-2026-04-23-001"
 cfg_source: "validation/structure/CBACT01C_cfg.json"
 
-# ── Classification ─────────────────────────────────────────────────────────────
 business_domain: "Account Management"
 subtype: "Batch"
 
-# ── Structural Metadata ────────────────────────────────────────────────────────
 author: "AWS"
 date_written: null
 lines_of_code: 248
@@ -27,7 +24,6 @@ environment:
   target: "Batch/VSAM"
   runtime: "z/OS"
 
-# ── Graph Edges ────────────────────────────────────────────────────────────────
 calls_to:
   - program: "COBDATFT"
     condition: "unconditional"
@@ -46,7 +42,6 @@ copybooks_used:
     path: "app/cpy/CODATECN.cpy"
     sha: null
 
-# ── File I/O ──────────────────────────────────────────────────────────────────
 file_control:
   - ddname: "ACCTFILE"
     organization: "INDEXED"
@@ -69,11 +64,9 @@ file_control:
     record_key: null
     crud: ["CREATE"]
 
-# ── CICS ───────────────────────────────────────────────────────────────────────
 cics_commands: []
 transaction_ids: []
 
-# ── Data Layer ─────────────────────────────────────────────────────────────────
 data_items:
   - name: "FD-ACCTFILE-REC"
     level: 01
@@ -297,7 +290,6 @@ data_items:
     dead_code_flag: false
     semantic: "Flat ten-character alias for WS-ACCT-REISSUE-DATE; enables bulk assignment of the full date string while WS-ACCT-REISSUE-DATE provides field-level access to individual date components"
 
-# ── Procedure Paragraphs ───────────────────────────────────────────────────────
 procedure_paragraphs:
   - name: "1000-ACCTFILE-GET-NEXT"
     reachable: true
@@ -425,7 +417,6 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Decodes and displays the two-byte I/O status code in a normalised four-digit format, handling both standard numeric status codes and VSAM extended (non-numeric or '9x') status codes"
 
-# ── Business Rules ─────────────────────────────────────────────────────────────
 business_rules:
   - id: "BR-001"
     rule: "The main read loop continues only while END-OF-FILE equals 'N'; once any read sets END-OF-FILE to 'Y', the program exits the loop and proceeds to file close and termination"
@@ -532,7 +523,6 @@ business_rules:
     confidence: "high"
     reachable: true
 
-# ── Validation Status ──────────────────────────────────────────────────────────
 validation:
   t01_schema_valid: true
   t02_structural_complete: true

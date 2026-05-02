@@ -1,5 +1,4 @@
 ---
-# ── Identity ──────────────────────────────────────────────────────────────────
 schema_version: "cobol-md/1.0"
 program_id: "CBACT02C"
 source_file: "app/cbl/CBACT02C.cbl"
@@ -9,11 +8,9 @@ translating_agent: "recovery/restore-green-baseline (gate repair)"
 aifirst_task_id: "T-2026-04-23-002"
 cfg_source: "validation/structure/CBACT02C_cfg.json"
 
-# ── Classification ─────────────────────────────────────────────────────────────
 business_domain: "Account Management"
 subtype: "Batch"
 
-# ── Structural Metadata ────────────────────────────────────────────────────────
 author: "AWS"
 date_written: null
 lines_of_code: null
@@ -27,7 +24,6 @@ environment:
   target: "Batch/VSAM"
   runtime: "z/OS"
 
-# ── Graph Edges ────────────────────────────────────────────────────────────────
 calls_to:
   - program: "CEE3ABD"
     condition: "fatal I/O or open/close failure detected"
@@ -40,7 +36,6 @@ copybooks_used:
     path: "app/cpy/CVACT02Y.cpy"
     sha: null
 
-# ── File I/O ──────────────────────────────────────────────────────────────────
 file_control:
   - ddname: "CARDFILE"
     organization: "INDEXED"
@@ -48,11 +43,9 @@ file_control:
     record_key: "FD-CARD-NUM"
     crud: ["READ"]
 
-# ── CICS ───────────────────────────────────────────────────────────────────────
 cics_commands: []
 transaction_ids: []
 
-# ── Data Layer ─────────────────────────────────────────────────────────────────
 data_items:
   - name: "FD-CARDFILE-REC"
     level: 01
@@ -160,7 +153,6 @@ data_items:
     dead_code_flag: false
     semantic: "Timing parameter passed to CEE3ABD alongside ABCODE; set to 0 indicating immediate abend"
 
-# ── Procedure Paragraphs ───────────────────────────────────────────────────────
 procedure_paragraphs:
   - name: "CBACT02C-MAIN"
     reachable: true
@@ -207,7 +199,6 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Decodes and displays the two-byte I/O status code in normalised four-digit format; VSAM extended ('9x') codes are decoded via binary/character overlay, standard numeric codes are displayed as-is"
 
-# ── Business Rules ─────────────────────────────────────────────────────────────
 business_rules:
   - id: "BR-001"
     rule: "The main read loop continues only while END-OF-FILE equals 'N'; once any read sets END-OF-FILE to 'Y', the program exits the loop, closes CARDFILE, and terminates"
@@ -244,7 +235,6 @@ business_rules:
     confidence: "high"
     reachable: true
 
-# ── Validation Status ──────────────────────────────────────────────────────────
 validation:
   t01_schema_valid: true
   t02_structural_complete: true

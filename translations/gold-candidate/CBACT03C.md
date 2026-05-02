@@ -1,5 +1,4 @@
 ---
-# ── Identity ──────────────────────────────────────────────────────────────────
 schema_version: "cobol-md/1.0"
 program_id: "CBACT03C"
 source_file: "app/cbl/CBACT03C.cbl"
@@ -9,11 +8,9 @@ translating_agent: "Cline (subagent)"
 aifirst_task_id: "T-2026-04-23-002"
 cfg_source: "validation/structure/CBACT03C_cfg.json"
 
-# ── Classification ─────────────────────────────────────────────────────────────
 business_domain: "Account Management"
 subtype: "Batch"
 
-# ── Structural Metadata ────────────────────────────────────────────────────────
 author: "AWS"
 date_written: null
 lines_of_code: 178
@@ -27,7 +24,6 @@ environment:
   target: "Batch/VSAM"
   runtime: "z/OS"
 
-# ── Graph Edges ────────────────────────────────────────────────────────────────
 calls_to:
   - program: "CEE3ABD"
     condition: "unconditional (in 9999-ABEND-PROGRAM, invoked on any I/O error)"
@@ -40,7 +36,6 @@ copybooks_used:
     path: "app/cpy/CVACT03Y.cpy"
     sha: null
 
-# ── File I/O ──────────────────────────────────────────────────────────────────
 file_control:
   - ddname: "XREFFILE"
     organization: "INDEXED"
@@ -48,11 +43,9 @@ file_control:
     record_key: "FD-XREF-CARD-NUM"
     crud: ["READ"]
 
-# ── CICS ───────────────────────────────────────────────────────────────────────
 cics_commands: []
 transaction_ids: []
 
-# ── Data Layer ─────────────────────────────────────────────────────────────────
 data_items:
   - name: "FD-XREFFILE-REC"
     level: 01
@@ -160,7 +153,6 @@ data_items:
     dead_code_flag: false
     semantic: "Timing parameter passed to CEE3ABD alongside ABCODE; set to 0 indicating immediate (non-delayed) abend"
 
-# ── Procedure Paragraphs ───────────────────────────────────────────────────────
 procedure_paragraphs:
   - name: "1000-XREFFILE-GET-NEXT"
     reachable: true
@@ -198,7 +190,6 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Decodes and displays the two-byte I/O status code in a normalised four-digit format. If IO-STATUS is non-numeric or IO-STAT1 equals '9', the VSAM extended path is taken: the first status byte is placed in IO-STATUS-04 position 1:1, TWO-BYTES-BINARY is zeroed, IO-STAT2 is moved into TWO-BYTES-RIGHT, the resulting binary integer is placed in IO-STATUS-0403, and the formatted result is displayed. Otherwise, '0000' is moved to IO-STATUS-04 and IO-STATUS is overlaid at positions 3:2 for display"
 
-# ── Business Rules ─────────────────────────────────────────────────────────────
 business_rules:
   - id: "BR-001"
     rule: "The main read loop continues only while END-OF-FILE equals 'N'; once any read sets END-OF-FILE to 'Y', the program exits the loop, closes the file, and terminates"
@@ -263,7 +254,6 @@ business_rules:
     confidence: "high"
     reachable: true
 
-# ── Validation Status ──────────────────────────────────────────────────────────
 validation:
   t01_schema_valid: true
   t02_structural_complete: true
