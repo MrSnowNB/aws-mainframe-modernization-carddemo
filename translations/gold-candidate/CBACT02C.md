@@ -154,15 +154,6 @@ data_items:
     semantic: "Timing parameter passed to CEE3ABD alongside ABCODE; set to 0 indicating immediate abend"
 
 procedure_paragraphs:
-  - name: "CBACT02C-MAIN"
-    reachable: true
-    performs:
-      - "0000-CARDFILE-OPEN"
-      - "1000-CARDFILE-GET-NEXT"
-      - "9000-CARDFILE-CLOSE"
-    goto_targets: []
-    summary: "Main control paragraph: displays start banner, opens CARDFILE, drives a PERFORM UNTIL read loop while END-OF-FILE is 'N', closes CARDFILE, displays end banner, and issues GOBACK"
-
   - name: "1000-CARDFILE-GET-NEXT"
     reachable: true
     performs:
@@ -202,7 +193,7 @@ procedure_paragraphs:
 business_rules:
   - id: "BR-001"
     rule: "The main read loop continues only while END-OF-FILE equals 'N'; once any read sets END-OF-FILE to 'Y', the program exits the loop, closes CARDFILE, and terminates"
-    source_paragraph: "CBACT02C-MAIN"
+    source_paragraph: "1000-CARDFILE-GET-NEXT"
     rule_type: "guard"
     confidence: "high"
     reachable: true
