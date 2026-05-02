@@ -5,91 +5,104 @@ run_rekt_all.py
 Batch Cobol-REKT runner for every COBOL source file under app/cbl/.
 
 For each program that does not yet have a REKT report directory the script:
-  1. Invokes the smojol-cli JAR with the ``analyse`` command.
-  2. On success immediately runs extract_cfg_summary.py to build the
-     validation/structure/<PROG>_cfg.json artefact.
+  1. Invokes smojol-cli with the GENERATE_CFG task.
+  2. On success, immediately runs extract_cfg_summary.py to build
+     validation/structure/<PROG>_cfg.json.
 
 Usage
 -----
   py -3 validation/run_rekt_all.py                  # skip already-done
   py -3 validation/run_rekt_all.py --force          # re-run everything
   py -3 validation/run_rekt_all.py --only CBTRN02C CBTRN03C
-  py -3 validation/run_rekt_all.py --dry-run        # show commands only
+  py -3 validation/run_rekt_all.py --dry-run        # print commands only
   py -3 validation/run_rekt_all.py --jar path/to/smojol-cli.jar
+  py -3 validation/run_rekt_all.py --timeout 600    # seconds per program
 
 Environment
 -----------
-  SMOJOL_JAR   Path to the smojol-cli JAR (overrides --jar and auto-detect).
+  SMOJOL_JAR   Full path to smojol-cli.jar (highest priority).
 
-Auto-detect order for the JAR
-------------------------------
+JAR auto-detect order
+----------------------
   1. SMOJOL_JAR environment variable
   2. --jar CLI argument
-  3. Paths listed in CANDIDATE_JARS below
+  3. Paths in CANDIDATE_JARS below
+
+  Use the REAL jar (75 MB), not the archive-tmp stub (22 KB):
+    C:\\work\\cobol-rekt\\smojol-cli\\target\\smojol-cli.jar
+
+Quick start (PowerShell)
+------------------------
+  $env:SMOJOL_JAR = "C:\\work\\cobol-rekt\\smojol-cli\\target\\smojol-cli.jar"
+  py -3 validation/run_rekt_all.py --dry-run
+  py -3 validation/run_rekt_all.py
 
 Exit codes
 ----------
-  0   All targeted programs produced a report (or were skipped).
+  0   All targeted programs succeeded or were already skipped.
   1   One or more programs failed or timed out.
   2   smojol-cli JAR could not be located.
 """
 
 import os
-import re
 import subprocess
 import sys
 import textwrap
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
-# Repo layout constants
+# Repo layout
 # ---------------------------------------------------------------------------
-ROOT       = Path(__file__).parent.parent.resolve()
-SRC_DIR    = ROOT / "app" / "cbl"
-REKT_DIR   = ROOT / "validation" / "rekt"
-EXTRACT    = ROOT / "validation" / "extract_cfg_summary.py"
-COPY_DIR   = ROOT / "app" / "cpy"   # passed to REKT as copybook path
+ROOT      = Path(__file__).parent.parent.resolve()
+SRC_DIR   = ROOT / "app" / "cbl"
+COPY_DIR  = ROOT / "app" / "cpy"
+REKT_DIR  = ROOT / "validation" / "rekt"
+EXTRACT   = ROOT / "validation" / "extract_cfg_summary.py"
 
 # ---------------------------------------------------------------------------
-# Candidate JAR paths (tried in order if env var / --jar not provided)
+# JAR candidate paths (tried in order when env var / --jar not provided)
 # ---------------------------------------------------------------------------
 CANDIDATE_JARS = [
+    # Developer machine — confirmed location
+    Path(r"C:\work\cobol-rekt\smojol-cli\target\smojol-cli.jar"),
+    # Repo-local copies (convenient to drop the jar here)
     ROOT / "tools" / "smojol-cli.jar",
     ROOT / "tools" / "cobol-rekt" / "smojol-cli.jar",
     ROOT / "smojol-cli.jar",
+    # Home-directory installs
     Path.home() / "tools" / "smojol-cli.jar",
     Path.home() / "cobol-rekt" / "smojol-cli.jar",
 ]
 
-# Default per-program timeout in seconds (5 minutes).
-DEFAULT_TIMEOUT = 300
+# Minimum JAR size in bytes — rejects the 22 KB archive-tmp stub.
+_MIN_JAR_BYTES = 1_000_000
 
-# ANSI colour helpers (disabled on Windows unless TERM is set)
+DEFAULT_TIMEOUT = 300  # seconds per program
+
+# ---------------------------------------------------------------------------
+# ANSI colour helpers
+# ---------------------------------------------------------------------------
 _USE_COLOR = sys.stdout.isatty() and os.environ.get("TERM", "dumb") != "dumb"
 
 def _c(code: str, text: str) -> str:
     return f"\033[{code}m{text}\033[0m" if _USE_COLOR else text
 
-OK   = lambda t: _c("32", t)   # green
-FAIL = lambda t: _c("31", t)   # red
-SKIP = lambda t: _c("33", t)   # yellow
-INFO = lambda t: _c("36", t)   # cyan
+OK   = lambda t: _c("32", t)
+FAIL = lambda t: _c("31", t)
+SKIP = lambda t: _c("33", t)
+INFO = lambda t: _c("36", t)
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
-def find_sources() -> list[Path]:
-    """Return all .cbl / .CBL files in app/cbl/, sorted by name."""
-    return sorted(
-        p for p in SRC_DIR.iterdir()
-        if p.suffix.lower() == ".cbl"
-    )
+def find_sources() -> list:
+    """All .cbl / .CBL files in app/cbl/, sorted by name."""
+    return sorted(p for p in SRC_DIR.iterdir() if p.suffix.lower() == ".cbl")
 
 
 def prog_name(src: Path) -> str:
-    """CBACT01C  from  app/cbl/CBACT01C.cbl"""
     return src.stem.upper()
 
 
@@ -101,52 +114,62 @@ def cfg_json(prog: str) -> Path:
     return ROOT / "validation" / "structure" / f"{prog}_cfg.json"
 
 
-def locate_jar(jar_arg: str | None) -> Path | None:
-    """Return the JAR path from env / CLI arg / candidate list, or None."""
+def locate_jar(jar_arg) -> Path | None:
+    """Return a valid, non-stub JAR path or None."""
+    def _check(p: Path, label: str):
+        if not p.exists():
+            return None
+        if p.stat().st_size < _MIN_JAR_BYTES:
+            print(FAIL(
+                f"[JAR] Rejected {p} ({p.stat().st_size // 1024} KB) — "
+                f"looks like the archive-tmp stub, not the real JAR."
+            ))
+            return None
+        print(INFO(f"[JAR] {label}: {p}"))
+        return p
+
     env = os.environ.get("SMOJOL_JAR")
     if env:
-        p = Path(env)
-        if p.exists():
-            return p
-        print(FAIL(f"[JAR] SMOJOL_JAR env var set but file not found: {p}"))
-        return None
+        return _check(Path(env), "SMOJOL_JAR env")
 
     if jar_arg:
-        p = Path(jar_arg)
-        if p.exists():
-            return p
-        print(FAIL(f"[JAR] --jar path not found: {p}"))
-        return None
+        return _check(Path(jar_arg), "--jar")
 
     for candidate in CANDIDATE_JARS:
-        if candidate.exists():
-            return candidate
+        result = _check(candidate, "auto-detected")
+        if result:
+            return result
 
     return None
 
 
-def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
+def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list:
     """
-    Build the smojol-cli invocation for a single program.
+    Build the smojol-cli invocation.
 
-    Command shape (matches existing validated invocations):
-      java -jar smojol-cli.jar analyse \
-           --source     <src.cbl> \
-           --copybooks  <app/cpy> \
-           --output     validation/rekt/<PROG>.cbl.report
+    smojol-cli command shape (matches aws-carddemo.sh):
+
+      java -jar smojol-cli.jar
+        GENERATE_CFG
+        --programs          <PROG>.cbl
+        --cobol-collection-path  app/cbl
+        --copybook-collection-path  app/cpy
+        --output-path       validation/rekt
+        --dialect           IDMS          # omit if not needed; safe default
+
+    REKT creates:  validation/rekt/<PROG>.cbl.report/cfg/cfg-<PROG>.cbl.json
     """
-    out = report_dir(prog)
     return [
         "java", "-jar", str(jar),
-        "analyse",
-        "--source",    str(src),
-        "--copybooks", str(COPY_DIR),
-        "--output",    str(out),
+        "GENERATE_CFG",
+        "--programs",                  f"{prog}.cbl",
+        "--cobol-collection-path",     str(SRC_DIR),
+        "--copybook-collection-path",  str(COPY_DIR),
+        "--output-path",               str(REKT_DIR),
     ]
 
 
 def run_extract(prog: str, dry_run: bool) -> bool:
-    """Run extract_cfg_summary.py for a single program."""
     cmd = [sys.executable, str(EXTRACT), prog]
     if dry_run:
         print(INFO(f"  [DRY] {' '.join(cmd)}"))
@@ -159,59 +182,58 @@ def run_extract(prog: str, dry_run: bool) -> bool:
 # Per-program runner
 # ---------------------------------------------------------------------------
 
-def run_program(
-    jar: Path,
-    src: Path,
-    *,
-    force: bool,
-    dry_run: bool,
-    timeout: int,
-) -> str:
+def run_program(jar: Path, src: Path, *, force: bool, dry_run: bool, timeout: int) -> str:
     """
-    Run REKT + extract for one program.
-    Returns one of: 'skipped', 'ok', 'failed', 'timeout', 'dry'
+    Returns one of: 'skipped' | 'ok' | 'failed' | 'timeout' | 'dry'
     """
-    prog = prog_name(src)
-    rdir = report_dir(prog)
+    prog  = prog_name(src)
+    rdir  = report_dir(prog)
+    cfjson = cfg_json(prog)
 
-    if not force and rdir.exists() and cfg_json(prog).exists():
-        print(SKIP(f"[SKIP] {prog}: report + cfg.json already exist"))
+    if not force and rdir.exists() and cfjson.exists():
+        print(SKIP(f"[SKIP] {prog}: report dir + cfg.json already exist"))
         return "skipped"
 
     cmd = build_rekt_cmd(jar, src, prog)
+    size_kb = src.stat().st_size // 1024
 
     if dry_run:
-        print(INFO(f"[DRY]  {prog}"))
+        print(INFO(f"[DRY]  {prog}  ({size_kb} KB)"))
         print(INFO(f"       {' '.join(cmd)}"))
         run_extract(prog, dry_run=True)
         return "dry"
 
-    rdir.mkdir(parents=True, exist_ok=True)
-    print(INFO(f"[REKT] {prog}  ({src.stat().st_size // 1024} KB) ..."))
+    print(INFO(f"[REKT] {prog}  ({size_kb} KB) ..."))
 
     try:
         result = subprocess.run(
             cmd,
             cwd=ROOT,
             timeout=timeout,
-            capture_output=False,  # let REKT output flow to console
         )
     except subprocess.TimeoutExpired:
-        print(FAIL(f"[TIMEOUT] {prog}: exceeded {timeout}s"))
+        print(FAIL(f"[TIMEOUT] {prog}: exceeded {timeout}s — increase with --timeout N"))
         return "timeout"
     except FileNotFoundError:
-        print(FAIL("[ERROR] 'java' not found on PATH. Is the JDK installed?"))
+        print(FAIL("[ERROR] 'java' not found — is a JDK on PATH?"))
         return "failed"
 
     if result.returncode != 0:
         print(FAIL(f"[FAIL] {prog}: smojol-cli exited {result.returncode}"))
         return "failed"
 
-    print(OK(f"[REKT-OK] {prog}: report written to {rdir.relative_to(ROOT)}"))
+    # Verify REKT actually wrote the expected CFG JSON
+    expected_cfg = rdir / "cfg" / f"cfg-{prog}.cbl.json"
+    if not expected_cfg.exists():
+        print(FAIL(f"[FAIL] {prog}: REKT returned 0 but {expected_cfg.name} not found"))
+        print(FAIL(f"       Expected: {expected_cfg}"))
+        return "failed"
+
+    print(OK(f"[REKT-OK] {prog}: cfg JSON found"))
 
     ok = run_extract(prog, dry_run=False)
     if ok:
-        print(OK(f"[CFG-OK]  {prog}: cfg.json written"))
+        print(OK(f"[CFG-OK]  {prog}: structure/{prog}_cfg.json written"))
         return "ok"
     else:
         print(FAIL(f"[CFG-FAIL] {prog}: extract_cfg_summary.py failed"))
@@ -219,7 +241,7 @@ def run_program(
 
 
 # ---------------------------------------------------------------------------
-# CLI
+# CLI parser
 # ---------------------------------------------------------------------------
 
 def parse_args() -> dict:
@@ -236,16 +258,14 @@ def parse_args() -> dict:
         a = args[i]
         if a == "--force":
             opts["force"] = True
-        elif a == "--dry-run":
+        elif a in ("--dry-run", "--dry"):
             opts["dry_run"] = True
-        elif a == "--skip-existing":   # default; accepted for clarity
+        elif a == "--skip-existing":
             pass
         elif a == "--jar":
-            i += 1
-            opts["jar"] = args[i]
+            i += 1; opts["jar"] = args[i]
         elif a == "--timeout":
-            i += 1
-            opts["timeout"] = int(args[i])
+            i += 1; opts["timeout"] = int(args[i])
         elif a == "--only":
             i += 1
             while i < len(args) and not args[i].startswith("--"):
@@ -259,22 +279,27 @@ def parse_args() -> dict:
     return opts
 
 
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
 def main() -> int:
     opts = parse_args()
 
-    # ---- locate JAR -------------------------------------------------
     if not opts["dry_run"]:
         jar = locate_jar(opts["jar"])
         if jar is None:
-            print(FAIL("[ERROR] Cannot locate smojol-cli JAR."))
-            print(FAIL("        Set SMOJOL_JAR env var or use --jar PATH."))
-            print(FAIL(f"        Searched: {[str(p) for p in CANDIDATE_JARS]}"))
+            print(FAIL("\n[ERROR] Cannot locate smojol-cli JAR."))
+            print(FAIL(  "        Set SMOJOL_JAR or use --jar PATH."))
+            print(FAIL(  "        Searched:"))
+            for p in CANDIDATE_JARS:
+                print(FAIL(f"          {p}"))
+            print()
+            print(      "  Tip: $env:SMOJOL_JAR = 'C:\\work\\cobol-rekt\\smojol-cli\\target\\smojol-cli.jar'")
             return 2
-        print(INFO(f"[JAR]  Using: {jar}"))
     else:
-        jar = Path("smojol-cli.jar")   # placeholder for dry-run display
+        jar = Path("smojol-cli.jar")
 
-    # ---- gather sources ---------------------------------------------
     sources = find_sources()
     if opts["only"]:
         sources = [s for s in sources if prog_name(s) in opts["only"]]
@@ -282,11 +307,16 @@ def main() -> int:
             print(FAIL(f"[ERROR] --only matched no files: {opts['only']}"))
             return 1
 
-    print(INFO(f"[INFO] {len(sources)} source file(s) targeted"))
+    total = len(sources)
+    print(INFO(f"[INFO] {total} source file(s) targeted"))
+    if not opts["force"]:
+        already = sum(1 for s in sources
+                      if report_dir(prog_name(s)).exists()
+                      and cfg_json(prog_name(s)).exists())
+        print(INFO(f"[INFO] {already} already have report+cfg.json (will skip)"))
     print()
 
-    # ---- run --------------------------------------------------------
-    results: dict[str, str] = {}
+    results: dict = {}
     for src in sources:
         status = run_program(
             jar, src,
@@ -297,33 +327,29 @@ def main() -> int:
         results[prog_name(src)] = status
         print()
 
-    # ---- summary ----------------------------------------------------
+    # ---- summary table --------------------------------------------------
     col_w = max(len(p) for p in results) + 2
-    print("-" * 56)
+    divider = "-" * 52
+    print(divider)
     print(f"{'Program':<{col_w}}  Status")
-    print("-" * 56)
-    counts: dict[str, int] = {"ok": 0, "skipped": 0, "failed": 0, "timeout": 0, "dry": 0}
+    print(divider)
+    counts: dict = {"ok": 0, "skipped": 0, "failed": 0, "timeout": 0, "dry": 0}
     for prog, status in sorted(results.items()):
         counts[status] = counts.get(status, 0) + 1
-        if status == "ok":
-            line = OK(f"  {'PASS':<10}")
-        elif status == "skipped":
-            line = SKIP(f"  {'SKIP':<10}")
-        elif status == "dry":
-            line = INFO(f"  {'DRY':<10}")
-        else:
-            line = FAIL(f"  {'FAIL':<10}")
-        print(f"{prog:<{col_w}}{line}")
-    print("-" * 56)
-    print(
-        f"  ok={counts['ok']}  skipped={counts['skipped']}  "
-        f"failed={counts['failed']}  timeout={counts['timeout']}"
-    )
-    print("-" * 56)
+        label = {"ok": "PASS", "skipped": "SKIP", "failed": "FAIL",
+                 "timeout": "TIMEOUT", "dry": "DRY"}.get(status, status)
+        colour = {"ok": OK, "skipped": SKIP, "failed": FAIL,
+                  "timeout": FAIL, "dry": INFO}.get(status, INFO)
+        print(f"{prog:<{col_w}}  {colour(label)}")
+    print(divider)
+    print(f"  ok={counts['ok']}  skipped={counts['skipped']}  "
+          f"failed={counts['failed']}  timeout={counts['timeout']}")
+    print(divider)
 
     if counts["failed"] or counts["timeout"]:
-        print(FAIL("\nOne or more programs failed. See output above."))
-        print(FAIL("After fixing, re-run:  py -3 validation/run_rekt_all.py --only <PROG>"))
+        print(FAIL("\nSome programs failed. Re-run only failures:"))
+        failures = [p for p, s in results.items() if s in ("failed", "timeout")]
+        print(FAIL(f"  py -3 validation/run_rekt_all.py --only {' '.join(failures)}"))
         return 1
 
     if opts["dry_run"]:
