@@ -188,7 +188,7 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
     Build the smojol-cli invocation for a single program.
 
     smojol-cli expects each command as a separate --commands flag:
-      java -jar smojol-cli.jar run <src.cbl>
+      java -jar smojol-cli.jar run <filename.cbl>
            --commands WRITE_FLOW_AST
            --commands WRITE_CFG
            --commands WRITE_DATA_STRUCTURES
@@ -198,11 +198,15 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
            --dialect      COBOL
            --reportDir    validation/rekt/<PROG>.cbl.report
            --generation=PARAGRAPH
+
+    NOTE: We pass only the filename (src.name) rather than the full absolute
+    path.  smojol-cli resolves the file relative to --srcDir internally, and
+    its case-sensitive path matching fails on Windows when given a full path.
     """
     out = report_dir(prog)
     cmd = [
         "java", "-jar", str(jar),
-        "run", str(src),
+        "run", src.name,          # filename only, not full absolute path
     ]
 
     # Each command is a separate --commands flag -- do NOT join with commas.
