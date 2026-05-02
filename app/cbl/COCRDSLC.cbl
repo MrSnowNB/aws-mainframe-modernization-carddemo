@@ -188,28 +188,26 @@
                               COMMAREA(CARDDEMO-COMMAREA)                        
                     END-EXEC                                                     
       ******************************************************************        
-      *            COMING FROM CREDIT CARD LIST SCREEN                           
-      *            SELECTION CRITERIA ALREADY VALIDATED                          
+      *            COMING FROM CREDIT CARD LIST SCREEN OR OTHER CONTEXT          
+      *            SINGLE WHEN CDEMO-PGM-ENTER - TYPE A CFG FIX                  
+      *            (nested EVALUATE replaces duplicate WHEN + nested IF)         
       ******************************************************************        
                WHEN CDEMO-PGM-ENTER                                              
-                   IF CDEMO-FROM-PROGRAM  EQUAL LIT-CCLISTPGM                   
-                          SET INPUT-OK TO TRUE                                   
-                          MOVE CDEMO-ACCT-ID       TO CC-ACCT-ID-N              
-                          MOVE CDEMO-CARD-NUM      TO CC-CARD-NUM-N             
-                          PERFORM 9000-READ-DATA                                 
-                             THRU 9000-READ-DATA-EXIT                            
-                          PERFORM 1000-SEND-MAP                                  
-                            THRU 1000-SEND-MAP-EXIT                              
-                          GO TO COMMON-RETURN                                    
-                   END-IF                                                        
-      ******************************************************************        
-      *            COMING FROM SOME OTHER CONTEXT                                
-      *            SELECTION CRITERIA TO BE GATHERED                             
-      ******************************************************************        
-               WHEN CDEMO-PGM-ENTER                                              
-                    PERFORM 1000-SEND-MAP THRU                                   
-                            1000-SEND-MAP-EXIT                                   
-                    GO TO COMMON-RETURN                                          
+                    EVALUATE TRUE                                                
+                        WHEN CDEMO-FROM-PROGRAM EQUAL LIT-CCLISTPGM             
+                            SET INPUT-OK TO TRUE                                 
+                            MOVE CDEMO-ACCT-ID       TO CC-ACCT-ID-N            
+                            MOVE CDEMO-CARD-NUM      TO CC-CARD-NUM-N           
+                            PERFORM 9000-READ-DATA                               
+                               THRU 9000-READ-DATA-EXIT                          
+                            PERFORM 1000-SEND-MAP                                
+                              THRU 1000-SEND-MAP-EXIT                            
+                            GO TO COMMON-RETURN                                  
+                        WHEN OTHER                                               
+                            PERFORM 1000-SEND-MAP                                
+                               THRU 1000-SEND-MAP-EXIT                           
+                            GO TO COMMON-RETURN                                  
+                    END-EVALUATE                                                  
                WHEN CDEMO-PGM-REENTER                                            
                     PERFORM 2000-PROCESS-INPUTS                                  
                        THRU 2000-PROCESS-INPUTS-EXIT                             
