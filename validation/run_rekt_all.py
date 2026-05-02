@@ -44,7 +44,6 @@ Exit codes
 """
 
 import os
-import re
 import subprocess
 import sys
 import textwrap
@@ -85,10 +84,14 @@ CANDIDATE_DIALECT_JARS = [
 ]
 
 # smojol-cli 'run' commands required for CFG + data-structure extraction.
-# WRITE_FLOW_AST        -> AST needed by the CFG builder; must precede WRITE_CFG
-# WRITE_CFG             -> paragraph-level CFG JSON (used by extract_cfg_summary.py)
-# WRITE_DATA_STRUCTURES -> Working Storage inventory (used by gate data-items checks)
-REKT_COMMANDS = "WRITE_FLOW_AST,WRITE_CFG,WRITE_DATA_STRUCTURES"
+# Each entry becomes its own --commands TOKEN on the command line because
+# smojol-cli's picocli binding does not split on commas.
+# Order matters: WRITE_FLOW_AST must precede WRITE_CFG.
+REKT_COMMANDS = [
+    "WRITE_FLOW_AST",
+    "WRITE_CFG",
+    "WRITE_DATA_STRUCTURES",
+]
 
 # Default per-program timeout in seconds (5 minutes).
 DEFAULT_TIMEOUT = 300
@@ -184,9 +187,11 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
     """
     Build the smojol-cli invocation for a single program.
 
-    Command shape (matches cobol-rekt/scripts/aws-carddemo.sh):
+    smojol-cli expects each command as a separate --commands flag:
       java -jar smojol-cli.jar run <src.cbl>
-           --commands=WRITE_FLOW_AST,WRITE_CFG,WRITE_DATA_STRUCTURES
+           --commands WRITE_FLOW_AST
+           --commands WRITE_CFG
+           --commands WRITE_DATA_STRUCTURES
            --srcDir       <app/cbl>
            --copyBooksDir <app/cpy>
            --dialectJarPath <dialect-idms.jar>   # omitted when not found
@@ -198,7 +203,13 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
     cmd = [
         "java", "-jar", str(jar),
         "run", str(src),
-        f"--commands={REKT_COMMANDS}",
+    ]
+
+    # Each command is a separate --commands flag -- do NOT join with commas.
+    for rekt_cmd in REKT_COMMANDS:
+        cmd += ["--commands", rekt_cmd]
+
+    cmd += [
         "--srcDir",        str(SRC_DIR),
         "--copyBooksDir",  str(COPY_DIR),
     ]
