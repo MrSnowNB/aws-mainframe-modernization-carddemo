@@ -190,7 +190,7 @@
       ******************************************************************        
       *            COMING FROM CREDIT CARD LIST SCREEN                           
       *            TYPE A CFG FIX: plain WHEN + nested IF/END-IF                 
-      *            (replaces prior nested EVALUATE which blocked CFG build)      
+      *            ELSE removed: unmatched case falls to WHEN OTHER              
       ******************************************************************        
                WHEN CDEMO-PGM-ENTER                                              
                    IF CDEMO-FROM-PROGRAM EQUAL LIT-CCLISTPGM                    
@@ -201,10 +201,6 @@
                           THRU 9000-READ-DATA-EXIT                               
                        PERFORM 1000-SEND-MAP                                     
                          THRU 1000-SEND-MAP-EXIT                                 
-                       GO TO COMMON-RETURN                                       
-                   ELSE                                                          
-                       PERFORM 1000-SEND-MAP                                     
-                          THRU 1000-SEND-MAP-EXIT                                
                        GO TO COMMON-RETURN                                       
                    END-IF                                                        
                WHEN OTHER                                                        
