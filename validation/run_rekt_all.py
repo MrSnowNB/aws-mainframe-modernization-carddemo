@@ -56,7 +56,17 @@ ROOT       = Path(__file__).parent.parent.resolve()
 SRC_DIR    = ROOT / "app" / "cbl"
 REKT_DIR   = ROOT / "validation" / "rekt"
 EXTRACT    = ROOT / "validation" / "extract_cfg_summary.py"
-COPY_DIR   = ROOT / "app" / "cpy"   # passed to REKT as copybook path
+
+# All copybook directories passed to smojol-cli (each becomes a separate
+# --copyBooksDir flag).  Order matters: smojol-cli searches them in order.
+#   app/cpy       -- application data-structure copybooks
+#   app/cpy-bms   -- BMS-generated map copybooks (COUSRxx, COACTxx, etc.)
+#   app/cpy-stubs -- CICS system stubs (DFHAID, DFHBMSCA, etc.)
+COPY_DIRS = [
+    ROOT / "app" / "cpy",
+    ROOT / "app" / "cpy-bms",
+    ROOT / "app" / "cpy-stubs",
+]
 
 # Conventional cobol-rekt checkout location on Windows dev machines.
 _COBOL_REKT_ROOT = Path("C:/work/cobol-rekt")
@@ -194,6 +204,8 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
            --commands WRITE_DATA_STRUCTURES
            --srcDir       <app/cbl>
            --copyBooksDir <app/cpy>
+           --copyBooksDir <app/cpy-bms>
+           --copyBooksDir <app/cpy-stubs>
            --dialectJarPath <dialect-idms.jar>   # omitted when not found
            --dialect      COBOL
            --reportDir    validation/rekt/<PROG>.cbl.report
@@ -213,10 +225,12 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
     for rekt_cmd in REKT_COMMANDS:
         cmd += ["--commands", rekt_cmd]
 
-    cmd += [
-        "--srcDir",        str(SRC_DIR),
-        "--copyBooksDir",  str(COPY_DIR),
-    ]
+    cmd += ["--srcDir", str(SRC_DIR)]
+
+    # Add each copybook directory as a separate --copyBooksDir flag.
+    for cpy_dir in COPY_DIRS:
+        if cpy_dir.exists():
+            cmd += ["--copyBooksDir", str(cpy_dir)]
 
     dialect_jar = locate_dialect_jar()
     if dialect_jar:
