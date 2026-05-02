@@ -1,4 +1,4 @@
-  ---
+---
 schema_version: "cobol-md/1.0"
 program_id: "CBCUS01C"
 source_file: "app/cbl/CBCUS01C.cbl"
@@ -154,28 +154,6 @@ data_items:
     semantic: "Signed nine-digit binary integer holding the timing option passed to CEE3ABD; set to 0 to request immediate abend without a timing delay."
 
 procedure_paragraphs:
-  - name: "END-PERFORM"
-    reachable: true
-    performs:
-      - "0000-CUSTFILE-OPEN"
-      - "1000-CUSTFILE-GET-NEXT"
-      - "9000-CUSTFILE-CLOSE"
-      - "Z-DISPLAY-IO-STATUS"
-      - "Z-ABEND-PROGRAM"
-    goto_targets: []
-    summary: "Main inline control block that announces program start, opens the customer file, loops sequentially through all records displaying each one, closes the file, and returns to the caller."
-
-  - name: "GOBACK"
-    reachable: false
-    performs:
-      - "0000-CUSTFILE-OPEN"
-      - "1000-CUSTFILE-GET-NEXT"
-      - "9000-CUSTFILE-CLOSE"
-      - "Z-DISPLAY-IO-STATUS"
-      - "Z-ABEND-PROGRAM"
-    goto_targets: []
-    summary: "Static-analysis artifact representing the GOBACK statement that terminates program execution; marked unreachable by the CFG tool because it is structurally subsumed by the END-PERFORM node in the extracted control-flow graph."
-
   - name: "1000-CUSTFILE-GET-NEXT"
     reachable: true
     performs:
@@ -257,7 +235,7 @@ business_rules:
 
   - id: "BR-007"
     rule: "Each successfully read customer record is displayed immediately to the operator console inside the read loop, making the program a sequential audit-print utility rather than a transforming batch job."
-    source_paragraph: "END-PERFORM"
+    source_paragraph: "1000-CUSTFILE-GET-NEXT"
     rule_type: "display"
     confidence: "high"
     reachable: true
@@ -302,13 +280,9 @@ The program runs as a standard IBM z/OS batch job step. It requires no CICS infr
 
 ## Procedure Logic
 
-### END-PERFORM (main inline control flow)
+### Inline main control flow
 
-This is the program's top-level control node as identified by the CFG tool. It represents the inline code in the Procedure Division that executes before any named paragraph. Execution begins by displaying a start-of-program banner to the console. It then calls the file-open paragraph, enters a PERFORM UNTIL loop that iterates as long as the end-of-file flag is 'N', and within each iteration calls the record-read paragraph and, if the flag is still 'N' after the read, displays the customer record. When the loop exits, it calls the file-close paragraph, displays an end-of-program banner, and issues GOBACK to return control to the job scheduler.
-
-### GOBACK
-
-This node is marked unreachable by static analysis and represents the GOBACK statement as a discrete CFG endpoint. In the source it is the final statement of the inline main-block and is always reached at runtime; the CFG tool's reachability classification reflects a graph-traversal artifact rather than genuine dead code. The GOBACK statement terminates the program and returns to the calling environment.
+This is the program's top-level control. Execution begins by displaying a start-of-program banner to the console. It then calls the file-open paragraph, enters a PERFORM UNTIL loop that iterates as long as the end-of-file flag is 'N', and within each iteration calls the record-read paragraph and, if the flag is still 'N' after the read, displays the customer record. When the loop exits, it calls the file-close paragraph, displays an end-of-program banner, and issues GOBACK to return control to the job scheduler.
 
 ### 1000-CUSTFILE-GET-NEXT
 
@@ -351,8 +325,7 @@ This paragraph formats the two-byte IO-STATUS value into a four-character printa
 - **CALLS:** CBCUS01C -[:CALLS {condition: "APPL-RESULT is not 0 or 16 after file operation failure", call_type: "STATIC"}]-> CEE3ABD
 - **COPYBOOKS:** CBCUS01C -[:USES_COPYBOOK]-> CVCUS01Y (app/cpy/CVCUS01Y.cpy) — provides the 500-byte CUSTOMER-RECORD group structure
 - **VSAM READS:** CBCUS01C -[:READS]-> CUSTFILE (INDEXED, SEQUENTIAL access, key FD-CUST-ID)
-- **PARAGRAPHS (reachable):** END-PERFORM, 1000-CUSTFILE-GET-NEXT, 0000-CUSTFILE-OPEN, 9000-CUSTFILE-CLOSE, Z-ABEND-PROGRAM, Z-DISPLAY-IO-STATUS
-- **PARAGRAPHS (unreachable/CFG artifact):** GOBACK
+- **PARAGRAPHS (reachable):** 1000-CUSTFILE-GET-NEXT, 0000-CUSTFILE-OPEN, 9000-CUSTFILE-CLOSE, Z-ABEND-PROGRAM, Z-DISPLAY-IO-STATUS
 - **REDEFINES:** TWO-BYTES-ALPHA redefines TWO-BYTES-BINARY — two interpretations gated by IO-STAT1 value and numeric status test
 - **BUSINESS RULES:** 7 rules surfaced (BR-001 through BR-007); all reachable; types: 5 guard, 1 transform, 1 display
-- **DEAD CODE:** No data items flagged dead; GOBACK paragraph flagged unreachable by CFG static analysis (likely a graph-extraction artifact — the statement executes at runtime)
+- **DEAD CODE:** No data items flagged dead

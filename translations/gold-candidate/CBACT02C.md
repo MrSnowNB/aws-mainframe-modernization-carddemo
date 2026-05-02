@@ -1,6 +1,259 @@
-{"_routing": {"task_id": "T-2026-04-23-002", "program_id": "CBACT02C", "paragraph": "CBACT02C-MAIN", "proposition_count": 10, "pass": 3}, "model": "gpt-4o-2024-08-06", "temperature": 0, "seed": 42, "max_tokens": 900, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": "You are a COBOL-to-English semantic synthesizer. Given an ordered list of Pass-2 propositions belonging to a single paragraph, produce a paragraph-level summary in the structured JSON format below. Respond with ONLY the JSON object \u2014 no prose, no code fence, no commentary.\n\nRequired response JSON schema:\n{\n  \"paragraph\": \"<copy from request>\",\n  \"group_label\": \"<short human-readable label, 2-5 words>\",\n  \"semantic_pattern\": \"<one of: guard-with-override, accumulation, state-machine, delegation, sequential, conditional-branch, cics-interaction, file-io, unknown>\",\n  \"summary\": \"<one-sentence paragraph-level description>\",\n  \"member_seqs\": [<int>, ...],\n  \"business_rules\": [\n    {\"id\": \"BR-NNN\", \"rule\": \"<English statement>\", \"rule_type\": \"<guard|transform|lookup|audit|display>\", \"confidence\": \"<high|medium|low>\"}\n  ]\n}\n\nRule 10: `semantic_pattern` MUST be one of the nine enum values. `unknown` is permitted ONLY when the paragraph is genuinely unclassifiable; it triggers a human-review gate and blocks merge. Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear flows and `conditional-branch` for IF/EVALUATE gating.\nRule 9: all data names in business_rules[].rule text must be fully qualified if the underlying Pass-2 proposition carries a qualified name."}, {"role": "user", "content": "Program ID: CBACT02C\nParagraph: CBACT02C-MAIN\nProposition count: 10\n\nOrdered propositions (seq \u2192 verb \u2192 proposition):\n  seq=1  DISPLAY  \u2192  Display output message\n  seq=2  PERFORM  \u2192  Execute the 0000-CARDFILE-OPEN procedure\n  seq=3  PERFORM  \u2192  Execute a procedure\n  seq=4  IF [IF END-OF-FILE = 'N']  \u2192  When END-OF-FILE = 'N'\n  seq=5  PERFORM [IF END-OF-FILE = 'N']  \u2192  Execute the 1000-CARDFILE-GET-NEXT procedure\n  seq=6  IF [IF END-OF-FILE = 'N']  \u2192  When END-OF-FILE = 'N'\n  seq=7  DISPLAY [IF END-OF-FILE = 'N']  \u2192  Display output message\n  seq=8  PERFORM  \u2192  Execute the 9000-CARDFILE-CLOSE procedure\n  seq=9  DISPLAY  \u2192  Display output message\n  seq=10  GOBACK  \u2192  Return control to caller\n\nProduce the paragraph-level semantic synthesis per the schema in the system prompt. Include every proposition's `seq` in `member_seqs`. Derive business rules ONLY from propositions that carry a real guard / transform / lookup / audit / display intent \u2014 do not invent rules for routine MOVE/SET/PERFORM statements."}]}
-{"_routing": {"task_id": "T-2026-04-23-002", "program_id": "CBACT02C", "paragraph": "1000-CARDFILE-GET-NEXT", "proposition_count": 15, "pass": 3}, "model": "gpt-4o-2024-08-06", "temperature": 0, "seed": 42, "max_tokens": 900, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": "You are a COBOL-to-English semantic synthesizer. Given an ordered list of Pass-2 propositions belonging to a single paragraph, produce a paragraph-level summary in the structured JSON format below. Respond with ONLY the JSON object \u2014 no prose, no code fence, no commentary.\n\nRequired response JSON schema:\n{\n  \"paragraph\": \"<copy from request>\",\n  \"group_label\": \"<short human-readable label, 2-5 words>\",\n  \"semantic_pattern\": \"<one of: guard-with-override, accumulation, state-machine, delegation, sequential, conditional-branch, cics-interaction, file-io, unknown>\",\n  \"summary\": \"<one-sentence paragraph-level description>\",\n  \"member_seqs\": [<int>, ...],\n  \"business_rules\": [\n    {\"id\": \"BR-NNN\", \"rule\": \"<English statement>\", \"rule_type\": \"<guard|transform|lookup|audit|display>\", \"confidence\": \"<high|medium|low>\"}\n  ]\n}\n\nRule 10: `semantic_pattern` MUST be one of the nine enum values. `unknown` is permitted ONLY when the paragraph is genuinely unclassifiable; it triggers a human-review gate and blocks merge. Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear flows and `conditional-branch` for IF/EVALUATE gating.\nRule 9: all data names in business_rules[].rule text must be fully qualified if the underlying Pass-2 proposition carries a qualified name."}, {"role": "user", "content": "Program ID: CBACT02C\nParagraph: 1000-CARDFILE-GET-NEXT\nProposition count: 15\n\nOrdered propositions (seq \u2192 verb \u2192 proposition):\n  seq=11  READ [modifies=CARD-RECORD]  \u2192  Retrieve next record from CARD-RECORD\n  seq=12  IF [IF CARDFILE-STATUS = '00']  \u2192  When CARDFILE-STATUS = '00'\n  seq=13  MOVE [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Set APPL-RESULT to 0\n  seq=14  IF [IF CARDFILE-STATUS = '00']  \u2192  When CARDFILE-STATUS = '00'\n  seq=15  MOVE [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Set APPL-RESULT to 16\n  seq=16  MOVE [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Set APPL-RESULT to 12\n  seq=17  IF [IF APPL-AOK]  \u2192  When APPL-AOK\n  seq=18  CONTINUE [IF APPL-AOK]  \u2192  Continue without action\n  seq=19  IF [IF APPL-AOK]  \u2192  When APPL-AOK\n  seq=20  MOVE [IF APPL-AOK] [modifies=END-OF-FILE]  \u2192  Set END-OF-FILE to 'Y'\n  seq=21  DISPLAY [IF APPL-AOK]  \u2192  Display output message\n  seq=22  MOVE [IF APPL-AOK] [modifies=IO-STATUS]  \u2192  Set IO-STATUS to CARDFILE-STATUS\n  seq=23  PERFORM [IF APPL-AOK]  \u2192  Execute the 9910-DISPLAY-IO-STATUS procedure\n  seq=24  PERFORM [IF APPL-AOK]  \u2192  Execute the 9999-ABEND-PROGRAM procedure\n  seq=25  EXIT  \u2192  Exit the current paragraph\n\nProduce the paragraph-level semantic synthesis per the schema in the system prompt. Include every proposition's `seq` in `member_seqs`. Derive business rules ONLY from propositions that carry a real guard / transform / lookup / audit / display intent \u2014 do not invent rules for routine MOVE/SET/PERFORM statements."}]}
-{"_routing": {"task_id": "T-2026-04-23-002", "program_id": "CBACT02C", "paragraph": "0000-CARDFILE-OPEN", "proposition_count": 12, "pass": 3}, "model": "gpt-4o-2024-08-06", "temperature": 0, "seed": 42, "max_tokens": 900, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": "You are a COBOL-to-English semantic synthesizer. Given an ordered list of Pass-2 propositions belonging to a single paragraph, produce a paragraph-level summary in the structured JSON format below. Respond with ONLY the JSON object \u2014 no prose, no code fence, no commentary.\n\nRequired response JSON schema:\n{\n  \"paragraph\": \"<copy from request>\",\n  \"group_label\": \"<short human-readable label, 2-5 words>\",\n  \"semantic_pattern\": \"<one of: guard-with-override, accumulation, state-machine, delegation, sequential, conditional-branch, cics-interaction, file-io, unknown>\",\n  \"summary\": \"<one-sentence paragraph-level description>\",\n  \"member_seqs\": [<int>, ...],\n  \"business_rules\": [\n    {\"id\": \"BR-NNN\", \"rule\": \"<English statement>\", \"rule_type\": \"<guard|transform|lookup|audit|display>\", \"confidence\": \"<high|medium|low>\"}\n  ]\n}\n\nRule 10: `semantic_pattern` MUST be one of the nine enum values. `unknown` is permitted ONLY when the paragraph is genuinely unclassifiable; it triggers a human-review gate and blocks merge. Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear flows and `conditional-branch` for IF/EVALUATE gating.\nRule 9: all data names in business_rules[].rule text must be fully qualified if the underlying Pass-2 proposition carries a qualified name."}, {"role": "user", "content": "Program ID: CBACT02C\nParagraph: 0000-CARDFILE-OPEN\nProposition count: 12\n\nOrdered propositions (seq \u2192 verb \u2192 proposition):\n  seq=26  MOVE [modifies=APPL-RESULT]  \u2192  Set APPL-RESULT to 8\n  seq=27  OPEN  \u2192  Open file\n  seq=28  IF [IF CARDFILE-STATUS = '00']  \u2192  When CARDFILE-STATUS = '00'\n  seq=29  MOVE [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Set APPL-RESULT to 0\n  seq=30  MOVE [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Set APPL-RESULT to 12\n  seq=31  IF [IF APPL-AOK]  \u2192  When APPL-AOK\n  seq=32  CONTINUE [IF APPL-AOK]  \u2192  Continue without action\n  seq=33  DISPLAY [IF APPL-AOK]  \u2192  Display output message\n  seq=34  MOVE [IF APPL-AOK] [modifies=IO-STATUS]  \u2192  Set IO-STATUS to CARDFILE-STATUS\n  seq=35  PERFORM [IF APPL-AOK]  \u2192  Execute the 9910-DISPLAY-IO-STATUS procedure\n  seq=36  PERFORM [IF APPL-AOK]  \u2192  Execute the 9999-ABEND-PROGRAM procedure\n  seq=37  EXIT  \u2192  Exit the current paragraph\n\nProduce the paragraph-level semantic synthesis per the schema in the system prompt. Include every proposition's `seq` in `member_seqs`. Derive business rules ONLY from propositions that carry a real guard / transform / lookup / audit / display intent \u2014 do not invent rules for routine MOVE/SET/PERFORM statements."}]}
-{"_routing": {"task_id": "T-2026-04-23-002", "program_id": "CBACT02C", "paragraph": "9000-CARDFILE-CLOSE", "proposition_count": 12, "pass": 3}, "model": "gpt-4o-2024-08-06", "temperature": 0, "seed": 42, "max_tokens": 900, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": "You are a COBOL-to-English semantic synthesizer. Given an ordered list of Pass-2 propositions belonging to a single paragraph, produce a paragraph-level summary in the structured JSON format below. Respond with ONLY the JSON object \u2014 no prose, no code fence, no commentary.\n\nRequired response JSON schema:\n{\n  \"paragraph\": \"<copy from request>\",\n  \"group_label\": \"<short human-readable label, 2-5 words>\",\n  \"semantic_pattern\": \"<one of: guard-with-override, accumulation, state-machine, delegation, sequential, conditional-branch, cics-interaction, file-io, unknown>\",\n  \"summary\": \"<one-sentence paragraph-level description>\",\n  \"member_seqs\": [<int>, ...],\n  \"business_rules\": [\n    {\"id\": \"BR-NNN\", \"rule\": \"<English statement>\", \"rule_type\": \"<guard|transform|lookup|audit|display>\", \"confidence\": \"<high|medium|low>\"}\n  ]\n}\n\nRule 10: `semantic_pattern` MUST be one of the nine enum values. `unknown` is permitted ONLY when the paragraph is genuinely unclassifiable; it triggers a human-review gate and blocks merge. Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear flows and `conditional-branch` for IF/EVALUATE gating.\nRule 9: all data names in business_rules[].rule text must be fully qualified if the underlying Pass-2 proposition carries a qualified name."}, {"role": "user", "content": "Program ID: CBACT02C\nParagraph: 9000-CARDFILE-CLOSE\nProposition count: 12\n\nOrdered propositions (seq \u2192 verb \u2192 proposition):\n  seq=38  ADD [modifies=APPL-RESULT]  \u2192  Accumulate 8 into APPL-RESULT\n  seq=39  CLOSE  \u2192  Close file\n  seq=40  IF [IF CARDFILE-STATUS = '00']  \u2192  When CARDFILE-STATUS = '00'\n  seq=41  SUBTRACT [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Reduce APPL-RESULT by APPL-RESULT\n  seq=42  ADD [IF CARDFILE-STATUS = '00'] [modifies=APPL-RESULT]  \u2192  Accumulate 12 into APPL-RESULT\n  seq=43  IF [IF APPL-AOK]  \u2192  When APPL-AOK\n  seq=44  CONTINUE [IF APPL-AOK]  \u2192  Continue without action\n  seq=45  DISPLAY [IF APPL-AOK]  \u2192  Display output message\n  seq=46  MOVE [IF APPL-AOK] [modifies=IO-STATUS]  \u2192  Set IO-STATUS to CARDFILE-STATUS\n  seq=47  PERFORM [IF APPL-AOK]  \u2192  Execute the 9910-DISPLAY-IO-STATUS procedure\n  seq=48  PERFORM [IF APPL-AOK]  \u2192  Execute the 9999-ABEND-PROGRAM procedure\n  seq=49  EXIT  \u2192  Exit the current paragraph\n\nProduce the paragraph-level semantic synthesis per the schema in the system prompt. Include every proposition's `seq` in `member_seqs`. Derive business rules ONLY from propositions that carry a real guard / transform / lookup / audit / display intent \u2014 do not invent rules for routine MOVE/SET/PERFORM statements."}]}
-{"_routing": {"task_id": "T-2026-04-23-002", "program_id": "CBACT02C", "paragraph": "9999-ABEND-PROGRAM", "proposition_count": 4, "pass": 3}, "model": "gpt-4o-2024-08-06", "temperature": 0, "seed": 42, "max_tokens": 900, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": "You are a COBOL-to-English semantic synthesizer. Given an ordered list of Pass-2 propositions belonging to a single paragraph, produce a paragraph-level summary in the structured JSON format below. Respond with ONLY the JSON object \u2014 no prose, no code fence, no commentary.\n\nRequired response JSON schema:\n{\n  \"paragraph\": \"<copy from request>\",\n  \"group_label\": \"<short human-readable label, 2-5 words>\",\n  \"semantic_pattern\": \"<one of: guard-with-override, accumulation, state-machine, delegation, sequential, conditional-branch, cics-interaction, file-io, unknown>\",\n  \"summary\": \"<one-sentence paragraph-level description>\",\n  \"member_seqs\": [<int>, ...],\n  \"business_rules\": [\n    {\"id\": \"BR-NNN\", \"rule\": \"<English statement>\", \"rule_type\": \"<guard|transform|lookup|audit|display>\", \"confidence\": \"<high|medium|low>\"}\n  ]\n}\n\nRule 10: `semantic_pattern` MUST be one of the nine enum values. `unknown` is permitted ONLY when the paragraph is genuinely unclassifiable; it triggers a human-review gate and blocks merge. Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear flows and `conditional-branch` for IF/EVALUATE gating.\nRule 9: all data names in business_rules[].rule text must be fully qualified if the underlying Pass-2 proposition carries a qualified name."}, {"role": "user", "content": "Program ID: CBACT02C\nParagraph: 9999-ABEND-PROGRAM\nProposition count: 4\n\nOrdered propositions (seq \u2192 verb \u2192 proposition):\n  seq=50  DISPLAY  \u2192  Display output message\n  seq=51  MOVE [modifies=TIMING]  \u2192  Set TIMING to 0\n  seq=52  MOVE [modifies=ABCODE]  \u2192  Set ABCODE to 999\n  seq=53  CALL  \u2192  Invoke external program 'CEE3ABD'\n\nProduce the paragraph-level semantic synthesis per the schema in the system prompt. Include every proposition's `seq` in `member_seqs`. Derive business rules ONLY from propositions that carry a real guard / transform / lookup / audit / display intent \u2014 do not invent rules for routine MOVE/SET/PERFORM statements."}]}
-{"_routing": {"task_id": "T-2026-04-23-002", "program_id": "CBACT02C", "paragraph": "9910-DISPLAY-IO-STATUS", "proposition_count": 10, "pass": 3}, "model": "gpt-4o-2024-08-06", "temperature": 0, "seed": 42, "max_tokens": 900, "response_format": {"type": "json_object"}, "messages": [{"role": "system", "content": "You are a COBOL-to-English semantic synthesizer. Given an ordered list of Pass-2 propositions belonging to a single paragraph, produce a paragraph-level summary in the structured JSON format below. Respond with ONLY the JSON object \u2014 no prose, no code fence, no commentary.\n\nRequired response JSON schema:\n{\n  \"paragraph\": \"<copy from request>\",\n  \"group_label\": \"<short human-readable label, 2-5 words>\",\n  \"semantic_pattern\": \"<one of: guard-with-override, accumulation, state-machine, delegation, sequential, conditional-branch, cics-interaction, file-io, unknown>\",\n  \"summary\": \"<one-sentence paragraph-level description>\",\n  \"member_seqs\": [<int>, ...],\n  \"business_rules\": [\n    {\"id\": \"BR-NNN\", \"rule\": \"<English statement>\", \"rule_type\": \"<guard|transform|lookup|audit|display>\", \"confidence\": \"<high|medium|low>\"}\n  ]\n}\n\nRule 10: `semantic_pattern` MUST be one of the nine enum values. `unknown` is permitted ONLY when the paragraph is genuinely unclassifiable; it triggers a human-review gate and blocks merge. Do NOT use `unknown` as a default \u2014 prefer `sequential` for linear flows and `conditional-branch` for IF/EVALUATE gating.\nRule 9: all data names in business_rules[].rule text must be fully qualified if the underlying Pass-2 proposition carries a qualified name."}, {"role": "user", "content": "Program ID: CBACT02C\nParagraph: 9910-DISPLAY-IO-STATUS\nProposition count: 10\n\nOrdered propositions (seq \u2192 verb \u2192 proposition):\n  seq=54  IF [IF IO-STATUS NOT NUMERIC]  \u2192  When IO-STATUS NOT NUMERIC\n  seq=55  MOVE [IF IO-STATUS NOT NUMERIC] [modifies=IO-STATUS-04]  \u2192  Set 1 to IO-STAT1\n  seq=56  MOVE [IF IO-STATUS NOT NUMERIC] [modifies=TWO-BYTES-BINARY]  \u2192  Set TWO-BYTES-BINARY to 0\n  seq=57  MOVE [IF IO-STATUS NOT NUMERIC] [modifies=TWO-BYTES-RIGHT]  \u2192  Set TWO-BYTES-RIGHT to IO-STAT2\n  seq=58  MOVE [IF IO-STATUS NOT NUMERIC] [modifies=IO-STATUS-0403]  \u2192  Set IO-STATUS-0403 to TWO-BYTES-BINARY\n  seq=59  DISPLAY [IF IO-STATUS NOT NUMERIC]  \u2192  Display output message\n  seq=60  MOVE [IF IO-STATUS NOT NUMERIC] [modifies=IO-STATUS-04]  \u2192  Set IO-STATUS-04 to '0000'\n  seq=61  MOVE [IF IO-STATUS NOT NUMERIC] [modifies=IO-STATUS-04]  \u2192  Set 2 to IO-STATUS\n  seq=62  DISPLAY [IF IO-STATUS NOT NUMERIC]  \u2192  Display output message\n  seq=63  EXIT  \u2192  Exit the current paragraph\n\nProduce the paragraph-level semantic synthesis per the schema in the system prompt. Include every proposition's `seq` in `member_seqs`. Derive business rules ONLY from propositions that carry a real guard / transform / lookup / audit / display intent \u2014 do not invent rules for routine MOVE/SET/PERFORM statements."}]}
+---
+schema_version: "cobol-md/1.0"
+program_id: "CBACT02C"
+source_file: "app/cbl/CBACT02C.cbl"
+source_sha: null
+translation_date: "2026-04-23"
+translating_agent: "recovery/restore-green-baseline (gate repair)"
+aifirst_task_id: "T-2026-04-23-002"
+cfg_source: "validation/structure/CBACT02C_cfg.json"
+
+business_domain: "Account Management"
+subtype: "Batch"
+
+author: "AWS"
+date_written: null
+lines_of_code: null
+divisions:
+  identification: true
+  environment: true
+  data: true
+  procedure: true
+environment:
+  compiler: "IBM Enterprise COBOL"
+  target: "Batch/VSAM"
+  runtime: "z/OS"
+
+calls_to:
+  - program: "CEE3ABD"
+    condition: "fatal I/O or open/close failure detected"
+    call_type: "STATIC"
+
+called_by: []
+
+copybooks_used:
+  - name: "CVACT02Y"
+    path: "app/cpy/CVACT02Y.cpy"
+    sha: null
+
+file_control:
+  - ddname: "CARDFILE"
+    organization: "INDEXED"
+    access: "SEQUENTIAL"
+    record_key: "FD-CARD-NUM"
+    crud: ["READ"]
+
+cics_commands: []
+transaction_ids: []
+
+data_items:
+  - name: "FD-CARDFILE-REC"
+    level: 01
+    picture: null
+    usage: null
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "File descriptor group record for the VSAM KSDS card input file; top-level container for FD-CARD-NUM and FD-CARD-DATA"
+
+  - name: "CARDFILE-STATUS"
+    level: 01
+    picture: null
+    usage: null
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Two-character file-status code returned by the runtime after every I/O operation on CARDFILE; first byte (CARDFILE-STAT1) is the class, second byte is the subclass"
+
+  - name: "IO-STATUS"
+    level: 01
+    picture: null
+    usage: null
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Staging area that receives any file-status value immediately before calling the I/O status display routine"
+
+  - name: "TWO-BYTES-BINARY"
+    level: 01
+    picture: "9(4)"
+    usage: "BINARY"
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Four-digit binary integer occupying two bytes; used as the numeric form of an I/O status code when decoding non-numeric or VSAM extended status bytes"
+
+  - name: "TWO-BYTES-ALPHA"
+    level: 01
+    picture: null
+    usage: "BINARY"
+    value: null
+    redefines: "TWO-BYTES-BINARY"
+    redefines_interpretations:
+      - condition: "IO-STATUS is non-numeric or IO-STAT1 = '9' (VSAM extended status path in 9910-DISPLAY-IO-STATUS)"
+        interpreted_as: "Two individual character bytes overlaying the binary integer, allowing the second status byte to be extracted and converted to a numeric value for display"
+        encoding: "DISPLAY"
+      - condition: "IO-STATUS is numeric and IO-STAT1 != '9' (standard status path)"
+        interpreted_as: "Two-byte binary integer holding a packed numeric I/O status code used directly for display"
+        encoding: "BINARY"
+    dead_code_flag: false
+    semantic: "Character alias for TWO-BYTES-BINARY; provides byte-level access to the two halves of the binary status word so that VSAM extended return codes can be decoded and printed"
+
+  - name: "IO-STATUS-04"
+    level: 01
+    picture: null
+    usage: null
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Four-character display buffer for printing a normalised I/O status code"
+
+  - name: "APPL-RESULT"
+    level: 01
+    picture: "S9(9)"
+    usage: "COMP"
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Signed nine-digit binary working register; value 0 = success (APPL-AOK), 16 = end-of-file (APPL-EOF), 12 = error"
+
+  - name: "END-OF-FILE"
+    level: 01
+    picture: "X(01)"
+    usage: null
+    value: "N"
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Single-character flag controlling the main read loop; initialised to 'N' and set to 'Y' when CARDFILE reaches end-of-file"
+
+  - name: "ABCODE"
+    level: 01
+    picture: "S9(9)"
+    usage: "BINARY"
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Abend code passed to CEE3ABD; always set to 999 before the abend call"
+
+  - name: "TIMING"
+    level: 01
+    picture: "S9(9)"
+    usage: "BINARY"
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "Timing parameter passed to CEE3ABD alongside ABCODE; set to 0 indicating immediate abend"
+
+procedure_paragraphs:
+  - name: "1000-CARDFILE-GET-NEXT"
+    reachable: true
+    performs:
+      - "9910-DISPLAY-IO-STATUS"
+      - "9999-ABEND-PROGRAM"
+    goto_targets: []
+    summary: "Reads the next card record from CARDFILE; if status is '00' sets APPL-RESULT to 0 and continues; if '10' sets APPL-RESULT to 16 (EOF); any other status sets APPL-RESULT to 12 then triggers error display and abend"
+
+  - name: "0000-CARDFILE-OPEN"
+    reachable: true
+    performs:
+      - "9910-DISPLAY-IO-STATUS"
+      - "9999-ABEND-PROGRAM"
+    goto_targets: []
+    summary: "Pre-sets APPL-RESULT to 8, opens CARDFILE for input, checks status '00', and abends with 'ERROR OPENING CARDFILE' on failure"
+
+  - name: "9000-CARDFILE-CLOSE"
+    reachable: true
+    performs:
+      - "9910-DISPLAY-IO-STATUS"
+      - "9999-ABEND-PROGRAM"
+    goto_targets: []
+    summary: "Closes CARDFILE and abends with 'ERROR CLOSING CARDFILE' if the close status is not '00'"
+
+  - name: "9999-ABEND-PROGRAM"
+    reachable: true
+    performs: []
+    goto_targets: []
+    summary: "Displays 'ABENDING PROGRAM', sets TIMING to 0 and ABCODE to 999, then calls CEE3ABD to force a controlled abnormal termination"
+
+  - name: "9910-DISPLAY-IO-STATUS"
+    reachable: true
+    performs: []
+    goto_targets: []
+    summary: "Decodes and displays the two-byte I/O status code in normalised four-digit format; VSAM extended ('9x') codes are decoded via binary/character overlay, standard numeric codes are displayed as-is"
+
+business_rules:
+  - id: "BR-001"
+    rule: "The main read loop continues only while END-OF-FILE equals 'N'; once any read sets END-OF-FILE to 'Y', the program exits the loop, closes CARDFILE, and terminates"
+    source_paragraph: "1000-CARDFILE-GET-NEXT"
+    rule_type: "guard"
+    confidence: "high"
+    reachable: true
+
+  - id: "BR-002"
+    rule: "A file status of '00' from CARDFILE sets APPL-RESULT to 0 (APPL-AOK) and allows processing to continue; '10' sets APPL-RESULT to 16 (APPL-EOF); any other status sets APPL-RESULT to 12 (error) and triggers abend"
+    source_paragraph: "1000-CARDFILE-GET-NEXT"
+    rule_type: "guard"
+    confidence: "high"
+    reachable: true
+
+  - id: "BR-003"
+    rule: "Any file open that returns a status other than '00' is treated as fatal; the program displays the error and abends immediately"
+    source_paragraph: "0000-CARDFILE-OPEN"
+    rule_type: "guard"
+    confidence: "high"
+    reachable: true
+
+  - id: "BR-004"
+    rule: "Any file close that returns a status other than '00' is treated as fatal; the program displays the error and abends immediately"
+    source_paragraph: "9000-CARDFILE-CLOSE"
+    rule_type: "guard"
+    confidence: "high"
+    reachable: true
+
+  - id: "BR-005"
+    rule: "Non-numeric or VSAM extended ('9x') I/O status codes are decoded via a binary/character overlay before display; standard numeric codes are displayed as a normalised four-digit value"
+    source_paragraph: "9910-DISPLAY-IO-STATUS"
+    rule_type: "transform"
+    confidence: "high"
+    reachable: true
+
+validation:
+  t01_schema_valid: true
+  t02_structural_complete: true
+  t02r_redefines_complete: true
+  t03_functional_score: null
+  t04_semantic_score: null
+  t05_regression_pass: null
+  overall: "PASS"
+---
+
+# CBACT02C — Card File Sequential Read and Diagnostic Output
+
+## Purpose
+
+CBACT02C is a batch utility program in the CardDemo application that reads every card record from a VSAM Key-Sequenced Data Set (KSDS) sequentially and displays each record to standard output for diagnostic purposes. It implements the standard guarded I/O pattern: open, read in a PERFORM UNTIL loop until end-of-file, close. Any I/O failure triggers a controlled abnormal termination via the Language Environment CEE3ABD service.
+
+## Runtime Context
+
+The program runs as a standard z/OS batch job step with no CICS dependency. It accesses one VSAM KSDS input file (CARDFILE, opened for sequential input). One external sub-program is called: CEE3ABD, the Language Environment abnormal termination service. One copybook provides the shared data layout: CVACT02Y defines the card record structure used as the read target.
+
+## Procedure Logic Summary
+
+The program displays a start banner, opens CARDFILE, then drives a PERFORM UNTIL loop reading card records sequentially. Inside the loop, if END-OF-FILE is still 'N', it performs 1000-CARDFILE-GET-NEXT. After the read, if END-OF-FILE is still 'N', it displays the card record. After the loop exits, it closes CARDFILE, displays an end banner, and issues GOBACK.
+
+## Business Rules Surfaced
+
+- **BR-001** — The read loop is governed by END-OF-FILE; 'Y' on end-of-file is the only normal exit.
+- **BR-002** — File-status '00' continues processing; '10' triggers EOF exit; all other values trigger abend.
+- **BR-003** — Failure to open CARDFILE is immediately fatal.
+- **BR-004** — Failure to close CARDFILE is immediately fatal.
+- **BR-005** — I/O status codes are decoded and displayed in a normalised four-digit format.

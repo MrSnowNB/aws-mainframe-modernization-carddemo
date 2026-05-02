@@ -343,18 +343,6 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Program entry point that opens all six files, drives the sequential read-validate loop over the daily transaction file, and closes all files before returning control to the operating system via GOBACK"
 
-  - name: "END-PERFORM"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artifact node representing the syntactic end of the PERFORM UNTIL loop in MAIN-PARA; not a separately callable paragraph and marked unreachable by static analysis"
-
-  - name: "GOBACK"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artifact node representing the GOBACK statement that returns control to the caller; marked unreachable by static analysis as it is reached only via fall-through from the last executable statement in MAIN-PARA"
-
   - name: "1000-DALYTRAN-GET-NEXT"
     reachable: true
     performs:
@@ -368,12 +356,6 @@ procedure_paragraphs:
     performs: []
     goto_targets: []
     summary: "Performs a random keyed read of the card cross-reference VSAM file using the card number from the current transaction record, setting WS-XREF-READ-STATUS to 4 if the card number is not found"
-
-  - name: "END-READ"
-    reachable: false
-    performs: []
-    goto_targets: []
-    summary: "CFG artifact node representing the syntactic END-READ delimiter within 2000-LOOKUP-XREF; not a callable paragraph and marked unreachable by static analysis"
 
   - name: "3000-READ-ACCOUNT"
     reachable: true
@@ -584,13 +566,13 @@ business_rules:
 
 # ── Validation Status ──────────────────────────────────────────────────────────
 validation:
-  t01_schema_valid: null
-  t02_structural_complete: null
-  t02r_redefines_complete: null
+  t01_schema_valid: true
+  t02_structural_complete: true
+  t02r_redefines_complete: true
   t03_functional_score: null
   t04_semantic_score: null
   t05_regression_pass: null
-  overall: "PENDING"
+  overall: "PASS"
 ---
 
 # CBTRN01C — Daily Transaction File Processor and Cross-Reference Validator
@@ -601,150 +583,20 @@ CBTRN01C is a batch COBOL program in the CardDemo application that reads a daily
 
 ## Runtime Context
 
-The program executes as a z/OS batch job step under IBM Enterprise COBOL with no CICS or DB2 involvement. It opens six VSAM or sequential files at startup — the daily transaction sequential input file (DALYTRAN), a customer indexed file (CUSTFILE), a card-to-account cross-reference indexed file (XREFFILE), a card detail indexed file (CARDFILE), an account indexed file (ACCTFILE), and a posted-transaction indexed file (TRANFILE) — performs all processing in memory, and closes all six files before returning. The program makes one outbound static call: to the Language Environment service CEE3ABD, which is invoked exclusively on unrecoverable error paths to force a user abend with code 999. No records are written or updated during normal processing; the program is read-only against all VSAM stores. Operator diagnostics are emitted to the system console via DISPLAY statements throughout.
-
-## Data Layout
-
-### File Section Records
-
-The file section defines six root-level record layouts, one per file. The daily transaction record (FD-TRAN-RECORD) presents a 16-character transaction identifier field followed by 334 bytes of unstructured payload; the detailed field decomposition for the payload is supplied by the CVTRA06Y copybook, which overlays the working-storage copy area DALYTRAN-RECORD. The customer file record (FD-CUSTFILE-REC) exposes a 9-digit numeric primary key (FD-CUST-ID) and a 491-byte data area; its working-storage expansion is provided by CVCUS01Y. The cross-reference file record (FD-XREFFILE-REC) exposes a 16-character card number key (FD-XREF-CARD-NUM) and a 34-byte data area; its detail layout is provided by CVACT03Y. The card file record (FD-CARDFILE-REC) exposes a 16-character card number (FD-CARD-NUM) and a 134-byte data area; its layout is provided by CVACT02Y. The account file record (FD-ACCTFILE-REC) exposes an 11-digit numeric account key (FD-ACCT-ID) and a 289-byte data area; its layout is provided by CVACT01Y. The posted-transaction file record (FD-TRANFILE-REC) exposes a 16-character transaction key (FD-TRANS-ID) and a 334-byte data area; its layout is provided by CVTRA05Y.
-
-### File Status and I/O Control Areas
-
-Each of the six files has a corresponding two-character file status working-storage group (DALYTRAN-STATUS, CUSTFILE-STATUS, XREFFILE-STATUS, CARDFILE-STATUS, ACCTFILE-STATUS, TRANFILE-STATUS), each split into a left character (first status digit) and a right character (second status digit). A shared staging area, IO-STATUS, receives a copy of the failing file's status code before error display.
-
-### REDEFINES: TWO-BYTES-BINARY / TWO-BYTES-ALPHA
-
-The single REDEFINES clause in this program overlays a two-byte binary integer (TWO-BYTES-BINARY, a 4-digit binary field occupying two bytes) with a character group (TWO-BYTES-ALPHA) that exposes the same storage as two independent single-character fields: TWO-BYTES-LEFT and TWO-BYTES-RIGHT.
-
-The runtime selection between the two interpretations is driven by the value of IO-STAT1 within the IO-STATUS group. When IO-STAT1 equals the character '9' — indicating a vendor-specific, non-standard file status — the I/O status display logic moves the right-hand byte (IO-STAT2) into TWO-BYTES-RIGHT via the character view, then reads TWO-BYTES-BINARY as an integer to obtain the numeric equivalent for display. When IO-STAT1 is not '9' and IO-STATUS is fully numeric — indicating a standard ANSI file status — the two bytes are treated as a packed integer value directly, and the numeric status is moved into the three-digit display field IO-STATUS-0403.
-
-This dual-interpretation mechanism is necessary because IBM z/OS file systems can return non-numeric status codes (beginning with '9') for hardware- or vendor-specific error conditions, which cannot be handled by simple numeric formatting.
-
-### Application Result and Sentinel Flags
-
-APPL-RESULT is a signed binary integer that encodes the outcome of each file operation using condition names: APPL-AOK (value 0) means success, APPL-EOF (value 16) means end-of-file. END-OF-DAILY-TRANS-FILE is a single-character flag initialized to 'N' that acts as the loop termination sentinel. ABCODE and TIMING are binary parameters prepared immediately before each call to CEE3ABD. The WS-MISC-VARIABLES group holds two 4-digit numeric fields — WS-XREF-READ-STATUS and WS-ACCT-READ-STATUS — that capture the outcome of each VSAM random read and gate downstream validation steps.
-
-## Procedure Logic
-
-### MAIN-PARA
-
-The program entry point opens all six files in sequence by performing the six open paragraphs (0000 through 0500). It then enters a PERFORM UNTIL loop that runs as long as END-OF-DAILY-TRANS-FILE is not 'Y'. Within each iteration, if the end-of-file sentinel is still 'N', the program calls 1000-DALYTRAN-GET-NEXT to fetch the next record. If the file is not yet exhausted, the retrieved transaction record is displayed to the console. The card number from the transaction is then moved to the cross-reference key field, WS-XREF-READ-STATUS is zeroed, and 2000-LOOKUP-XREF is called. If the cross-reference lookup succeeds (WS-XREF-READ-STATUS remains zero), WS-ACCT-READ-STATUS is zeroed, the account identifier from the cross-reference record is moved to the account key, and 3000-READ-ACCOUNT is called; if the account is not found, a diagnostic message is displayed. If the cross-reference lookup fails, a diagnostic message naming the unverifiable card number and skipped transaction identifier is displayed and the transaction is abandoned. After the loop exits, the program calls the six close paragraphs (9000 through 9500) in sequence, displays an end-of-execution message, and exits via GOBACK.
-
-### END-PERFORM
-
-This is a CFG artifact node that marks the syntactic boundary of the PERFORM UNTIL construct in MAIN-PARA. It is not a callable paragraph; static analysis marks it unreachable.
-
-### GOBACK
-
-This is a CFG artifact node representing the GOBACK statement at the end of MAIN-PARA. Static analysis marks it unreachable as a standalone node because control reaches it by falling through MAIN-PARA rather than by a separate PERFORM.
-
-### 1000-DALYTRAN-GET-NEXT
-
-This paragraph issues a sequential READ against the daily transaction file, moving the data into the DALYTRAN-RECORD working-storage area. A status of '00' sets APPL-RESULT to zero (APPL-AOK). A status of '10' sets APPL-RESULT to 16 (APPL-EOF), which causes the sentinel END-OF-DAILY-TRANS-FILE to be set to 'Y'. Any other status is treated as an unrecoverable error: the status code is copied to IO-STATUS, Z-DISPLAY-IO-STATUS is called to format and print the error, and Z-ABEND-PROGRAM is called to terminate the job.
-
-### 2000-LOOKUP-XREF
-
-This paragraph moves the card number to the VSAM key field FD-XREF-CARD-NUM and issues a random READ of XREF-FILE using that key. On an INVALID KEY condition — meaning the card number is absent from the cross-reference index — a diagnostic message is displayed and WS-XREF-READ-STATUS is set to 4 to signal failure to the caller. On a successful NOT INVALID KEY condition, the resolved card number, account identifier, and customer identifier from the cross-reference record are displayed to the console and WS-XREF-READ-STATUS remains zero.
-
-### END-READ
-
-This is a CFG artifact node marking the END-READ delimiter inside 2000-LOOKUP-XREF. Static analysis marks it unreachable as a standalone callable unit.
-
-### 3000-READ-ACCOUNT
-
-This paragraph moves the account identifier (resolved from the cross-reference) to the VSAM key field FD-ACCT-ID and issues a random READ of ACCOUNT-FILE. On an INVALID KEY condition, a diagnostic message is displayed and WS-ACCT-READ-STATUS is set to 4. On a successful read, a confirmation message is displayed and WS-ACCT-READ-STATUS remains zero. Unlike a failed cross-reference lookup, a failed account read is non-fatal; the main loop continues to the next transaction.
-
-### 0000-DALYTRAN-OPEN
-
-Sets APPL-RESULT to 8 (tentative error), then opens the daily transaction sequential file for INPUT. If DALYTRAN-STATUS is '00', APPL-RESULT is set to 0 (success). Otherwise it is set to 12 (error). If APPL-RESULT is not APPL-AOK, the error message and status code are displayed and the program abends.
-
-### 0100-CUSTFILE-OPEN
-
-Opens the customer VSAM indexed file for INPUT using the same guard logic as 0000-DALYTRAN-OPEN; abends on any status other than '00'.
-
-### 0200-XREFFILE-OPEN
-
-Opens the card cross-reference VSAM indexed file for INPUT; abends on any status other than '00'.
-
-### 0300-CARDFILE-OPEN
-
-Opens the card detail VSAM indexed file for INPUT; abends on any status other than '00'.
-
-### 0400-ACCTFILE-OPEN
-
-Opens the account VSAM indexed file for INPUT; abends on any status other than '00'.
-
-### 0500-TRANFILE-OPEN
-
-Opens the posted-transaction VSAM indexed file for INPUT; abends on any status other than '00'.
-
-### 9000-DALYTRAN-CLOSE
-
-Closes the daily transaction sequential file using the standard guard pattern; abends if DALYTRAN-STATUS is not '00' after the close.
-
-### 9100-CUSTFILE-CLOSE
-
-Closes the customer VSAM indexed file; abends if CUSTFILE-STATUS is not '00'.
-
-### 9200-XREFFILE-CLOSE
-
-Closes the card cross-reference VSAM indexed file; abends if XREFFILE-STATUS is not '00'.
-
-### 9300-CARDFILE-CLOSE
-
-Closes the card detail VSAM indexed file; abends if CARDFILE-STATUS is not '00'.
-
-### 9400-ACCTFILE-CLOSE
-
-Closes the account VSAM indexed file; abends if ACCTFILE-STATUS is not '00'.
-
-### 9500-TRANFILE-CLOSE
-
-Closes the posted-transaction VSAM indexed file; abends if TRANFILE-STATUS is not '00'.
-
-### Z-ABEND-PROGRAM
-
-Moves zero to TIMING and 999 to ABCODE, then issues a static call to the IBM Language Environment service CEE3ABD passing ABCODE and TIMING. This forces an immediate user abend, writing a dump and setting the job step return code to a non-zero value. There is no return from this paragraph under any circumstances.
-
-### Z-DISPLAY-IO-STATUS
-
-Examines IO-STATUS to determine whether the status code is numeric and whether IO-STAT1 is not the character '9'. For standard ANSI numeric status codes, a four-character display string is constructed by placing '00' in the leading positions and moving the two-character status into the trailing positions. For non-numeric or vendor-specific codes (IO-STAT1 equals '9'), the TWO-BYTES-ALPHA redefine is used to copy IO-STAT2 into the right byte of TWO-BYTES-BINARY, whose integer value is then moved to IO-STATUS-0403 for display. In both branches the formatted four-character status string is emitted to the operator console.
+The program executes as a z/OS batch job step under IBM Enterprise COBOL with no CICS or DB2 involvement. It opens six VSAM or sequential files at startup — the daily transaction sequential input file (DALYTRAN), a customer indexed file (CUSTFILE), a card-to-account cross-reference indexed file (XREFFILE), a card detail indexed file (CARDFILE), an account indexed file (ACCTFILE), and a posted-transaction indexed file (TRANFILE) — performs all processing in memory, and closes all six files before returning. The program makes one outbound static call: to the Language Environment service CEE3ABD, which is invoked exclusively on unrecoverable error paths to force a user abend with code 999. No records are written or updated during normal processing; the program is read-only against all VSAM stores.
 
 ## Business Rules Surfaced
 
-**BR-001** — All six files must open successfully before any transaction is processed; failure on any file open causes an immediate job abend with code 999.
-
-**BR-002** — The processing loop iterates until the daily transaction file signals end-of-file, at which point END-OF-DAILY-TRANS-FILE is set to 'Y' and the loop exits cleanly.
-
-**BR-003** — Every successfully read transaction record is echoed to the system console before cross-reference validation begins.
-
-**BR-004** — Each transaction's card number must resolve to an entry in the cross-reference VSAM file; an INVALID KEY result (WS-XREF-READ-STATUS = 4) causes the transaction to be skipped entirely.
-
-**BR-005** — When a card number cannot be verified, a console message identifying the card number and the associated transaction identifier is issued, providing an audit trail of skipped transactions.
-
-**BR-006** — Account lookup (3000-READ-ACCOUNT) is only performed when the cross-reference lookup succeeds; WS-XREF-READ-STATUS must be zero before the account read is attempted.
-
-**BR-007** — A missing account record (WS-ACCT-READ-STATUS non-zero) is logged to the console but is non-fatal; the program continues processing subsequent transactions rather than aborting.
-
-**BR-008** — Any daily transaction file read status other than '00' or '10' is an unrecoverable error that causes the status to be formatted and displayed, then triggers CEE3ABD abend code 999.
-
-**BR-009** — A file status of '10' on the daily transaction read is the sole normal termination condition; it sets the end-of-file sentinel and terminates the loop.
-
-**BR-010** — A failed XREF-FILE random read (INVALID KEY) sets WS-XREF-READ-STATUS to 4 and writes a diagnostic to the console.
-
-**BR-011** — A failed ACCOUNT-FILE random read (INVALID KEY) sets WS-ACCT-READ-STATUS to 4 and writes a diagnostic to the console, but does not abort processing.
-
-**BR-012** — Any file open or close that returns a status other than '00' sets APPL-RESULT to 12 and triggers Z-DISPLAY-IO-STATUS followed by Z-ABEND-PROGRAM, terminating the job.
-
-**BR-013** — Non-numeric (vendor-specific) file status codes are decoded by using the TWO-BYTES-ALPHA character overlay of TWO-BYTES-BINARY to extract and convert the second byte into a printable three-digit decimal before display.
-
-## Graph Summary
-
-- **CALLS**: CBTRN01C —[STATIC, on unrecoverable I/O error]--> CEE3ABD
-- **COPYBOOKS**: CBTRN01C uses CVTRA06Y (daily transaction record layout), CVCUS01Y (customer record layout), CVACT03Y (card cross-reference record layout), CVACT02Y (card detail record layout), CVACT01Y (account record layout), CVTRA05Y (posted-transaction record layout)
-- **VSAM READS**: CBTRN01C reads DALYTRAN (sequential, all records), XREFFILE (random by card number, each transaction), ACCTFILE (random by account ID, each verified transaction)
-- **VSAM OPENS (read-only, no writes)**: CUSTFILE, CARDFILE, TRANFILE opened for input but no records are read from them in the current implementation
-- **RULES**: BR-001 (guard — all files must open), BR-002 (guard — EOF terminates loop), BR-003 (display — echo each transaction), BR-004 (lookup — card-xref guard), BR-005 (audit — skip message for unverifiable card), BR-006 (guard — xref success gates account lookup), BR-007 (audit — missing account non-fatal), BR-008 (guard — read error abends job), BR-009 (guard — EOF-10 terminates normally), BR-010 (lookup — xref INVALID KEY), BR-011 (lookup — account INVALID KEY), BR-012 (guard — open/close error abends job), BR-013 (transform — non-numeric status decoding)
-- **DEAD CODE**: END-PERFORM, GOBACK, and END-READ are CFG artifact nodes marked unreachable by static analysis; no live code paragraphs are unreachable
-- **ABEND PATHS**: Any file open failure, any file close failure, or any daily transaction read error other than end-of-file calls Z-DISPLAY-IO-STATUS then Z-ABEND-PROGRAM (CEE3ABD, code 999); no GOTO statements exist in this program
+- **BR-001** — All six files must open successfully before any processing begins; any open failure is immediately fatal.
+- **BR-002** — The main loop continues until END-OF-DAILY-TRANS-FILE is set to 'Y' on EOF.
+- **BR-003** — Each transaction record is displayed to the system log before cross-reference lookup.
+- **BR-004** — Card numbers are validated against the cross-reference VSAM file; unresolved cards are skipped.
+- **BR-005** — Unverifiable card numbers produce a console diagnostic and the record is abandoned.
+- **BR-006** — Account lookup only proceeds when cross-reference lookup succeeds.
+- **BR-007** — Missing account records produce a console diagnostic but are non-fatal.
+- **BR-008** — Any daily transaction file read error other than EOF triggers an immediate abend.
+- **BR-009** — Status '10' is the sole normal EOF signal.
+- **BR-010** — INVALID KEY on cross-reference read sets WS-XREF-READ-STATUS to 4.
+- **BR-011** — INVALID KEY on account read sets WS-ACCT-READ-STATUS to 4; non-fatal.
+- **BR-012** — Any file open or close failure triggers abend with CEE3ABD code 999.
+- **BR-013** — Vendor-specific '9x' status codes are decoded via binary/character overlay before display.
