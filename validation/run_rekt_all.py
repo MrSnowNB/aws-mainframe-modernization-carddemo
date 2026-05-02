@@ -20,16 +20,21 @@ Usage
 Environment
 -----------
   SMOJOL_JAR    Path to the smojol-cli JAR (overrides --jar and auto-detect).
+                If set but the path does not exist, a warning is printed and
+                the script falls back to --jar / CANDIDATE_JARS.
   DIALECT_JAR   Path to the dialect-idms JAR (optional; enables IDMS dialect
                 support).  Typically:
                   C:\\work\\cobol-rekt\\che-che4z-lsp-for-cobol-integration\\
                     server\\dialect-idms\\target\\dialect-idms.jar
+                If set but not found, a warning is printed and the flag is
+                omitted from the smojol-cli invocation.
 
-Auto-detect order for the JAR
-------------------------------
-  1. SMOJOL_JAR environment variable
+Auto-detect order for the smojol-cli JAR
+-----------------------------------------
+  1. SMOJOL_JAR environment variable (if the file exists)
   2. --jar CLI argument
-  3. Paths listed in CANDIDATE_JARS below
+  3. Paths listed in CANDIDATE_JARS below (includes the cobol-rekt
+     Maven build output at C:\\work\\cobol-rekt\\smojol-cli\\target\\)
 
 Exit codes
 ----------
@@ -54,21 +59,35 @@ REKT_DIR   = ROOT / "validation" / "rekt"
 EXTRACT    = ROOT / "validation" / "extract_cfg_summary.py"
 COPY_DIR   = ROOT / "app" / "cpy"   # passed to REKT as copybook path
 
+# Conventional cobol-rekt checkout location on Windows dev machines.
+_COBOL_REKT_ROOT = Path("C:/work/cobol-rekt")
+
 # ---------------------------------------------------------------------------
 # Candidate JAR paths (tried in order if env var / --jar not provided)
 # ---------------------------------------------------------------------------
 CANDIDATE_JARS = [
+    # Maven build output in the standard C:\work\cobol-rekt checkout
+    _COBOL_REKT_ROOT / "smojol-cli" / "target" / "smojol-cli.jar",
+    # Repo-local copies (for offline / bundled setups)
     ROOT / "tools" / "smojol-cli.jar",
     ROOT / "tools" / "cobol-rekt" / "smojol-cli.jar",
     ROOT / "smojol-cli.jar",
+    # User home fallbacks
     Path.home() / "tools" / "smojol-cli.jar",
     Path.home() / "cobol-rekt" / "smojol-cli.jar",
 ]
 
+# Candidate paths for the dialect-idms JAR (auto-detect fallback).
+CANDIDATE_DIALECT_JARS = [
+    _COBOL_REKT_ROOT
+    / "che-che4z-lsp-for-cobol-integration"
+    / "server" / "dialect-idms" / "target" / "dialect-idms.jar",
+]
+
 # smojol-cli 'run' commands required for CFG + data-structure extraction.
+# WRITE_FLOW_AST        -> AST needed by the CFG builder; must precede WRITE_CFG
 # WRITE_CFG             -> paragraph-level CFG JSON (used by extract_cfg_summary.py)
 # WRITE_DATA_STRUCTURES -> Working Storage inventory (used by gate data-items checks)
-# WRITE_FLOW_AST        -> AST needed by the CFG builder; must precede WRITE_CFG
 REKT_COMMANDS = "WRITE_FLOW_AST,WRITE_CFG,WRITE_DATA_STRUCTURES"
 
 # Default per-program timeout in seconds (5 minutes).
@@ -112,14 +131,20 @@ def cfg_json(prog: str) -> Path:
 
 
 def locate_jar(jar_arg: str | None) -> Path | None:
-    """Return the JAR path from env / CLI arg / candidate list, or None."""
+    """
+    Return the smojol-cli JAR path, searching in priority order:
+      1. SMOJOL_JAR env var  (warn + fall through if path missing)
+      2. --jar CLI argument  (error if given but missing)
+      3. CANDIDATE_JARS list
+    Returns None only when every option is exhausted.
+    """
     env = os.environ.get("SMOJOL_JAR")
     if env:
         p = Path(env)
         if p.exists():
             return p
-        print(FAIL(f"[JAR] SMOJOL_JAR env var set but file not found: {p}"))
-        return None
+        # Warn but do NOT return -- fall through to --jar and candidates.
+        print(FAIL(f"[JAR] SMOJOL_JAR points to missing file: {p} -- trying fallbacks"))
 
     if jar_arg:
         p = Path(jar_arg)
@@ -136,13 +161,22 @@ def locate_jar(jar_arg: str | None) -> Path | None:
 
 
 def locate_dialect_jar() -> Path | None:
-    """Return the dialect-idms JAR path from DIALECT_JAR env var, or None."""
+    """
+    Return the dialect-idms JAR path.
+    Checks DIALECT_JAR env var first, then CANDIDATE_DIALECT_JARS.
+    Returns None (and prints a warning) if the env var is set but missing.
+    """
     env = os.environ.get("DIALECT_JAR")
     if env:
         p = Path(env)
         if p.exists():
             return p
-        print(FAIL(f"[JAR] DIALECT_JAR env var set but file not found: {p}"))
+        print(FAIL(f"[JAR] DIALECT_JAR points to missing file: {p} -- trying fallbacks"))
+
+    for candidate in CANDIDATE_DIALECT_JARS:
+        if candidate.exists():
+            return candidate
+
     return None
 
 
@@ -153,11 +187,11 @@ def build_rekt_cmd(jar: Path, src: Path, prog: str) -> list[str]:
     Command shape (matches cobol-rekt/scripts/aws-carddemo.sh):
       java -jar smojol-cli.jar run <src.cbl>
            --commands=WRITE_FLOW_AST,WRITE_CFG,WRITE_DATA_STRUCTURES
-           --srcDir     <app/cbl>
+           --srcDir       <app/cbl>
            --copyBooksDir <app/cpy>
            --dialectJarPath <dialect-idms.jar>   # omitted when not found
-           --dialect    COBOL
-           --reportDir  validation/rekt/<PROG>.cbl.report
+           --dialect      COBOL
+           --reportDir    validation/rekt/<PROG>.cbl.report
            --generation=PARAGRAPH
     """
     out = report_dir(prog)
@@ -304,7 +338,8 @@ def main() -> int:
         if jar is None:
             print(FAIL("[ERROR] Cannot locate smojol-cli JAR."))
             print(FAIL("        Set SMOJOL_JAR env var or use --jar PATH."))
-            print(FAIL(f"        Searched: {[str(p) for p in CANDIDATE_JARS]}"))
+            searched = [str(p) for p in CANDIDATE_JARS]
+            print(FAIL(f"        Searched: {searched}"))
             return 2
         print(INFO(f"[JAR]  Using: {jar}"))
 
@@ -312,8 +347,7 @@ def main() -> int:
         if dialect_jar:
             print(INFO(f"[JAR]  Dialect: {dialect_jar}"))
         else:
-            print(INFO("[JAR]  Dialect JAR not set (DIALECT_JAR env var); "
-                       "--dialectJarPath will be omitted"))
+            print(INFO("[JAR]  Dialect JAR not found; --dialectJarPath will be omitted"))
     else:
         jar = Path("smojol-cli.jar")   # placeholder for dry-run display
 
