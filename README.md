@@ -1,7 +1,7 @@
 ---
 document_type: AI-First Living README
 project_name: COBOL-MD-PIPELINE (CardDemo Modernization)
-current_phase: Phase 3 - Batch Translation (6 of ~40 programs complete)
+current_phase: Phase 3 - Batch Translation (8 of ~40 programs complete)
 system_status: PIPELINE_OPERATIONAL
 target_architecture: 3-Pass Deterministic + Bounded-LLM DAG
 cleared_validation_gates:
@@ -12,7 +12,7 @@ cleared_validation_gates:
   - PASS1_SELFTEST: true
   - PASS2_TOKEN_BUDGETS: true
   - GATE_PIPELINE: true
-pending_action: RUN_BATCH_REMAINING_34_PROGRAMS
+pending_action: RUN_BATCH_REMAINING_32_PROGRAMS
 ---
 
 # AWS CardDemo Modernization: COBOL → Verified English MD Pipeline
@@ -30,7 +30,7 @@ This pipeline translates each COBOL program in the AWS CardDemo mainframe applic
 
 These `.md` files are the **verified intermediate layer** — usable by cloud architects, modernization teams, or downstream code-generation pipelines without repeating the comprehension work.
 
-**Current status:** 6 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 34.
+**Current status:** 8 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 32.
 
 ---
 
@@ -59,7 +59,7 @@ scripts/
   pass3_synthesize.py                     Pass 3 — MD renderer
   validate_t01.py .. validate_t03.py      Frozen structural validators (do not modify)
   extract_byte_layout.py                  Data layout extractor
-  extract_cfg_summary.py                  CFG summarizer
+  extract_cfg_summary.py                  CFG summarizer (includes L01 data-item parser)
   extract_fallthrough.py                  Fallthrough path extractor
   extract_file_control.py                 FILE CONTROL section extractor
   extract_paragraph_io.py                 Paragraph I/O extractor
@@ -67,7 +67,7 @@ translations/
   gold-candidate/*.md                     Gate-verified completed translations
   baseline/*.md                           v1.0 hand-verified intermediate MD
 validation/
-  structure/*_cfg.json                    Cobol-REKT static analysis output (CFG)
+  structure/*_cfg.json                    Cobol-REKT static analysis output (CFG + L01 items)
   pass1/*_annotations.json               Pass 1 statement annotation output
   pass1/*_phantoms.json                   Pass 1 filtered phantom paragraph log
   pass2/*_propositions.json              Pass 2 proposition set
@@ -202,6 +202,29 @@ Followed by: Purpose, Data Layout, Paragraph Logic, Call Graph, CICS Screen Flow
 
 Automatically compares every claim in the `.md` against the CFG ground truth. Exits 1 (FAIL) if any paragraph is hallucinated, any data field is invented, or any call target does not exist in the source. **A program is not done until this gate passes.**
 
+Gate run sequence:
+```powershell
+py -3 validation/extract_cfg_summary.py --all
+py -3 validation/extract_ground_truth.py
+py -3 validation/extract_md_claims.py
+py -3 validation/gate_compare.py
+```
+
+Expected output for a clean batch:
+```
+-- Gate Summary ------------------------------------------------
+  PASS  CBACT01C
+  PASS  CBACT02C
+  PASS  CBACT03C
+  PASS  CBCUS01C
+  PASS  CBTRN01C
+  PASS  COBSWAIT
+  PASS  COMEN01C
+  PASS  COSGN00C
+  8/8 programs passed
+----------------------------------------------------------------
+```
+
 ---
 
 ## Completed Translations
@@ -209,13 +232,29 @@ Automatically compares every claim in the `.md` against the CFG ground truth. Ex
 | Program | Description | Size | Gate |
 |---|---|---|---|
 | [CBACT01C.md](translations/gold-candidate/CBACT01C.md) | Account file batch processor | 41 KB | ✅ PASS |
+| [CBACT02C.md](translations/gold-candidate/CBACT02C.md) | Account cross-ref batch processor | 17 KB | ✅ PASS |
+| [CBACT03C.md](translations/gold-candidate/CBACT03C.md) | Card cross-ref batch processor | 22 KB | ✅ PASS |
 | [CBCUS01C.md](translations/gold-candidate/CBCUS01C.md) | Customer file processor | 22 KB | ✅ PASS |
 | [CBTRN01C.md](translations/gold-candidate/CBTRN01C.md) | Daily transaction processor | 38 KB | ✅ PASS |
 | [COBSWAIT.md](translations/gold-candidate/COBSWAIT.md) | Wait utility | 4 KB | ✅ PASS |
 | [COMEN01C.md](translations/gold-candidate/COMEN01C.md) | Main menu handler | 31 KB | ✅ PASS |
 | [COSGN00C.md](translations/gold-candidate/COSGN00C.md) | Sign-on screen (CICS) | 26 KB | ✅ PASS |
 
-**Remaining:** ~34 programs pending. Next target: COCRDUPC (card update screen).
+**Remaining:** ~32 programs pending. Next target: CBACT04C (account update batch) and COCRDUPC (card update screen).
+
+---
+
+## Gate Tooling — Recent Fixes
+
+These fixes to the validation pipeline were merged as part of the `fix/gate-failures-cbact01c-02c-03c` branch and should be included in the main merge:
+
+| Fix | What it addressed |
+|---|---|
+| `extract_cfg_summary.py` — L01 data-item parser | Scans `DATA DIVISION` for `01`-level declarations and writes them to `_cfg.json` under `data_items`; without this, every MD `data_items` entry was flagged as hallucinated |
+| `extract_cfg_summary.py` — tightened `is_paragraph_node()` | Rejects all COBOL verb-prefixed CFG labels (e.g., `MOVECARDFILE-ST`, `PERFORMUNTILEND`, `GOBACK`) that Cobol-REKT emits as synthetic CFG nodes but are not user-defined paragraphs |
+| CBACT01C.md | Removed hallucinated paragraphs `END-IF`, `END-PERFORM`, `GOBACK`, `VB2-ACCT-ID`, `WS-REISSUE-DATE` from `procedure_paragraphs` |
+| CBACT02C.md | Fixed missing `---` YAML frontmatter block; removed hallucinated `END-PERFORM` paragraph and `CARD-RECORD` data item |
+| CBACT03C.md | Removed hallucinated `CARD-XREF-RECORD` data item |
 
 ---
 
@@ -266,17 +305,18 @@ python scripts/pass3_synthesize.py `
 
 ### Stage 4 — Gate Check
 ```powershell
-python validation/gate_compare.py --program-id PROGNAME
+py -3 validation/extract_cfg_summary.py --all
+py -3 validation/extract_ground_truth.py
+py -3 validation/extract_md_claims.py
+py -3 validation/gate_compare.py
 # Exit 0 = PASS. Exit 1 = FAIL — fix MD before committing.
 ```
 
 ### Baseline Verification (run before starting any batch)
 ```powershell
-# Confirm the 6 completed programs still pass before adding more
-foreach ($p in @("CBACT01C","CBCUS01C","CBTRN01C","COBSWAIT","COMEN01C","COSGN00C")) {
-    python validation/gate_compare.py --program-id $p
-}
-# All 6 must show PASS
+# Confirm all 8 completed programs still pass before adding more
+py -3 validation/gate_compare.py
+# All 8 must show PASS
 ```
 
 ---
