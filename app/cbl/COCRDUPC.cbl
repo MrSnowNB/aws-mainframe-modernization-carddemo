@@ -192,10 +192,7 @@
       ******************************************************************        
       *       USER CAME FROM CREDIT CARD LIST SCREEN                            
       *            TYPE A CFG FIX: two plain WHENs + single nested IF/END-IF    
-      *            (replaces original compound WHEN..AND fallthrough pattern)    
-      *            WHEN CDEMO-PGM-ENTER                                          
-      *            WHEN CCARD-AID-PFK12                                          
-      *                IF CDEMO-FROM-PROGRAM EQUAL LIT-CCLISTPGM                
+      *            TYPE B CFG FIX (B1): GO TO COMMON-RETURN -> PERFORM          
       ******************************************************************        
                WHEN CDEMO-PGM-ENTER                                              
                WHEN CCARD-AID-PFK12                                              
@@ -211,26 +208,30 @@
                           SET CCUP-SHOW-DETAILS TO TRUE                          
                           PERFORM 3000-SEND-MAP                                  
                              THRU 3000-SEND-MAP-EXIT                             
-                          GO TO COMMON-RETURN                                    
+                          PERFORM COMMON-RETURN                                  
                    END-IF                                                        
       ******************************************************************        
       *       FRESH ENTRY INTO PROGRAM                                           
       *            ASK THE USER FOR THE KEYS TO FETCH CARD TO BE UPDATED        
+      *            TYPE A CFG FIX (Rule 3): split two compound WHEN..AND        
+      *            with different guards into separate WHEN + nested IF/END-IF  
+      *            Body extracted to 3001-INIT-AND-SHOW-MAP paragraph           
       ******************************************************************        
                WHEN CCUP-DETAILS-NOT-FETCHED                                    
-                AND CDEMO-PGM-ENTER                                              
+                   IF CDEMO-PGM-ENTER                                            
+                       PERFORM 3001-INIT-AND-SHOW-MAP                           
+                           THRU 3001-INIT-AND-SHOW-MAP-EXIT                     
+                   END-IF                                                        
                WHEN CDEMO-FROM-PROGRAM   EQUAL LIT-MENUPGM                      
-                AND NOT CDEMO-PGM-REENTER                                        
-                    INITIALIZE WS-THIS-PROGCOMMAREA                              
-                    PERFORM 3000-SEND-MAP THRU                                   
-                            3000-SEND-MAP-EXIT                                   
-                    SET CDEMO-PGM-REENTER        TO TRUE                         
-                    SET CCUP-DETAILS-NOT-FETCHED TO TRUE                         
-                    GO TO COMMON-RETURN                                          
+                   IF NOT CDEMO-PGM-REENTER                                     
+                       PERFORM 3001-INIT-AND-SHOW-MAP                           
+                           THRU 3001-INIT-AND-SHOW-MAP-EXIT                     
+                   END-IF                                                        
       ******************************************************************        
       *       CARD DATA CHANGES REVIEWED, OKAYED AND DONE SUCESSFULLY           
       *            RESET THE SEARCH KEYS                                        
       *            ASK THE USER FOR FRESH SEARCH CRITERIA                       
+      *            TYPE B CFG FIX (B2): GO TO COMMON-RETURN -> PERFORM          
       ******************************************************************        
                WHEN CCUP-CHANGES-OKAYED-AND-DONE                                
                WHEN CCUP-CHANGES-FAILED                                          
@@ -242,29 +243,33 @@
                     PERFORM 3000-SEND-MAP THRU                                   
                             3000-SEND-MAP-EXIT                                   
                     SET CCUP-DETAILS-NOT-FETCHED   TO TRUE                       
-                    GO TO COMMON-RETURN                                          
+                    PERFORM COMMON-RETURN                                        
       ******************************************************************        
       *       PROCESSING USER INPUT FOR CARD UPDATE                             
+      *            TYPE A CFG FIX (Rule 1): plain WHEN + nested IF/END-IF      
+      *            TYPE B CFG FIX (B1a/B1b): GO TO COMMON-RETURN -> PERFORM    
       ******************************************************************        
                WHEN CCUP-DETAILS-FETCHED                                         
-                AND CDEMO-PGM-REENTER                                            
-                    PERFORM 2000-PROCESS-INPUTS                                  
-                       THRU 2000-PROCESS-INPUTS-EXIT                             
-                    IF INPUT-ERROR                                               
-                        PERFORM 3000-SEND-MAP                                    
-                           THRU 3000-SEND-MAP-EXIT                               
-                        GO TO COMMON-RETURN                                      
-                    END-IF                                                       
-                    PERFORM 5000-UPDATE-RECORD                                   
-                       THRU 5000-UPDATE-RECORD-EXIT                              
-                    PERFORM 3000-SEND-MAP                                        
-                       THRU 3000-SEND-MAP-EXIT                                   
-                    GO TO COMMON-RETURN                                          
+                   IF CDEMO-PGM-REENTER                                         
+                       PERFORM 2000-PROCESS-INPUTS                               
+                          THRU 2000-PROCESS-INPUTS-EXIT                          
+                       IF INPUT-ERROR                                            
+                           PERFORM 3000-SEND-MAP                                 
+                              THRU 3000-SEND-MAP-EXIT                            
+                           PERFORM COMMON-RETURN                                 
+                       END-IF                                                    
+                       PERFORM 5000-UPDATE-RECORD                                
+                          THRU 5000-UPDATE-RECORD-EXIT                           
+                       PERFORM 3000-SEND-MAP                                     
+                          THRU 3000-SEND-MAP-EXIT                                
+                       PERFORM COMMON-RETURN                                     
+                   END-IF                                                        
                WHEN OTHER                                                        
+      *            TYPE B CFG FIX (B2): GO TO COMMON-RETURN -> PERFORM          
                     MOVE 'UNEXPECTED STATE' TO WS-MSG                           
                     PERFORM 3000-SEND-MAP                                        
                        THRU 3000-SEND-MAP-EXIT                                   
-                    GO TO COMMON-RETURN                                          
+                    PERFORM COMMON-RETURN                                        
            END-EVALUATE                                                          
                                                                                  
        COMMON-RETURN.                                                            
@@ -315,6 +320,22 @@
                           ERASE                                                  
            END-EXEC                                                              
        3000-SEND-MAP-EXIT.                                                       
+           EXIT.                                                                 
+      ******************************************************************        
+      *                                                                          
+      *    INIT AND SHOW MAP SECTION                                             
+      *    Extracted from compound WHEN..AND fallthrough (Rule 3 CFG fix)       
+      *    TYPE B CFG FIX (B3): GO TO COMMON-RETURN -> PERFORM                  
+      *                                                                          
+      ******************************************************************        
+       3001-INIT-AND-SHOW-MAP.                                                   
+                    INITIALIZE WS-THIS-PROGCOMMAREA                              
+                    PERFORM 3000-SEND-MAP THRU                                   
+                            3000-SEND-MAP-EXIT                                   
+                    SET CDEMO-PGM-REENTER        TO TRUE                         
+                    SET CCUP-DETAILS-NOT-FETCHED TO TRUE                         
+                    PERFORM COMMON-RETURN                                        
+       3001-INIT-AND-SHOW-MAP-EXIT.                                              
            EXIT.                                                                 
       ******************************************************************        
       *                                                                          
