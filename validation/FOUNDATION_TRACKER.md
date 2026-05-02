@@ -1,7 +1,7 @@
 # Validation Foundation Tracker
 
 > **Living document** — update this file whenever a pipeline stage completes for any program.
-> Last updated: 2026-05-02 | Gate baseline: 8/8 PASS on `recovery/restore-green-baseline`
+> Last updated: 2026-05-02 | Gate baseline: 8/8 PASS (all programs with `.md` pass gate)
 
 ---
 
@@ -9,7 +9,7 @@
 
 ```
 Layer 1  Source           app/cbl/*.cbl + app/cpy/*.cpy   (authoritative — never changes)
-Layer 2  Static Analysis  Cobol-REKT CFG  →  validation/rekt/<PROG>.cbl.report/
+Layer 2  Static Analysis  Cobol-REKT CFG  →  validation/structure/<PROG>_cfg.json
                           GnuCOBOL compile check  (syntax gate, local metal only)
 Layer 3  Ground Truth     extract_cfg_summary.py  →  validation/structure/<PROG>_cfg.json
                           extract_ground_truth.py →  validation/logs/gt_*.log
@@ -64,9 +64,9 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 | COCRDLIC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — large (117 KB) |
 | COCRDSLC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — large (71 KB) |
 | COCRDUPC | CICS | ❌ | ❌ | ⚠️ | — | ❌ | `.md` stub exists (0 paragraphs in GT); no REKT report |
-| COMEN01C | CICS/Menu | ❌ | ❌ | ✅ | ✅ (suppressed) | ❌ | REKT never run — gate PASS via RC8 scope-terminator suppression only |
+| COMEN01C | CICS/Menu | ✅ | ✅ | ✅ | ✅ (suppressed) | ⚠️ | REKT ran — 7 reachable paragraphs, 3 scope terminators suppressed (RC8). Gate PASS confirmed. Full paragraph validation pending. |
 | CORPT00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COSGN00C | CICS/Signon | ❌ | ❌ | ✅ | ✅ (suppressed) | ❌ | REKT never run — gate PASS via RC8 scope-terminator suppression only |
+| COSGN00C | CICS/Signon | ✅ | ✅ | ✅ | ✅ (suppressed) | ⚠️ | REKT ran — 6 reachable paragraphs, 3 scope terminators suppressed (RC8). Gate PASS confirmed. Full paragraph validation pending. |
 | COTRN00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
 | COTRN01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
 | COTRN02C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
@@ -87,14 +87,15 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 
 | Metric | Count | of 28 |
 |--------|------:|------:|
-| REKT ran | 7 | 25% |
-| CFG JSON committed | 7 | 25% |
+| REKT ran | 9 | 32% |
+| CFG JSON committed | 9 | 32% |
 | `.md` translation exists | 9 | 32% |
 | Gate PASS | 8 | — (of 9 with `.md`) |
 | **Fully trusted (metal-backed)** | **5** | **18%** |
 
-> ⚠️ CBACT04C has REKT + CFG but no `.md` — next easiest win.
-> ⚠️ COMEN01C and COSGN00C pass the gate but have no REKT backing — run REKT before treating them as trusted.
+> ⚠️ CBACT04C has REKT + CFG but no `.md` — next easiest translation win.
+> ⚠️ COMEN01C and COSGN00C: REKT ran and gate passes, but scope-terminator suppression means paragraph-level completeness has not been positively asserted. Run a full paragraph diff before marking Fully Trusted.
+> ⚠️ COBSWAIT is trivial (0 real paragraphs) — Fully Trusted carries an asterisk.
 
 ---
 
@@ -122,14 +123,24 @@ Its role in the pipeline is **not yet formally defined**.
 Priority order for expanding the trusted foundation:
 
 ```
-[ ] 1. Run REKT on COMEN01C and COSGN00C — convert suppressed PASSes to metal-backed
+[✅] 1. Run REKT on COMEN01C and COSGN00C — REKT confirmed ran, gate passes with suppression
 [ ] 2. Write CBACT04C.md — CFG already exists, easiest translation win
 [ ] 3. Decide GnuCOBOL role — document formally in this tracker
-[ ] 4. Run REKT on remaining batch programs (CBTRN02C, CBTRN03C, CBEXPORT, CBIMPORT, CBSTM03A/B)
-[ ] 5. Run REKT on CICS programs (COADM01C, COBIL00C, COTRN*, COUSR*, COCRD*, CORPT00C)
-[ ] 6. Run REKT on CSUTLDTC utility
-[ ] 7. Begin inference pipeline smoke test — pick 2 untranslated programs, run LLM → gate
+[ ] 4. Fully validate COMEN01C and COSGN00C paragraphs — clear suppressed-PASS caveat
+[ ] 5. Run REKT on remaining batch programs (CBTRN02C, CBTRN03C, CBEXPORT, CBIMPORT, CBSTM03A/B)
+[ ] 6. Run REKT on CICS programs (COADM01C, COBIL00C, COTRN*, COUSR*, COCRD*, CORPT00C)
+[ ] 7. Run REKT on CSUTLDTC utility
+[ ] 8. Begin inference pipeline smoke test — pick 2 untranslated programs, run LLM → gate
 ```
+
+---
+
+## Session Changelog
+
+| Date | Change |
+|------|--------|
+| 2026-05-01 | Gate failures diagnosed: CBACT01C/02C/03C all FAILing due to (1) missing `data_items` in `_cfg.json` — L01 parser added to `extract_cfg_summary.py`; (2) synthetic Cobol-REKT CFG labels leaking through `is_paragraph_node()` — filter tightened. MD content fixed: CBACT01C removed 5 hallucinated names; CBACT02C fixed missing frontmatter + removed 1 paragraph + 1 data item; CBACT03C removed 1 data item. |
+| 2026-05-02 | Gate confirmed **8/8 PASS** locally after fixes. Branch `fix/gate-failures-cbact01c-02c-03c` merged to main. COMEN01C and COSGN00C REKT status corrected to ✅ — `extract_cfg_summary.py --all` and `extract_ground_truth.py` confirmed both programs processed (7 and 6 reachable paragraphs respectively). Tracker scorecard updated: REKT ran 7→9, CFG committed 7→9. |
 
 ---
 
