@@ -139,12 +139,6 @@ procedure_paragraphs:
     goto_targets: []
     summary: "Validates the numeric option entered on the menu map, enforces admin-only access restrictions, and issues an EXEC CICS XCTL to the program associated with the chosen option, with special handling for the COPAUS0C availability check and DUMMY placeholder options"
 
-  - name: "RETURN-TO-SIGNON-SCREEN"
-    reachable: true
-    performs: []
-    goto_targets: []
-    summary: "Defaults CDEMO-TO-PROGRAM to COSGN00C when the target is not already set, then issues an unconditional EXEC CICS XCTL to transfer control to the sign-on screen"
-
   - name: "SEND-MENU-SCREEN"
     reachable: true
     performs:
