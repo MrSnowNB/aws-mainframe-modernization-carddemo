@@ -1,7 +1,7 @@
 # Validation Foundation Tracker
 
 > **Living document** — update this file whenever a pipeline stage completes for any program.
-> Last updated: 2026-05-02 | Gate baseline: 8/8 PASS (all programs with `.md` pass gate)
+> Last updated: 2026-05-03 | Gate baseline: **8/8 PASS** (all programs with `.md` pass gate)
 
 ---
 
@@ -25,7 +25,7 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 ## Legend
 
 | Symbol | Meaning |
-|--------|---------|
+|--------|---------| 
 | ✅ | Complete and committed |
 | ❌ | Not done |
 | ⚠️ | Partial / caveat — see Notes |
@@ -42,45 +42,44 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 | CBACT01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 16 paragraphs, 21 L01 items |
 | CBACT02C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 5 paragraphs, 10 L01 items |
 | CBACT03C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 5 paragraphs, 10 L01 items |
-| CBACT04C | Batch/VSAM | ✅ | ✅ | ❌ | — | ⚠️ | 22 paragraphs, 24 L01 items — CFG ready, no `.md` yet |
+| CBACT04C | Batch/VSAM | ✅ | ✅ | ❌ | — | ⚠️ | 22 paragraphs, 24 L01 items — CFG ready, no `.md` yet — **next easiest win** |
 | CBCUS01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 5 paragraphs, 10 L01 items |
-| CBEXPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| CBIMPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| CBSTM03A | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| CBSTM03B | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started |
+| CBEXPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
+| CBIMPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
+| CBSTM03A | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
+| CBSTM03B | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
 | CBTRN01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 18 paragraphs, 21 L01 items |
-| CBTRN02C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — large file (58 KB) |
-| CBTRN03C | Batch/VSAM | ❌ | ❌ | ❌ | — | 
-❌ | Not started — large file (52 KB) |
+| CBTRN02C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 2 (58 KB) |
+| CBTRN03C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 2 (52 KB) |
 
 ### CICS Online Programs — CO prefix
 
 | Program | Type | REKT ran | CFG JSON | `.md` exists | Gate PASS | Fully Trusted | Notes |
 |---------|------|:--------:|:--------:|:------------:|:---------:|:-------------:|-------|
-| COACTUPC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — very large (182 KB) |
-| COACTVWC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — large (74 KB) |
-| COADM01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COBIL00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
+| COACTUPC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 5 (182 KB, W=1 I=7) |
+| COACTVWC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 4 (74 KB, I=2) |
+| COADM01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COBIL00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
 | COBSWAIT | Batch (inline) | ✅ | ✅ (0 para) | ✅ | ✅ | ⚠️ | Trivial — 0 real paragraphs, 1 synthetic (MAIN-INLINE), 2 L01 items |
-| COCRDLIC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — large (117 KB) |
-| COCRDSLC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — large (71 KB) |
-| COCRDUPC | CICS | ❌ | ❌ | ⚠️ | — | ❌ | `.md` stub exists (0 paragraphs in GT); no REKT report |
+| COCRDLIC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 5 (117 KB) |
+| COCRDSLC | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 4 (71 KB) |
+| COCRDUPC | CICS | ❌ | ❌ | ⚠️ | — | ❌ | `.md` stub exists (0 paragraphs in GT); no REKT report — Wave 4 |
 | COMEN01C | CICS/Menu | ✅ | ✅ | ✅ | ✅ (suppressed) | ⚠️ | REKT ran — 7 reachable paragraphs, 3 scope terminators suppressed (RC8). Gate PASS confirmed. Full paragraph validation pending. |
-| CORPT00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
+| CORPT00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
 | COSGN00C | CICS/Signon | ✅ | ✅ | ✅ | ✅ (suppressed) | ⚠️ | REKT ran — 6 reachable paragraphs, 3 scope terminators suppressed (RC8). Gate PASS confirmed. Full paragraph validation pending. |
-| COTRN00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COTRN01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COTRN02C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COUSR00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COUSR01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COUSR02C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
-| COUSR03C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started |
+| COTRN00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COTRN01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COTRN02C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COUSR00C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COUSR01C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COUSR02C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
+| COUSR03C | CICS | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 3 |
 
 ### Utility Programs — CS prefix
 
 | Program | Type | REKT ran | CFG JSON | `.md` exists | Gate PASS | Fully Trusted | Notes |
 |---------|------|:--------:|:--------:|:------------:|:---------:|:-------------:|-------|
-| CSUTLDTC | Utility | ❌ | ❌ | ❌ | — | ❌ | Date/time utility — called by other programs |
+| CSUTLDTC | Utility | ❌ | ❌ | ❌ | — | ❌ | Date/time utility — called by other programs — Wave 2 |
 
 ---
 
@@ -97,6 +96,48 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 > ⚠️ CBACT04C has REKT + CFG but no `.md` — next easiest translation win.
 > ⚠️ COMEN01C and COSGN00C: REKT ran and gate passes, but scope-terminator suppression means paragraph-level completeness has not been positively asserted. Run a full paragraph diff before marking Fully Trusted.
 > ⚠️ COBSWAIT is trivial (0 real paragraphs) — Fully Trusted carries an asterisk.
+
+---
+
+## Batch Wave Plan — Remaining 20 Programs
+
+Ordered by risk and REKT readiness. **Do not execute waves — plan only.**
+Risk tier = file size + existing lint findings + EVALUATE/GO TO density estimate.
+
+| Wave | Program | Type | Size (KB) | Lint baseline | Est. GO TO density | Risk | Notes |
+|------|---------|------|----------:|:-------------:|:-----------------:|:----:|-------|
+| **Wave 1 — CBACT04C + easy batch** (PR #42) |
+| 0 | CBACT04C | Batch/VSAM | 52 | E=0 W=0 I=0 | None (CFG confirmed clean) | **Low** | `.md` only — CFG already committed |
+| 1 | CBEXPORT | Batch | 24 | E=0 W=0 I=0 | Very low | **Low** | Simple batch export |
+| 1 | CBIMPORT | Batch | 20 | E=0 W=0 I=0 | Very low | **Low** | Simple batch import |
+| 1 | CBSTM03B | Batch | 7 | E=0 W=0 I=0 | None | **Low** | Very small |
+| 1 | CSUTLDTC | Utility | 11 | E=0 W=0 I=1 | Low | **Low** | Pre-existing INFO only |
+| **Wave 2 — Larger batch VSAM** (PR #43) |
+| 2 | CBSTM03A | Batch | 35 | E=0 W=0 I=0 | Low | **Low** | Batch statement |
+| 2 | CBTRN02C | Batch/VSAM | 58 | E=0 W=0 I=0 | Medium | **Medium** | Large batch — watch PERFORM THRU |
+| 2 | CBTRN03C | Batch/VSAM | 52 | E=0 W=0 I=0 | Medium | **Medium** | Large batch — watch PERFORM THRU |
+| **Wave 3 — Small/medium CICS** (PR #44) |
+| 3 | COMEN01C | CICS/Menu | 10 | E=0 W=0 I=0 | Low | **Low** | Promote suppressed-PASS to Fully Trusted |
+| 3 | COSGN00C | CICS | 10 | E=0 W=0 I=0 | Low | **Low** | Promote suppressed-PASS to Fully Trusted |
+| 3 | COADM01C | CICS | 23 | E=0 W=0 I=0 | Low | **Low** | Standard CICS menu |
+| 3 | COBIL00C | CICS | 23 | E=0 W=0 I=0 | Low-Med | **Low** | Billing display |
+| 3 | CORPT00C | CICS | 28 | E=0 W=0 I=0 | Low-Med | **Low** | Report display |
+| 3 | COTRN01C | CICS | 14 | E=0 W=0 I=0 | Low | **Low** | Transaction view |
+| **Wave 4 — Medium CICS + COUSR group** (PR #45) |
+| 4 | COUSR01C | CICS | 12 | E=0 W=0 I=0 | Low | **Low** | User mgmt |
+| 4 | COUSR02C | CICS | 17 | E=0 W=0 I=0 | Low | **Low** | User mgmt |
+| 4 | COUSR03C | CICS | 15 | E=0 W=0 I=0 | Low | **Low** | User mgmt |
+| 4 | COUSR00C | CICS | 29 | E=0 W=0 I=0 | Medium | **Medium** | User list — larger |
+| 4 | COTRN00C | CICS | 29 | E=0 W=0 I=0 | Medium | **Medium** | Transaction list |
+| 4 | COTRN02C | CICS | 33 | E=0 W=0 I=0 | Medium | **Medium** | Transaction detail |
+| **Wave 5 — High complexity / large CICS** (PR #46–47) |
+| 5 | COCRDSLC | CICS | 71 | E=0 W=0 I=0 | Medium-High | **High** | Card select — complex EVALUATE |
+| 5 | COACTVWC | CICS | 74 | E=0 W=0 I=2 | High | **High** | Account view — pre-existing I=2 (L004) |
+| 5 | COCRDUPC | CICS | 32 | E=0 W=0 I=0 | Medium | **Medium** | Stub `.md` exists — needs REKT first |
+| 5 | COCRDLIC | CICS | 117 | E=0 W=0 I=1 | High | **High** | Card list — largest CICS, I=1 (L004) |
+| 5 | COACTUPC | CICS | 182 | E=0 **W=1** I=7 | Very high | **High** | Largest file — W=1 L003 + 7×L004. Last. |
+
+> **Wave 5 note:** COACTUPC's W=1 (L003 ABEND-ROUTINE-EXIT stub) and I=7 (PERFORM THRU) are **pre-existing baselines — do not fix**. The CFG/GO TO sweep must confirm zero `goto_flag: true` after REKT runs.
 
 ---
 
@@ -124,14 +165,14 @@ Its role in the pipeline is **not yet formally defined**.
 Priority order for expanding the trusted foundation:
 
 ```
-[✅] 1. Run REKT on COMEN01C and COSGN00C — REKT confirmed ran, gate passes with suppression
-[ ] 2. Write CBACT04C.md — CFG already exists, easiest translation win
-[ ] 3. Decide GnuCOBOL role — document formally in this tracker
-[ ] 4. Fully validate COMEN01C and COSGN00C paragraphs — clear suppressed-PASS caveat
-[ ] 5. Run REKT on remaining batch programs (CBTRN02C, CBTRN03C, CBEXPORT, CBIMPORT, CBSTM03A/B)
-[ ] 6. Run REKT on CICS programs (COADM01C, COBIL00C, COTRN*, COUSR*, COCRD*, CORPT00C)
-[ ] 7. Run REKT on CSUTLDTC utility
-[ ] 8. Begin inference pipeline smoke test — pick 2 untranslated programs, run LLM → gate
+[✅] 1. Run REKT on COMEN01C and COSGN00C — confirmed, gate passes with suppression
+[✅] 2. Confirm 8/8 gate PASS — achieved 2026-05-03 (post PRs #35–#37)
+[ ] 3. Write CBACT04C.md — CFG already committed, 22 paragraphs ready — easiest next win
+[ ] 4. Decide GnuCOBOL role — document formally in this tracker
+[ ] 5. Fully validate COMEN01C and COSGN00C paragraphs — clear suppressed-PASS caveat
+[ ] 6. Execute Wave 1 (PR #42): CBACT04C.md + CBEXPORT + CBIMPORT + CBSTM03B + CSUTLDTC
+[ ] 7. Execute Wave 2 (PR #43): CBSTM03A + CBTRN02C + CBTRN03C
+[ ] 8. Execute Waves 3–5 per batch plan above
 ```
 
 ---
@@ -142,6 +183,7 @@ Priority order for expanding the trusted foundation:
 |------|--------|
 | 2026-05-01 | Gate failures diagnosed: CBACT01C/02C/03C all FAILing due to (1) missing `data_items` in `_cfg.json` — L01 parser added to `extract_cfg_summary.py`; (2) synthetic Cobol-REKT CFG labels leaking through `is_paragraph_node()` — filter tightened. MD content fixed: CBACT01C removed 5 hallucinated names; CBACT02C fixed missing frontmatter + removed 1 paragraph + 1 data item; CBACT03C removed 1 data item. |
 | 2026-05-02 | Gate confirmed **8/8 PASS** locally after fixes. Branch `fix/gate-failures-cbact01c-02c-03c` merged to main. COMEN01C and COSGN00C REKT status corrected to ✅ — `extract_cfg_summary.py --all` and `extract_ground_truth.py` confirmed both programs processed (7 and 6 reachable paragraphs respectively). Tracker scorecard updated: REKT ran 7→9, CFG committed 7→9. |
+| 2026-05-03 | 8/8 gate PASS confirmed on clean local run (post PRs #35–#37 merged). All three gates green: lint 62/0E/2W, CFG 10 programs all `goto_flag: false`, MD claims clean, `gate_compare.py` 8/8. Branch `fix/final-goto-scan-resilience` created. Batch Wave Plan added for remaining 20 programs (Waves 1–5, PR #42–47). CBACT04C identified as next immediate action. GnuCOBOL role decision still pending. |
 
 ---
 
