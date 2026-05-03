@@ -1,7 +1,7 @@
 # Validation Foundation Tracker
 
 > **Living document** — update this file whenever a pipeline stage completes for any program.
-> Last updated: 2026-05-03 | Gate baseline: **9/9 PASS** (all programs with `.md` pass gate)
+> Last updated: 2026-05-03 | Gate baseline: **10/10 PASS** (all programs with `.md` pass gate)
 
 ---
 
@@ -47,7 +47,7 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 | CBEXPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
 | CBIMPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
 | CBSTM03A | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
-| CBSTM03B | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
+| CBSTM03B | Batch | ✅ | ✅ | ✅ | ✅ | ✅ | 14 paragraphs, 9 L01 items — PR #45 / GitHub #43 — gate 10/10 PASS |
 | CBTRN01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 18 paragraphs, 21 L01 items |
 | CBTRN02C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 2 (58 KB) |
 | CBTRN03C | Batch/VSAM | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 2 (52 KB) |
@@ -87,11 +87,11 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 
 | Metric | Count | of 28 |
 |--------|------:|------:|
-| REKT ran | 9 | 32% |
-| CFG JSON committed | 9 | 32% |
-| `.md` translation exists | 10 | 36% |
-| Gate PASS | 9 | — (of 10 with `.md`) |
-| **Fully trusted (metal-backed)** | **6** | **21%** |
+| REKT ran | 10 | 36% |
+| CFG JSON committed | 10 | 36% |
+| `.md` translation exists | 11 | 39% |
+| Gate PASS | 10 | — (of 11 with `.md`) |
+| **Fully trusted (metal-backed)** | **7** | **25%** |
 
 > ⚠️ COMEN01C and COSGN00C: REKT ran and gate passes, but scope-terminator suppression means paragraph-level completeness has not been positively asserted. Run a full paragraph diff before marking Fully Trusted.
 > ⚠️ COBSWAIT is trivial (0 real paragraphs) — Fully Trusted carries an asterisk.
@@ -109,7 +109,7 @@ Risk tier = file size + existing lint findings + EVALUATE/GO TO density estimate
 | 0 | CBACT04C | Batch/VSAM | 52 | E=0 W=0 I=0 | None (CFG confirmed clean) | **Low** | ✅ Complete — PR #42 / GitHub #40 merged 2026-05-03 |
 | 1 | CBEXPORT | Batch | 24 | E=0 W=0 I=0 | Very low | **Low** | Simple batch export |
 | 1 | CBIMPORT | Batch | 20 | E=0 W=0 I=0 | Very low | **Low** | Simple batch import |
-| 1 | CBSTM03B | Batch | 7 | E=0 W=0 I=0 | None | **Low** | Very small |
+| 1 | CBSTM03B | Batch | 7 | E=0 W=0 I=0 | None | **Low** | ✅ Complete — PR #45 / GitHub #43 merged 2026-05-03 |
 | 1 | CSUTLDTC | Utility | 11 | E=0 W=0 I=1 | Low | **Low** | Pre-existing INFO only |
 | **Wave 2 — Larger batch VSAM** (PR #43) |
 | 2 | CBSTM03A | Batch | 35 | E=0 W=0 I=0 | Low | **Low** | Batch statement |
@@ -169,16 +169,17 @@ Priority order for expanding the trusted foundation:
 [✅] 3. Write CBACT04C.md — PR #42 / GitHub #40 merged; gate 9/9 PASS confirmed
 [ ] 4. Decide GnuCOBOL role — document formally in this tracker
 [ ] 5. Fully validate COMEN01C and COSGN00C paragraphs — clear suppressed-PASS caveat
-[ ] 6. Execute Wave 1 remaining (PR #44): CBEXPORT + CBIMPORT + CBSTM03B + CSUTLDTC
-[ ] 7. Execute Wave 2 (PR #45): CBSTM03A + CBTRN02C + CBTRN03C
-[ ] 8. Execute Waves 3–5 per batch plan above
+[✅] 6. CBSTM03B Wave 1 complete (PR #45 / GitHub #43) — gate 10/10 PASS confirmed
+[ ] 7. Execute Wave 1 remaining: CBEXPORT + CBIMPORT + CSUTLDTC
+[ ] 8. Execute Wave 2 (PR #46): CBSTM03A + CBTRN02C + CBTRN03C
+[ ] 9. Execute Waves 3–5 per batch plan above
 ```
 
 ---
 
 ## Session Changelog
 
-> **PR counter offset convention (stable as of 2026-05-03):** GitHub's sequential counter does not match internal task-brief PR numbers. Current offset: PR title N = GitHub # N-2. Mapping: PR #41 = GitHub #39; PR #42 = GitHub #40; PR #43 = GitHub #41. This offset is stable unless closed/draft PRs are reopened or deleted.
+> **PR counter offset convention (stable as of 2026-05-03):** GitHub's sequential counter does not match internal task-brief PR numbers. Current offset: PR title N = GitHub # N-2. Mapping: PR #41 = GitHub #39; PR #42 = GitHub #40; PR #43 = GitHub #41; PR #45 = GitHub #43. This offset is stable unless closed/draft PRs are reopened or deleted.
 
 | Date | Change |
 |------|--------|
@@ -186,3 +187,4 @@ Priority order for expanding the trusted foundation:
 | 2026-05-02 | Gate confirmed **8/8 PASS** locally after fixes. Branch `fix/gate-failures-cbact01c-02c-03c` merged to main. COMEN01C and COSGN00C REKT status corrected to ✅ — `extract_cfg_summary.py --all` and `extract_ground_truth.py` confirmed both programs processed (7 and 6 reachable paragraphs respectively). Tracker scorecard updated: REKT ran 7→9, CFG committed 7→9. |
 | 2026-05-03 | 8/8 gate PASS confirmed on clean local run (post PRs #35–#37 merged). All three gates green: lint 62/0E/2W, CFG 10 programs all `goto_flag: false`, MD claims clean, `gate_compare.py` 8/8. Branch `fix/final-goto-scan-resilience` created. Batch Wave Plan added for remaining 20 programs (Waves 1–5, PR #42–47). GnuCOBOL role decision still pending. |
 | 2026-05-03 | **PR #42 / GitHub #40 merged.** CBACT04C.md added to `translations/gold-candidate/`. Gate advanced to **9/9 PASS**. CBACT04C flipped to Fully Trusted ✅. Scorecard: `.md`=10, Gate PASS=9, Fully Trusted=6. source_sha `1da48c0015ca11995d2c02d8ece3fcbc63b84ec1` verified; 22 paragraphs, 24 L01 items, all `goto_flag: false`. |
+| 2026-05-03 | **PR #45 / GitHub #43 — CBSTM03B Wave 1 Complete.** REKT artifacts + `validation/structure/CBSTM03B_cfg.json` committed (38c1636). `translations/gold-candidate/CBSTM03B.md` committed (110b2f9) — schema `cobol-md/1.0`, `procedure_paragraphs` objects, `goto_acceptance` RC8 block. FOUNDATION_TRACKER flipped ✅ this commit. gate_compare: **10/10 PASS** (was 9/9). lint_cobol: 62/0/2 preserved. 14 paragraphs, 9 L01 items, 5 RC8 common-exit GO TOs (0000-START→9999-GOBACK; N000-*-PROC→N900-EXIT). |
