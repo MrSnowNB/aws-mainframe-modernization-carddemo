@@ -1,7 +1,7 @@
 # Validation Foundation Tracker
 
 > **Living document** — update this file whenever a pipeline stage completes for any program.
-> Last updated: 2026-05-03 | Gate baseline: **8/8 PASS** (all programs with `.md` pass gate)
+> Last updated: 2026-05-03 | Gate baseline: **9/9 PASS** (all programs with `.md` pass gate)
 
 ---
 
@@ -42,7 +42,7 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 | CBACT01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 16 paragraphs, 21 L01 items |
 | CBACT02C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 5 paragraphs, 10 L01 items |
 | CBACT03C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 5 paragraphs, 10 L01 items |
-| CBACT04C | Batch/VSAM | ✅ | ✅ | ❌ | — | ⚠️ | 22 paragraphs, 24 L01 items — CFG ready, no `.md` yet — **next easiest win** |
+| CBACT04C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 22 paragraphs, 24 L01 items — PR #42 / GitHub #40 — gate 9/9 PASS |
 | CBCUS01C | Batch/VSAM | ✅ | ✅ | ✅ | ✅ | ✅ | 5 paragraphs, 10 L01 items |
 | CBEXPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
 | CBIMPORT | Batch | ❌ | ❌ | ❌ | — | ❌ | Not started — Wave 1 |
@@ -89,11 +89,10 @@ A gate PASS achieved via suppression (0-paragraph CICS programs) or with no REKT
 |--------|------:|------:|
 | REKT ran | 9 | 32% |
 | CFG JSON committed | 9 | 32% |
-| `.md` translation exists | 9 | 32% |
-| Gate PASS | 8 | — (of 9 with `.md`) |
-| **Fully trusted (metal-backed)** | **5** | **18%** |
+| `.md` translation exists | 10 | 36% |
+| Gate PASS | 9 | — (of 10 with `.md`) |
+| **Fully trusted (metal-backed)** | **6** | **21%** |
 
-> ⚠️ CBACT04C has REKT + CFG but no `.md` — next easiest translation win.
 > ⚠️ COMEN01C and COSGN00C: REKT ran and gate passes, but scope-terminator suppression means paragraph-level completeness has not been positively asserted. Run a full paragraph diff before marking Fully Trusted.
 > ⚠️ COBSWAIT is trivial (0 real paragraphs) — Fully Trusted carries an asterisk.
 
@@ -107,7 +106,7 @@ Risk tier = file size + existing lint findings + EVALUATE/GO TO density estimate
 | Wave | Program | Type | Size (KB) | Lint baseline | Est. GO TO density | Risk | Notes |
 |------|---------|------|----------:|:-------------:|:-----------------:|:----:|-------|
 | **Wave 1 — CBACT04C + easy batch** (PR #42) |
-| 0 | CBACT04C | Batch/VSAM | 52 | E=0 W=0 I=0 | None (CFG confirmed clean) | **Low** | `.md` only — CFG already committed |
+| 0 | CBACT04C | Batch/VSAM | 52 | E=0 W=0 I=0 | None (CFG confirmed clean) | **Low** | ✅ Complete — PR #42 / GitHub #40 merged 2026-05-03 |
 | 1 | CBEXPORT | Batch | 24 | E=0 W=0 I=0 | Very low | **Low** | Simple batch export |
 | 1 | CBIMPORT | Batch | 20 | E=0 W=0 I=0 | Very low | **Low** | Simple batch import |
 | 1 | CBSTM03B | Batch | 7 | E=0 W=0 I=0 | None | **Low** | Very small |
@@ -167,11 +166,11 @@ Priority order for expanding the trusted foundation:
 ```
 [✅] 1. Run REKT on COMEN01C and COSGN00C — confirmed, gate passes with suppression
 [✅] 2. Confirm 8/8 gate PASS — achieved 2026-05-03 (post PRs #35–#37)
-[ ] 3. Write CBACT04C.md — CFG already committed, 22 paragraphs ready — easiest next win
+[✅] 3. Write CBACT04C.md — PR #42 / GitHub #40 merged; gate 9/9 PASS confirmed
 [ ] 4. Decide GnuCOBOL role — document formally in this tracker
 [ ] 5. Fully validate COMEN01C and COSGN00C paragraphs — clear suppressed-PASS caveat
-[ ] 6. Execute Wave 1 (PR #42): CBACT04C.md + CBEXPORT + CBIMPORT + CBSTM03B + CSUTLDTC
-[ ] 7. Execute Wave 2 (PR #43): CBSTM03A + CBTRN02C + CBTRN03C
+[ ] 6. Execute Wave 1 remaining (PR #44): CBEXPORT + CBIMPORT + CBSTM03B + CSUTLDTC
+[ ] 7. Execute Wave 2 (PR #45): CBSTM03A + CBTRN02C + CBTRN03C
 [ ] 8. Execute Waves 3–5 per batch plan above
 ```
 
@@ -179,18 +178,11 @@ Priority order for expanding the trusted foundation:
 
 ## Session Changelog
 
+> **PR counter offset convention (stable as of 2026-05-03):** GitHub's sequential counter does not match internal task-brief PR numbers. Current offset: PR title N = GitHub # N-2. Mapping: PR #41 = GitHub #39; PR #42 = GitHub #40; PR #43 = GitHub #41. This offset is stable unless closed/draft PRs are reopened or deleted.
+
 | Date | Change |
 |------|--------|
 | 2026-05-01 | Gate failures diagnosed: CBACT01C/02C/03C all FAILing due to (1) missing `data_items` in `_cfg.json` — L01 parser added to `extract_cfg_summary.py`; (2) synthetic Cobol-REKT CFG labels leaking through `is_paragraph_node()` — filter tightened. MD content fixed: CBACT01C removed 5 hallucinated names; CBACT02C fixed missing frontmatter + removed 1 paragraph + 1 data item; CBACT03C removed 1 data item. |
 | 2026-05-02 | Gate confirmed **8/8 PASS** locally after fixes. Branch `fix/gate-failures-cbact01c-02c-03c` merged to main. COMEN01C and COSGN00C REKT status corrected to ✅ — `extract_cfg_summary.py --all` and `extract_ground_truth.py` confirmed both programs processed (7 and 6 reachable paragraphs respectively). Tracker scorecard updated: REKT ran 7→9, CFG committed 7→9. |
-| 2026-05-03 | 8/8 gate PASS confirmed on clean local run (post PRs #35–#37 merged). All three gates green: lint 62/0E/2W, CFG 10 programs all `goto_flag: false`, MD claims clean, `gate_compare.py` 8/8. Branch `fix/final-goto-scan-resilience` created. Batch Wave Plan added for remaining 20 programs (Waves 1–5, PR #42–47). CBACT04C identified as next immediate action. GnuCOBOL role decision still pending. |
-
----
-
-## How to Update This File
-
-After completing any pipeline stage for a program:
-1. Change the relevant cell from ❌ to ✅ (or ⚠️ with a note)
-2. Update the Summary Scorecard counts
-3. Move completed items off the Next Actions list
-4. Commit with message: `docs(tracker): <PROGRAM> — <stage> complete`
+| 2026-05-03 | 8/8 gate PASS confirmed on clean local run (post PRs #35–#37 merged). All three gates green: lint 62/0E/2W, CFG 10 programs all `goto_flag: false`, MD claims clean, `gate_compare.py` 8/8. Branch `fix/final-goto-scan-resilience` created. Batch Wave Plan added for remaining 20 programs (Waves 1–5, PR #42–47). GnuCOBOL role decision still pending. |
+| 2026-05-03 | **PR #42 / GitHub #40 merged.** CBACT04C.md added to `translations/gold-candidate/`. Gate advanced to **9/9 PASS**. CBACT04C flipped to Fully Trusted ✅. Scorecard: `.md`=10, Gate PASS=9, Fully Trusted=6. source_sha `1da48c0015ca11995d2c02d8ece3fcbc63b84ec1` verified; 22 paragraphs, 24 L01 items, all `goto_flag: false`. |
