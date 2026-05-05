@@ -75,6 +75,28 @@ The scaffold created the file at `translations/gold-candidate/CBCUS01C.md` (not 
 
 ---
 
+## Halt Decision
+
+**Gate Status:** HALTED (not BLOCKED — G2 itself passed; proof-point objective achieved)
+
+**Halt Reason:** Operation Tidy Option (c) close plan — time-boxed proof-point completed after surfacing 3 concrete template/toolchain defects that would otherwise bite us during demo prep or live translation run.
+
+**Defects Logged:**
+- NOTE-G0-01: G0 template lacks explicit instruction to validate template v2.2 gate structure
+- NOTE-G2-01: SCAFFOLD-G2-03: syncd scaffold output path hardcoded to translations/gold-candidate/
+- FLAG F-G2-01: BRANCH-SCOPE.md forbid list not reconciled with scaffold's hardcoded path
+- DRIFT-G2-02: source_sha staleness warning in syncd doctor (file source newer than manifest)
+- SCAFFOLD-G2-03: Template mismatch between G1 plan (validation/waves/wave-1/) and actual scaffold output (translations/gold-candidate/)
+
+**Post-Demo Backlog Items Created:**
+- F-2a: Reconcile BRANCH-SCOPE.md forbid list with syncd scaffold's hardcoded translations/gold-candidate/ output path
+- F-2b: Add source_sha staleness guard to syncd doctor
+- F-2c: Patch G0/G2 templates per NOTE-G0-01, NOTE-G2-01, SCAFFOLD-G2-03
+
+**Signed-off:** PROOF-POINT COMPLETE, HALT-FOR-BACKLOG
+
+---
+
 ## G2 Pass Checklist
 
 - [x] syncd doctor exit 0 or 1 (warnings only) — errors in other programs, out of scope
@@ -83,4 +105,4 @@ The scaffold created the file at `translations/gold-candidate/CBCUS01C.md` (not 
 - [x] Skeleton committed separately (not mixed with G3 content)
 - [x] No scope drift (or G0 re-opened)
 
-**G2 Status:** PASS
+**G2 Status:** HALTED — proof-point objective achieved; defects surfaced and documented for post-demo backlog
