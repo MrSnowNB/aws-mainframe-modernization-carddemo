@@ -55,7 +55,7 @@ except ImportError:
             "GOBACK", "EXIT", "CONTINUE", "NEXT", "SENTENCE",
         })
 
-PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C"]
+PROGRAMS = ["CBACT01C", "CBCUS01C", "CBTRN01C", "COBSWAIT", "COMEN01C", "COSGN00C", "CBSTM03A"]
 
 
 def parse_frontmatter(md_path: Path) -> dict:
