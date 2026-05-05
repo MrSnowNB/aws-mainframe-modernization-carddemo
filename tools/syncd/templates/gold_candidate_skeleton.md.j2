@@ -1,0 +1,129 @@
+---
+schema_version: "cobol-md/1.0"
+program_id: "{{ program }}"
+source_file: "{{ source_file }}"
+source_sha: "{{ source_sha }}"
+translation_date: "{{ today }}"
+translating_agent: "syncd-scaffold/1.1"
+aifirst_task_id: "TODO-assign-task-id"
+cfg_source: "{{ cfg_source }}"
+
+business_domain: "TODO"
+subtype: "TODO"  # Batch | Online | Utility
+
+author: "AWS"
+date_written: null
+lines_of_code: {{ lines_of_code }}
+divisions:
+  identification: true
+  environment: true
+  data: true
+  procedure: true
+environment:
+  compiler: "IBM Enterprise COBOL"
+  target: "TODO"  # Batch/VSAM | CICS/Online
+  runtime: "z/OS"
+
+calls_to: []  # TODO: fill from source
+called_by: []  # TODO: fill from source
+copybooks_used: []  # TODO: fill from source
+
+file_control: []  # TODO: fill from source
+
+cics_commands: []
+transaction_ids: []
+
+data_items:
+{% for item in data_items %}
+  - name: "{{ item.name }}"
+    level: {{ item.level }}
+    picture: null
+    usage: null
+    value: null
+    redefines: null
+    redefines_interpretations: []
+    dead_code_flag: false
+    semantic: "TODO"
+{% endfor %}
+
+procedure_paragraphs:
+{% for para in paragraphs %}
+  - name: "{{ para.name }}"
+    reachable: {{ para.reachable | lower }}
+    performs:
+{% if para.performs %}
+{% for t in para.performs %}
+      - "{{ t }}"
+{% endfor %}
+{% else %}
+      []
+{% endif %}
+    goto_targets:
+{% if para.goto_targets %}
+{% for t in para.goto_targets %}
+      - "{{ t }}"
+{% endfor %}
+{% else %}
+      []
+{% endif %}
+    summary: "TODO"
+{% endfor %}
+
+{% if goto_flag %}
+goto_acceptance:
+  rationale: "TODO -- describe the GO TO pattern and why it is accepted"
+  targets:
+{% for para in paragraphs %}
+{% if para.goto_targets %}
+{% for t in para.goto_targets %}
+    - "{{ t }}"
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+business_rules: []  # TODO: fill during translation
+
+validation:
+  t01_schema_valid: true
+  t02_structural_complete: null
+  t02r_redefines_complete: null
+  t03_functional_score: null
+  t04_semantic_score: null
+  t05_regression_pass: null
+  overall: "PENDING"
+
+# Locked numbers (from SYNC-MANIFEST.yaml):
+#   paragraphs_expected:     {{ paragraphs_expected }}
+#   l01_items_expected:      {{ l01_items_expected }}
+#   reachable_expected:      {{ reachable_expected }}
+#   dead_paragraphs_allowed: {{ dead_paragraphs_allowed }}
+#   goto_flag: {{ goto_flag }}
+#   alter_flag: {{ alter_flag }}
+---
+
+# {{ program }} -- TODO: short program description
+
+## Purpose
+
+TODO: Describe what this program does and its business function.
+
+## Data Layout
+
+TODO: Describe the key data structures.
+
+## Control Flow
+
+TODO: Describe paragraph-level logic in plain English.
+
+## GO TO Suppression Rationale
+
+{% if goto_flag %}
+TODO: Explain the GO TO pattern and justify acceptance under Cobol-REKT RC8.
+{% else %}
+No GO TO statements detected in CFG.
+{% endif %}
+
+## Translation Targets
+
+TODO: List key COBOL constructs and their target-language equivalents.

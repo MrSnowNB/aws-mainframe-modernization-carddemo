@@ -1,4 +1,4 @@
-# syncd v1
+# syncd v1.1
 
 Manifest-driven pipeline sync tool for the COBOL-MD-PIPELINE.
 Locks verified CFG numbers into `SYNC-MANIFEST.yaml` so every agent
@@ -8,7 +8,8 @@ and PR can confirm they are working from the same ground truth.
 
 - Python 3.10+
 - PyYAML (`pip install pyyaml`)
-- No other new dependencies
+- Jinja2 (`pip install jinja2`) — required for `scaffold` only
+- `gh` CLI — required for `bundle --pr` only
 
 ## Commands
 
@@ -22,7 +23,7 @@ Example output:
 
 ```
 ============================================================
-syncd v1 -- status
+syncd v1.1 -- status
 ============================================================
   Branch : wave1/cbstm03a
   HEAD   : cecae47f6a7b37da647d4fba159f0df46ad9e527
@@ -46,104 +47,133 @@ Idempotent — safe to re-run after any CFG update.
 
 ```powershell
 py tools/syncd/sync.py lock CBSTM03A
+# [syncd] LOCKED CBSTM03A: 25 paragraphs, 18 L01 items
 ```
-
-Example output:
-
-```
-[syncd] LOCKED CBSTM03A: 25 paragraphs, 18 L01 items
-```
-
-Resulting `SYNC-MANIFEST.yaml` entry:
-
-```yaml
-programs:
-  CBSTM03A:
-    locked_at: "2026-05-04T01:00:00Z"
-    locked_numbers:
-      paragraphs_expected: 25
-      l01_items_expected: 18
-      reachable_expected: 25
-      dead_paragraphs_allowed: 0
-      source_sha: ea341ec97f2b1a236de57f9c0fbd262f61b23511
-      cfg_sha: d1665343e8479bf7fb554d118de0e8fd346bba09
-```
-
-Exit codes:
-- `0` — locked successfully
-- `1` — CFG file missing or `extract_ground_truth.py` failed
-- `2` — reachable-paragraph count mismatch between CFG and ground truth
-- `3` — forbidden path (should never occur on normal use)
 
 ---
 
 ### `verify` — run all three pipeline health checks
 
 Runs `gate_compare.py`, `lint_cobol.py --fail-on-error`, and
-`extract_md_claims.py` in sequence. Exits `0` only if all three
-pass. Use this as your pre-commit check.
+`extract_md_claims.py` in sequence. Exits `0` only if all three pass.
 
 ```powershell
 py tools/syncd/sync.py verify
-```
-
-Example output (clean):
-
-```
-[syncd] Running gate_compare.py ...
--- Gate Summary -----------------------------------------------
-  PASS  CBACT01C
-  PASS  CBSTM03A
-  11/11 programs passed
---------------------------------------------------------------
-[syncd] Running lint_cobol.py --fail-on-error ...
-[lint] 62 files | 0 errors | 2 warnings
-[syncd] Running extract_md_claims.py ...
-[CLAIMS] CBSTM03A: 25 paragraphs, 0 dead declared, 18 L01 items [OK]
-[syncd] VERIFY PASS -- all checks clean
-```
-
-Example output (gate failure):
-
-```
-[syncd] Running gate_compare.py ...
-[GATE] CBSTM03A: FAIL -- hallucinated_paragraphs: ['FAKE-PARA']
-[syncd] VERIFY FAILED:
-  - gate_compare.py exited 1
+# [syncd] Running gate_compare.py ...
+# [syncd] Running lint_cobol.py --fail-on-error ...
+# [syncd] Running extract_md_claims.py ...
+# [syncd] VERIFY PASS -- all checks clean
 ```
 
 ---
 
-### `promote <PROGRAM>` — run pipeline stages 0 through ground-truth then lock
+### `promote <PROGRAM>` — run pipeline stages 0-GT then lock
 
-Runs the deterministic pre-MD stages in order and locks the manifest
-on success. Does **not** run the MD generator — that remains a
-human + agent step.
+Runs `normalize_rekt_output.py` (if present), `extract_cfg_summary.py`,
+`extract_ground_truth.py`, then locks the manifest. Does **not** run
+the MD generator.
 
 ```powershell
 py tools/syncd/sync.py promote CBSTM03A
+# [syncd] Running extract_cfg_summary.py CBSTM03A ...
+# [syncd] Running extract_ground_truth.py ...
+# [syncd] LOCKED CBSTM03A: 25 paragraphs, 18 L01 items
+# [syncd] PROMOTE CBSTM03A complete -- manifest locked
+# [syncd] Next step: write translations/gold-candidate/CBSTM03A.md (human + agent)
 ```
 
-Stages executed:
-1. `normalize_rekt_output.py CBSTM03A` (skipped if script absent)
-2. `extract_cfg_summary.py CBSTM03A`
-3. `extract_ground_truth.py`
-4. `sync.py lock CBSTM03A`
+---
 
-Example output:
+### `scaffold <PROGRAM> [--force]` — generate .md skeleton  *(v1.1)*
 
+Generates `translations/gold-candidate/<PROGRAM>.md` with correct
+frontmatter (from manifest locked numbers + CFG), all paragraph stubs,
+all data_item stubs, and TODO markers for human/agent fill-in.
+
+**Refuses to overwrite an existing `.md` unless `--force` is passed.**
+
+```powershell
+# First-time generation
+py tools/syncd/sync.py scaffold CBSTM03A
+# [syncd] SCAFFOLD CBSTM03A -> translations/gold-candidate/CBSTM03A.md
+# [syncd] Paragraphs: 25 | L01: 18 | Dead: 0 | goto_flag: True
+# [syncd] Edit TODO markers, then run: py tools/syncd/sync.py verify
+
+# Overwrite after re-locking
+py tools/syncd/sync.py scaffold CBSTM03A --force
 ```
-[syncd] Running extract_cfg_summary.py CBSTM03A ...
-[OK] CBSTM03A: 25 paragraphs, 18 L01 items
-[syncd] Running extract_ground_truth.py  ...
-[GT] CBSTM03A: 25 reachable / 0 dead / 18 L01 / 0 redefines [OK]
-[syncd] LOCKED CBSTM03A: 25 paragraphs, 18 L01 items
-[syncd] PROMOTE CBSTM03A complete -- manifest locked
-[syncd] Next step: write translations/gold-candidate/CBSTM03A.md (human + agent)
+
+Exit codes:
+- `0` — scaffold written
+- `2` — locked_numbers missing from manifest (run `lock` first)
+- `3` — file exists and `--force` not passed
+
+---
+
+### `doctor` — full health check  *(v1.1)*
+
+Runs five checks and reports warnings/errors:
+
+| Check | What it detects |
+|---|---|
+| a. Forbidden paths | Staged/modified files under `validation/`, `translations/`, `app/`, `.clinerules/` |
+| b. Manifest vs CFG | Paragraph and L01 count drift; stale `cfg_sha` |
+| c. Truncation | `"000-"` / `"999-"` leading-zero truncation in any `structure/*_cfg.json` |
+| d. Source SHA | Stale `source_sha` in any `.md` frontmatter |
+| e. Git status | Modified files in working tree |
+
+```powershell
+py tools/syncd/sync.py doctor
+# ============================================================
+# syncd doctor
+# ============================================================
+#   [OK] All checks passed
+
+# Or with issues:
+#   [WARN]  CBSTM03A: cfg_sha in manifest (d1665343...) differs from current (abcd1234...)
+#   [ERROR] FORBIDDEN PATH in working tree/index: validation/gate_compare.py
 ```
 
-If any stage fails, `promote` exits immediately with a non-zero code
-and no manifest write occurs for that step.
+Exit codes:
+- `0` — clean
+- `1` — warnings only
+- `2` — one or more errors
+- `3` — forbidden path write detected
+
+---
+
+### `bundle <PROGRAM> [--pr]` — verify, stage, commit  *(v1.1)*
+
+Runs `verify`, stages exactly these 4 files, and commits with a
+standard message. Refuses to proceed if anything else is staged.
+
+Allowed files:
+- `translations/gold-candidate/<PROGRAM>.md`
+- `validation/structure/<PROGRAM>_cfg.json`
+- `SYNC-MANIFEST.yaml`
+- `validation/lint_cobol/lint_results/lint_results.json`
+
+```powershell
+# Commit only
+py tools/syncd/sync.py bundle CBSTM03A
+
+# Commit + open PR via gh CLI
+py tools/syncd/sync.py bundle CBSTM03A --pr
+```
+
+Example commit message:
+```
+feat(trust): CBSTM03A gold-candidate — gate PASS via syncd
+
+Locked numbers: 25 paragraphs / 18 L01 items
+Source SHA: ea341ec97f2b1a236de57f9c0fbd262f61b23511
+Verified by: syncd verify (gate_compare + lint_cobol + extract_md_claims)
+```
+
+Exit codes:
+- `0` — committed (and PR created if `--pr`)
+- `1` — verify failed or commit failed
+- `3` — extra files found in git index
 
 ---
 
@@ -152,8 +182,9 @@ and no manifest write occurs for that step.
 `sync.py` enforces a forbidden-path check on every file write.
 The only paths it will ever write to are:
 
-- `SYNC-MANIFEST.yaml` (repo root)
+- `SYNC-MANIFEST.yaml`
 - `tools/syncd/` (its own directory)
+- `translations/gold-candidate/` (scaffold output only)
 
 Any attempt to write elsewhere exits with code `3`.
 
@@ -162,11 +193,9 @@ Any attempt to write elsewhere exits with code `3`.
 ## Schema
 
 `tools/syncd/manifest_schema.json` is a JSON Schema (draft-07)
-document that describes the valid shape of `SYNC-MANIFEST.yaml`.
-You can validate manually with:
+document for `SYNC-MANIFEST.yaml`. Validate with:
 
 ```powershell
-# requires jsonschema: pip install jsonschema
 py -c "
 import json, yaml, jsonschema
 schema = json.load(open('tools/syncd/manifest_schema.json'))
@@ -174,4 +203,27 @@ data   = yaml.safe_load(open('SYNC-MANIFEST.yaml'))
 jsonschema.validate(data, schema)
 print('VALID')
 "
+```
+
+---
+
+## Typical Wave Workflow
+
+```powershell
+# 1. After REKT runs and CFG JSON is committed:
+py tools/syncd/sync.py promote CBSTM03A
+
+# 2. Generate skeleton .md:
+py tools/syncd/sync.py scaffold CBSTM03A
+
+# 3. Fill in TODO markers (human + agent)
+
+# 4. Health check before commit:
+py tools/syncd/sync.py doctor
+
+# 5. Bundle and commit:
+py tools/syncd/sync.py bundle CBSTM03A
+
+# 6. Optional: open PR:
+py tools/syncd/sync.py bundle CBSTM03A --pr
 ```
