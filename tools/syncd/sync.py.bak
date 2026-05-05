@@ -446,6 +446,7 @@ def cmd_doctor(_args: argparse.Namespace) -> int:
     # --- a. Forbidden-path changes in git diff (unstaged + staged) ---
     forbidden_prefixes = [
         "validation/",
+        "translations/",
         "app/cbl/",
         "app/cpy/",
         ".clinerules/",
