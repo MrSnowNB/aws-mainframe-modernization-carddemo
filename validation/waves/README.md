@@ -18,7 +18,12 @@ The `validation/waves/` directory contains the output of the multi-pass proposit
 - `file_control/{PROG}.json` - File control records
 - `paragraph_io/{PROG}.json` - Paragraph I/O analysis
 
-**File Count:** 43 files (11 programs × ~4 file types)
+**File Count:** 45 files (17 root files + 28 subdirectory files)
+- wave-1 root: 17 files
+- wave-1/byte_layouts: 7 files
+- wave-1/fallthrough: 7 files
+- wave-1/file_control: 7 files
+- wave-1/paragraph_io: 7 files
 
 ### wave-2/ - Pass 2: LLM Proposition Generation
 

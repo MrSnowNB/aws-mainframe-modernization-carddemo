@@ -16,7 +16,7 @@ extract_cfg_summary.py → validation/structure/
 
 ### Pipeline Stages
 
-1. **run_rekt_all.py** - Executes smojol-cli across all 30 COBOL programs
+1. **run_rekt_all.py** - Executes smojol-cli across all 31 COBOL programs
 2. **rekt/** - Stores raw smojol-cli report output (CFG JSON files)
 3. **extract_cfg_summary.py** - Processes rekt/ output into structure/ CFG files
 
@@ -42,33 +42,90 @@ validation/rekt/
 ├── CBACT04C.cbl.report/
 │   └── cfg/
 │       └── cfg-CBACT04C.cbl.json
+├── CBCUS01C.cbl.report/
+│   └── cfg/
+│       └── cfg-CBCUS01C.cbl.json
+├── CBEXPORT.cbl.report/
+│   └── cfg/
+│       └── cfg-CBEXPORT.cbl.json
+├── CBIMPORT.cbl.report/
+│   └── cfg/
+│       └── cfg-CBIMPORT.cbl.json
 ├── CBSTM03A.cbl.report/
 │   └── cfg/
 │       └── cfg-CBSTM03A.cbl.json
 ├── CBSTM03B.cbl.report/
 │   └── cfg/
 │       └── cfg-CBSTM03B.cbl.json
-├── CBCUS01C.cbl.report/
-│   └── cfg/
-│       └── cfg-CBCUS01C.cbl.json
 ├── CBTRN01C.cbl.report/
 │   └── cfg/
 │       └── cfg-CBTRN01C.cbl.json
+├── CBTRN02C.cbl.report/
+│   └── cfg/
+│       └── cfg-CBTRN02C.cbl.json
+├── CBTRN03C.cbl.report/
+│   └── cfg/
+│       └── cfg-CBTRN03C.cbl.json
+├── COACTUPC.cbl.report/
+│   └── cfg/
+│       └── cfg-COACTUPC.cbl.json
+├── COACTVWC.cbl.report/
+│   └── cfg/
+│       └── cfg-COACTVWC.cbl.json
+├── COADM01C.cbl.report/
+│   └── cfg/
+│       └── cfg-COADM01C.cbl.json
+├── COBIL00C.cbl.report/
+│   └── cfg/
+│       └── cfg-COBIL00C.cbl.json
 ├── COBSWAIT.cbl.report/
 │   └── cfg/
 │       └── cfg-COBSWAIT.cbl.json
+├── COCRDLIC.cbl.report/
+│   └── cfg/
+│       └── cfg-COCRDLIC.cbl.json
+├── COCRDSLC.cbl.report/
+│   └── cfg/
+│       └── cfg-COCRDSLC.cbl.json
 ├── COCRDUPC.cbl.report/
 │   └── cfg/
 │       └── cfg-COCRDUPC.cbl.json
 ├── COMEN01C.cbl.report/
 │   └── cfg/
 │       └── cfg-COMEN01C.cbl.json
-└── COSGN00C.cbl.report/
+├── CORPT00C.cbl.report/
+│   └── cfg/
+│       └── cfg-CORPT00C.cbl.json
+├── COSGN00C.cbl.report/
+│   └── cfg/
+│       └── cfg-COSGN00C.cbl.json
+├── COTRN00C.cbl.report/
+│   └── cfg/
+│       └── cfg-COTRN00C.cbl.json
+├── COTRN01C.cbl.report/
+│   └── cfg/
+│       └── cfg-COTRN01C.cbl.json
+├── COTRN02C.cbl.report/
+│   └── cfg/
+│       └── cfg-COTRN02C.cbl.json
+├── COUSR00C.cbl.report/
+│   └── cfg/
+│       └── cfg-COUSR00C.cbl.json
+├── COUSR01C.cbl.report/
+│   └── cfg/
+│       └── cfg-COUSR01C.cbl.json
+├── COUSR02C.cbl.report/
+│   └── cfg/
+│       └── cfg-COUSR02C.cbl.json
+├── COUSR03C.cbl.report/
+│   └── cfg/
+│       └── cfg-COUSR03C.cbl.json
+└── CSUTLDTC.cbl.report/
     └── cfg/
-        └── cfg-COSGN00C.cbl.json
+        └── cfg-CSUTLDTC.cbl.json
 ```
 
-**Total:** 30 programs × 1 CFG file = 30 files
+**Total:** 31 programs × 1 CFG file = 31 files
 
 ## Regeneration Instructions
 
@@ -81,10 +138,10 @@ py run_rekt_all.py
 
 This will:
 1. Execute `smojol-cli --reportDir rekt` for each COBOL program
-2. Create/replacement `{PROG}.cbl.report/cfg/cfg-{PROG}.cbl.json` files
+2. Create/replace `{PROG}.cbl.report/cfg/cfg-{PROG}.cbl.json` files
 3. Update the rekt/ directory with fresh analysis
 
-## 30-Program Inventory
+## 31-Program Inventory
 
 The rekt/ directory covers these COBOL programs:
 
@@ -94,16 +151,33 @@ The rekt/ directory covers these COBOL programs:
 | CBACT02C | Account Update | ✅ Complete |
 | CBACT03C | Account Inquiry | ✅ Complete |
 | CBACT04C | Account Closure | ✅ Complete |
+| CBCUS01C | Customer Management | ✅ Complete |
+| CBEXPORT | Export Processing | ✅ Complete |
+| CBIMPORT | Import Processing | ✅ Complete |
 | CBSTM03A | Statement Generation | ✅ Complete |
 | CBSTM03B | Statement Inquiry | ✅ Complete |
-| CBCUS01C | Customer Management | ✅ Complete |
 | CBTRN01C | Transaction Processing | ✅ Complete |
+| CBTRN02C | Transaction Update | ✅ Complete |
+| CBTRN03C | Transaction Inquiry | ✅ Complete |
+| COACTUPC | Account Updater | ✅ Complete |
+| COACTVWC | Account Validator | ✅ Complete |
+| COADM01C | Admin Services | ✅ Complete |
+| COBIL00C | Billing Processing | ✅ Complete |
 | COBSWAIT | Wait Processing | ✅ Complete |
+| COCRDLIC | Credit Limit Check | ✅ Complete |
+| COCRDSLC | Credit Score Check | ✅ Complete |
 | COCRDUPC | Credit Duplicate Check | ✅ Complete |
 | COMEN01C | Menu Services | ✅ Complete |
+| CORPT00C | Report Processing | ✅ Complete |
 | COSGN00C | Signon Processing | ✅ Complete |
-
-*(Plus 18 additional programs)*
+| COTRN00C | Transaction Loader | ✅ Complete |
+| COTRN01C | Transaction Maintenance | ✅ Complete |
+| COTRN02C | Transaction Inquiry | ✅ Complete |
+| COUSR00C | User Loader | ✅ Complete |
+| COUSR01C | User Maintenance | ✅ Complete |
+| COUSR02C | User Inquiry | ✅ Complete |
+| COUSR03C | User Validation | ✅ Complete |
+| CSUTLDTC | Settlement Data | ✅ Complete |
 
 ## Do Not Edit Policy
 
