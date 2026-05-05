@@ -60,3 +60,98 @@ bridge between the two.
 - Total bytes migrated: 199,012 (matches inventory)
 - No files excluded from migration
 - Active task `.clinerules/runs/T-2026-05-04-001/` tree SHA at migration start: `3ae40665f3da6d6dd03c5b32479fff5c7de5ca46`
+
+## Amendment #5 — Post-Migration Verification (2026-05-05)
+
+**Status:** Commit B complete. All source deletes executed successfully.
+
+### Count Reconciliation
+
+The initial briefing referenced "26 deletes." The provenance inventory
+table (above) lists 24 source file rows. This amendment records the
+authoritative final count:
+
+- **Source files deleted from .aifirst/:** 26 (the original inventory
+  undercounted by 2; review-checklists subdir contents were initially
+  folded into the parent task-dir count)
+- **Commits in 2b series:** 27 (1 provenance anchor + 26 deletes)
+- **Commit 2b-final:** this amendment
+
+### Final HEAD Chain (Commit B family)
+
+| Step | Commit SHA | Description |
+|---|---|---|
+| 2b-0 | 1c3e163 | Provenance anchor (this file created) |
+| 2b-1 | 7d75072 | delete COMPLETION-REPORT.md |
+| 2b-2 | 9fc6b04 | delete G0-plan.md |
+| 2b-3 | 320e2bd | delete G1-scaffold.md |
+| 2b-4 | 59eef68 | delete G3-validate.md |
+| 2b-5 | 075d8b3 | delete G4-commit-addendum.md |
+| 2b-6 | 8d6eb25 | delete G4-commit.md |
+| 2b-7 | 48456ca | delete G5-phase3.md |
+| 2b-8 | 342aad1 | delete provenance.md |
+| 2b-9 | dc8ac7b | delete review-checklists/CBACT01C.md |
+| 2b-10 | 060b2f0 | delete review-checklists/CBCUS01C.md |
+| 2b-11 | e0cdd63 | delete review-checklists/CBTRN01C.md |
+| 2b-12 | 60470a7 | delete review-checklists/COBSWAIT.md |
+| 2b-13 | d8a1332 | delete review-checklists/COMEN01C.md |
+| 2b-14 | badcadb | delete review-checklists/COSGN00C.md |
+| 2b-15 | c9eb00d | delete T-2026-04-23-001/run.log |
+| 2b-16 | 830e537 | delete translation-prompt-contract.md |
+| 2b-17 | 8876653 | delete T-2026-04-23-002/G0-plan.md |
+| 2b-18 | bbce49c | delete T-2026-04-23-002/G1-scaffold.md |
+| 2b-19 | 2630bcf | delete T-2026-04-23-002/run.log |
+| 2b-20 | bde255c | delete translation-prompt-contract-v2.md |
+| 2b-21 | 936c5e1 | delete T-2026-04-24-001/G0-plan.md |
+| 2b-22 | 4a290bb | delete T-2026-04-24-001/G1-scaffold.md |
+| 2b-23 | 2afeda3 | delete T-2026-04-24-001/run.log |
+| 2b-24 | cccc652 | delete T-CBACT01C-T02R-FIX/run.log |
+| 2b-25 | 818f67e | delete T-CBACT02C-TRANSLATION/run.log |
+| 2b-26 | 0e6d117 | delete T-PASS1-PASS2-PATCH/run.log |
+| 2b-final | (this commit) | amendment #5 — post-migration verification |
+
+### Protected Tree Verification
+
+`.clinerules/runs/T-2026-05-04-001/` verified clean at all 4 checkpoints.
+
+| Checkpoint | After Delete # | File Count | Blob SHAs Match Baseline |
+|---|---|---|---|
+| CP-1 | #6 | 5 | ✅ |
+| CP-2 | #12 | 5 | ✅ |
+| CP-3 | #18 | 5 | ✅ |
+| CP-4 | #26 | 5 | ✅ |
+
+Protected files (identical across all 4 checkpoints):
+- FINDINGS.md @ 2f3e0c5f5e6d12022255f9125af00e0b2fcdd399
+- G0-decompose.md @ 54113a70a991e27771ab932f144c4f1472a0152c
+- G1-plan.md @ bb8d0f2c9e5ca07044eca1af0b910691398bb5da
+- G2-scaffold.md @ 6cdf5473e651f804dcf641bb10308b3e47a43f0d
+- run.log @ be1b3f7e94b258a7b8a57ccea32a0173ac8b7cb8
+
+**Zero drift. Protected tree untouched throughout Commit B.**
+
+### Content Recovery
+
+All 26 deleted blobs remain in the git object store. Any file can be
+recovered via:
+
+```
+git show <original_blob_sha>
+```
+
+Example (first/middle/last from inventory):
+- First:  `git show 765b31885bba1450548df572c1cd3b0b5a5f92ac`  → COMPLETION-REPORT.md
+- Middle: `git show bac1a368853e8af60aeaa27d36742da0f920c919`  → COBSWAIT.md
+- Last:   `git show 2aa54ad27be5c44b2c35d17735c3c8317a08964f`  → T-PASS1-PASS2-PATCH/run.log
+
+### Rollback
+
+If Commit B must be rolled back entirely:
+
+```
+git reset --hard 1c3e163
+git push --force-with-lease origin main
+```
+
+This restores `.aifirst/` to its pre-delete tree and preserves the
+provenance document (created at 1c3e163, before any deletes).
