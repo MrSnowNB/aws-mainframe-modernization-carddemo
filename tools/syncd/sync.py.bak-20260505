@@ -205,7 +205,7 @@ def cmd_lock(args: argparse.Namespace) -> int:
         "l01_items_expected":      len(data_items),
         "reachable_expected":      len(reachable),
         "dead_paragraphs_allowed": len(dead),
-        "source_sha":              (_git(["hash-object", str(_cbl_path(program))]) or cfg.get("source_sha", None)),
+        "source_sha":              cfg.get("source_sha", None),
         "cfg_sha":                 _git(["hash-object",
                                          str(CFG_DIR / f"{program}_cfg.json")]),
     }
