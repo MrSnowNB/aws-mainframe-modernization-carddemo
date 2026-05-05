@@ -6,6 +6,25 @@
 
 ---
 
+---
+schema_version: "aifirst/2.1"
+task_id: "T-2026-05-05-001"
+gate: G0
+gate_name: "DECOMPOSE"
+status: PASS
+agent: "qwen3-coder-next-80b"
+branch: "main"
+branch_scope_sha: "4e43543844c5e6167e45c8d33624cc02ce2c6e23"
+manifest_sha: "facee5d1e589d2d112f19e8c73b2cc3497320a79"
+program_id: "CBCUS01C"
+locked_numbers_ref: "CBCUS01C"
+timestamp_open: "2026-05-05T17:38:00Z"
+timestamp_close: "2026-05-05T17:44:00Z"
+parent_task_id: null
+depends_on: []
+override_reason: null
+first_principles_revision: null
+
 ## Q1 — Irreducible Unit of Work
 
 **Answer:** CBCUS01C.md gold candidate (trust-grade, gate N/N PASS via syncd)
@@ -91,4 +110,4 @@ Expected: exit 0, Gate: N/N PASS, Lint: 0 errors, Claims: [OK]
 - [x] Q7: assumption is testable and re-decomposition path is named
 - [ ] Human ACK received if any risk_flag is non-empty
 
-**G0 Status:** PENDING
+**G0 Status:** PASS
