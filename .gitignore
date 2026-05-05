@@ -28,3 +28,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Log files — prevent raw logs from being committed to repo root
+# (Operation Tidy Step 2a — Amendment 5)
+cocrdlic_log.txt
+*_log.txt
+*.log
