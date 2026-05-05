@@ -170,7 +170,7 @@ aws-mainframe-modernization-carddemo/
 | **M7** | `DEMO-SPRINT-PLAN.md`, `PATCH-PLAN.md`, `REPLICATION-NOTES.md`, `TROUBLESHOOTING.md` (all root level) | **LOW** — Operational planning docs cluttering root, which should only contain project identity files (README, LICENSE, NOTICE, CODE_OF_CONDUCT, CONTRIBUTING) and config files (SYNC-MANIFEST.yaml, BRANCH-SCOPE.md, .gitignore). | **Move** all four to `docs/ops/` | Step 3 |
 | **M8** | `.clinerules/The_Asymptote_of_Bullshit_v2.3.md` | **LOW** — Valuable philosophical document about AI reliability / hallucination, but: (a) wrong location inside `.clinerules/` which is for agent rules files, (b) naming convention breaks the `00-NN-name.md` schema of siblings. | **Move** to `docs/philosophy/THE-ASYMPTOTE.md` | Step 3 |
 | **M9** | `.aifirst/runs/T-CBACT01C-T02R-FIX/`, `T-CBACT02C-TRANSLATION/`, `T-PASS1-PASS2-PATCH/` | **LOW** — Three task directories with non-conforming task IDs (no `T-YYYY-MM-DD-NNN` schema). Breaks any tooling that parses run directories by date pattern. | **Subsumed by M5/C5** — archive the entire `.aifirst/` tree | Step 2 |
-| **M10** | `ISSUE.md` (root level) | **LOW** — Ad-hoc issue scratch note masquerading as a root document. Has no defined schema or lifecycle. | **Delete** (contents likely captured elsewhere); if it has unique content, move to `docs/ops/ISSUE-LOG.md` | Step 2 |
+| **M10** | `ISSUE.md` (root level) | **LOW** — Ad-hoc issue scratch note masquerading as a root document. Has no defined schema or lifecycle. | **Delete** (contents likely captured elsewhere); if it has unique content, move to `docs/ops/ISSUE-LOG.md` first | Step 2 |
 
 ### 🟡 Low Issues
 
@@ -355,6 +355,7 @@ git rm ISSUE.md
 - Reversibility: `git reset HEAD~1`
 - Verification: `ls *.md` at root does not include ISSUE.md
 - Pre-condition: Confirm contents are not unique (read file first); if any unique content, copy to `docs/ops/ISSUE-LOG.md` first
+- **Status: ✅ EXECUTED at commit a198dc7 in Commit A (Step 2, 2026-05-04)**
 
 ---
 
