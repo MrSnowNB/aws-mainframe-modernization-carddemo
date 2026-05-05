@@ -8,8 +8,7 @@ version: "1.0"
 This document enables a fresh operator to reproduce the environment exactly.
 Agents must append entries before halting. Entries are append-only.
 
-> **Housekeeping note (2026-05-05):** File relocated from repo root to `docs/ops/`
-> as part of Operation Tidy Commit D (OP-3-03). Content unchanged.
+> **Housekeeping note (2026-05-05):** File relocated from repo root to `docs/ops/` as part of Operation Tidy Commit D (OP-3-03). Content unchanged.
 
 ## Replicable Setup Checklist
 
