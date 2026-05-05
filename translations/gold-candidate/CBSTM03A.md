@@ -740,7 +740,14 @@ validation:
 #   dead_paragraphs_allowed: 0
 #   goto_flag: True
 #   alter_flag: True
+translation_status: skeleton
+translation_agent: pending
+complexity_score: 65
+risk_flags: ['goto_present']
+bi_category: batch_report
+last_audit: 2026-05-05
 ---
+
 
 # CBSTM03A -- TODO: short program description
 

@@ -483,7 +483,14 @@ validation:
 #   dead_paragraphs_allowed: 3
 #   goto_flag: False
 #   alter_flag: False
+translation_status: skeleton
+translation_agent: pending
+complexity_score: 9
+risk_flags: ['no_exit_paragraph']
+bi_category: online_cobol
+last_audit: 2026-05-05
 ---
+
 
 # COSGN00C -- TODO: short program description
 

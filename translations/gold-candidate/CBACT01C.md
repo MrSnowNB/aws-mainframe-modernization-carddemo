@@ -543,7 +543,14 @@ validation:
 #   dead_paragraphs_allowed: 0
 #   goto_flag: False
 #   alter_flag: False
+translation_status: skeleton
+translation_agent: pending
+complexity_score: 16
+risk_flags: []
+bi_category: batch_cobol
+last_audit: 2026-05-05
 ---
+
 
 # CBACT01C -- TODO: short program description
 

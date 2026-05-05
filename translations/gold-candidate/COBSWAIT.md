@@ -86,7 +86,14 @@ validation:
   t04_semantic_score: null
   t05_regression_pass: null
   overall: "PENDING"
+translation_status: skeleton
+translation_agent: pending
+complexity_score: 0
+risk_flags: ['no_exit_paragraph']
+bi_category: online_cobol
+last_audit: 2026-05-05
 ---
+
 
 # COBSWAIT -- Utility Wait Program
 
