@@ -17,6 +17,13 @@ pending_action: RUN_BATCH_REMAINING_32_PROGRAMS
 
 # AWS CardDemo Modernization: COBOL → Verified English MD Pipeline
 
+## Agent Scope Discipline
+
+Before any agent (local or cloud) makes changes on any branch, it
+MUST read [BRANCH-SCOPE.md](./BRANCH-SCOPE.md) first. Plan files like
+`DEMO-SPRINT-PLAN.md` are advisory only. Branch-scope rules are
+authoritative.
+
 ## What This Project Does
 
 This pipeline translates each COBOL program in the AWS CardDemo mainframe application into a **verified, human-readable English Markdown file with YAML front-matter**. Each output `.md` file is a structured specification that describes:
