@@ -1,0 +1,23 @@
+# SYNC-MANIFEST.yaml -- syncd v1
+# Generated and maintained by tools/syncd/sync.py
+# DO NOT hand-edit locked_numbers blocks -- use: py tools/syncd/sync.py lock <PROGRAM>
+#
+# To populate this file:
+#   py tools/syncd/sync.py lock CBSTM03A
+#   py tools/syncd/sync.py lock CBACT01C
+#   ... etc for each program
+#
+# To check current pipeline health:
+#   py tools/syncd/sync.py verify
+
+schema_version: "syncd/1"
+
+# verify_targets: baseline numbers that sync.py verify compares against
+# Populate these after your first clean gate run:
+# verify_targets:
+#   gate_pass_count: 11
+#   lint_errors: 0
+#   lint_warnings: 2
+#   lint_files: 62
+
+programs: {}
