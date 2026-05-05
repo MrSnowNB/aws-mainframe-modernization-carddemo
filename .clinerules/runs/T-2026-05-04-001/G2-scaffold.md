@@ -3,7 +3,7 @@ schema_version: "aifirst/2.1"                          # from protocol header
 task_id: "T-2026-05-04-001"                            # from G0/G1 continuation
 gate: G2
 gate_name: "SCAFFOLD"
-status: PENDING
+status: OVERRIDE
 agent: "qwen3-coder-next-80b"                          # from Cline runtime config
 branch: "main"                                         # from git branch --show-current
 branch_scope_sha: "4e43543844c5e6167e45c8d33624cc02ce2c6e23"
@@ -11,10 +11,10 @@ manifest_sha: "facee5d1e589d2d112f19e8c73b2cc3497320a79"
 program_id: "CBCUS01C"                                 # from G0/G1 continuation
 locked_numbers_ref: "CBCUS01C"                         # from G1 lock event
 timestamp_open: "2026-05-05T12:04:00Z"
-timestamp_close: null
+timestamp_close: "2026-05-05T12:32:00Z"
 parent_task_id: null                                   # gate continuation, not re-decomposition
 depends_on: []
-override_reason: null
+override_reason: "doctor exit 2 triggered by 16 errors in out-of-scope programs per BRANCH-SCOPE.md. No errors affect CBCUS01C. Corpus-health signal logged to FINDINGS.md F-001. Human-approved override at 2026-05-05T12:21:00Z. Protocol v2.2 will add syncd doctor --scope flag to disambiguate future cases."
 first_principles_revision: null
 ---
 
@@ -23,7 +23,7 @@ first_principles_revision: null
 | step_id | description | status | timestamp | notes |
 |---------|-------------|--------|-----------|-------|
 | T-2026-05-04-001-S-001 | py tools/syncd/sync.py doctor | PASS | 2026-05-05T12:04:00Z | Exit 2 (errors in OTHER programs only) |
-| T-2026-05-04-001-S-002 | py tools/syncd/sync.py scaffold CBCUS01C --force | PENDING | | Create skeleton .md with correct frontmatter |
+| T-2026-05-04-001-S-002 | py tools/syncd/sync.py scaffold CBCUS01C --force | PASS | 2026-05-05T12:28:22Z | Created skeleton .md with correct frontmatter |
 
 ## Error Log
 
@@ -80,9 +80,31 @@ syncd doctor
 2. Halt and report BLOCKED (errors exist in corpus)?
 3. Fix the errors in other programs first (out of scope)?
 
+## Assertion Results (STEP 5)
+
+| assertion | expected | actual | result |
+|-----------|----------|--------|--------|
+| A1. program_id | "CBCUS01C" | "CBCUS01C" | PASS |
+| A2. lines_of_code | 178 | 178 | PASS |
+| A3. source_sha | ad4c512be0d7bd72a933966d299ea21fb31b6b5b | ad4c512be0d7bd72a933966d299ea21fb31b6b5b | PASS |
+| A4. cfg_source | "validation/structure/CBCUS01C_cfg.json" | "validation/structure/CBCUS01C_cfg.json" | PASS |
+| A5. paragraphs | 5 | 5 | PASS |
+| A6. data_items | 10 | 10 | PASS |
+
 ## Completion Checklist
 
-- [ ] All steps PASS
-- [ ] Error log empty (or OVERRIDE with reason)
-- [ ] run.log append-only integrity confirmed
-- [ ] No scope drift (or G0 re-opened)
+- [x] All steps PASS
+- [x] Error log empty (or OVERRIDE with reason)
+- [x] run.log append-only integrity confirmed
+- [x] No scope drift (or G0 re-opened)
+- [x] All 6 frontmatter assertions verified PASS
+
+## Git Diff Summary
+
+```
+translations/gold-candidate/CBCUS01C.md (NEW)
+- Created skeleton file with correct YAML frontmatter
+- 264 lines total
+- 5 procedure paragraphs, 10 data items
+- TODO markers for narrative content (G3)
+```
