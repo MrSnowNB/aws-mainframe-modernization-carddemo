@@ -1,8 +1,8 @@
 # AiFirst Protocol — Master Specification
 
-> **Protocol Version:** `aifirst/2.1`
+> **Protocol Version:** `aifirst/2.2`
 > **Status:** ACTIVE
-> **Supersedes:** `aifirst/1.0`, `aifirst/2.0`
+> **Supersedes:** `aifirst/1.0`, `aifirst/2.0`, `aifirst/2.1`
 
 ## Overview
 
@@ -24,9 +24,9 @@ This protocol enforces **first-principles problem solving loops** at G0 and G3 �
 
 ## Gate Flow
 
-```
+```text
 DECOMPOSE → PLAN → SCAFFOLD → EXECUTE → VALIDATE → COMMIT
-    G0        G1       G2        G3         G4        G5
+   G0        G1      G2         G3        G4         G5
 ```
 
 **G0 is new in v2.0** and is non-optional. It is the first-principles loop entry point.
@@ -93,9 +93,11 @@ Each gate writes a `.md` file with a YAML header. The AI populates it. If the ga
 **Purpose:** Mechanical verification via the syncd toolchain.
 
 **Agent must run, in order:**
-```
+
+```text
 py tools/syncd/sync.py verify
 ```
+
 which internally runs `gate_compare.py`, `lint_cobol.py`, `extract_md_claims.py`.
 
 **PASS criteria:**
@@ -123,35 +125,35 @@ which internally runs `gate_compare.py`, `lint_cobol.py`, `extract_md_claims.py`
 
 On any gate failure, the agent **must not** patch forward. The required loop is:
 
-```
+```text
 FAIL at Gn → write BLOCKED → halt
-        ↓
-new task_id T-YYYY-MM-DD-NNN+1 with parent_task_id pointing at blocked task
-        ↓
-re-enter G0 with new framing
-        ↓
-G0 question 7: "what first-principles assumption was false?"
-        ↓
-proceed only when G0 answers 1–7 with revised understanding
+              ↓
+            new task_id T-YYYY-MM-DD-NNN+1 with parent_task_id pointing at blocked task
+              ↓
+            re-enter G0 with new framing
+              ↓
+            G0 question 7: "what first-principles assumption was false?"
+              ↓
+            proceed only when G0 answers 1–7 with revised understanding
 ```
 
 This enforces that root causes are diagnosed once, at G0 re-entry, rather than drifting through patches at G2/G3. The "truncation bug" class of failures (where symptoms appear in extractor output) must be re-decomposed at G0, not fixed at G2.
 
 ## File Layout
 
-```
+```text
 .clinerules/
-  00-aifirst-protocol.md          ← this document
-  01-scope-discipline.md          ← BRANCH-SCOPE.md enforcement rules
-  02-cobol-to-md.md               ← translation rules
+  00-aifirst-protocol.md              ← this document
+  01-scope-discipline.md              ← BRANCH-SCOPE.md enforcement rules
+  02-cobol-to-md.md                   ← translation rules
   protocol/
     gates/
-      G0-decompose.template.md
-      G1-plan.template.md
-      G2-scaffold.template.md
-      G3-execute.template.md
-      G4-validate.template.md
-      G5-commit.template.md
+      G0-decompose.template.md        ← first-principles decomposition
+      G1-plan.template.md             ← action sequence + locked numbers
+      G2-scaffold.template.md         ← syncd scaffold + frontmatter lock
+      G3-execute.template.md          ← content fill + evidence log
+      G4-validate.template.md         ← syncd verify + regression check
+      G5-commit.template.md           ← syncd bundle + run.log complete
   runs/
     <task_id>/
       G0-decompose.md
@@ -160,14 +162,14 @@ This enforces that root causes are diagnosed once, at G0 re-entry, rather than d
       G3-execute.md
       G4-validate.md
       G5-commit.md
-      run.log                     ← append-only JSON-L
+      run.log                         ← append-only JSON-L
 ```
 
 ## YAML Header Schema
 
 ```yaml
 ---
-schema_version: "aifirst/2.0"
+schema_version: "aifirst/2.1"
 task_id: "T-YYYY-MM-DD-NNN"        # e.g. T-2026-05-04-003
 gate: G0                            # G0 | G1 | G2 | G3 | G4 | G5
 gate_name: "DECOMPOSE"              # DECOMPOSE | PLAN | SCAFFOLD | EXECUTE | VALIDATE | COMMIT
@@ -283,3 +285,53 @@ Overrides exist for single, enumerated exceptions (source-SHA drift due to cross
 v1.0 tasks already PASSed are grandfathered as `schema_version: aifirst/1.0` in their gate files. No retroactive re-validation required. New tasks starting after protocol v2.0 activation use `aifirst/2.0` and include G0.
 
 Recommended transition: run the next wave program (CBACT04C or CBCUS01C new trust-grade pass) entirely through v2.0 as a proof point before requiring v2.0 for all tasks.
+
+## v2.2 Changelog
+
+**Version:** `aifirst/2.2` | **Date:** 2026-05-05 | **Operation Tidy Commit F-1**
+
+### Template Reconciliation (breaking fix)
+
+Prior to v2.2, the gate template files under `.clinerules/protocol/gates/`
+were authored for the **v1.0 5-gate model** (G0=PLAN, G1=SCAFFOLD,
+G2=EXECUTE, G3=VALIDATE, G4=COMMIT) and never updated when the protocol
+evolved to the **v2.x 6-gate model** (G0=DECOMPOSE, G1=PLAN, G2=SCAFFOLD,
+G3=EXECUTE, G4=VALIDATE, G5=COMMIT).
+
+This caused every fresh-agent session loading v2.1 to look for
+`G0-decompose.template.md` and find nothing — a silent failure mode
+that caused agents to hallucinate gate structure or fall back to the
+wrong v1.0 template.
+
+**Changes in v2.2:**
+
+| Old file (deleted) | `gate_name` | New file (created) | `gate_name` |
+|---|---|---|---|
+| `G0-plan.template.md` | PLAN | `G1-plan.template.md` | PLAN |
+| `G1-scaffold.template.md` | SCAFFOLD | `G2-scaffold.template.md` | SCAFFOLD |
+| `G2-execute.template.md` | EXECUTE | `G3-execute.template.md` | EXECUTE |
+| `G3-validate.template.md` | VALIDATE | `G4-validate.template.md` | VALIDATE |
+| `G4-commit.template.md` | COMMIT | `G5-commit.template.md` | COMMIT |
+| *(absent)* | — | `G0-decompose.template.md` | DECOMPOSE |
+
+All new templates carry `schema_version: aifirst/2.1` and include
+v2.1-required fields (`branch`, `branch_scope_sha`, `manifest_sha`,
+`program_id`, `first_principles_revision`).
+
+Section structures were ported from v1.0 templates where applicable.
+`G0-decompose.template.md` was authored fresh from the v2.1 spec's
+DECOMPOSE definition (the 7 first-principles questions).
+
+### Schema Version vs Protocol Version
+
+The gate YAML headers continue to carry `schema_version: aifirst/2.1`
+after this release. The v2.2 bump applies to `00-aifirst-protocol.md`
+only (the protocol document). Gate schema is unchanged; only the
+template file set was reconciled. The YAML Header Schema example
+above continues to show `aifirst/2.1` for that reason.
+
+### No behavioral changes to gate definitions
+
+Gate definitions (G0–G5), the failure loop, derivation discipline,
+override policy, and syncd toolchain correspondence are unchanged
+from v2.1. This release is a template artifact fix only.
