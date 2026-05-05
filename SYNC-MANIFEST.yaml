@@ -1,23 +1,11 @@
-# SYNC-MANIFEST.yaml -- syncd v1
-# Generated and maintained by tools/syncd/sync.py
-# DO NOT hand-edit locked_numbers blocks -- use: py tools/syncd/sync.py lock <PROGRAM>
-#
-# To populate this file:
-#   py tools/syncd/sync.py lock CBSTM03A
-#   py tools/syncd/sync.py lock CBACT01C
-#   ... etc for each program
-#
-# To check current pipeline health:
-#   py tools/syncd/sync.py verify
-
-schema_version: "syncd/1"
-
-# verify_targets: baseline numbers that sync.py verify compares against
-# Populate these after your first clean gate run:
-# verify_targets:
-#   gate_pass_count: 11
-#   lint_errors: 0
-#   lint_warnings: 2
-#   lint_files: 62
-
-programs: {}
+schema_version: syncd/1
+programs:
+  CBSTM03A:
+    locked_numbers:
+      paragraphs_expected: 25
+      l01_items_expected: 18
+      reachable_expected: 25
+      dead_paragraphs_allowed: 0
+      source_sha: ea341ec97f2b1a236de57f9c0fbd262f61b23511
+      cfg_sha: d1665343e8479bf7fb554d118de0e8fd346bba09
+    locked_at: '2026-05-05T01:58:09Z'
