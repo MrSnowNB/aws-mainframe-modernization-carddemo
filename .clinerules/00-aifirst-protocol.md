@@ -1,8 +1,8 @@
 # AiFirst Protocol — Master Specification
 
-> **Protocol Version:** `aifirst/2.0`
+> **Protocol Version:** `aifirst/2.1`
 > **Status:** ACTIVE
-> **Supersedes:** `aifirst/1.0`
+> **Supersedes:** `aifirst/1.0`, `aifirst/2.0`
 
 ## Overview
 
@@ -216,7 +216,48 @@ first_principles_revision: null     # required on G0 re-entry after BLOCKED
 
 // Completion
 {"event":"complete","task_id":"T-2026-05-04-004","pr":"https://github.com/.../pull/47","tag":"[AIFIRST-VERIFIED]","ts":"2026-05-04T22:30:00Z"}
+
+// Correction event (v2.1) — fixes a field value in a prior gate file
+// Appended to run.log, never overwrites prior lines
+{"event":"correction","task_id":"...","field":"<field_name>","scope":"<where>","incorrect_value":"...","correct_value":"...","correction_ts":"...","reason":"...","corrected_by":"human"}
 ```
+
+## Derivation Discipline (v2.1 addition)
+
+Every YAML field must have exactly one authoritative source. Agents must
+NEVER copy field values from adjacent context. Specific rules:
+
+### `agent:` field
+Derive from one of these, in order:
+1. Environment variable `CLINE_MODEL` if set
+2. Cline runtime model configuration visible in the Cline panel
+3. If uncertain, halt and ask the human — do NOT guess
+
+Forbidden sources:
+- Other `.md` file frontmatter (e.g., `translating_agent` in gold-candidate `.md`s)
+- Example YAML in protocol documentation or kickoff prompts
+- Prior task_id `run.log` events
+
+Valid format: `<family>-<variant>[-<tag>]` (e.g., `qwen3-coder-next-80b`,
+`claude-sonnet-4.6`, `gpt-5-thinking`). Vague strings like `"cloud"`, `"local"`,
+or `"cline-agent"` are schema violations.
+
+### `parent_task_id:` field
+Populated ONLY when this task was spawned from a different task that
+reached `BLOCKED` status. Must point to that different task's `task_id`.
+- If this is a fresh task: `null`
+- If this is a gate continuation within the same task: `null`
+- Self-reference (`parent_task_id == task_id`) is a schema violation
+
+### `locked_numbers_ref:` field
+- `null` until `syncd lock` has been run for this task's `program_id`
+- After lock: the `program_id` string (e.g., `"CBCUS01C"`)
+- Must never be populated from another program's locked numbers
+
+### General derivation rule
+When populating any field, the agent must be able to cite the exact
+source file and line from which the value was derived. If the source
+cannot be cited, the value is not yet known — halt and ask the human.
 
 ## Correspondence to syncd Toolchain
 

@@ -4,7 +4,7 @@ task_id: "T-2026-05-04-001"
 gate: G0
 gate_name: "DECOMPOSE"
 status: PENDING
-agent: "claude-sonnet-4.6"
+agent: "qwen3-coder-next-80b"
 branch: "main"
 branch_scope_sha: "4e43543844c5e6167e45c8d33624cc02ce2c6e23"
 manifest_sha: "78ef9b8bb11286416c9b612e3644f06f560ddef0"

@@ -39,3 +39,5 @@
   "exit_code": 0,
   "ts": "2026-05-05T11:22:07Z"
 }
+{"event":"correction","task_id":"T-2026-05-04-001","field":"agent","scope":"all prior events in this task","incorrect_value":"claude-sonnet-4.6","correct_value":"qwen3-coder-next-80b","correction_ts":"2026-05-05T11:38:00Z","reason":"Agent copy-pasted value from CBSTM03A.md frontmatter (translating_agent) and from example YAML in kickoff prompt. Actual runtime model per Cline config is Qwen3 Coder Next 80B.","corrected_by":"human"}
+{"event":"correction","task_id":"T-2026-05-04-001","field":"parent_task_id","scope":"G1-plan.md YAML header","incorrect_value":"T-2026-05-04-001","correct_value":null,"correction_ts":"2026-05-05T11:38:00Z","reason":"parent_task_id is reserved for spawned re-decomposition after BLOCKED status in a DIFFERENT task. G1 is a continuation of G0 within the same task; self-reference is invalid per aifirst/2.0 schema.","corrected_by":"human"}

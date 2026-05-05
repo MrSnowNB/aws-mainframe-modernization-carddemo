@@ -4,7 +4,7 @@ task_id: "T-2026-05-04-001"
 gate: G1
 gate_name: "PLAN"
 status: PENDING
-agent: "claude-sonnet-4.6"
+agent: "qwen3-coder-next-80b"
 branch: "main"
 branch_scope_sha: "4e43543844c5e6167e45c8d33624cc02ce2c6e23"
 manifest_sha: "facee5d1e589d2d112f19e8c73b2cc3497320a79"
@@ -12,7 +12,7 @@ program_id: "CBCUS01C"
 locked_numbers_ref: "CBCUS01C"
 timestamp_open: "2026-05-05T11:22:00Z"
 timestamp_close: null
-parent_task_id: "T-2026-05-04-001"
+parent_task_id: null
 depends_on: []
 override_reason: null
 first_principles_revision: null
