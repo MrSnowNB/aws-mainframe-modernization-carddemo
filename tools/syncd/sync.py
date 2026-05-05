@@ -497,20 +497,43 @@ def cmd_doctor(_args: argparse.Namespace) -> int:
                 f"differs from current ({current_cfg_sha[:10]}...) -- re-run lock"
             )
 
-    # --- c. Leading-zero truncation in all structure/*_cfg.json ---
-    trunc_re = re.compile(r'"name"\s*:\s*"(0{1,3}[1-9]\d*-|9{1,3}[0-9]-)')
+    # --- c. Positive-signal truncation detection (WARN only, not ERROR) ---
+    # Avoid false positives on valid COBOL naming (0100-, 0200-, etc.)
+    # Truncation WARN if:
+    #   - CFG has > 0 paragraphs AND none start with '9999-' (missing exit convention)
+    #   OR
+    #   - CFG has < 2 paragraphs but .cbl source is > 50 lines (likely partial extraction)
     if CFG_DIR.exists():
         for cfg_file in CFG_DIR.glob("*_cfg.json"):
             try:
                 text = cfg_file.read_text(encoding="utf-8")
             except Exception:
                 continue
-            for match in trunc_re.finditer(text):
-                errors.append(
-                    f"TRUNCATION in {cfg_file.name}: "
-                    f"paragraph name starts with '{match.group(1)}' "
-                    f"(should start with '0000-' or '9999-')"
-                )
+            try:
+                cfg = json.loads(text)
+            except Exception:
+                continue
+            paragraphs = cfg.get("paragraphs", [])
+            para_count = len(paragraphs)
+            
+            # Check 1: No 9999- exit paragraph when we have paragraphs
+            if para_count > 0:
+                has_exit_para = any(p.get("name", "").startswith("9999-") for p in paragraphs)
+                if not has_exit_para:
+                    warnings.append(
+                        f"{cfg_file.name}: {para_count} paragraph(s) but none starts with '9999-' "
+                        f"(missing COBOL exit/cleanup convention)"
+                    )
+            
+            # Check 2: Few paragraphs but large source (likely partial extraction)
+            if para_count < 2:
+                program_id = cfg_file.stem
+                loc = _count_cbl_lines(program_id)
+                if loc is not None and loc > 50:
+                    warnings.append(
+                        f"{cfg_file.name}: only {para_count} paragraph(s) but source has {loc} lines "
+                        f"(possible partial extraction)"
+                    )
 
     # --- d. source_sha freshness in .md frontmatter ---
     if GOLD_DIR.exists():
