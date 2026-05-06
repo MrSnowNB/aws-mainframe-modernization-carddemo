@@ -306,19 +306,23 @@ def watch_queue_poll(queue_path, schema_path, logger, poll_interval=5, max_seen=
     while True:
         try:
             current_files = set(os.listdir(str(new_dir)))
-            new_files = current_files - set(seen_files)
+            new_files = sorted(list(current_files - set(seen_files)))
+            
+            if new_files:
+                logger.info(f"[HEARTBEAT] Queue has {len(new_files)} pending tickets.")
             
             for filename in new_files:
                 if filename.endswith('.json'):
                     filepath = str(new_dir / filename)
                     logger.info(f"Found new file: {queue_path}/{filename}")
                     
-                    # Sequential Enforcement: Only 1 at a time
                     def gated_process(fp, qd, fn):
+                        logger.info(f"Ticket {fn} waiting for Sequential DAG slot...")
                         with _DISPATCH_SEMAPHORE:
-                            # Re-verify file still exists in 'new' before processing
                             if os.path.exists(fp):
+                                logger.info(f"Ticket {fn} ACQUIRED slot. Starting work.")
                                 process_ticket(fp, schema_path, logger, qd)
+                                logger.info(f"Ticket {fn} RELEASED slot. Work complete.")
 
                     t = threading.Thread(
                         target=gated_process, 
