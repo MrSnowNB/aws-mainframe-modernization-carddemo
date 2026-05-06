@@ -26,6 +26,7 @@ import datetime
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -49,15 +50,29 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}",
     }
-    req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-    try:
-        with urllib.request.urlopen(req, timeout=300) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"LLM HTTP {e.code}: {body[:400]}") from e
-    content = result["choices"][0]["message"]["content"]
-    return json.loads(content)
+    
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=300) as resp:
+                raw_resp = resp.read().decode("utf-8")
+                if not raw_resp.strip():
+                    raise ValueError("Empty response from LLM")
+                result = json.loads(raw_resp)
+            content = result["choices"][0]["message"]["content"]
+            return json.loads(content)
+        except (urllib.error.HTTPError, json.JSONDecodeError, ValueError, KeyError) as e:
+            # Retry on 401 (intermittent lemonade bug) or parsing errors
+            is_401 = isinstance(e, urllib.error.HTTPError) and e.code == 401
+            if attempt < max_retries - 1 and (is_401 or not isinstance(e, urllib.error.HTTPError)):
+                time.sleep(2 ** attempt)
+                continue
+            
+            if isinstance(e, urllib.error.HTTPError):
+                body = e.read().decode("utf-8", errors="replace")
+                raise RuntimeError(f"LLM HTTP {e.code}: {body[:400]}") from e
+            raise
 
 
 def ys(v):

@@ -5,6 +5,12 @@ services:
       dockerfile: app/harness/Dockerfile
     ports:
       - "8000:8000"
+    environment:
+      - INFERENCE_ENDPOINT=http://host.docker.internal:13305/v1
+      - INFERENCE_MODEL=Qwen3.6-35B-A3B-GGUF
+      - INFERENCE_API_KEY=
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./app/cbl:/app/app/cbl:ro
       - ./scripts:/app/scripts
