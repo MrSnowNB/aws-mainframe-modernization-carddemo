@@ -51,7 +51,7 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
         "Authorization": f"Bearer {api_key}",
     }
     
-    max_retries = 3
+    max_retries = 5
     for attempt in range(max_retries):
         try:
             req = urllib.request.Request(url, data=data, headers=headers, method="POST")
@@ -63,10 +63,16 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
             content = result["choices"][0]["message"]["content"]
             return json.loads(content)
         except (urllib.error.HTTPError, json.JSONDecodeError, ValueError, KeyError) as e:
-            # Retry on 401 (intermittent lemonade bug) or parsing errors
-            is_401 = isinstance(e, urllib.error.HTTPError) and e.code == 401
-            if attempt < max_retries - 1 and (is_401 or not isinstance(e, urllib.error.HTTPError)):
-                time.sleep(2 ** attempt)
+            # Retry on 401, 500, or parsing errors
+            is_retryable = False
+            if isinstance(e, urllib.error.HTTPError):
+                if e.code in (401, 500, 502, 503, 504):
+                    is_retryable = True
+            else:
+                is_retryable = True
+
+            if attempt < max_retries - 1 and is_retryable:
+                time.sleep(5 * (attempt + 1))
                 continue
             
             if isinstance(e, urllib.error.HTTPError):
@@ -312,6 +318,7 @@ def main() -> int:
                 resp["paragraph"] = para
             responses.append(resp)
             print("OK")
+            time.sleep(2)  # Throttle load
         except Exception as exc:
             print(f"FAIL: {exc}", file=sys.stderr)
             responses.append({
