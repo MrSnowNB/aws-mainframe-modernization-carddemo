@@ -2,123 +2,130 @@ import asyncio
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 SESSIONS_ROOT = Path("/app/securatron/sessions")
-TOOLS_ROOT    = Path("/app/scripts")
+SCRIPTS_ROOT  = Path("/app/scripts")
+VALIDATION_ROOT = Path("/app/validation")
+REPO_ROOT     = Path("/app")
 
 
-async def record_failure(session_id: str, session_dir: Path, atom_version: str, step: str, rc: int, err: str) -> bool:
+async def _run(cmd: list[str], cwd: str = None) -> tuple[int, str, str]:
+    proc = await asyncio.create_subprocess_exec(
+        *cmd,
+        cwd=cwd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    try:
+        stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=300)
+        return proc.returncode, stdout.decode().strip(), stderr.decode().strip()
+    except asyncio.TimeoutError:
+        proc.kill()
+        return -1, "", "timeout after 300s"
+
+
+def _record(session_dir: Path, session_id: str, step: str,
+            status: str, metrics: dict, err: str = "") -> None:
     trial = {
-        "ts":           datetime.now(timezone.utc).isoformat(),
-        "session":      session_id,
-        "atom":         "cobol.llm_evaluate",
-        "atom_version": atom_version,
-        "status":       "failure",
-        "step_failed":  step,
-        "metrics":      {"rc": rc},
+        "ts":          datetime.now(timezone.utc).isoformat(),
+        "session":     session_id,
+        "atom":        "cobol.llm_evaluate",
+        "step":        step,
+        "status":      status,
+        "metrics":     metrics,
     }
     with (session_dir / "trials.jsonl").open("a") as f:
         f.write(json.dumps(trial) + "\n")
-    (session_dir / "post_mortem.md").write_text(
-        f"PIPELINE FAILED at {step}\nReturn code: {rc}\nError: {err}\n"
-    )
-    return False
+    if status == "failure" and err:
+        (session_dir / "post_mortem.md").write_text(
+            f"FAILED at {step}\nError: {err}\n"
+        )
 
 
-async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0") -> bool:
+async def prepare(session_id: str, target_file: str) -> Optional[Path]:
+    """
+    Runs pass1 + pass2_template + pass2_llm.
+    Returns path to _llm_requests.jsonl on success, None on failure.
+    Hermes reads this file and calls the inference endpoint.
+    """
     session_dir = SESSIONS_ROOT / session_id
     session_dir.mkdir(parents=True, exist_ok=True)
 
     target_path = Path(target_file).resolve()
-
-    # Path traversal guard: target must be inside /app and be a .cbl/.cpy file
-    if not target_path.is_relative_to(Path("/app")) or target_path.suffix not in (".cbl", ".cpy"):
+    if not target_path.is_relative_to(REPO_ROOT) or target_path.suffix not in (".cbl", ".cpy"):
         raise ValueError("Path traversal or invalid file type blocked")
 
-    program_id = target_path.stem
-    p1_out = session_dir / f"{program_id}_annotated.json"
-    p2_tmpl_out = session_dir / f"{program_id}_propositions.json"
-    p2_llm_out = session_dir / f"{program_id}_llm_requests.jsonl"
-    cfg_path = Path("/app/validation/structure") / f"{program_id}_cfg.json"
+    program_id   = target_path.stem
+    p1_out       = session_dir / f"{program_id}_annotations.json"
+    p2_tmpl_out  = session_dir / f"{program_id}_propositions.json"
+    p2_llm_out   = session_dir / f"{program_id}_llm_requests.jsonl"
+    cfg_path     = VALIDATION_ROOT / "structure" / f"{program_id}_cfg.json"
 
-    # Ensure validation directories exist for claims and ground truth
+    steps = [
+        ("pass1", [
+            "python3", str(SCRIPTS_ROOT / "pass1_annotate.py"),
+            "--src", str(target_path),
+            "--cfg", str(cfg_path),
+            "--program-id", program_id,
+            "--out", str(p1_out),
+        ], str(session_dir)),
+        ("pass2_template", [
+            "python3", str(SCRIPTS_ROOT / "pass2_template.py"),
+            "--annotations", str(p1_out),
+            "--out", str(p2_tmpl_out),
+        ], str(session_dir)),
+        ("pass2_llm", [
+            "python3", str(SCRIPTS_ROOT / "pass2_llm.py"),
+            "--propositions", str(p2_tmpl_out),
+            "--program-id", program_id,
+            "--out", str(p2_llm_out),
+        ], str(session_dir)),
+    ]
+
+    for step_name, cmd, cwd in steps:
+        rc, _, err = await _run(cmd, cwd=cwd)
+        _record(session_dir, session_id, step_name,
+                "success" if rc == 0 else "failure",
+                {"rc": rc}, err)
+        if rc != 0:
+            return None
+
+    return p2_llm_out
+
+
+async def verify(session_id: str, program_id: str) -> bool:
+    """
+    Runs extract_ground_truth + extract_md_claims + gate_compare.
+    Called by Hermes after inference responses have been merged into
+    the gold-candidate MD by pass3_synthesize.py (also called by Hermes).
+    Returns True if gate passes.
+    """
+    session_dir = SESSIONS_ROOT / session_id
+
     Path("/app/validation/claims").mkdir(parents=True, exist_ok=True)
     Path("/app/validation/ground_truth").mkdir(parents=True, exist_ok=True)
 
-    p1_cmd = ["python3", str(TOOLS_ROOT / "pass1_annotate.py"),
-              "--src", str(target_path), 
-              "--cfg", str(cfg_path),
-              "--program-id", program_id,
-              "--out", str(p1_out)]
-    
-    p2_tmpl_cmd = ["python3", str(TOOLS_ROOT / "pass2_template.py"),
-                   "--annotations", str(p1_out), "--out", str(p2_tmpl_out)]
+    steps = [
+        ("extract_ground_truth", [
+            "python3", str(VALIDATION_ROOT / "extract_ground_truth.py"), program_id,
+        ], str(REPO_ROOT)),
+        ("extract_md_claims", [
+            "python3", str(VALIDATION_ROOT / "extract_md_claims.py"), program_id,
+        ], str(REPO_ROOT)),
+        ("gate_compare", [
+            "python3", str(VALIDATION_ROOT / "gate_compare.py"), program_id,
+        ], str(REPO_ROOT)),
+    ]
 
-    p2_llm_cmd  = ["python3", str(TOOLS_ROOT / "pass2_llm.py"),
-                   "--propositions", str(p2_tmpl_out),
-                   "--program-id", program_id,
-                   "--out", str(p2_llm_out)]
+    final_rc = 0
+    for step_name, cmd, cwd in steps:
+        rc, _, err = await _run(cmd, cwd=cwd)
+        _record(session_dir, session_id, step_name,
+                "success" if rc == 0 else "failure",
+                {"rc": rc}, err)
+        if rc != 0:
+            final_rc = rc
+            break
 
-    claims_cmd = ["python3", "/app/validation/extract_md_claims.py", program_id]
-    gt_cmd = ["python3", "/app/validation/extract_ground_truth.py", program_id]
-    gate_cmd = ["python3", "/app/validation/gate_compare.py", program_id]
-
-    async def run(cmd: list[str], cwd: str = None) -> tuple[int, str, str]:
-        proc = await asyncio.create_subprocess_exec(
-            *cmd,
-            cwd=cwd or str(session_dir),          # default to session dir
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
-        )
-        try:
-            stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=300)
-            return proc.returncode, stdout.decode().strip(), stderr.decode().strip()
-        except asyncio.TimeoutError:
-            proc.kill()
-            return -1, "", "timeout"
-
-    # Sequential execution of the pipeline
-    p1_rc, _, p1_err = await run(p1_cmd)
-    if p1_rc != 0:
-        return await record_failure(session_id, session_dir, atom_version, "pass1", p1_rc, p1_err)
-
-    p2t_rc, _, p2t_err = await run(p2_tmpl_cmd)
-    if p2t_rc != 0:
-        return await record_failure(session_id, session_dir, atom_version, "pass2_template", p2t_rc, p2t_err)
-
-    p2l_rc, _, p2l_err = await run(p2_llm_cmd)
-    if p2l_rc != 0:
-        return await record_failure(session_id, session_dir, atom_version, "pass2_llm", p2l_rc, p2l_err)
-
-    # Validation steps must run from repo root so they find 'validation/' folder
-    repo_root = "/app"
-    gt_rc, _, gt_err = await run(gt_cmd, cwd=repo_root)
-    if gt_rc != 0:
-        return await record_failure(session_id, session_dir, atom_version, "extract_gt", gt_rc, gt_err)
-
-    claims_rc, _, claims_err = await run(claims_cmd, cwd=repo_root)
-    if claims_rc != 0:
-        return await record_failure(session_id, session_dir, atom_version, "extract_claims", claims_rc, claims_err)
-
-    gate_rc, _, gate_err = await run(gate_cmd, cwd=repo_root)
-    
-    success = gate_rc == 0
-
-    trial = {
-        "ts":           datetime.now(timezone.utc).isoformat(),
-        "session":      session_id,
-        "atom":         "cobol.llm_evaluate",
-        "atom_version": atom_version,
-        "status":       "success" if success else "failure",
-        "metrics": {"p1_rc": p1_rc, "p2t_rc": p2t_rc, "p2l_rc": p2l_rc, "gate_rc": gate_rc},
-    }
-    with (session_dir / "trials.jsonl").open("a") as f:
-        f.write(json.dumps(trial) + "\n")
-
-    if not success:
-        (session_dir / "post_mortem.md").write_text(
-            f"GATE_COMPARE FAILED\nLast error: {gate_err}\n"
-        )
-        return False
-
-    return True
+    return final_rc == 0
