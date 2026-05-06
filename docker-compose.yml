@@ -7,8 +7,8 @@ services:
       - "8000:8000"
     volumes:
       - ./app/cbl:/app/app/cbl:ro
-      - ./scripts:/app/scripts:ro
-      - ./validation:/app/validation:ro
+      - ./scripts:/app/scripts
+      - ./validation:/app/validation
       - harness_sessions:/app/securatron/sessions
 
 volumes:
