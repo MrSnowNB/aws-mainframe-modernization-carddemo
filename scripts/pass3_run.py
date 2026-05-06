@@ -46,7 +46,7 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
         })
 
     req_body = {
-        "model": model_override or payload.get("model", "gpt-4o-2024-08-06"),
+        "model": model_override or os.environ.get("INFERENCE_MODEL", "gpt-4o-2024-08-06"),
         "messages": messages,
         "temperature": payload.get("temperature", 0),
         "seed": payload.get("seed", 42),
