@@ -1,0 +1,18 @@
+{
+  "ticket_id": "TICK-9F81A671",
+  "source": "agent",
+  "skill": "cobol.translate",
+  "priority": "normal",
+  "created_at": "2026-05-06T04:26:10.336182+00:00Z",
+  "status": "failed",
+  "target": "/app/app/cbl/COBSWAIT.cbl",
+  "inputs": {
+    "target_path": "/app/app/cbl/COBSWAIT.cbl",
+    "session_id": "sess_5d5ee2a1d91b"
+  },
+  "dispatch_result": {
+    "ok": false,
+    "reason": "dispatch_exception",
+    "error": "'result'"
+  }
+}

@@ -19,7 +19,7 @@ implementation:
     --target {target_path} 
     --session {session_id}
 outputs:
-  type: json
+  type: cobol.translate.v1
 execution:
   timeout_seconds: 3600
   retry_count: 3

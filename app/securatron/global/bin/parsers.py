@@ -10,8 +10,16 @@ def register(type_name):
         return fn
     return deco
 
-@register("shell.run.v1")
-def parse_shell_run(raw_stdout, raw_stderr, exit_code, **kwargs):
+@register("cobol.translate.v1")
+def parse_cobol_translate(raw_stdout, **kwargs):
+    """Parse COBOL pipeline worker output (extract RESULT: {...} line)."""
+    try:
+        match = re.search(r"RESULT: ({.*})", raw_stdout)
+        if not match:
+            return {"error": "no_result_json_found", "raw": raw_stdout[:500]}
+        return json.loads(match.group(1))
+    except Exception as e:
+        return {"error": f"json_parse_failure: {str(e)}", "raw": raw_stdout[:500]}
     return {
         "stdout": raw_stdout,
         "stderr": raw_stderr,
