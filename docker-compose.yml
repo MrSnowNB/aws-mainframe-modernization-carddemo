@@ -15,6 +15,7 @@ services:
       - ./app/cbl:/app/app/cbl:ro
       - ./scripts:/app/scripts
       - ./validation:/app/validation
+      - ./app/securatron:/app/securatron
       - harness_sessions:/app/securatron/sessions
 
 volumes:

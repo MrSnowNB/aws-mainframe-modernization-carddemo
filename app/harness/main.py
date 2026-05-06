@@ -65,9 +65,9 @@ async def _run_pipeline(session_id: str, target: str) -> None:
         "created_at": datetime.now(timezone.utc).isoformat() + "Z",
         "status":     "pending",
         "target":     target,
-        "session_id": session_id,
         "inputs": {
-            "target_path": target
+            "target_path": target,
+            "session_id":  session_id
         }
     }
 

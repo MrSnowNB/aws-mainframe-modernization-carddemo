@@ -16,7 +16,7 @@ implementation:
   cmd: >
     python3 /app/harness/atoms/cobol_pipeline_worker.py 
     --target {target_path} 
-    --session {session}
+    --session {session_id}
 outputs:
   type: json
 execution:
