@@ -48,7 +48,7 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
               "--out", str(p1_out)]
     
     p2_tmpl_cmd = ["python3", str(TOOLS_ROOT / "pass2_template.py"),
-                   "--annotated", str(p1_out), "--out", str(p2_tmpl_out)]
+                   "--annotations", str(p1_out), "--out", str(p2_tmpl_out)]
 
     p2_llm_cmd  = ["python3", str(TOOLS_ROOT / "pass2_llm.py"),
                    "--propositions", str(p2_tmpl_out),
