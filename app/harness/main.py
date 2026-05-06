@@ -65,12 +65,20 @@ async def _run_pipeline(session_id: str, target: str) -> None:
 
     # ─ Phase 2: Synthesize (pass3_run owns inference) ─────────────────────
     _set_status(session_id, "synthesizing")
+    session_dir = Path(f"/app/securatron/sessions/{session_id}")
+    synth_path = Path("/app/validation/pass3") / f"{program_id}_synthesis.jsonl"
+    cfg_path = Path("/app/validation/structure") / f"{program_id}_cfg.json"
+    ann_path = session_dir / f"{program_id}_annotations.json"
+
     rc, stdout, err = await _run([
         "python3", "/app/scripts/pass3_run.py",
-        "--program-id", program_id,
-        "--base-url",   INFERENCE_ENDPOINT,
-        "--model",      INFERENCE_MODEL,
-        "--api-key",    INFERENCE_API_KEY,
+        "--program-id",     program_id,
+        "--base-url",       INFERENCE_ENDPOINT,
+        "--model",          INFERENCE_MODEL,
+        "--api-key",        INFERENCE_API_KEY,
+        "--synthesis-path", str(synth_path),
+        "--cfg-path",       str(cfg_path),
+        "--ann-path",       str(ann_path),
     ], cwd="/app")
 
     if rc != 0:

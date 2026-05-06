@@ -257,12 +257,15 @@ def main() -> int:
                     help="Override model in payload (default: use payload model field)")
     ap.add_argument("--api-key",
                     default=os.environ.get("OPENAI_API_KEY", "local"))
+    ap.add_argument("--synthesis-path", type=Path, help="Override synthesis JSONL path")
+    ap.add_argument("--cfg-path", type=Path, help="Override CFG JSON path")
+    ap.add_argument("--ann-path", type=Path, help="Override annotations JSON path")
     args = ap.parse_args()
 
     prog = args.program_id.upper()
-    jsonl_path = REPO_ROOT / "validation" / "pass3" / f"{prog}_synthesis.jsonl"
-    cfg_path   = REPO_ROOT / "validation" / "structure" / f"{prog}_cfg.json"
-    ann_path   = REPO_ROOT / "validation" / "pass1" / f"{prog}_annotations.json"
+    jsonl_path = args.synthesis_path or (REPO_ROOT / "validation" / "pass3" / f"{prog}_synthesis.jsonl")
+    cfg_path   = args.cfg_path or (REPO_ROOT / "validation" / "structure" / f"{prog}_cfg.json")
+    ann_path   = args.ann_path or (REPO_ROOT / "validation" / "pass1" / f"{prog}_annotations.json")
     out_path   = REPO_ROOT / "translations" / "gold-candidate" / f"{prog}.md"
 
     for p, label in [
