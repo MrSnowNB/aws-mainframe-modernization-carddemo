@@ -286,12 +286,14 @@ def watch_queue_inotify(queue_path, schema_path, logger):
 # Polling fallback
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Global Concurrency Guard
+# ---------------------------------------------------------------------------
+_DISPATCH_SEMAPHORE = threading.Semaphore(1)
+
 def watch_queue_poll(queue_path, schema_path, logger, poll_interval=5, max_seen=10000):
     """
     Poll-based fallback for environments without inotify support.
-    
-    Uses a bounded deque (LRU) to avoid unbounded memory growth.
-    Implements HR-INBOX-5: polling as fallback only.
     """
     queue_dir = Path(queue_path)
     new_dir = queue_dir / 'new'
@@ -299,7 +301,6 @@ def watch_queue_poll(queue_path, schema_path, logger, poll_interval=5, max_seen=
     
     logger.info(f"Polling queue: {queue_path} (interval: {poll_interval}s)")
     
-    # Bounded LRU set — after max_seen entries, oldest is evicted
     seen_files = deque(maxlen=max_seen)
     
     while True:
@@ -311,12 +312,13 @@ def watch_queue_poll(queue_path, schema_path, logger, poll_interval=5, max_seen=
                 if filename.endswith('.json'):
                     filepath = str(new_dir / filename)
                     logger.info(f"Found new file: {queue_path}/{filename}")
-                    # Process in a separate thread to avoid blocking the queue
-                    t = threading.Thread(
-                        target=process_ticket,
-                        args=(filepath, schema_path, logger, queue_dir),
-                        daemon=True
-                    )
+                    
+                    # Sequential Enforcement: Only 1 at a time
+                    def gated_process():
+                        with _DISPATCH_SEMAPHORE:
+                            process_ticket(filepath, schema_path, logger, queue_dir)
+                    
+                    t = threading.Thread(target=gated_process, daemon=True)
                     t.start()
                     seen_files.append(filename)
             

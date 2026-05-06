@@ -16,5 +16,7 @@
   "inputs": {
     "pattern": "FM-10:preprocessing_failure",
     "example_context": "PIPELINE FAILED at pass1\nReturn code: 2\nError: usage: pass1_annotate.py [-h] [--src SRC] [--cfg CFG]\n                         [--program-id PROGRAM_ID] [--out OUT]\n                         [--phantoms-out PHANTOMS_OUT] [--selftest]\npass1_annotate.py: error: unrecognized arguments: --target /app/app/cbl/CBTRN02C.cbl\n"
-  }
+  },
+  "quarantine_reason": "schema_validation_failed",
+  "quarantine_ts": "2026-05-06T06:16:39.912862+00:00"
 }

@@ -32,7 +32,7 @@ async def run_worker(target_file: str, session_id: str):
         
         INFERENCE_ENDPOINT = os.getenv("INFERENCE_ENDPOINT", "http://localhost:1234/v1")
         INFERENCE_MODEL    = os.getenv("INFERENCE_MODEL", "local-model")
-        INFERENCE_API_KEY  = os.getenv("INFERENCE_API_KEY", "")
+        INFERENCE_API_KEY  = os.getenv("INFERENCE_API_KEY", "local")
         
         print(f"[WORKER] Synthesizing {program_id}...")
         synth_path = Path("/app/validation/pass3") / f"{program_id}_synthesis.jsonl"
