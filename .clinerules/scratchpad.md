@@ -332,6 +332,134 @@ The CFG JSON contains sufficient structural information to prevent LLM hallucina
 
 ---
 
+### Kickoff Prompt for Next Agent
+
+> **Purpose:** Start decomposing a single problem and work through the living document to solve the issue and prove the fix with gated validation testing.
+> **Start Here:** Read BRANCH-SCOPE.md first → read this scratchpad.md → execute G0 DECOMPOSE
+
+---
+
+## Step 1: Read BRANCH-SCOPE.md
+
+Before anything else, read `/BRANCH-SCOPE.md` and understand:
+- Your current branch and its scope rules
+- What files you're allowed to modify
+- What actions require explicit human approval
+- The branch-type rules for your work
+
+---
+
+## Step 2: Read This Scratchpad
+
+Understand:
+- **Current State Snapshot** - What branch we're on, what programs are locked, what's completed vs pending
+- **Repo Architecture Summary** - How the pipeline works (COBOL → CFG → Annotations → Propositions → MD)
+- **Problem Statement** - The gap between scaffolds and completed translations, categorized by source
+
+---
+
+## Step 3: Start G0 DECOMPOSE
+
+Open `.clinerules/protocol/gates/G0-decompose.template.md` and answer the 7 questions:
+
+### Q1 — Irreducible Unit of Work
+**What is the one noun, one deliverable?** Choose from:
+- A single program's scaffold → full translation with gate PASS
+- Category 1 extractor pass (toolchain fix)
+- Category 2 LLM inference improvement
+- Scaffold template update (Category 3 fix)
+
+### Q2 — Inputs
+**What files, data, locked numbers, prior gate output does this task depend on?** Include exact paths and SHAs where known.
+
+### Q3 — Invariants
+**What counts, SHAs, or baselines MUST NOT change during this task?** Source from SYNC-MANIFEST.yaml or a prior verified commit.
+
+### Q4 — Proof of Correctness
+**Exact commands + expected outputs that would prove this task succeeded:**
+```powershell
+py tools/syncd/sync.py verify
+# Expected: exit 0, Gate: N/N PASS, Lint: 0 errors
+```
+
+### Q5 — Proof of Failure
+**Exact failure signatures that trigger an immediate HALT:**
+- `py validation/extract_md_claims.py` returns [ERROR] or [WARN]
+- `py validation/gate_compare.py` returns less than N/N PASS
+- `py tools/syncd/sync.py verify` exits non-zero
+- Any hallucinated_paragraphs detected
+- Any truncation errors detected
+
+### Q6 — Explicit Out of Scope
+**Cross-reference BRANCH-SCOPE.md. List paths, files, or behaviors that are FORBIDDEN.** "Everything else" is not acceptable — be enumerated.
+
+### Q7 — First-Principles Assumption That Could Be False
+**What single assumption, if wrong, would force re-decomposition from scratch?** Must be a testable claim, not a vague concern.
+
+---
+
+## Step 4: Execute G1 PLAN
+
+Open `.clinerules/protocol/gates/G1-plan.template.md` and:
+- Copy locked numbers from `SYNC-MANIFEST.yaml`
+- Create ordered list of steps with exact commands
+- List inputs and outputs per step
+- Document pass criteria and rollback procedures
+- List all modified/deleted files with current SHAs
+
+---
+
+## Step 5: Execute G2 SCAFFOLD
+
+Open `.clinerules/protocol/gates/G2-scaffold.template.md` and:
+- Run `syncd doctor` — must exit 0 or 1 (warnings only)
+- Run `syncd scaffold <PROGRAM> --force` if .md does not yet exist
+- Verify scaffold frontmatter matches `SYNC-MANIFEST.yaml.locked_numbers`
+- Commit scaffolded skeleton separately (not mixed with G3 fills)
+
+---
+
+## Step 6: Execute G3 EXECUTE
+
+Open `.clinerules/protocol/gates/G3-execute.template.md` and:
+- Fill narrative content in the scaffold
+- NEVER modify frontmatter numbers (those are locked at G2)
+- NEVER add files outside those declared in G1
+- Cite `.cbl` line numbers for every non-trivial claim
+
+---
+
+## Step 7: Execute G4 VALIDATE
+
+Open `.clinerules/protocol/gates/G4-validate.template.md` and:
+- Run `py tools/syncd/sync.py verify`
+- Confirm Gate: N/N PASS (no regressions)
+- Confirm Lint: 0 errors
+- Confirm Claims: [OK], zero hallucinated paragraphs
+- Confirm Locked numbers match manifest exactly
+
+---
+
+## Step 8: Execute G5 COMMIT
+
+Open `.clinerules/protocol/gates/G5-commit.template.md` and:
+- Run `py tools/syncd/sync.py bundle <PROGRAM>`
+- Commit with template: "feat(trust): <PROG> gold-candidate — gate N/N PASS via syncd"
+- Include `task_id` in commit body
+- Push to current branch (respecting BRANCH-SCOPE.md branch-type rules)
+
+---
+
+## Agent Handoff Requirements
+
+Every agent turn must end with:
+1. **Current branch** (git rev-parse --abbrev-ref HEAD)
+2. **Files changed** (git diff --stat)
+3. **Exit codes** of validators run
+4. **Explicit next action** OR "awaiting human instruction"
+
+---
+
 ### Next Action
 
 **Current State:** Branch `preserve/local-progress-2026-05-06` contains current repo state.
@@ -348,5 +476,5 @@ The CFG JSON contains sufficient structural information to prevent LLM hallucina
 
 ---
 
-*Last Updated: 2026-05-06T09:34:00Z*
+*Last Updated: 2026-05-06T09:50:00Z*
 *Scratchpad Version: ai-first/1.0*
