@@ -60,7 +60,7 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
         "Authorization": f"Bearer {api_key}",
     }
     
-    max_retries = 9
+    max_retries = 7
     for attempt in range(max_retries):
         try:
             req = urllib.request.Request(url, data=data, headers=headers, method="POST")
@@ -327,7 +327,7 @@ def main() -> int:
                 resp["paragraph"] = para
             responses.append(resp)
             print("OK")
-            time.sleep(15)  # Heavy throttle for stability
+            time.sleep(10)  # Heavy throttle for stability
         except Exception as exc:
             print(f"FAIL: {exc}", file=sys.stderr)
             responses.append({

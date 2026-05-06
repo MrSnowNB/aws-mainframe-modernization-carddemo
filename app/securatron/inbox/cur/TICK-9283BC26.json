@@ -4,10 +4,20 @@
   "skill": "cobol.translate",
   "priority": "normal",
   "created_at": "2026-05-06T04:56:28.139407+00:00Z",
-  "status": "pending",
+  "status": "failed",
   "target": "/app/app/cbl/CBACT01C.cbl",
   "inputs": {
     "target_path": "/app/app/cbl/CBACT01C.cbl",
     "session_id": "sess_8ae7032cd913"
+  },
+  "dispatch_result": {
+    "ok": false,
+    "result": {
+      "status": "failure",
+      "program_id": "CBACT01C",
+      "session_id": "sess_8ae7032cd913",
+      "gate_pass": false
+    },
+    "artifact_path": "sessions/202605060524177/artifacts/cobol.translate-1778045057.raw"
   }
 }

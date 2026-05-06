@@ -311,7 +311,13 @@ def watch_queue_poll(queue_path, schema_path, logger, poll_interval=5, max_seen=
                 if filename.endswith('.json'):
                     filepath = str(new_dir / filename)
                     logger.info(f"Found new file: {queue_path}/{filename}")
-                    process_ticket(filepath, schema_path, logger, queue_dir)
+                    # Process in a separate thread to avoid blocking the queue
+                    t = threading.Thread(
+                        target=process_ticket,
+                        args=(filepath, schema_path, logger, queue_dir),
+                        daemon=True
+                    )
+                    t.start()
                     seen_files.append(filename)
             
         except Exception as e:

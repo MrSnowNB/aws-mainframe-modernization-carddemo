@@ -1,0 +1,22 @@
+{
+  "ticket_id": "IT-20260506050135",
+  "type": "self_improvement",
+  "pattern": "FM-10:preprocessing_failure",
+  "occurrences": 3,
+  "affected_sessions": [
+    "sess_9a94426c8d6d",
+    "sess_344b3188e7de",
+    "sess_4392b24f30af"
+  ],
+  "suggested_action": "Evaluate FM-taxonomy recovery protocol.",
+  "created_at": "2026-05-06T05:01:35.988143+00:00Z",
+  "status": "pending",
+  "human_gate": true,
+  "skill": "infra.patch",
+  "inputs": {
+    "pattern": "FM-10:preprocessing_failure",
+    "example_context": "PIPELINE FAILED at pass1\nReturn code: 2\nError: usage: pass1_annotate.py [-h] [--src SRC] [--cfg CFG]\n                         [--program-id PROGRAM_ID] [--out OUT]\n                         [--phantoms-out PHANTOMS_OUT] [--selftest]\npass1_annotate.py: error: unrecognized arguments: --target /app/app/cbl/CBTRN02C.cbl\n"
+  },
+  "quarantine_reason": "schema_validation_failed",
+  "quarantine_ts": "2026-05-06T05:56:02.471181+00:00"
+}
