@@ -36,9 +36,18 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | None) -> dict:
     """Call OpenAI-compatible chat completions endpoint. Returns parsed JSON response content."""
+    messages = payload["messages"]
+    
+    # Ensure system prompt exists for JSON mode
+    if not any(m.get("role") == "system" for m in messages):
+        messages.insert(0, {
+            "role": "system",
+            "content": "You are a COBOL modernization expert. Always respond in valid JSON format."
+        })
+
     req_body = {
         "model": model_override or payload.get("model", "gpt-4o-2024-08-06"),
-        "messages": payload["messages"],
+        "messages": messages,
         "temperature": payload.get("temperature", 0),
         "seed": payload.get("seed", 42),
         "max_tokens": payload.get("max_tokens", 900),
