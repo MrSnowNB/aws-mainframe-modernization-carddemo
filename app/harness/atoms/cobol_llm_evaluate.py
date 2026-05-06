@@ -18,11 +18,11 @@ async def _run(cmd: list[str], cwd: str = None) -> tuple[int, str, str]:
         stderr=asyncio.subprocess.PIPE,
     )
     try:
-        stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=300)
+        stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=3600)
         return proc.returncode, stdout.decode().strip(), stderr.decode().strip()
     except asyncio.TimeoutError:
         proc.kill()
-        return -1, "", "timeout after 300s"
+        return -1, "", "timeout after 3600s"
 
 
 def _record(session_dir: Path, session_id: str, step: str,
