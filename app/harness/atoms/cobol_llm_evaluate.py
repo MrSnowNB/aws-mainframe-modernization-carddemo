@@ -63,10 +63,10 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
     gt_cmd = ["python3", "/app/validation/extract_ground_truth.py", program_id]
     gate_cmd = ["python3", "/app/validation/gate_compare.py", program_id]
 
-    async def run(cmd: list[str]) -> tuple[int, str, str]:
+    async def run(cmd: list[str], cwd: str = None) -> tuple[int, str, str]:
         proc = await asyncio.create_subprocess_exec(
             *cmd,
-            cwd=str(session_dir),          # subprocess isolated to session dir
+            cwd=cwd or str(session_dir),          # default to session dir
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -90,15 +90,17 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
     if p2l_rc != 0:
         return await record_failure(session_id, session_dir, atom_version, "pass2_llm", p2l_rc, p2l_err)
 
-    gt_rc, _, gt_err = await run(gt_cmd)
+    # Validation steps must run from repo root so they find 'validation/' folder
+    repo_root = "/app"
+    gt_rc, _, gt_err = await run(gt_cmd, cwd=repo_root)
     if gt_rc != 0:
         return await record_failure(session_id, session_dir, atom_version, "extract_gt", gt_rc, gt_err)
 
-    claims_rc, _, claims_err = await run(claims_cmd)
+    claims_rc, _, claims_err = await run(claims_cmd, cwd=repo_root)
     if claims_rc != 0:
         return await record_failure(session_id, session_dir, atom_version, "extract_claims", claims_rc, claims_err)
 
-    gate_rc, _, gate_err = await run(gate_cmd)
+    gate_rc, _, gate_err = await run(gate_cmd, cwd=repo_root)
     
     success = gate_rc == 0
 
