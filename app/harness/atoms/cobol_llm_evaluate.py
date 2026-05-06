@@ -7,6 +7,24 @@ SESSIONS_ROOT = Path("/app/securatron/sessions")
 TOOLS_ROOT    = Path("/app/scripts")
 
 
+async def record_failure(session_id: str, session_dir: Path, atom_version: str, step: str, rc: int, err: str) -> bool:
+    trial = {
+        "ts":           datetime.now(timezone.utc).isoformat(),
+        "session":      session_id,
+        "atom":         "cobol.llm_evaluate",
+        "atom_version": atom_version,
+        "status":       "failure",
+        "step_failed":  step,
+        "metrics":      {"rc": rc},
+    }
+    with (session_dir / "trials.jsonl").open("a") as f:
+        f.write(json.dumps(trial) + "\n")
+    (session_dir / "post_mortem.md").write_text(
+        f"PIPELINE FAILED at {step}\nReturn code: {rc}\nError: {err}\n"
+    )
+    return False
+
+
 async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0") -> bool:
     session_dir = SESSIONS_ROOT / session_id
     session_dir.mkdir(parents=True, exist_ok=True)
@@ -24,7 +42,7 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
 
     p1_cmd = ["python3", str(TOOLS_ROOT / "pass1_annotate.py"),
               "--target", str(target_path), "--out", str(p1_out)]
-
+    
     p2_tmpl_cmd = ["python3", str(TOOLS_ROOT / "pass2_template.py"),
                    "--annotated", str(p1_out), "--out", str(p2_tmpl_out)]
 
@@ -64,7 +82,7 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
         return await record_failure(session_id, session_dir, atom_version, "pass2_llm", p2l_rc, p2l_err)
 
     gate_rc, _, gate_err = await run(gate_cmd)
-
+    
     success = gate_rc == 0
 
     trial = {
@@ -73,7 +91,7 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
         "atom":         "cobol.llm_evaluate",
         "atom_version": atom_version,
         "status":       "success" if success else "failure",
-        "metrics":      {"p1_rc": p1_rc, "p2t_rc": p2t_rc, "p2l_rc": p2l_rc, "gate_rc": gate_rc},
+        "metrics": {"p1_rc": p1_rc, "p2t_rc": p2t_rc, "p2l_rc": p2l_rc, "gate_rc": gate_rc},
     }
     with (session_dir / "trials.jsonl").open("a") as f:
         f.write(json.dumps(trial) + "\n")
@@ -85,21 +103,3 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
         return False
 
     return True
-
-    async def record_failure(session_id, session_dir, atom_version, step, rc, err):
-    trial = {
-        "ts":           datetime.now(timezone.utc).isoformat(),
-        "session":      session_id,
-        "atom":         "cobol.llm_evaluate",
-        "atom_version": atom_version,
-        "status":       "failure",
-        "step_failed":  step,
-        "metrics":      {"rc": rc},
-    }
-    with (session_dir / "trials.jsonl").open("a") as f:
-        f.write(json.dumps(trial) + "\n")
-    (session_dir / "post_mortem.md").write_text(
-        f"PIPELINE FAILED at {step}\nReturn code: {rc}\nError: {err}\n"
-    )
-    return False
-
