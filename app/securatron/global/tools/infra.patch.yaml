@@ -1,0 +1,24 @@
+id: infra.patch
+name: infra.patch
+version: 1.0.0
+description: >
+  Autonomous infrastructure patching skill. Adjusts pipeline parameters 
+  (timeouts, retries, throttling) based on recurring failure patterns.
+author: SecuraTron
+inputs:
+  pattern:
+    type: string
+    description: FM-taxonomy pattern ID (e.g., FM-1:llm_server_500)
+  example_context:
+    type: string
+    description: Sample error log or post-mortem snippet
+implementation:
+  kind: shell
+  cmd: >
+    python3 /app/harness/atoms/infra_patch_worker.py 
+    --pattern "{pattern}" 
+    --context "{example_context}"
+outputs:
+  type: infra.patch.v1
+execution:
+  timeout_seconds: 300

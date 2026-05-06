@@ -1,0 +1,23 @@
+{
+  "ticket_id": "TICK-D52D02B5",
+  "source": "agent",
+  "skill": "cobol.translate",
+  "priority": "normal",
+  "created_at": "2026-05-06T04:56:28.176885+00:00Z",
+  "status": "failed",
+  "target": "/app/app/cbl/CBSTM03B.cbl",
+  "inputs": {
+    "target_path": "/app/app/cbl/CBSTM03B.cbl",
+    "session_id": "sess_482d76754382"
+  },
+  "dispatch_result": {
+    "ok": false,
+    "result": {
+      "status": "failure",
+      "program_id": "CBSTM03B",
+      "session_id": "sess_482d76754382",
+      "gate_pass": false
+    },
+    "artifact_path": "sessions/202605060501366/artifacts/cobol.translate-1778043696.raw"
+  }
+}

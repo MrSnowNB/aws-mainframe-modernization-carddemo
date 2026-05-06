@@ -20,6 +20,17 @@ def parse_cobol_translate(raw_stdout, **kwargs):
         return json.loads(match.group(1))
     except Exception as e:
         return {"error": f"json_parse_failure: {str(e)}", "raw": raw_stdout[:500]}
+
+@register("infra.patch.v1")
+def parse_infra_patch(raw_stdout, **kwargs):
+    """Parse infrastructure patch worker output."""
+    try:
+        match = re.search(r"RESULT: ({.*})", raw_stdout, re.DOTALL)
+        if not match:
+            return {"error": "no_result_json_found", "raw_snippet": raw_stdout[:5000]}
+        return json.loads(match.group(1))
+    except Exception as e:
+        return {"error": f"json_parse_failure: {str(e)}", "raw": raw_stdout[:500]}
     return {
         "stdout": raw_stdout,
         "stderr": raw_stderr,

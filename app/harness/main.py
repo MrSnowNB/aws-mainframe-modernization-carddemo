@@ -72,8 +72,11 @@ async def _run_pipeline(session_id: str, target: str) -> None:
     }
 
     ticket_path = inbox_new / f"{ticket_id}.json"
+    print(f"[DEBUG] Writing ticket to: {ticket_path}")
     with open(ticket_path, "w") as f:
         json.dump(ticket, f, indent=2)
+    
+    print(f"[DEBUG] Ticket exists? {ticket_path.exists()}")
     
     # We'll also symlink/copy the ticket to the session directory for tracking
     session_dir = Path(f"/app/securatron/sessions/{session_id}")
