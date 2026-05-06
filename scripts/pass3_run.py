@@ -1,23 +1,6 @@
 #!/usr/bin/env python3
 """
 pass3_run.py — LLM synthesis executor for one COBOL program.
-
-Reads:
-  validation/pass3/{PROGRAM_ID}_synthesis.jsonl  (payloads from pass3_synthesize.py)
-  validation/structure/{PROGRAM_ID}_cfg.json      (CFG from extract_cfg_local.py)
-  validation/pass1/{PROGRAM_ID}_annotations.json  (annotations from pass1_annotate.py)
-
-Writes:
-  translations/gold-candidate/{PROGRAM_ID}.md
-
-The LLM endpoint is configured via:
-  --base-url   (default: env OPENAI_BASE_URL or http://localhost:1234/v1)
-  --model      (default: env OPENAI_MODEL or value in synthesis payload)
-  --api-key    (default: env OPENAI_API_KEY or 'local')
-
-Usage:
-  python scripts/pass3_run.py --program-id CBACT03C
-  python scripts/pass3_run.py --program-id CBACT03C --base-url http://localhost:1234/v1 --model Qwen3
 """
 from __future__ import annotations
 
@@ -27,15 +10,14 @@ import json
 import os
 import sys
 import time
-import urllib.error
-import urllib.request
+import requests
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | None) -> dict:
-    """Call OpenAI-compatible chat completions endpoint. Returns parsed JSON response content."""
+    """Call OpenAI-compatible chat completions endpoint via requests. Returns parsed JSON content."""
     messages = payload["messages"]
     
     # Ensure system prompt exists for JSON mode
@@ -53,7 +35,6 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
         "max_tokens": payload.get("max_tokens", 900),
     }
     url = base_url.rstrip("/") + "/chat/completions"
-    data = json.dumps(req_body).encode("utf-8")
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}",
@@ -62,30 +43,30 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
     max_retries = 9
     for attempt in range(max_retries):
         try:
-            req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=600) as resp:
-                raw_resp = resp.read().decode("utf-8")
-                if not raw_resp.strip():
-                    raise ValueError("Empty response from LLM")
-                result = json.loads(raw_resp)
-            content = result["choices"][0]["message"]["content"]
-            return json.loads(content)
-        except (urllib.error.HTTPError, json.JSONDecodeError, ValueError, KeyError) as e:
-            # Retry on 401, 500, or parsing errors
-            is_retryable = False
-            if isinstance(e, urllib.error.HTTPError):
-                if e.code in (401, 500, 502, 503, 504):
-                    is_retryable = True
-            else:
-                is_retryable = True
-
-            if attempt < max_retries - 1 and is_retryable:
-                time.sleep(5 * (attempt + 1))
-                continue
+            resp = requests.post(url, json=req_body, headers=headers, timeout=600)
             
-            if isinstance(e, urllib.error.HTTPError):
-                body = e.read().decode("utf-8", errors="replace")
-                raise RuntimeError(f"LLM HTTP {e.code}: {body[:400]}") from e
+            if resp.status_code == 200:
+                result = resp.json()
+                content = result["choices"][0]["message"]["content"]
+                # Handle potential markdown code fences in content
+                content = content.strip()
+                if content.startswith("```"):
+                    content = re.sub(r"^```[a-z]*\n", "", content)
+                    content = re.sub(r"\n```$", "", content)
+                return json.loads(content)
+            
+            if resp.status_code in (401, 500, 502, 503, 504):
+                print(f"[RETRY] LLM returned {resp.status_code}. Attempt {attempt+1}/{max_retries}")
+                time.sleep(15 * (attempt + 1))
+                continue
+            else:
+                raise RuntimeError(f"LLM HTTP {resp.status_code}: {resp.text[:400]}")
+
+        except (requests.exceptions.RequestException, json.JSONDecodeError, ValueError, KeyError) as e:
+            if attempt < max_retries - 1:
+                print(f"[RETRY] Error: {str(e)}. Attempt {attempt+1}/{max_retries}")
+                time.sleep(15 * (attempt + 1))
+                continue
             raise
 
 
@@ -317,6 +298,7 @@ def main() -> int:
     print(f"[PASS3_RUN] {prog}: {len(payloads)} paragraphs via {args.base_url}")
 
     responses: list[dict] = []
+    import re
     for i, payload in enumerate(payloads, 1):
         para = payload.get("_routing", {}).get("paragraph", f"para_{i}")
         print(f"[PASS3_RUN]   [{i}/{len(payloads)}] {para} ...", end=" ", flush=True)
