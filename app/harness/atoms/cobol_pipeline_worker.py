@@ -64,6 +64,14 @@ async def run_worker(target_file: str, session_id: str):
     else:
         print(f"[WORKER] Pipeline GATE FAILURE for {program_id}")
         
+    # Return structured result for SecuraTron dispatch
+    result = {
+        "status": "success" if gate_ok else "failure",
+        "program_id": program_id,
+        "session_id": session_id,
+        "gate_pass": gate_ok
+    }
+    print(f"RESULT: {json.dumps(result)}")
     return gate_ok
 
 if __name__ == "__main__":
