@@ -57,7 +57,7 @@ async def prepare(session_id: str, target_file: str) -> Optional[Path]:
     session_dir = SESSIONS_ROOT / session_id
     session_dir.mkdir(parents=True, exist_ok=True)
 
-    target_path = Path(target_file).resolve()
+    target_path = (REPO_ROOT / target_file).resolve()
     if not target_path.is_relative_to(REPO_ROOT) or target_path.suffix not in (".cbl", ".cpy"):
         raise ValueError("Path traversal or invalid file type blocked")
 

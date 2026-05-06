@@ -1,23 +1,23 @@
 {
-  "ticket_id": "TICK-E4E1BBBD",
+  "ticket_id": "TICK-B70BD129",
   "source": "agent",
   "skill": "cobol.translate",
   "priority": "normal",
-  "created_at": "2026-05-06T04:46:06.212502+00:00Z",
+  "created_at": "2026-05-06T06:46:52.236430+00:00Z",
   "status": "failed",
   "target": "/app/app/cbl/COBSWAIT.cbl",
   "inputs": {
     "target_path": "/app/app/cbl/COBSWAIT.cbl",
-    "session_id": "sess_7384d8d08635"
+    "session_id": "sess_fdf47e4541ba"
   },
   "dispatch_result": {
     "ok": false,
     "result": {
       "status": "failure",
       "program_id": "COBSWAIT",
-      "session_id": "sess_7384d8d08635",
+      "session_id": "sess_fdf47e4541ba",
       "gate_pass": false
     },
-    "artifact_path": "sessions/202605060446067/artifacts/cobol.translate-1778042766.raw"
+    "artifact_path": "sessions/202605060917367/artifacts/cobol.translate-1778059056.raw"
   }
 }

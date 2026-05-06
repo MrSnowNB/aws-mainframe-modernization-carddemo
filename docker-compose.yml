@@ -6,10 +6,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - INFERENCE_ENDPOINT=http://host.docker.internal:13305/v1
-      - INFERENCE_MODEL=Qwen3.6-35B-A3B-GGUF
-      - INFERENCE_API_KEY=local
-    extra_hosts:
+      - INFERENCE_ENDPOINT=http://172.17.0.1:13305/v1
+      - INFERENCE_MODEL=Gemma-3-4b-it-GGUF
+      - INFERENCE_API_KEY=
       - "host.docker.internal:host-gateway"
     volumes:
       - ./app/cbl:/app/app/cbl:ro
