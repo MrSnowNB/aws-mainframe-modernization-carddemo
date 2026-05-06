@@ -14,7 +14,7 @@ def register(type_name):
 def parse_cobol_translate(raw_stdout, **kwargs):
     """Parse COBOL pipeline worker output (extract RESULT: {...} line)."""
     try:
-        match = re.search(r"RESULT: ({.*})", raw_stdout)
+        match = re.search(r"RESULT: ({.*})", raw_stdout, re.DOTALL)
         if not match:
             return {"error": "no_result_json_found", "raw": raw_stdout[:500]}
         return json.loads(match.group(1))
