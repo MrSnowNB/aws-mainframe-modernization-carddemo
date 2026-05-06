@@ -39,9 +39,13 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
     p1_out = session_dir / f"{program_id}_annotated.json"
     p2_tmpl_out = session_dir / f"{program_id}_propositions.json"
     p2_llm_out = session_dir / f"{program_id}_llm_requests.jsonl"
+    cfg_path = Path("/app/validation/structure") / f"{program_id}_cfg.json"
 
     p1_cmd = ["python3", str(TOOLS_ROOT / "pass1_annotate.py"),
-              "--target", str(target_path), "--out", str(p1_out)]
+              "--src", str(target_path), 
+              "--cfg", str(cfg_path),
+              "--program-id", program_id,
+              "--out", str(p1_out)]
     
     p2_tmpl_cmd = ["python3", str(TOOLS_ROOT / "pass2_template.py"),
                    "--annotated", str(p1_out), "--out", str(p2_tmpl_out)]
