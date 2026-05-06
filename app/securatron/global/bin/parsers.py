@@ -16,7 +16,7 @@ def parse_cobol_translate(raw_stdout, **kwargs):
     try:
         match = re.search(r"RESULT: ({.*})", raw_stdout, re.DOTALL)
         if not match:
-            return {"error": "no_result_json_found", "raw": raw_stdout[:500]}
+            return {"error": "no_result_json_found", "raw_snippet": raw_stdout[:5000]}
         return json.loads(match.group(1))
     except Exception as e:
         return {"error": f"json_parse_failure: {str(e)}", "raw": raw_stdout[:500]}
