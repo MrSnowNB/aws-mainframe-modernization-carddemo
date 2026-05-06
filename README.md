@@ -1,9 +1,9 @@
 ---
 document_type: AI-First Living README
 project_name: COBOL-MD-PIPELINE (CardDemo Modernization)
-current_phase: Phase 3 - Batch Translation (8 of ~40 programs complete)
+current_phase: Phase 3 - Batch Translation (9 of ~40 programs complete)
 system_status: PIPELINE_OPERATIONAL
-target_architecture: 3-Pass Deterministic + Bounded-LLM DAG
+target_architecture: Dockerized 3-Pass Deterministic + Bounded-LLM DAG
 cleared_validation_gates:
   - T01_YAML_PARSE: true
   - T02_COMPLETENESS: true
@@ -12,7 +12,8 @@ cleared_validation_gates:
   - PASS1_SELFTEST: true
   - PASS2_TOKEN_BUDGETS: true
   - GATE_PIPELINE: true
-pending_action: RUN_BATCH_REMAINING_32_PROGRAMS
+  - DOCKER_HARNESS_VERIFIED: true
+pending_action: RUN_BATCH_REMAINING_31_PROGRAMS
 ---
 
 # AWS CardDemo Modernization: COBOL → Verified English MD Pipeline
@@ -37,7 +38,33 @@ This pipeline translates each COBOL program in the AWS CardDemo mainframe applic
 
 These `.md` files are the **verified intermediate layer** — usable by cloud architects, modernization teams, or downstream code-generation pipelines without repeating the comprehension work.
 
-**Current status:** 8 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 32.
+**Current status:** 9 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 31.
+
+---
+
+## Containerized Evaluation Harness (Validated May 2026)
+
+The entire pipeline is now Dockerized for reproducible execution and automated validation.
+
+### One-Command Setup
+```bash
+docker-compose up -d --build
+```
+
+### Triggering the Pipeline (API)
+Send a POST request to the harness to start the full 3-pass translation + automated gate sequence for a target program:
+
+```bash
+curl -X POST http://localhost:8000/v1/translate \
+  -H "Content-Type: application/json" \
+  -d '{"target_path": "/app/app/cbl/CBTRN01C.cbl"}'
+```
+
+The harness autonomously executes:
+1. **Pass 1 (Annotation)**: GnuCOBOL preprocessing + deterministic statement mapping.
+2. **Pass 2 (Template)**: Pattern-based translation of simple verbs.
+3. **Pass 2 (LLM)**: Generation of LLM payloads for complex logic.
+4. **Gate Validation**: Automatic extraction of ground truth (from Phase-0 CFG) and MD claims, followed by set-difference verification.
 
 ---
 
