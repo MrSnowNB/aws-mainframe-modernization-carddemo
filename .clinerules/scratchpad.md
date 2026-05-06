@@ -339,6 +339,104 @@ The CFG JSON contains sufficient structural information to prevent LLM hallucina
 
 ---
 
+## Issue 3: Scaffold Schema Gap
+
+> **Last Updated:** 2026-05-06T11:21:00Z  
+> **Severity:** LOW (design gap)  
+> **Status:** Unresolved - needs scaffold template update  
+> **Branch Scope:** `chore/scaffold-schema` - infrastructure/docs/rules only
+
+---
+
+### Problem Definition
+
+Comparing COBSWAIT.md (the only completed translation) against the scaffold template reveals fields that COBSWAIT has but the scaffold does not generate stubs for.
+
+---
+
+### Missing Fields (Category 3)
+
+| Field | Purpose | COBSWAIT Example | Current Scaffold Status |
+|---|---|---|---|
+| `business_rules[].source_paragraph` | Which paragraph the rule was derived from | `"BR-001"` → `"PERFORM-INIT"` | Array exists, no individual entries stubbed |
+| `business_rules[].reachable` | Whether the rule is on a reachable code path | `true` | Not generated at all |
+| `redefines_interpretations[].interpretation` | Semantic explanation of REDEFINES alias | `"Redefined as packed decimal for monetary values"` | Array exists, no individual entries stubbed |
+
+---
+
+### Evidence from COBSWAIT.md
+
+```yaml
+# From COBSWAIT.md - business_rules with source_paragraph
+business_rules:
+  - rule: "Wait duration must be positive"
+    rule_type: guard
+    confidence: high
+    source_paragraph: "PERFORM-INIT"
+    reachable: true
+```
+
+---
+
+### Scope for Fix
+
+**What needs to be updated:**
+- Scaffold template in `tools/syncd/` to include these fields
+- Empty array entries stubbed where applicable (for REDEFINES clauses)
+
+**Files to modify:**
+- `tools/syncd/scaffold_template.md` (or similar)
+
+**Out of scope:**
+- Modifying any existing `.md` files
+- Adding LLM inference logic
+- Running the pipeline on existing programs
+
+---
+
+### G0 Decomposition Template
+
+**Q1 — Irreducible Unit of Work:** Scaffold template update to include missing fields
+
+**Q2 — Inputs:**
+- `translations/gold-candidate/COBSWAIT.md` (source of field definitions)
+- `tools/syncd/sync.py` (scaffold generation logic)
+- `.clinerules/protocol/gates/G2-scaffold.template.md` (existing template)
+
+**Q3 — Invariants:**
+- No existing `.md` files modified
+- Only scaffold template updated
+- Branch: `chore/scaffold-schema`
+
+**Q4 — Proof of Correctness:**
+```powershell
+py tools/syncd/sync.py scaffold CBCUS01C --force
+# Expected: scaffold includes business_rules[].source_paragraph, 
+#           business_rules[].reachable, redefines_interpretations[].interpretation
+```
+
+**Q5 — Proof of Failure:**
+- Scaffold does not include the three missing fields
+- Existing `.md` files are modified
+- Branch is not `chore/scaffold-schema`
+
+**Q6 — Explicit Out of Scope:**
+- No pipeline code changes
+- No LLM logic modifications
+- No execution of pass2_llm.py or pass3_synthesize.py
+
+**Q7 — First-Principles Assumption That Could Be False:**
+The scaffold template is the only source of field definitions. If COBSWAIT.md has fields that are not in the template, the assumption that "template = source of truth" is false.
+
+---
+
+### Kickoff Prompt for Issue 3
+
+> **Purpose:** Update scaffold template to include missing fields from COBSWAIT.md
+> **Start Here:** Read BRANCH-SCOPE.md first → read this section → execute G0 DECOMPOSE
+
+---
+
 ## Step 1: Read BRANCH-SCOPE.md
 
 Before anything else, read `/BRANCH-SCOPE.md` and understand:
