@@ -55,8 +55,8 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
                    "--program-id", program_id,
                    "--out", str(p2_llm_out)]
 
-    gate_cmd = ["python3", "/app/validation/gate_compare.py",
-                "--target", str(target_path), "--session", session_id]
+    claims_cmd = ["python3", "/app/validation/extract_md_claims.py", program_id]
+    gate_cmd = ["python3", "/app/validation/gate_compare.py", program_id]
 
     async def run(cmd: list[str]) -> tuple[int, str, str]:
         proc = await asyncio.create_subprocess_exec(
@@ -84,6 +84,10 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
     p2l_rc, _, p2l_err = await run(p2_llm_cmd)
     if p2l_rc != 0:
         return await record_failure(session_id, session_dir, atom_version, "pass2_llm", p2l_rc, p2l_err)
+
+    claims_rc, _, claims_err = await run(claims_cmd)
+    if claims_rc != 0:
+        return await record_failure(session_id, session_dir, atom_version, "extract_claims", claims_rc, claims_err)
 
     gate_rc, _, gate_err = await run(gate_cmd)
     
