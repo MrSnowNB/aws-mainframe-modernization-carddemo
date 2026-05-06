@@ -51,7 +51,6 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
         "temperature": payload.get("temperature", 0),
         "seed": payload.get("seed", 42),
         "max_tokens": payload.get("max_tokens", 900),
-        "response_format": {"type": "json_object"},
     }
     url = base_url.rstrip("/") + "/chat/completions"
     data = json.dumps(req_body).encode("utf-8")
