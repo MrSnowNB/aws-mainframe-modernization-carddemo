@@ -74,9 +74,20 @@ def main():
         if count >= THRESHOLD and pattern != "FM-99:unknown":
             ticket_id = f"IT-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
             
-            # Check if an IT ticket for this pattern already exists in inbox/new or cur
-            existing = list(INBOX_NEW.glob(f"IT-*{pattern.replace(':', '_')}*"))
+            # Robust duplicate check across all queues
+            INBOX_QUEUES = [
+                INBOX_NEW,
+                BASE_DIR / "inbox" / "cur",
+                BASE_DIR / "inbox" / "archive"
+            ]
+
+            existing = []
+            for queue in INBOX_QUEUES:
+                if queue.exists():
+                    existing.extend(queue.glob(f"IT-*{pattern.replace(':', '_')}*"))
+
             if existing:
+                print(f"  → Duplicate ticket already exists in {existing[0].parent.name}/ — skipping")
                 continue
 
             ticket = {
