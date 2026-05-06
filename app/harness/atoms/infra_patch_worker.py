@@ -64,11 +64,11 @@ def patch_llm_stability() -> tuple[bool, str]:
         patched = True
 
     # Increase heavy throttle
-    match = re.search(r"time\.sleep\((\d+)\) *# Heavy throttle", content)
+    match = re.search(r"time\.sleep\((\d+)\)  *# Heavy throttle", content)
     if match:
         old = int(match.group(1))
         new = old + 5
-        content = content.replace(f"time.sleep({old}) # Heavy throttle", f"time.sleep({new}) # Heavy throttle")
+        content = re.sub(r"time\.sleep\(" + str(old) + r"\)  *# Heavy throttle", f"time.sleep({new})  # Heavy throttle", content)
         print(f"[PATCH] heavy throttle: {old}s → {new}s")
         patched = True
 
