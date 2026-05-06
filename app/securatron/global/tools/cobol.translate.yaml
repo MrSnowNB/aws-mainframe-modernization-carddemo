@@ -1,0 +1,24 @@
+name: cobol.translate
+version: 1.0.0
+description: >
+  Full 3-pass COBOL to English Markdown translation pipeline with automated gate validation.
+  Sequential execution to prevent LLM server overload.
+author: SecuraTron
+inputs:
+  target_path:
+    type: string
+    description: Path to the source .cbl file inside the container
+  session_id:
+    type: string
+    description: Unique session identifier for artifact isolation
+implementation:
+  kind: shell
+  cmd: >
+    python3 /app/harness/atoms/cobol_pipeline_worker.py 
+    --target {target_path} 
+    --session {session}
+outputs:
+  type: json
+execution:
+  timeout_seconds: 3600
+  retry_count: 3

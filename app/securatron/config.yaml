@@ -1,0 +1,11 @@
+stagecraft:
+  inbox:
+    root: /app/securatron/inbox
+    queues:
+      - name: inbox
+        path: .
+        priority: normal
+    transport:
+      backend: poll
+      poll_interval: 5
+    schema_path: /app/securatron/global/charters/inbox-ticket.schema.json

@@ -21,7 +21,10 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 RUN mkdir -p \
     /app/securatron/global/tools \
     /app/securatron/global/skills \
+    /app/securatron/global/ledger \
+    /app/securatron/global/charters \
     /app/securatron/sessions/.state \
+    /app/securatron/inbox/new \
     /app/harness/atoms
 
 WORKDIR /app/harness
@@ -30,7 +33,10 @@ COPY app/harness/ /app/harness/
 COPY scripts/ /app/scripts/
 COPY validation/ /app/validation/
 COPY translations/ /app/translations/
+COPY app/securatron/ /app/securatron/
+
+RUN chmod +x /app/harness/entrypoint.sh
 
 EXPOSE 8000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["/app/harness/entrypoint.sh"]

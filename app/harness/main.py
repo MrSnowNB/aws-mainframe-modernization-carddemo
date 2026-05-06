@@ -1,6 +1,8 @@
 import asyncio
 import os
 import uuid
+import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -45,55 +47,41 @@ async def get_session(session_id: str):
 
 async def _run_pipeline(session_id: str, target: str) -> None:
     """
-    Hermes dispatch loop.
-
-    Phase 1 (prepare)   — deterministic: pass1 + pass2 + pass3_synthesize
-    Phase 2 (synthesize)— inference: pass3_run.py owns LLM calls via urllib
-    Phase 3 (verify)    — deterministic: gate_compare
-
-    Inference endpoint + model come from env vars only.
-    Atoms never see model names or endpoints.
+    Emits a ticket to the SecuraTron inbox instead of running directly.
+    The inbox_watcher will pick this up and execute sequentially.
     """
     program_id = Path(target).stem
+    _set_status(session_id, "ticketed")
 
-    # ─ Phase 1: Prepare ──────────────────────────────────────────────────
-    _set_status(session_id, "preparing")
-    props_path = await prepare(session_id, target)
-    if props_path is None:
-        _set_status(session_id, "failed", {"phase": "prepare"})
-        return
+    inbox_new = Path("/app/securatron/inbox/new")
+    inbox_new.mkdir(parents=True, exist_ok=True)
 
-    # ─ Phase 2: Synthesize (pass3_run owns inference) ─────────────────────
-    _set_status(session_id, "synthesizing")
+    ticket_id = f"TICK-{uuid.uuid4().hex[:8].upper()}"
+    ticket = {
+        "ticket_id":  ticket_id,
+        "source":     "agent",
+        "skill":      "cobol.translate",
+        "priority":   "normal",
+        "created_at": datetime.now(timezone.utc).isoformat() + "Z",
+        "status":     "pending",
+        "target":     target,
+        "session_id": session_id,
+        "inputs": {
+            "target_path": target
+        }
+    }
+
+    ticket_path = inbox_new / f"{ticket_id}.json"
+    with open(ticket_path, "w") as f:
+        json.dump(ticket, f, indent=2)
+    
+    # We'll also symlink/copy the ticket to the session directory for tracking
     session_dir = Path(f"/app/securatron/sessions/{session_id}")
-    synth_path = Path("/app/validation/pass3") / f"{program_id}_synthesis.jsonl"
-    cfg_path = Path("/app/validation/structure") / f"{program_id}_cfg.json"
-    ann_path = session_dir / f"{program_id}_annotations.json"
+    session_dir.mkdir(parents=True, exist_ok=True)
+    with open(session_dir / "ticket.json", "w") as f:
+        json.dump(ticket, f, indent=2)
 
-    rc, stdout, err = await _run([
-        "python3", "/app/scripts/pass3_run.py",
-        "--program-id",     program_id,
-        "--base-url",       INFERENCE_ENDPOINT,
-        "--model",          INFERENCE_MODEL,
-        "--api-key",        INFERENCE_API_KEY,
-        "--synthesis-path", str(synth_path),
-        "--cfg-path",       str(cfg_path),
-        "--ann-path",       str(ann_path),
-    ], cwd="/app")
-
-    if rc != 0:
-        session_dir = Path(f"/app/securatron/sessions/{session_id}")
-        (session_dir / "post_mortem.md").write_text(
-            f"SYNTHESIZE FAILED\npass3_run exit {rc}\n{err}\n"
-        )
-        _set_status(session_id, "failed", {"phase": "synthesize"})
-        return
-
-    # ─ Phase 3: Verify (gate) ─────────────────────────────────────────────
-    _set_status(session_id, "verifying")
-    gate_ok = await verify(session_id, program_id)
-    _set_status(session_id, "success" if gate_ok else "failed",
-                {"gate": "PASS" if gate_ok else "FAIL"})
+    print(f"[HARNESS] Emitted ticket {ticket_id} for session {session_id}")
 
 
 def _set_status(session_id: str, status: str, extra: dict = None) -> None:
