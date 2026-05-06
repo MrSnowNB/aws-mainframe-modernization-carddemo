@@ -29,6 +29,7 @@ WORKDIR /app/harness
 COPY app/harness/ /app/harness/
 COPY scripts/ /app/scripts/
 COPY validation/ /app/validation/
+COPY translations/ /app/translations/
 
 EXPOSE 8000
 
