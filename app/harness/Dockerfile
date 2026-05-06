@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     python3.12-venv \
     python3-pip \
     openjdk-21-jre-headless \
+    gnucobol \
     curl \
     git \
     && rm -rf /var/lib/apt/lists/*
@@ -14,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 RUN python3.12 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-COPY requirements.txt /tmp/
+COPY app/harness/requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 RUN mkdir -p \
