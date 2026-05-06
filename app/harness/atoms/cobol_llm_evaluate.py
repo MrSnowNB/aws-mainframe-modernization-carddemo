@@ -41,6 +41,10 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
     p2_llm_out = session_dir / f"{program_id}_llm_requests.jsonl"
     cfg_path = Path("/app/validation/structure") / f"{program_id}_cfg.json"
 
+    # Ensure validation directories exist for claims and ground truth
+    Path("/app/validation/claims").mkdir(parents=True, exist_ok=True)
+    Path("/app/validation/ground_truth").mkdir(parents=True, exist_ok=True)
+
     p1_cmd = ["python3", str(TOOLS_ROOT / "pass1_annotate.py"),
               "--src", str(target_path), 
               "--cfg", str(cfg_path),
@@ -56,6 +60,7 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
                    "--out", str(p2_llm_out)]
 
     claims_cmd = ["python3", "/app/validation/extract_md_claims.py", program_id]
+    gt_cmd = ["python3", "/app/validation/extract_ground_truth.py", program_id]
     gate_cmd = ["python3", "/app/validation/gate_compare.py", program_id]
 
     async def run(cmd: list[str]) -> tuple[int, str, str]:
@@ -84,6 +89,10 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
     p2l_rc, _, p2l_err = await run(p2_llm_cmd)
     if p2l_rc != 0:
         return await record_failure(session_id, session_dir, atom_version, "pass2_llm", p2l_rc, p2l_err)
+
+    gt_rc, _, gt_err = await run(gt_cmd)
+    if gt_rc != 0:
+        return await record_failure(session_id, session_dir, atom_version, "extract_gt", gt_rc, gt_err)
 
     claims_rc, _, claims_err = await run(claims_cmd)
     if claims_rc != 0:
