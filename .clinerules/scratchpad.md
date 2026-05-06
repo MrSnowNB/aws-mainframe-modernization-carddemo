@@ -208,7 +208,131 @@ python validation/gate_compare.py CBACT01C
 
 ---
 
-## Next Action
+## Problem Statement: Translation Gap Analysis
+
+> **Last Updated:** 2026-05-06T09:34:00Z  
+> **Purpose:** Living document for agents to understand what's missing from scaffolds vs. completed translations, and how to address it.
+
+---
+
+### Executive Summary
+
+COBSWAIT.md (8 lines) proves a complete translation is achievable. The question is: **How do we scale this to 11 remaining programs ranging from 178 to 924 lines?**
+
+The answer is a two-pass approach:
+1. **Category 1:** Extract missing structural fields deterministically from `.cbl` source (no LLM)
+2. **Category 2:** Use LLM only for semantic interpretation where mechanical extraction is impossible
+
+---
+
+### What the Scaffold Already Provides (No LLM Needed)
+
+The CFG extractor already did the structural heavy lifting correctly. Every scaffold has:
+
+- All paragraph names with full `performs:` chains and `goto_targets:` — the entire call graph
+- All level-01 data item names, their `level`, `redefines`, `dead_code_flag`, and `picture`/`usage`/`value` where extractable
+- `lines_of_code`, `divisions`, `complexity_score`, `risk_flags`, `goto_acceptance.targets`
+- `calls_to`, `called_by`, `copybooks_used`, `file_control` stubs (named but not populated)
+- `cics_commands`, `transaction_ids` stubs
+
+---
+
+### What Is Missing — Categorized by Source
+
+#### Category 1: Extractable from the `.cbl` source directly — no LLM required
+
+These fields are `TODO` or `null` but can be filled deterministically by a parser/extractor pass against the source file:
+
+| Field | What to extract | Where it lives in `.cbl` |
+|---|---|---|
+| `picture`, `usage`, `value` on data items | PIC clause, USAGE clause, VALUE clause | DATA DIVISION working-storage / FD entries |
+| `calls_to[]` / `called_by[]` | CALL statement targets | PROCEDURE DIVISION |
+| `copybooks_used[]` | COPY statements | Any division |
+| `file_control[]` | SELECT … ASSIGN clauses | ENVIRONMENT DIVISION |
+| `cics_commands[]` | EXEC CICS … END-EXEC blocks | PROCEDURE DIVISION |
+| `business_domain` / `subtype` | Can be heuristically derived from FD names, CICS presence, file patterns | Whole file |
+| `environment.target` (Batch/VSAM vs CICS/Online) | Presence of EXEC CICS or JCL-style FD names | ENVIRONMENT + PROCEDURE |
+| `author` / `date_written` | AUTHOR / DATE-WRITTEN identification entries | IDENTIFICATION DIVISION |
+
+**Action:** Extend or add second extractor pass to fill all Category 1 fields. This is a **toolchain gap**, not an LLM gap.
+
+---
+
+#### Category 2: Requires LLM inference — cannot be mechanically extracted
+
+These are the fields COBSWAIT has populated that the others do not:
+
+| Field | Why LLM is needed | COBSWAIT example |
+|---|---|---|
+| `semantic:` on each data item | Must interpret what the variable *means* in business context, not just its name/PIC | `"Binary (COMP) wait duration in centiseconds supplied to the MVSWAIT system service"` |
+| `summary:` on each paragraph | Must read the paragraph body and describe its intent in plain English | `"Implicit main procedure: accept the parameter…"` |
+| `business_rules[].rule` | Must infer implicit contracts, guards, transforms from code behavior | BR-001, BR-002 in COBSWAIT |
+| `business_rules[].rule_type` | Must classify the rule (transform / guard / calculation / io) | `"transform"`, `"guard"` |
+| `business_rules[].confidence` | Must self-assess certainty of inference | `"high"` |
+| `redefines_interpretations[]` | Must explain what each REDEFINES alias means semantically | (not present in COBSWAIT — no REDEFINES — but required for programs that have them) |
+| Prose body: Purpose, Runtime Context, Procedure Logic, Business Rules sections | Plain-English narrative synthesis of the whole program | The entire COBSWAIT body section |
+| `goto_acceptance.rationale` | Must justify why the GO TO pattern is acceptable under Cobol-REKT rules | CBSTM03A has `"TODO"` here; complex programs need real justification |
+
+**Action:** For programs >50 lines, use LLM to fill Category 2 fields after Category 1 is extracted.
+
+---
+
+#### Category 3: Missing from the scaffold schema entirely — design gap
+
+Comparing COBSWAIT (the only completed file) against the scaffold template reveals fields that COBSWAIT has but the scaffold does not generate stubs for:
+
+- `business_rules[].source_paragraph` — which paragraph the rule was derived from (present in COBSWAIT, absent as a stub in all scaffolds)
+- `business_rules[].reachable` — whether the rule is on a reachable code path
+- `redefines_interpretations[]` populated entries — the scaffold generates the array but never stubs individual entries even when REDEFINES clauses exist in the source
+
+**Action:** Update scaffold template to include these fields as empty arrays or stub entries where applicable.
+
+---
+
+### The Minimum LLM Input Package
+
+To complete a single scaffold into a full translation, an LLM needs exactly this input set — nothing more, nothing less:
+
+1. **The raw `.cbl` source file** — for semantic interpretation of all TODO fields
+2. **The `_cfg.json` file** (`cfg_source` field points to it) — for the pre-computed graph structure so the LLM doesn't re-derive it
+3. **The existing scaffold `.md`** — so the LLM fills in-place rather than regenerating structure the extractor already produced correctly
+4. **The `SYNC-MANIFEST.yaml` locked numbers** — as the invariant guard so the LLM cannot hallucinate paragraph counts that disagree with the mechanical lock
+
+**Evidence:** COBSWAIT's success proves this package is sufficient — it was translated by `claude-sonnet-4.6` and produced correct output against an 8-line program.
+
+**Open Question:** Does the CFG JSON have sufficient richness to anchor the LLM against hallucinating paragraph structure for complex programs (652-line CBACT04C, 924-line CBSTM03A)?
+
+---
+
+### Recommended G0 Decomposition for Next Agent
+
+**Irreducible Unit of Work:** One program's scaffold → full translation with gate PASS
+
+**Inputs:**
+- `app/cbl/{PROGRAM}.cbl`
+- `validation/structure/{PROGRAM}_cfg.json`
+- `translations/gold-candidate/{PROGRAM}.md` (scaffold, if exists)
+- `SYNC-MANIFEST.yaml` (locked numbers)
+- `validation/gate_compare.py` (acceptance test)
+
+**Invariants:**
+- Paragraph count must match `locked_numbers.paragraphs_expected`
+- L01 item count must match `locked_numbers.l01_items_expected`
+- All reachable paragraphs must be in MD
+- No hallucinated paragraphs
+
+**Proof of Correctness:**
+```powershell
+py tools/syncd/sync.py verify
+# Expected: exit 0, Gate: N/N PASS, Lint: 0 errors
+```
+
+**First-Principles Assumption That Could Be False:**
+The CFG JSON contains sufficient structural information to prevent LLM hallucinations for programs >100 lines. Test by running pass2_llm.py with pass1_annotations.json context and comparing output against actual source paragraphs.
+
+---
+
+### Next Action
 
 **Current State:** Branch `preserve/local-progress-2026-05-06` contains current repo state.
 
@@ -224,5 +348,5 @@ python validation/gate_compare.py CBACT01C
 
 ---
 
-*Last Updated: 2026-05-06T09:23:00Z*
+*Last Updated: 2026-05-06T09:34:00Z*
 *Scratchpad Version: ai-first/1.0*
