@@ -64,7 +64,7 @@ def call_llm(payload: dict, base_url: str, api_key: str, model_override: str | N
     for attempt in range(max_retries):
         try:
             req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=300) as resp:
+            with urllib.request.urlopen(req, timeout=600) as resp:
                 raw_resp = resp.read().decode("utf-8")
                 if not raw_resp.strip():
                     raise ValueError("Empty response from LLM")
@@ -327,7 +327,7 @@ def main() -> int:
                 resp["paragraph"] = para
             responses.append(resp)
             print("OK")
-            time.sleep(2)  # Throttle load
+            time.sleep(10)  # Heavy throttle for stability
         except Exception as exc:
             print(f"FAIL: {exc}", file=sys.stderr)
             responses.append({
