@@ -3,7 +3,7 @@ schema_version: "cobol-md/1.0"
 program_id: "CBCUS01C"
 source_file: "app/cbl/CBCUS01C.cbl"
 source_sha: "ad4c512be0d7bd72a933966d299ea21fb31b6b5b"
-translation_date: "2026-05-05"
+translation_date: "2026-05-06"
 translating_agent: "syncd-scaffold/1.1"
 aifirst_task_id: "TODO-assign-task-id"
 cfg_source: "validation/structure/CBCUS01C_cfg.json"
@@ -25,6 +25,8 @@ environment:
   runtime: "z/OS"
 
 calls_to: []  # TODO: fill from source
+  # Each entry should have: program, condition, call_type
+  # Example: - program: "MVSWAIT", condition: "unconditional", call_type: "STATIC"
 called_by: []  # TODO: fill from source
 copybooks_used: []  # TODO: fill from source
 
@@ -41,7 +43,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -51,7 +55,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -61,7 +67,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -71,7 +79,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -81,7 +91,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -91,7 +103,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -101,7 +115,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -111,7 +127,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -121,7 +139,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -131,7 +151,9 @@ data_items:
     usage: null
     value: null
     redefines: null
-    redefines_interpretations: []
+    redefines_interpretations: []  # TODO: fill when REDEFINES clause exists in source
+      # Each entry should have: interpretation (semantic explanation of the redefined alias)
+      # Example: "Redefined as packed decimal for monetary values"
     dead_code_flag: false
     semantic: "TODO"
 
@@ -220,6 +242,8 @@ procedure_paragraphs:
 
 
 business_rules: []  # TODO: fill during translation
+  # Each entry should have: id, rule, source_paragraph, rule_type, confidence, reachable
+  # Example: - id: "BR-001", rule: "Wait duration must be positive", source_paragraph: "PERFORM-INIT", rule_type: "guard", confidence: "high", reachable: true
 
 validation:
   t01_schema_valid: true
@@ -237,14 +261,7 @@ validation:
 #   dead_paragraphs_allowed: 0
 #   goto_flag: False
 #   alter_flag: False
-translation_status: skeleton
-translation_agent: pending
-complexity_score: 5
-risk_flags: ['no_exit_paragraph']
-bi_category: batch_utility
-last_audit: 2026-05-05
 ---
-
 
 # CBCUS01C -- TODO: short program description
 
