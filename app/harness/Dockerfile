@@ -25,7 +25,9 @@ RUN mkdir -p \
 
 WORKDIR /app/harness
 
-COPY . /app/harness/
+COPY app/harness/ /app/harness/
+COPY scripts/ /app/scripts/
+COPY validation/ /app/validation/
 
 EXPOSE 8000
 

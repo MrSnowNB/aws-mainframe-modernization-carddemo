@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SESSIONS_ROOT = Path("/app/securatron/sessions")
-TOOLS_ROOT    = Path("/app/securatron/global/tools")
+TOOLS_ROOT    = Path("/app/scripts")
 
 
 async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0") -> bool:
@@ -19,7 +19,7 @@ async def execute(session_id: str, target_file: str, atom_version: str = "1.0.0"
 
     llm_cmd  = ["python3", str(TOOLS_ROOT / "pass2_llm.py"),
                 "--target", str(target_path), "--session", session_id]
-    gate_cmd = ["python3", str(TOOLS_ROOT / "gate_compare.py"),
+    gate_cmd = ["python3", "/app/validation/gate_compare.py",
                 "--target", str(target_path), "--session", session_id]
 
     async def run(cmd: list[str]) -> tuple[int, str, str]:
