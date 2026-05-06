@@ -314,11 +314,17 @@ def watch_queue_poll(queue_path, schema_path, logger, poll_interval=5, max_seen=
                     logger.info(f"Found new file: {queue_path}/{filename}")
                     
                     # Sequential Enforcement: Only 1 at a time
-                    def gated_process():
+                    def gated_process(fp, qd, fn):
                         with _DISPATCH_SEMAPHORE:
-                            process_ticket(filepath, schema_path, logger, queue_dir)
-                    
-                    t = threading.Thread(target=gated_process, daemon=True)
+                            # Re-verify file still exists in 'new' before processing
+                            if os.path.exists(fp):
+                                process_ticket(fp, schema_path, logger, qd)
+
+                    t = threading.Thread(
+                        target=gated_process, 
+                        args=(filepath, queue_dir, filename), 
+                        daemon=True
+                    )
                     t.start()
                     seen_files.append(filename)
             
