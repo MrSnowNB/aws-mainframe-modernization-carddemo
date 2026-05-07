@@ -97,7 +97,7 @@ def main():
         status   = "PASS" if errors == 0 else "FAIL"
         file_summary[name] = {"status": status, "errors": errors,
                                "warnings": warnings, "info": info}
-        icon = "✅" if status == "PASS" else "❌"
+        icon = "[OK]" if status == "PASS" else "[X]"
         print(f"{icon}  {name:<20}  {status}  E={errors} W={warnings} I={info}")
 
     # --- Console detail for failures ---
@@ -124,7 +124,7 @@ def main():
     }
     out_path = RESULTS_DIR / "lint_results.json"
     out_path.write_text(json.dumps(report, indent=2))
-    print(f"\n[lint_cobol] Report written → {out_path}")
+    print(f"\n[lint_cobol] Report written -> {out_path}")
     print(f"[lint_cobol] Total: {len(sources)} files | "
           f"{report['summary']['total_errors']} errors | "
           f"{report['summary']['total_warnings']} warnings")
