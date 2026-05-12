@@ -7,7 +7,7 @@ services:
       - "8000:8000"
     environment:
       - INFERENCE_ENDPOINT=http://172.17.0.1:13305/v1
-      - INFERENCE_MODEL=Gemma-3-4b-it-GGUF
+      - INFERENCE_MODEL=Qwen3-0.6B-GGUF
       - INFERENCE_API_KEY=
       - "host.docker.internal:host-gateway"
     volumes:
