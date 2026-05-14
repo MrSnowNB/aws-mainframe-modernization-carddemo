@@ -1,7 +1,7 @@
 ---
 document_type: AI-First Living README
 project_name: COBOL-MD-PIPELINE (CardDemo Modernization)
-current_phase: Phase 3 - Batch Translation (9 of ~40 programs complete)
+current_phase: Phase 3 - Batch Translation (13 of ~40 programs complete)
 system_status: PIPELINE_OPERATIONAL
 target_architecture: Dockerized 3-Pass Deterministic + Bounded-LLM DAG
 cleared_validation_gates:
@@ -13,7 +13,7 @@ cleared_validation_gates:
   - PASS2_TOKEN_BUDGETS: true
   - GATE_PIPELINE: true
   - DOCKER_HARNESS_VERIFIED: true
-pending_action: RUN_BATCH_REMAINING_31_PROGRAMS
+pending_action: RUN_BATCH_REMAINING_27_PROGRAMS
 ---
 
 # AWS CardDemo Modernization: COBOL → Verified English MD Pipeline
@@ -38,7 +38,7 @@ This pipeline translates each COBOL program in the AWS CardDemo mainframe applic
 
 These `.md` files are the **verified intermediate layer** — usable by cloud architects, modernization teams, or downstream code-generation pipelines without repeating the comprehension work.
 
-**Current status:** 9 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 31.
+**Current status:** 13 of ~40 programs have completed, gate-verified `.md` files. The pipeline is fully operational for batch processing the remaining 27.
 
 ---
 
@@ -46,9 +46,9 @@ These `.md` files are the **verified intermediate layer** — usable by cloud ar
 
 The entire pipeline is now Dockerized for reproducible execution and automated validation.
 
-### New Pipeline Atoms
+### Pipeline Atoms
 The harness logic has been refactored into atomic workers ("atoms") located in `app/harness/atoms/`:
-- **`cobol_pipeline_worker.py`**: The primary orchestrator that manages the Prepare -> Synthesize -> Verify lifecycle.
+- **`cobol_pipeline_worker.py`**: The primary orchestrator that manages the Prepare → Synthesize → Verify lifecycle.
 - **`cobol_llm_evaluate.py`**: The engine containing core logic for deterministic preparation and gated verification.
 - **`infra_patch_worker.py`**: Specialized worker for applying hardened SIL patches to the pipeline infrastructure.
 
@@ -256,12 +256,16 @@ Expected output for a clean batch:
   PASS  CBACT01C
   PASS  CBACT02C
   PASS  CBACT03C
+  PASS  CBACT04C
   PASS  CBCUS01C
+  PASS  CBSTM03A
+  PASS  CBSTM03B
   PASS  CBTRN01C
   PASS  COBSWAIT
+  PASS  COCRDUPC
   PASS  COMEN01C
   PASS  COSGN00C
-  8/8 programs passed
+  12/13 programs passed  (CBTRN01C_HAL is a variant — run separately)
 ----------------------------------------------------------------
 ```
 
@@ -269,18 +273,23 @@ Expected output for a clean batch:
 
 ## Completed Translations
 
-| Program | Description | Size | Gate |
-|---|---|---|---|
-| [CBACT01C.md](translations/gold-candidate/CBACT01C.md) | Account file batch processor | 41 KB | ✅ PASS |
-| [CBACT02C.md](translations/gold-candidate/CBACT02C.md) | Account cross-ref batch processor | 17 KB | ✅ PASS |
-| [CBACT03C.md](translations/gold-candidate/CBACT03C.md) | Card cross-ref batch processor | 22 KB | ✅ PASS |
-| [CBCUS01C.md](translations/gold-candidate/CBCUS01C.md) | Customer file processor | 22 KB | ✅ PASS |
-| [CBTRN01C.md](translations/gold-candidate/CBTRN01C.md) | Daily transaction processor | 38 KB | ✅ PASS |
-| [COBSWAIT.md](translations/gold-candidate/COBSWAIT.md) | Wait utility | 4 KB | ✅ PASS |
-| [COMEN01C.md](translations/gold-candidate/COMEN01C.md) | Main menu handler | 31 KB | ✅ PASS |
-| [COSGN00C.md](translations/gold-candidate/COSGN00C.md) | Sign-on screen (CICS) | 26 KB | ✅ PASS |
+| Program | Description | Gate |
+|---|---|---|
+| [CBACT01C.md](translations/gold-candidate/CBACT01C.md) | Account file batch processor | ✅ PASS |
+| [CBACT02C.md](translations/gold-candidate/CBACT02C.md) | Account cross-ref batch processor | ✅ PASS |
+| [CBACT03C.md](translations/gold-candidate/CBACT03C.md) | Card cross-ref batch processor | ✅ PASS |
+| [CBACT04C.md](translations/gold-candidate/CBACT04C.md) | Account update batch processor | ✅ PASS |
+| [CBCUS01C.md](translations/gold-candidate/CBCUS01C.md) | Customer file processor | ✅ PASS |
+| [CBSTM03A.md](translations/gold-candidate/CBSTM03A.md) | Statement report generator (part A) | ✅ PASS |
+| [CBSTM03B.md](translations/gold-candidate/CBSTM03B.md) | Statement report generator (part B) | ✅ PASS |
+| [CBTRN01C.md](translations/gold-candidate/CBTRN01C.md) | Daily transaction processor | ✅ PASS |
+| [CBTRN01C_HAL.md](translations/gold-candidate/CBTRN01C_HAL.md) | Daily transaction processor (HAL variant) | ✅ PASS |
+| [COBSWAIT.md](translations/gold-candidate/COBSWAIT.md) | Wait utility | ✅ PASS |
+| [COCRDUPC.md](translations/gold-candidate/COCRDUPC.md) | Card update screen (CICS) | ✅ PASS |
+| [COMEN01C.md](translations/gold-candidate/COMEN01C.md) | Main menu handler | ✅ PASS |
+| [COSGN00C.md](translations/gold-candidate/COSGN00C.md) | Sign-on screen (CICS) | ✅ PASS |
 
-**Remaining:** ~32 programs pending. Next target: CBACT04C (account update batch) and COCRDUPC (card update screen).
+**13 of ~40 complete. ~27 programs remaining.**
 
 ---
 
@@ -354,9 +363,9 @@ py -3 validation/gate_compare.py
 
 ### Baseline Verification (run before starting any batch)
 ```powershell
-# Confirm all 8 completed programs still pass before adding more
+# Confirm all 13 completed programs still pass before adding more
 py -3 validation/gate_compare.py
-# All 8 must show PASS
+# All 13 must show PASS
 ```
 
 ---
