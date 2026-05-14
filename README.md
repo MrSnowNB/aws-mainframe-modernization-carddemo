@@ -46,25 +46,31 @@ These `.md` files are the **verified intermediate layer** — usable by cloud ar
 
 The entire pipeline is now Dockerized for reproducible execution and automated validation.
 
+### New Pipeline Atoms
+The harness logic has been refactored into atomic workers ("atoms") located in `app/harness/atoms/`:
+- **`cobol_pipeline_worker.py`**: The primary orchestrator that manages the Prepare -> Synthesize -> Verify lifecycle.
+- **`cobol_llm_evaluate.py`**: The engine containing core logic for deterministic preparation and gated verification.
+- **`infra_patch_worker.py`**: Specialized worker for applying hardened SIL patches to the pipeline infrastructure.
+
 ### One-Command Setup
 ```bash
 docker-compose up -d --build
 ```
 
 ### Triggering the Pipeline (API)
-Send a POST request to the harness to start the full 3-pass translation + automated gate sequence for a target program:
+The harness is optimized for local inference using the **Lemonade (lemond)** server. For maximum stability on UMA hardware:
+- `max_loaded_models` is set to **3** to prevent Vulkan resource contention.
+- The `Qwen3.6-35B-A3B-GGUF` model is used for high-fidelity reasoning.
+- The `Qwen3-0.6B-GGUF` model is used for high-speed, lower-complexity translation tasks.
 
+To trigger a translation:
 ```bash
 curl -X POST http://localhost:8000/v1/translate \
   -H "Content-Type: application/json" \
   -d '{"target_path": "/app/app/cbl/CBTRN01C.cbl"}'
 ```
 
-The harness autonomously executes:
-1. **Pass 1 (Annotation)**: GnuCOBOL preprocessing + deterministic statement mapping.
-2. **Pass 2 (Template)**: Pattern-based translation of simple verbs.
-3. **Pass 2 (LLM)**: Generation of LLM payloads for complex logic.
-4. **Gate Validation**: Automatic extraction of ground truth (from Phase-0 CFG) and MD claims, followed by set-difference verification.
+The harness autonomously executes the `cobol_pipeline_worker.py` orchestrator.
 
 ---
 
